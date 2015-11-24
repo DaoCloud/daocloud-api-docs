@@ -1,5 +1,5 @@
 GEM
-  remote: https://ruby.taobao.org/
+  remote: https://rubygems.org/
   specs:
     activesupport (4.1.11)
       i18n (~> 0.6, >= 0.6.9)

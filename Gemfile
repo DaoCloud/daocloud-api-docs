@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.org/'
+source 'https://rubygems.org'
 
 # Middleman
 gem 'middleman', '~>3.3.10'
