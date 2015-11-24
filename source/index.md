@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: DaoCloud 开放 API
 
 language_tabs:
   - shell
@@ -7,8 +7,7 @@ language_tabs:
   - python
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://dashboard.daocloud.io'>控制台</a>
 
 includes:
   - errors
@@ -16,15 +15,17 @@ includes:
 search: true
 ---
 
-# Introduction
+# 介绍
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+欢迎使用 DaoCloud 开放 API!
+
+ You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
 We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
+# 认证
 
 > To authorize, use this code:
 
@@ -58,7 +59,7 @@ Kittn expects for the API key to be included in all API requests to the server i
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# Kittens
+# 流水线
 
 ## Get All Kittens
 
@@ -166,3 +167,4 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
 
+# 事件
