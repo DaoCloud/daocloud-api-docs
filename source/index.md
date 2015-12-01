@@ -3,7 +3,6 @@ title: DaoCloud 开放 API
 
 language_tabs:
   - shell
-  - ruby
   - python
 
 toc_footers:
@@ -19,152 +18,117 @@ search: true
 
 欢迎使用 DaoCloud 开放 API!
 
- You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
 # 认证
 
-> To authorize, use this code:
+打开个人设置页面可以看到用于调用接口的 token
 
-```ruby
-require 'kittn'
+# 代码构建
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+## 项目列表
+
+```shell
+curl "http://api.daocloud.io/v1/build-flows"
+  -H "Authorization: token <my token>"
 ```
 
 ```python
-import kittn
+import requests
 
-api = kittn.authorize('meowmeowmeow')
+result = requests.get('http://api.daocloud.io/v1/build-flows',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# 流水线
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
+> 返回结果如下:
 
 ```json
 {
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "build_flows": [
+    {
+      "id": "90d58d34-e1ca-4724-9d7c-9af7e3635f12",
+      "name": "mongo_demo",
+      "repo": "daocloud/mongo_demo",
+      "src_language": "Go",
+      "src_provider": "github",
+      "status": "Success",
+      "src_origin_url": "https://github.com/DaoCloud/golang-mongo-sample",
+      "package_id": "e5033330-978f-4466-97d1-625c57a7943f",
+      "created_at": "2015-12-01T06:25:57+00:00"
+    }
+  ]
 }
 ```
 
-This endpoint retrieves a specific kitten.
+获取用户的项目列表.
 
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
+### HTTP 请求
 
-### HTTP Request
+`GET http://api.daocloud.io/v1/build-flows`
 
-`GET http://example.com/kittens/<ID>`
+### 返回结果
 
-### URL Parameters
-
-Parameter | Description
+字段 | 描述
 --------- | -----------
-ID | The ID of the kitten to retrieve
+id | 项目 id
+name | 项目名
+repo | 项目 repo 名, 可以使用 docker pull 命令拉取
+src_language | 编程语言
+src_provider | git 托管
+status | 项目当前构建状态 "Pending|Started|Success|Failure|Error|Cancelled|Timeout"
+src_origin_url | git 托管项目
+package_id | build 成功后的镜像 id
+created_at | 项目创建时间， iso8601 utc
 
-# 事件
+
+## 获取单个项目
+
+```shell
+curl "http://api.daocloud.io/v1/build-flows/<build_flow_id>"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.get('http://api.daocloud.io/v1/build-flows/{build_flow_id}',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "id": "90d58d34-e1ca-4724-9d7c-9af7e3635f12",
+  "name": "mongo_demo",
+  "repo": "daocloud/mongo_demo",
+  "src_language": "Go",
+  "src_provider": "github",
+  "status": "Success",
+  "src_origin_url": "https://github.com/DaoCloud/golang-mongo-sample",
+  "package_id": "e5033330-978f-4466-97d1-625c57a7943f",
+  "created_at": "2015-12-01T06:25:57+00:00"
+}
+```
+
+获取用户的项目.
+
+### HTTP 请求
+
+`GET http://api.daocloud.io/v1/build-flows/<ID>`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id | 项目 id
+name | 项目名
+repo | 项目 repo 名, 可以使用 docker pull 命令拉取
+src_language | 编程语言
+src_provider | git 托管
+status | 项目当前构建状态 "Pending|Started|Success|Failure|Error|Cancelled|Timeout"
+src_origin_url | git 托管项目
+package_id | build 成功后的镜像 id
+created_at | 项目创建时间， iso8601 utc
