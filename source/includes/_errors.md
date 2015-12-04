@@ -1,20 +1,14 @@
 # 错误处理
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-The Kittn API uses the following error codes:
+DaoCloud API 可能返回以下错误:
 
 
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+400 | Bad Request -- 请求格式错误，请查阅对应的文档条目
+401 | bad credentials -- access token 过期，或请求的API超过授权
+404 | Not Found -- 调用的 API 不存在，请查看本文档
+405 | Method Not Allowed -- 请求 method 错误， 请查阅对应的文档条目
+406 | Not Acceptable -- 请求不是 json 格式
+500 | Internal Server Error -- 服务器错误，请联系 DaoCloud 客服
+503 | Service Unavailable -- 服务器暂时下线，请稍候重试

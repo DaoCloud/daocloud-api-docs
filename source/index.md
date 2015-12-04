@@ -16,25 +16,25 @@ search: true
 
 # 介绍
 
-欢迎使用 DaoCloud 开放 API!
+欢迎使用 DaoCloud 开放 API
 
 # 认证
 
-打开个人设置页面可以看到用于调用接口的 token
+打开个人设置页面可以看到用于调用接口的 access token
 
 # 代码构建
 
 ## 项目列表
 
 ```shell
-curl "http://api.daocloud.io/v1/build-flows"
+curl "https://openapi.daocloud.io/v1/build-flows"
   -H "Authorization: token <my token>"
 ```
 
 ```python
 import requests
 
-result = requests.get('http://api.daocloud.io/v1/build-flows',
+result = requests.get('https://openapi.daocloud.io/v1/build-flows',
   headers={"Authorization": "token {token}"})
 
 print(result.json())
@@ -64,7 +64,7 @@ print(result.json())
 
 ### HTTP 请求
 
-`GET http://api.daocloud.io/v1/build-flows`
+`GET https://openapi.daocloud.io/v1/build-flows`
 
 ### 返回结果
 
@@ -84,14 +84,14 @@ created_at | 项目创建时间， iso8601 utc
 ## 获取单个项目
 
 ```shell
-curl "http://api.daocloud.io/v1/build-flows/<build_flow_id>"
+curl "https://openapi.daocloud.io/v1/build-flows/<build_flow_id>"
   -H "Authorization: token <my token>"
 ```
 
 ```python
 import requests
 
-result = requests.get('http://api.daocloud.io/v1/build-flows/{build_flow_id}',
+result = requests.get('https://openapi.daocloud.io/v1/build-flows/{build_flow_id}',
   headers={"Authorization": "token {token}"})
 
 print(result.json())
@@ -117,7 +117,7 @@ print(result.json())
 
 ### HTTP 请求
 
-`GET http://api.daocloud.io/v1/build-flows/<ID>`
+`GET https://openapi.daocloud.io/v1/build-flows/<ID>`
 
 ### 返回结果
 
