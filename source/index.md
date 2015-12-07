@@ -20,7 +20,22 @@ search: true
 
 # 认证
 
+```shell
+curl -H "Authorization: token ACCESS-TOKEN" https://openapi.daocloud.io/v1/build-flows
+```
+
+1. 获取access token
+
 打开个人设置页面可以看到用于调用接口的 access token
+
+2. 使用 access token 访问api
+
+access token可以让您直接访问API。
+
+你可以在http的header中传入Token。`Authorization: token ACCESS-TOKEN`
+	
+
+
 
 # 代码构建
 
