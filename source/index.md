@@ -21,13 +21,10 @@ search: true
 # 认证
 
 1. 获取access token
-
 打开个人设置页面可以看到用于调用接口的 access token
 
 2. 使用 access token 访问api
-
 access token可以让您直接访问API。
-
 你可以在http的header中传入Token。`Authorization: token ACCESS-TOKEN`
 
 
@@ -58,10 +55,8 @@ print(result.json())
       "id": "90d58d34-e1ca-4724-9d7c-9af7e3635f12",
       "name": "mongo_demo",
       "repo": "daocloud/mongo_demo",
-      "src_language": "Go",
       "src_provider": "github",
       "status": "Success",
-      "src_origin_url": "https://github.com/DaoCloud/golang-mongo-sample",
       "package_id": "e5033330-978f-4466-97d1-625c57a7943f",
       "created_at": "2015-12-01T06:25:57+00:00"
     }
@@ -82,10 +77,8 @@ print(result.json())
 id | 项目 id
 name | 项目名
 repo | 项目 repo 名, 可以使用 docker pull 命令拉取
-src_language | 编程语言
 src_provider | git 托管
 status | 项目当前构建状态 "Pending|Started|Success|Failure|Error|Cancelled|Timeout"
-src_origin_url | git 托管项目
 package_id | build 成功后的镜像 id
 created_at | 项目创建时间， iso8601 utc
 
@@ -113,7 +106,6 @@ print(result.json())
   "id": "90d58d34-e1ca-4724-9d7c-9af7e3635f12",
   "name": "mongo_demo",
   "repo": "daocloud/mongo_demo",
-  "src_language": "Go",
   "src_provider": "github",
   "status": "Success",
   "src_origin_url": "https://github.com/DaoCloud/golang-mongo-sample",
@@ -135,7 +127,6 @@ print(result.json())
 id | 项目 id
 name | 项目名
 repo | 项目 repo 名, 可以使用 docker pull 命令拉取
-src_language | 编程语言
 src_provider | git 托管
 status | 项目当前构建状态 "Pending, Started, Success, Failure, Error, Cancelled, Timeout"
 src_origin_url | git 托管项目
