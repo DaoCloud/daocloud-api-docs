@@ -133,6 +133,55 @@ src_origin_url | git 托管项目
 package_id | build 成功后的镜像 id
 created_at | 项目创建时间， iso8601 utc
 
+## WebHook
+Webhook 设置页面：
+
+`https://dashboard.daocloud.io/settings/profile`
+
+
+返回结果如下:
+
+``` json
+{
+	"repo":"daocloud/api",    
+	"image":"daocloud.io/daocloud/api:master-init",    
+	"build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
+	"name":"api",  
+ 	"build":
+	 {  
+	    "status":"Success",    
+	   "duration_seconds":180,    
+	   "author":"DaoCloud",  
+	   "triggered_by":"tag",   
+	   "sha":"a7c35d9dc7e93788ce81befbadeb0108de495e5e",    
+	   "tag":"master-init",    
+	   "branch":null,   
+	   "pull_request":"",    
+	   "message":"init build ",   
+	   "started_at":"2015-01-01T08:20:00+00:00",   
+	   "build_type":"image_build"}   
+}
+``` 
+
+字段 | 描述
+--------- | -----------
+repo | 用户项目全名， 用户名/项目
+image | 构建成功的镜像地址
+build_flow_id | 项目 id
+name| 项目名
+build | 新触发的构建
+status |构建的状态, Success,Failure,Error,Started
+duration_seconds | 构建持续的时间
+author | 触发构建的用户
+triggered_by | 触发条件, 打tag还是手动构建
+sha | 代码 sha
+tag | 代码的tag
+branch |代码的分支
+pull_request |代码的pull request
+message | 代码 commit 消息
+started_at | 触发时间, iso8601 format
+build_type | 构建类型, image_build,ci_build
+
 
 # 应用程序 App
 
