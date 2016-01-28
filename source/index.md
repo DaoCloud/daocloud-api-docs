@@ -161,7 +161,7 @@ Webhook 设置页面：
 	   "started_at":"2015-01-01T08:20:00+00:00",   
 	   "build_type":"image_build"}   
 }
-``` 
+```
 
 字段 | 描述
 --------- | -----------
@@ -216,6 +216,7 @@ print(result.json())
       "last_operated_at": "2015-12-14T08:46:11+00:00",
       "release_name": "v1.0.0",
       "app_runtime": {
+        "id": "a849cdf2-c79e-4c29-83ca-50751cc388a5"
         "name": "S0",
         "display_name": "自有集群"
       },
@@ -283,7 +284,21 @@ print(result.json())
   "created_at": "2015-12-01T10:45:29+00:00",
   "config": {
     "instances": 1,
-    "expose_port": 8881,
+    "expose_ports": [
+      {
+        "publish_type": "not_publish",
+        "protocol": "tcp",
+        "external": "external",
+        "container_port": 443
+      },
+      {
+        "publish_type": "http",
+        "protocol": "tcp",
+        "external": "external",
+        "container_port": 80
+      }
+    ]
+    "expose_port": 8881, //只有一个内部端口，且是http协议时，显示expose_port
     "command": null
   },
   "id": "d535ca76-b388-4356-8ad8-990e488fc1eb",
@@ -308,7 +323,8 @@ release_name | App 镜像版本
 package | Package 信息
 app_runtime | App 运行时信息
 config.instances | 实例数
-config.expose_port | Container内部端口
+config.expose_ports | Container内部端口
+config.expose_port | Container内部端口（当只有一个内部端口，且是http协议时，显示为expose_port）
 config.command | 启动命令
 enable_auto_redeploy | 是否启用自动发布
 created_at | 创建时间 iso8601 utc
