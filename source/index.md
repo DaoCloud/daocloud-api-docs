@@ -323,8 +323,7 @@ release_name | App 镜像版本
 package | Package 信息
 app_runtime | App 运行时信息
 config.instances | 实例数
-config.expose_ports | Container内部端口
-config.expose_port | Container内部端口（当只有一个内部端口，且是http协议时，显示为expose_port）
+config.expose_port(s) | Container内部端口（当只有一个内部端口，且是http协议时，显示为expose_port）
 config.command | 启动命令
 enable_auto_redeploy | 是否启用自动发布
 created_at | 创建时间 iso8601 utc
