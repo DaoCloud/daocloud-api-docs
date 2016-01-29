@@ -133,54 +133,7 @@ src_origin_url | git 托管项目
 package_id | build 成功后的镜像 id
 created_at | 项目创建时间， iso8601 utc
 
-## WebHook
-Webhook 设置页面：
 
-`https://dashboard.daocloud.io/settings/profile`
-
-
-返回结果如下:
-
-``` json
-{
-	"repo":"daocloud/api",    
-	"image":"daocloud.io/daocloud/api:master-init",    
-	"build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
-	"name":"api",  
- 	"build":
-	 {  
-	    "status":"Success",    
-	   "duration_seconds":180,    
-	   "author":"DaoCloud",  
-	   "triggered_by":"tag",   
-	   "sha":"a7c35d9dc7e93788ce81befbadeb0108de495e5e",    
-	   "tag":"master-init",    
-	   "branch":null,   
-	   "pull_request":"",    
-	   "message":"init build ",   
-	   "started_at":"2015-01-01T08:20:00+00:00",   
-	   "build_type":"image_build"}   
-}
-``` 
-
-字段 | 描述
---------- | -----------
-repo | 用户项目全名， 用户名/项目
-image | 构建成功的镜像地址
-build_flow_id | 项目 id
-name| 项目名
-build | 新触发的构建
-status |构建的状态, Success,Failure,Error,Started
-duration_seconds | 构建持续的时间
-author | 触发构建的用户
-triggered_by | 触发条件, 打tag还是手动构建
-sha | 代码 sha
-tag | 代码的tag
-branch |代码的分支
-pull_request |代码的pull request
-message | 代码 commit 消息
-started_at | 触发时间, iso8601 format
-build_type | 构建类型, image_build,ci_build
 
 
 # 应用程序 App
@@ -528,3 +481,66 @@ header 字段 | 描述
 X-RateLimit-Limit | 每小时的限制调用次数，超过后服务器会返回 403 错误
 X-RateLimit-Remaining | 当前小时中还剩下的调用次数
 X-RateLimit-Reset | 限制重置时间 unix time
+
+
+# WebHook
+ 
+WebHook 可以用于集成 DaoCloud 的项目管理，应用更新等。  
+当 DaoCloud 平台有对应事件触发时，我们会给你发送一个 POST 请求。如果响应码不为`200`，我们会在一段时间间隔内重试`3`次 。 
+如果你希望在本地调试 WebHook ，你可以使用 DaoCloud 应用的[云隧道](http://docs.daocloud.io/app-deploy-mgmt/tunne) 功能 。
+
+Webhook 设置页面：
+
+`https://dashboard.daocloud.io/settings/profile`
+
+## 事件
+目前支持的 WebHook 事件有两种，镜像构建和持续集成。  
+
+###镜像构建
+这是镜像构建的事件，在返回结果中的`build_type` 为 `image_build` 。   
+如果构建成功，`image`值将不为空。 此时你可以使用 `docker pull`来拉取该镜像。  
+###持续集成
+这是持续集成的事件，在返回结果中的`build_type` 为 `ci_build` 。
+
+##Payloads:
+
+``` json
+{
+	"repo":"daocloud/api",    
+	"image":"daocloud.io/daocloud/api:master-init",    
+	"build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
+	"name":"api",  
+ 	"build":
+	 {  
+	    "status":"Success",    
+	   "duration_seconds":180,    
+	   "author":"DaoCloud",  
+	   "triggered_by":"tag",   
+	   "sha":"a7c35d9dc7e93788ce81befbadeb0108de495e5e",    
+	   "tag":"master-init",    
+	   "branch":null,   
+	   "pull_request":"",    
+	   "message":"init build ",   
+	   "started_at":"2015-01-01T08:20:00+00:00",   
+	   "build_type":"image_build"}   
+}
+``` 
+
+字段 | 描述
+--------- | -----------
+repo | 用户项目全名， 用户名/项目
+image | 构建成功的镜像地址
+build_flow_id | 项目 id
+name| 项目名
+build | 新触发的构建
+status |构建的状态, Success,Failure,Error,Started
+duration_seconds | 构建持续的时间
+author | 触发构建的用户
+triggered_by | 触发条件, 打tag还是手动构建
+sha | 代码 sha
+tag | 代码的tag
+branch |代码的分支
+pull_request |代码的pull request
+message | 代码 commit 消息
+started_at | 触发时间, iso8601 format
+build_type | 构建类型, image_build,ci_build
