@@ -116,6 +116,7 @@ print(result.json())
 
 获取用户的项目.
 
+
 ### HTTP 请求
 
 `GET https://openapi.daocloud.io/v1/build-flows/<ID>`
@@ -133,35 +134,66 @@ src_origin_url | git 托管项目
 package_id | build 成功后的镜像 id
 created_at | 项目创建时间， iso8601 utc
 
-## WebHook
-Webhook 设置页面：
 
-`https://dashboard.daocloud.io/settings/profile`
+## 手动构建项目
 
-
-返回结果如下:
-
-``` json
-{
-	"repo":"daocloud/api",    
-	"image":"daocloud.io/daocloud/api:master-init",    
-	"build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
-	"name":"api",  
- 	"build":
-	 {  
-	    "status":"Success",    
-	   "duration_seconds":180,    
-	   "author":"DaoCloud",  
-	   "triggered_by":"tag",   
-	   "sha":"a7c35d9dc7e93788ce81befbadeb0108de495e5e",    
-	   "tag":"master-init",    
-	   "branch":null,   
-	   "pull_request":"",    
-	   "message":"init build ",   
-	   "started_at":"2015-01-01T08:20:00+00:00",   
-	   "build_type":"image_build"}   
-}
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/builds"
+  -H "Authorization: token <my token>" -D '{"branch":"master-init"}'
 ```
+
+```python
+import requests
+import json
+
+result = requests.post('https://openapi.daocloud.io/v1/build-flows/{build_flow_id}/builds',
+  headers={"Authorization": "token {token}"},data=json.dumps({"branch":"master"}))
+
+print(result.json())  
+```
+
+> 获取结果如下:
+
+
+```json
+
+{
+    "status": "Pending", 
+    "created_at": 1458614800, 
+    "author": "DaoCloud", 
+    "build_type": "image_build", 
+    "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
+    "tag": "master-init", 
+    "branch": "master", 
+    "id": 127281
+}
+
+```
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/build-flows/<ID>/builds`
+
+### 参数
+
+字段 | 描述
+--------- | -----------
+branch | 需要构建的代码分支名
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id | 构建 id
+build_type | 构建类型
+branch | 分支名
+status | 构建状态
+tag  | 构建出来的镜像 tag 
+sha| git 分支的 sha
+created_at | 构建时间戳
+
+
+
 
 
 
