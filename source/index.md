@@ -159,7 +159,7 @@ print(result.json())
 
 {
     "status": "Pending", 
-    "created_at": 1458614800, 
+    "created_at": "2015-12-01T06:25:57+00:00", 
     "author": "DaoCloud", 
     "build_type": "image_build", 
     "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
