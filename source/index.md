@@ -161,11 +161,9 @@ print(result.json())
     "status": "Pending", 
     "created_at": "2015-12-01T06:25:57+00:00", 
     "author": "DaoCloud", 
-    "build_type": "image_build", 
     "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
     "tag": "master-init", 
-    "branch": "master", 
-    "id": 127281
+    "branch": "master"
 }
 
 ```
@@ -184,8 +182,6 @@ branch | 需要构建的代码分支名
 
 字段 | 描述
 --------- | -----------
-id | 构建 id
-build_type | 构建类型
 branch | 分支名
 status | 构建状态
 tag  | 构建出来的镜像 tag 
