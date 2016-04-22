@@ -559,7 +559,7 @@ X-RateLimit-Reset | 限制重置时间 unix time
  
 WebHook 可以用于集成 DaoCloud 的项目管理，应用更新等。  
 当 DaoCloud 平台有对应事件触发时，我们会给你发送一个 POST 请求。如果响应码不为`200`，我们会在一段时间间隔内重试`3`次 。 
-如果你希望在本地调试 WebHook ，你可以使用 DaoCloud 应用的[云隧道](http://docs.daocloud.io/app-deploy-mgmt/tunne) 功能 。
+如果你希望在本地调试 WebHook ，你可以使用 DaoCloud 应用的[云隧道](http://docs.daocloud.io/app-deploy-mgmt/tunnel) 功能 。
 
 Webhook 设置页面：
 
