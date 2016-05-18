@@ -138,8 +138,7 @@ created_at | 项目创建时间， iso8601 utc
 ## 手动构建项目
 
 ```shell
-curl -X POST "https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/builds"
-  -H "Authorization: token <my token>" -D '{"branch":"master-init"}'
+curl -X POST "https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/builds" -H "Authorization: token <my token>" -H "Content-Type: application/json" -d '{"branch":"master"}'
 ```
 
 ```python
@@ -147,7 +146,7 @@ import requests
 import json
 
 result = requests.post('https://openapi.daocloud.io/v1/build-flows/{build_flow_id}/builds',
-  headers={"Authorization": "token {token}"},data=json.dumps({"branch":"master"}))
+  headers={"Authorization": "token {token}", "Content-Type": "application/json"}, data=json.dumps({"branch":"master"}))
 
 print(result.json())  
 ```
@@ -226,7 +225,7 @@ print(result.json())
       "last_operated_at": "2015-12-14T08:46:11+00:00",
       "release_name": "v1.0.0",
       "app_runtime": {
-        "id": "a849cdf2-c79e-4c29-83ca-50751cc388a5"
+        "id": "a849cdf2-c79e-4c29-83ca-50751cc388a5",
         "name": "S0",
         "display_name": "自有集群"
       },
@@ -307,7 +306,7 @@ print(result.json())
         "external": "external",
         "container_port": 80
       }
-    ]
+    ],
     "expose_port": 8881,
     "command": null
   },
