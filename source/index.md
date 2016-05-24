@@ -146,7 +146,7 @@ import requests
 import json
 
 result = requests.post('https://openapi.daocloud.io/v1/build-flows/{build_flow_id}/builds',
-  headers={"Authorization": "token {token}", "Content-Type": "application/json"}, data=json.dumps({"branch":"master"}))
+  headers={"Authorization": "token {token}"}, json={"branch":"master"})
 
 print(result.json())  
 ```
@@ -457,7 +457,7 @@ curl -X POST "https://openapi.daocloud.io/v1/apps/<app_id>/actions/redeploy"
 import requests
 
 result = requests.post('https://openapi.daocloud.io/v1/apps/{app_id}/actions/redeploy',
-  data={"release_name": "v1.0.0"},
+  json={"release_name": "v1.0.0"},
   headers={"Authorization": "token {token}"})
 
 print(result.json())
