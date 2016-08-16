@@ -188,8 +188,44 @@ sha| git 分支的 sha
 created_at | 构建时间戳
 
 
+## 构建机器 IP 列表
+
+```shell
+curl "https://openapi.daocloud.io/v1/ship/iplist" -H "Authorization: token <my token>" -H "Content-Type: application/json"
+```
+
+```python
+import requests
+import json
+
+result = requests.get('https://openapi.daocloud.io/v1/ship/iplist',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())  
+```
+
+> 获取结果如下:
 
 
+```json
+
+{
+  "iplist": [
+    //xxx.xxx.xxx.xxx
+  ]
+}
+
+```
+
+### HTTP 请求
+
+`GET https://openapi.daocloud.io/v1/ship/iplist`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+iplist | 构建机器 IP 列表
 
 
 # 应用程序 App
