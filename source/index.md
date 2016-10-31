@@ -225,7 +225,7 @@ print(result.json())
 
 ### HTTP 请求
 
-`POST https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/<build_type>/<build_id>`
+`GET https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/<build_type>/<build_id>`
 
 ### 参数
 
