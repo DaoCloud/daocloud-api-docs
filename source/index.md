@@ -157,6 +157,7 @@ print(result.json())
 ```json
 
 {
+    "id":345786,
     "status": "Pending", 
     "created_at": "2015-12-01T06:25:57+00:00", 
     "author": "DaoCloud", 
@@ -181,6 +182,64 @@ branch | 需要构建的代码分支名
 
 字段 | 描述
 --------- | -----------
+id     | 构建ID
+branch | 分支名
+status | 构建状态
+tag  | 构建出来的镜像 tag 
+sha| git 分支的 sha
+created_at | 构建时间戳
+
+
+## 获取构建信息
+
+```shell
+curl "https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/<build_type>/<build_id>" -H "Authorization: token <my token>" -H "Content-Type: application/json"
+```
+
+```python
+import requests
+import json
+
+result = requests.get('https://openapi.daocloud.io/v1/build-flows/{build_flow_id}/{build_type}/{build_id}',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())  
+```
+
+> 获取结果如下:
+
+
+```json
+
+{
+    "id":345786,
+    "status": "Pending", 
+    "created_at": "2015-12-01T06:25:57+00:00", 
+    "author": "DaoCloud", 
+    "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
+    "tag": "master-init", 
+    "branch": "master"
+}
+
+```
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/<build_type>/<build_id>`
+
+### 参数
+
+字段 | 描述
+--------- | -----------
+build_flow_id | 项目ID
+build_type | 构建类型，为image_build或者ci_build
+build_id   | 构建ID
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id     | 构建ID
 branch | 分支名
 status | 构建状态
 tag  | 构建出来的镜像 tag 
