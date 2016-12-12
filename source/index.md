@@ -433,84 +433,12 @@ enable_auto_redeploy | 是否启用自动发布
 created_at | 创建时间 iso8601 utc
 last_operated_at | 最后操作时间 iso8601 utc
 
-## 在云端测试环境部署应用
-
-```shell
-curl -X "POST" "https://openapi.daocloud.io/open/v1/apps/public-runtime" \
-     -H "Authorization: token {token}" \
-     -d "{\"name\":\"2048-test\",\"package_id\":\"6f7a340c-b193-4a36-a765-4e660ddebd1c\",\"instances\":1,\"release_name\":\"latest\",\"metadata\":{\"command\":\"\",\"instance_type\":\"4x\",\"expose_ports\":[{\"container_port\":80,\"external\":\"external\",\"protocol\":\"tcp\",\"publish_type\":\"http\"}]}}"
-```
-
-```python
-import requests
-import json
-
-result = response = requests.post(
-    url="https://openapi.daocloud.io/open/v1/apps/public-runtime",
-    headers={
-        "Authorization": "token {token}",
-    },
-    data=json.dumps({
-        "instances": 1,
-        "metadata": {
-            "command": "",
-            "expose_ports": [
-                {
-                    "publish_type": "http",
-                    "external": "external",
-                    "protocol": "tcp",
-                    "container_port": 80
-                }
-            ],
-            "instance_type": "4x"
-        },
-        "release_name": "latest",
-        "name": "2048",
-        "package_id": "6f7a340c-b193-4a36-a765-4e660ddebd1c"
-    })
-)
-
-print(result.json())  
-```
-
-> 获取结果如下:
-
-
-```json
-{
-  "app_id": "900fcdbf-e2f4-462e-844a-acea1fac2076",
-  "action_id": "35b14fe5-238f-41fd-9dfa-347382154198"
-}
-```
-
-### HTTP 请求
-
-`POST https://openapi.daocloud.io/open/v1/apps/public-runtime`
-
-### 参数
-
-字段 | 描述
---------- | -----------
-instances | 启动的容器数量 （自动LB）
-command | 容器启动命令 空为默认
-expose_ports | 容器开放端口
-release_name | 镜像 tag
-name | 容器名称
-package_id | 镜像 ID
-
-### 返回结果
-
-字段 | 描述
---------- | -----------
-app_id | 创建的 APP ID
-action_id | 创建事件 ID
-
 ## 在自由主机部署应用
 
 ```shell
-curl -X "POST" "https://openapi.daocloud.io/open/v1/apps/single-runtime" \
+curl -X "POST" "https://openapi.daocloud.io/open/v1/apps/hyper-runtime" \
      -H "Authorization: token {token}" \
-     -d "{\"name\":\"Dai\",\"package_id\":\"6f7a340c-b193-4a36-a765-4e660ddebd1c\",\"release_name\":\"latest\",\"instances\":1,\"env_vars\":{\"KEY\":\"VALUE\"},\"metadata\":{\"command\":\"\",\"container_volumes\":[],\"tags\":[{\"name\":\"ubuntu-1\"}],\"container_ports\":[{\"container_port\":22,\"host_port\":null,\"protocol\":\"tcp\",\"published\":true}],\"container_restart\":\"always\",\"container_privileged\":false}}"
+     -d "{\"name\":\"2048\",\"package_id\":\"6f7a340c-b193-4a36-a765-4e660ddebd1c\",\"release_name\":\"latest\",\"instances\":1,\"env_vars\":{\"KEY\":\"VALUE\"},\"metadata\":{\"command\":\"\",\"container_volumes\":[],\"tags\":[{\"name\":\"ubuntu-1\"}],\"container_ports\":[{\"container_port\":22,\"host_port\":null,\"protocol\":\"tcp\",\"published\":true}],\"container_restart\":\"always\",\"container_privileged\":false}}"
 ```
 
 ```python
@@ -518,7 +446,7 @@ import requests
 import json
 
 result = response = requests.post(
-    url="https://openapi.daocloud.io/open/v1/apps/single-runtime",
+    url="https://openapi.daocloud.io/open/v1/apps/hyper-runtime",
     headers={
         "Authorization": "token {token}",
     },
@@ -544,8 +472,8 @@ result = response = requests.post(
             "container_volumes": []
         },
         "release_name": "latest",
-        "name": "Heidi",
-        "package_id": "5f706a17-5f11-4b6e-802a-eddea7b6d99c",
+        "name": "2048",
+        "package_id": "6f7a340c-b193-4a36-a765-4e660ddebd1c",
         "env_vars": {
         "KEY": "VALUE"
     }
@@ -565,19 +493,19 @@ print(result.json())
 
 ### HTTP 请求
 
-`POST https://openapi.daocloud.io/open/v1/apps/single-runtime`
+`POST https://openapi.daocloud.io/open/v1/apps/hyper-runtime`
 
 ### 参数
 
 字段 | 描述
 --------- | -----------
-instances | 启动的容器数量 （自动LB）
+instances | 启动的 App 数量
 command | 容器启动命令 空为默认
 tags | 容器部署的主机名
 container_restart | 容器自动重启
 expose_ports | 容器开放端口
 release_name | 镜像 tag
-name | 容器名称
+name | App 名称
 package_id | 镜像 ID
 
 ### 返回结果
