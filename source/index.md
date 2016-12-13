@@ -433,6 +433,88 @@ enable_auto_redeploy | 是否启用自动发布
 created_at | 创建时间 iso8601 utc
 last_operated_at | 最后操作时间 iso8601 utc
 
+## 在自由主机部署应用
+
+```shell
+curl -X "POST" "https://openapi.daocloud.io/open/v1/apps/hyper-runtime" \
+     -H "Authorization: token {token}" \
+     -d "{\"name\":\"2048\",\"package_id\":\"6f7a340c-b193-4a36-a765-4e660ddebd1c\",\"release_name\":\"latest\",\"instances\":1,\"env_vars\":{\"KEY\":\"VALUE\"},\"metadata\":{\"command\":\"\",\"container_volumes\":[],\"tags\":[{\"name\":\"ubuntu-1\"}],\"container_ports\":[{\"container_port\":22,\"host_port\":null,\"protocol\":\"tcp\",\"published\":true}],\"container_restart\":\"always\",\"container_privileged\":false}}"
+```
+
+```python
+import requests
+import json
+
+result = response = requests.post(
+    url="https://openapi.daocloud.io/open/v1/apps/hyper-runtime",
+    headers={
+        "Authorization": "token {token}",
+    },
+    data=json.dumps({
+        "instances": 1,
+        "metadata": {
+            "tags": [
+                {
+                    "name": "ubuntu-1"
+                }
+            ],
+            "container_ports": [
+                {
+                    "host_port": None,
+                    "protocol": "tcp",
+                    "published": True,
+                    "container_port": 22
+                }
+            ],
+            "container_privileged": False,
+            "container_restart": "always",
+            "command": "",
+            "container_volumes": []
+        },
+        "release_name": "latest",
+        "name": "2048",
+        "package_id": "6f7a340c-b193-4a36-a765-4e660ddebd1c",
+        "env_vars": {
+        "KEY": "VALUE"
+    }
+)
+
+print(result.json())  
+```
+
+> 获取结果如下:
+
+```json
+{
+  "app_id": "900fcdbf-e2f4-462e-844a-acea1fac2076",
+  "action_id": "35b14fe5-238f-41fd-9dfa-347382154198"
+}
+```
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/open/v1/apps/hyper-runtime`
+
+### 参数
+
+字段 | 描述
+--------- | -----------
+instances | 启动的容器实例数量
+command | 容器启动命令 空为默认
+tags | 容器部署的主机名
+container_restart | 容器自动重启
+expose_ports | 容器开放端口
+release_name | 镜像 tag
+name | App 名称
+package_id | 镜像 ID
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+app_id | 创建的 APP ID
+action_id | 创建事件 ID
+
 ## 启动 App
 
 ```shell
@@ -710,3 +792,5 @@ pull_request |代码的pull request
 message | 代码 commit 消息
 started_at | 触发时间, iso8601 format
 build_type | 构建类型, image_build,ci_build
+
+
