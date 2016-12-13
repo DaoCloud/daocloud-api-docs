@@ -499,7 +499,7 @@ print(result.json())
 
 字段 | 描述
 --------- | -----------
-instances | 启动的 App 数量
+instances | 启动的容器实例数量
 command | 容器启动命令 空为默认
 tags | 容器部署的主机名
 container_restart | 容器自动重启
