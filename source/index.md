@@ -436,7 +436,7 @@ last_operated_at | 最后操作时间 iso8601 utc
 ## 在自由主机部署应用
 
 ```shell
-curl -X "POST" "https://openapi.daocloud.io/open/v1/apps/hyper-runtime" \
+curl -X "POST" "https://openapi.daocloud.io/v1/apps/hyper-runtime" \
      -H "Authorization: token {token}" \
      -d "{\"name\":\"2048\",\"package_id\":\"6f7a340c-b193-4a36-a765-4e660ddebd1c\",\"release_name\":\"latest\",\"instances\":1,\"env_vars\":{\"KEY\":\"VALUE\"},\"metadata\":{\"command\":\"\",\"container_volumes\":[],\"tags\":[{\"name\":\"ubuntu-1\"}],\"container_ports\":[{\"container_port\":22,\"host_port\":null,\"protocol\":\"tcp\",\"published\":true}],\"container_restart\":\"always\",\"container_privileged\":false}}"
 ```
@@ -446,7 +446,7 @@ import requests
 import json
 
 result = response = requests.post(
-    url="https://openapi.daocloud.io/open/v1/apps/hyper-runtime",
+    url="https://openapi.daocloud.io/v1/apps/hyper-runtime",
     headers={
         "Authorization": "token {token}",
     },
@@ -493,13 +493,13 @@ print(result.json())
 
 ### HTTP 请求
 
-`POST https://openapi.daocloud.io/open/v1/apps/hyper-runtime`
+`POST https://openapi.daocloud.io/v1/apps/hyper-runtime`
 
 ### 参数
 
 字段 | 描述
 --------- | -----------
-instances | 启动的容器实例数量
+instances | 启动的 App 数量
 command | 容器启动命令 空为默认
 tags | 容器部署的主机名
 container_restart | 容器自动重启
