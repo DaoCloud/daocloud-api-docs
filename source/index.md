@@ -157,7 +157,7 @@ print(result.json())
 ```json
 
 {
-    "id":345786,
+    "id": 345786,
     "status": "Pending", 
     "created_at": "2015-12-01T06:25:57+00:00", 
     "author": "DaoCloud", 
@@ -212,7 +212,7 @@ print(result.json())
 ```json
 
 {
-    "id":345786,
+    "id": 345786,
     "status": "Pending", 
     "created_at": "2015-12-01T06:25:57+00:00", 
     "author": "DaoCloud", 
@@ -225,7 +225,7 @@ print(result.json())
 
 ### HTTP 请求
 
-`GET https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/<build_type>/<build_id>`
+`GET https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/<build_type>/<build_id>`
 
 ### 参数
 
@@ -245,6 +245,132 @@ status | 构建状态
 tag  | 构建出来的镜像 tag 
 sha| git 分支的 sha
 created_at | 构建时间戳
+
+
+## 创建项目持续集成私有环境变量
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/private-ci-envs" -H "Authorization: token <my token>" -H "Content-Type: application/json" -d '{"name":"passwxxord", "value": "thisispassword",  "visible": false}'
+```
+
+```python
+import requests
+import json
+
+result = requests.post('https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/private-ci-envs',
+  headers={"Authorization": "token {token}"}, json={"name":"password", "value": "thisispassword",  "visible": false})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+
+```json
+{
+    "visible": false,
+    "buildflow_id": "24b63b93-9bc0-4e29-8da0-930e3c3d46f0",
+    "id": "e18a3e8b-1113-422d-83b3-f4c02e396181",
+    "value": "",
+    "name": "password"
+}
+
+```
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/private-ci-envs`
+
+### 参数
+
+字段 | 描述
+--------- | -----------
+name | 环境变量名
+value | 环境变量值
+visible | 是否网页可见
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+name | 环境变量名
+value | 环境变量值，网页不可见时值为空
+visible | 是否网页可见
+buildflow_id | 项目 ID
+id | 环境变量 ID
+
+
+## 列出所有持续集成私有环境变量
+```shell
+curl "https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/private-ci-envs" -H "Authorization: token <my token>" -H "Content-Type: application/json"
+```
+
+```python
+import requests
+import json
+
+result = requests.get('https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/private-ci-envs',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+
+```json
+[
+    {
+        "visible": false,
+        "buildflow_id": "24b63b93-9bc0-4e29-8da0-930e3c3d46f0",
+        "id": "e18a3e8b-1113-422d-83b3-f4c02e396181",
+        "value": "",
+        "name": "password"
+    }
+]
+```
+
+### HTTP 请求
+
+`GET https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/private-ci-envs`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+name | 环境变量名
+value | 环境变量值，网页不可见时值为空
+visible | 是否网页可见
+buildflow_id | 项目 ID
+id | 环境变量 ID
+
+## 删除持续集成私有环境变量
+```shell
+curl -X DELETE "https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/private-ci-envs/<id>" -H "Authorization: token <my token>" -H "Content-Type: application/json"
+```
+
+```python
+import requests
+import json
+
+result = requests.delete('https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/private-ci-envs/<id>',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+
+HTTP 状态码 204
+
+### HTTP 请求
+
+`DELETE https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/private-ci-envs/<id>`
+
+### 返回结果
+
+HTTP 状态码 204
+
 
 
 ## 构建机器 IP 列表
