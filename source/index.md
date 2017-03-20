@@ -865,16 +865,10 @@ WebHook 可以用于集成 DaoCloud 的项目管理，应用更新等。
 
 Webhook 设置页面：
 
-`https://dashboard.daocloud.io/settings/profile`
+`https://dashboard.daocloud.io/settings/profile` 
 
-## 事件
-目前支持的 WebHook 事件有两种，镜像构建和持续集成。  
-
-###镜像构建
-这是镜像构建的事件，在返回结果中的`build_type` 为 `image_build` 。   
-如果构建成功，`image`值将不为空。 此时你可以使用 `docker pull`来拉取该镜像。  
 ###持续集成
-这是持续集成的事件，在返回结果中的`build_type` 为 `ci_build` 。
+考虑兼容性，返回结果中的`build_type` 是固定值，为 `ci_build`，新用户可以忽略该值。
 
 ##Payloads:
 
@@ -882,21 +876,25 @@ Webhook 设置页面：
 {
 	"repo":"daocloud/api",    
 	"image":"daocloud.io/daocloud/api:master-init",    
-	"build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
 	"name":"api",  
  	"build":
 	 {  
-	    "status":"Success",    
+     "build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
+	   "status":"Success",    
 	   "duration_seconds":180,    
 	   "author":"DaoCloud",  
 	   "triggered_by":"tag",   
-	   "sha":"a7c35d9dc7e93788ce81befbadeb0108de495e5e",    
-	   "tag":"master-init",    
+	   "sha":"a7c35d9dc7e93788ce81befbadeb0108de495e5e",
+     "ref": "v1.0",
+     "ref_is_branch": false,    
+     "ref_is_tag": true,    
+	   "tag":"v1.0",    
 	   "branch":null,   
 	   "pull_request":"",    
 	   "message":"init build ",   
 	   "started_at":"2015-01-01T08:20:00+00:00",   
-	   "build_type":"image_build"}   
+	   "build_type":"ci_build"
+   }   
 }
 ``` 
 
@@ -907,16 +905,19 @@ image | 构建成功的镜像地址
 build_flow_id | 项目 id
 name| 项目名
 build | 新触发的构建
-status |构建的状态, Success,Failure,Error,Started
+status | 构建的状态, Success,Failure,Error,Started
 duration_seconds | 构建持续的时间
 author | 触发构建的用户
 triggered_by | 触发条件, 打tag还是手动构建
 sha | 代码 sha
-tag | 代码的tag
-branch |代码的分支
-pull_request |代码的pull request
+tag | 生成镜像的 tag
+ref | 代码的 ref, 如 master, v1.0
+ref_is_branch | ref 代表 branch
+ref_is_tag | ref 代表 tag
+branch | 兼容旧版，当 ref 为 branch 时和 ref 相同
+pull_request | 代码的 pull request
 message | 代码 commit 消息
 started_at | 触发时间, iso8601 format
-build_type | 构建类型, image_build,ci_build
+build_type | 值为 ci_build
 
 
