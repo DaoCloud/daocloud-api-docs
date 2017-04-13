@@ -163,7 +163,9 @@ print(result.json())
     "author": "DaoCloud", 
     "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
     "tag": "master-init", 
-    "branch": "master"
+    "ref": "master",
+    "ref_is_tag": "false",
+    "ref_is_branch": "true"
 }
 
 ```
@@ -183,7 +185,9 @@ branch | 需要构建的代码分支名
 字段 | 描述
 --------- | -----------
 id     | 构建ID
-branch | 分支名
+ref | 代码的 ref, 如 master, v1.0
+ref_is_branch | ref 代表 branch
+ref_is_tag | ref 代表 tag
 status | 构建状态
 tag  | 构建出来的镜像 tag 
 sha| git 分支的 sha
@@ -218,7 +222,9 @@ print(result.json())
     "author": "DaoCloud", 
     "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
     "tag": "master-init", 
-    "branch": "master"
+    "ref": "master",
+    "ref_is_tag": "false",
+    "ref_is_branch": "true"
 }
 
 ```
@@ -240,7 +246,9 @@ build_id   | 构建ID
 字段 | 描述
 --------- | -----------
 id     | 构建ID
-branch | 分支名
+ref | 代码的 ref, 如 master, v1.0
+ref_is_branch | ref 代表 branch
+ref_is_tag | ref 代表 tag
 status | 构建状态
 tag  | 构建出来的镜像 tag 
 sha| git 分支的 sha
@@ -874,27 +882,26 @@ Webhook 设置页面：
 
 ``` json
 {
-	"repo":"daocloud/api",    
-	"image":"daocloud.io/daocloud/api:master-init",    
-	"name":"api",  
- 	"build":
-	 {  
-     "build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
-	   "status":"Success",    
-	   "duration_seconds":180,    
-	   "author":"DaoCloud",  
-	   "triggered_by":"tag",   
-	   "sha":"a7c35d9dc7e93788ce81befbadeb0108de495e5e",
-     "ref": "v1.0",
-     "ref_is_branch": false,    
-     "ref_is_tag": true,    
-	   "tag":"v1.0",    
-	   "branch":null,   
-	   "pull_request":"",    
-	   "message":"init build ",   
-	   "started_at":"2015-01-01T08:20:00+00:00",   
-	   "build_type":"ci_build"
-   }   
+  "repo":"daocloud/api",    
+  "image":"daocloud.io/daocloud/api:master-init",    
+  "name":"api",  
+  "build": {
+    "build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
+    "status":"Success",    
+    "duration_seconds":180,    
+    "author":"DaoCloud",  
+    "triggered_by":"tag",   
+    "sha":"a7c35d9dc7e93788ce81befbadeb0108de495e5e",
+    "ref": "v1.0",
+    "ref_is_branch": false,    
+    "ref_is_tag": true,    
+    "tag":"v1.0",    
+    "branch":null,   
+    "pull_request":"",    
+    "message":"init build ",   
+    "started_at":"2015-01-01T08:20:00+00:00",   
+    "build_type":"ci_build"
+  }   
 }
 ``` 
 
