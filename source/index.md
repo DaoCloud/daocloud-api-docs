@@ -163,7 +163,8 @@ print(result.json())
     "author": "DaoCloud", 
     "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
     "tag": "master-init", 
-    "branch": "master"
+    "ref": "master",
+    "ref_type": "branch"
 }
 
 ```
@@ -183,7 +184,8 @@ branch | 需要构建的代码分支名
 字段 | 描述
 --------- | -----------
 id     | 构建ID
-branch | 分支名
+ref | 分支名或标签名
+ref_type | ref类型（branch/tag）
 status | 构建状态
 tag  | 构建出来的镜像 tag 
 sha| git 分支的 sha
@@ -218,7 +220,8 @@ print(result.json())
     "author": "DaoCloud", 
     "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
     "tag": "master-init", 
-    "branch": "master"
+    "ref": "master",
+    "ref_type": "branch"
 }
 
 ```
@@ -240,7 +243,8 @@ build_id   | 构建ID
 字段 | 描述
 --------- | -----------
 id     | 构建ID
-branch | 分支名
+ref | 分支名或标签名
+ref_type | ref类型（branch/tag）
 status | 构建状态
 tag  | 构建出来的镜像 tag 
 sha| git 分支的 sha
