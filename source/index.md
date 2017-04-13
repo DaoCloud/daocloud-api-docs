@@ -164,7 +164,8 @@ print(result.json())
     "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
     "tag": "master-init", 
     "ref": "master",
-    "ref_type": "branch"
+    "ref_is_tag": "false",
+    "ref_is_branch": "true"
 }
 
 ```
@@ -184,8 +185,9 @@ branch | 需要构建的代码分支名
 字段 | 描述
 --------- | -----------
 id     | 构建ID
-ref | 分支名或标签名
-ref_type | ref类型（branch/tag）
+ref | 代码的 ref, 如 master, v1.0
+ref_is_branch | ref 代表 branch
+ref_is_tag | ref 代表 tag
 status | 构建状态
 tag  | 构建出来的镜像 tag 
 sha| git 分支的 sha
@@ -221,7 +223,8 @@ print(result.json())
     "sha": "5785e42c7d6bfa754fc4765756e773ead6674as", 
     "tag": "master-init", 
     "ref": "master",
-    "ref_type": "branch"
+    "ref_is_tag": "false",
+    "ref_is_branch": "true"
 }
 
 ```
@@ -243,8 +246,9 @@ build_id   | 构建ID
 字段 | 描述
 --------- | -----------
 id     | 构建ID
-ref | 分支名或标签名
-ref_type | ref类型（branch/tag）
+ref | 代码的 ref, 如 master, v1.0
+ref_is_branch | ref 代表 branch
+ref_is_tag | ref 代表 tag
 status | 构建状态
 tag  | 构建出来的镜像 tag 
 sha| git 分支的 sha
