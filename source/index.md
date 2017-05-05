@@ -869,7 +869,6 @@ X-RateLimit-Reset | 限制重置时间 unix time
  
 WebHook 可以用于集成 DaoCloud 的项目管理，应用更新等。  
 当 DaoCloud 平台有对应事件触发时，我们会给你发送一个 POST 请求。如果响应码不为`200`，我们会在一段时间间隔内重试`3`次 。 
-如果你希望在本地调试 WebHook ，你可以使用 DaoCloud 应用的[云隧道](http://docs.daocloud.io/app-deploy-mgmt/tunnel) 功能 。
 
 Webhook 设置页面：
 
@@ -877,6 +876,9 @@ Webhook 设置页面：
 
 ###持续集成
 考虑兼容性，返回结果中的`build_type` 是固定值，为 `ci_build`，新用户可以忽略该值。
+
+###状态
+当 stages 的每个阶段状态变化时，或整个构建的状态(status)变化时都会发送 webhook 。
 
 ##Payloads:
 
@@ -886,7 +888,21 @@ Webhook 设置页面：
   "image":"daocloud.io/daocloud/api:master-init",    
   "name":"api",  
   "build": {
-    "build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",     
+    "build_flow_id":"8d7622ea-9323-4489-8c8e-fc4bed448961",
+    "stages": [
+      {
+        "name": "test",
+        "status": "Success"
+      },
+      {
+        "name": "build",
+        "status": "Success"
+      },
+      {
+        "name": "deploy",
+        "status": "Success"
+      }
+    ],
     "status":"Success",    
     "duration_seconds":180,    
     "author":"DaoCloud",  
@@ -912,7 +928,8 @@ image | 构建成功的镜像地址
 build_flow_id | 项目 id
 name| 项目名
 build | 新触发的构建
-status | 构建的状态, Success,Failure,Error,Started
+status | 构建的状态, Success,Failure,Error,Started,Canceled
+stages | 构建的各个阶段的状态, Success,Failure,Error,Started,Canceled
 duration_seconds | 构建持续的时间
 author | 触发构建的用户
 triggered_by | 触发条件, 打tag还是手动构建
