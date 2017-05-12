@@ -16,7 +16,7 @@ search: true
 
 # 介绍
 
-欢迎使用 DaoCloud 开放 API
+欢迎使用 DaoCloud Services 开放 API
 
 # 认证
 
