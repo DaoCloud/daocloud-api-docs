@@ -482,9 +482,9 @@ state | App 状态
 release_name | App 镜像版本
 package | Package 信息
 app_runtime | App 运行时信息
-enable_auto_redeploy | 是否启用自动发布
+enable\_auto\_redeploy | 是否启用自动发布
 created_at | 创建时间 iso8601 utc
-last_operated_at | 最后操作时间 iso8601 utc
+last\_operated\_at | 最后操作时间 iso8601 utc
 
 
 ## 获取单个 App
@@ -544,7 +544,7 @@ print(result.json())
 }
 ```
 
-获取用户的 app 列表.
+获取用户单个 app.
 
 ### HTTP 请求
 
@@ -864,6 +864,411 @@ X-RateLimit-Limit | 每小时的限制调用次数，超过后服务器会返回
 X-RateLimit-Remaining | 当前小时中还剩下的调用次数
 X-RateLimit-Reset | 限制重置时间 unix time
 
+# 堆栈编排 Stack
+
+## Stack 列表
+
+```shell
+curl "https://openapi.daocloud.io/v1/stacks"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.get('https://openapi.daocloud.io/v1/stacks',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 返回结果如下:
+
+```json
+{
+  "stacks": [
+    {
+      "last_operated_at": "2017-06-14T08:06:30+00:00",
+      "created_at": "2017-06-14T08:06:30+00:00",
+      "apps": [
+        {
+          "app_id": "117ff1ab-d294-406c-9d4b-fa8688ae32e2"
+        },
+        {
+          "app_id": "dc8e835c-b612-4eae-b977-02c6cb38692e"
+        }
+      ],
+      "id": "fd007fc5-3fdd-4350-9f30-6ea93b6f3b82",
+      "name": "test"
+    }
+  ]
+}
+```
+
+获取用户的 Stacks 列表.
+
+### HTTP 请求
+
+`GET https://openapi.daocloud.io/v1/stacks`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id | Stack id
+name | Stack 名称
+app_id | Stack 中 App 的 id
+created_at | 创建时间 iso8601 utc
+last\_operated\_at | 最后操作时间 iso8601 utc
+
+
+## 获取单个 Stack
+
+```shell
+curl "https://openapi.daocloud.io/v1/stacks/<stack_id>"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.get('https://openapi.daocloud.io/v1/stacks/{stack_id}',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "last_operated_at": "2017-06-14T16:06:30",
+  "created_at": "2017-06-14T16:06:30",
+  "apps": [
+    {
+      "app_id": "117ff1ab-d294-406c-9d4b-fa8688ae32e2"
+    },
+    {
+      "app_id": "dc8e835c-b612-4eae-b977-02c6cb38692e"
+    }
+  ],
+  "id": "fd007fc5-3fdd-4350-9f30-6ea93b6f3b82",
+  "name": "asdadsaqwezaaaasd"
+}
+```
+
+获取用户的单个 Stack.
+
+### HTTP 请求
+
+`GET https://openapi.daocloud.io/v1/stacks/{stack_id}`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id | Stack id
+name | Stack 名称
+app_id | Stack 中 App 的 id
+created_at | 创建时间 iso8601 utc
+last\_operated\_at | 最后操作时间 iso8601 utc
+
+## 在自由主机部署应用
+
+```shell
+curl -X "POST" "https://openapi.daocloud.io/v1/apps/hyper-runtime" \
+     -H "Authorization: token {token}" \
+     -d "{\"name\":\"2048\",\"package_id\":\"6f7a340c-b193-4a36-a765-4e660ddebd1c\",\"release_name\":\"latest\",\"instances\":1,\"env_vars\":{\"KEY\":\"VALUE\"},\"metadata\":{\"command\":\"\",\"container_volumes\":[],\"tags\":[{\"name\":\"ubuntu-1\"}],\"container_ports\":[{\"container_port\":22,\"host_port\":null,\"protocol\":\"tcp\",\"published\":true}],\"container_restart\":\"always\",\"container_privileged\":false}}"
+```
+
+```python
+import requests
+import json
+
+result = response = requests.post(
+    url="https://openapi.daocloud.io/v1/apps/hyper-runtime",
+    headers={
+        "Authorization": "token {token}",
+    },
+    data=json.dumps({
+        "instances": 1,
+        "metadata": {
+            "tags": [
+                {
+                    "name": "ubuntu-1"
+                }
+            ],
+            "container_ports": [
+                {
+                    "host_port": None,
+                    "protocol": "tcp",
+                    "published": True,
+                    "container_port": 22
+                }
+            ],
+            "container_privileged": False,
+            "container_restart": "always",
+            "command": "",
+            "container_volumes": []
+        },
+        "release_name": "latest",
+        "name": "2048",
+        "package_id": "6f7a340c-b193-4a36-a765-4e660ddebd1c",
+        "env_vars": {
+        "KEY": "VALUE"
+    }
+)
+
+print(result.json())  
+```
+
+> 获取结果如下:
+
+```json
+{
+  "app_id": "900fcdbf-e2f4-462e-844a-acea1fac2076",
+  "action_id": "35b14fe5-238f-41fd-9dfa-347382154198"
+}
+```
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/apps/hyper-runtime`
+
+### 参数
+
+字段 | 描述
+--------- | -----------
+instances | 启动的 App 数量
+command | 容器启动命令 空为默认
+tags | 容器部署的主机名
+container_restart | 容器自动重启
+expose_ports | 容器开放端口
+release_name | 镜像 tag
+name | App 名称
+package_id | 镜像 ID
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+app_id | 创建的 APP ID
+action_id | 创建事件 ID
+
+## 启动 App
+
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/apps/<app_id>/actions/start"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.post('https://openapi.daocloud.io/v1/apps/{app_id}/actions/start',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "action_id": "80ae7c11-91d6-4edd-a785-e372bd04c4cb"
+}
+```
+
+启动 App.
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/apps/{app_id}/actions/start`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+action_id | 事件 id
+
+## 停止 App
+
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/apps/<app_id>/actions/stop"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.post('https://openapi.daocloud.io/v1/apps/{app_id}/actions/stop',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "action_id": "80ae7c11-91d6-4edd-a785-e372bd04c4cb"
+}
+```
+
+启动 App.
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/apps/{app_id}/actions/stop`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+action_id | 事件 id
+
+## 重启 App
+
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/apps/<app_id>/actions/restart"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.post('https://openapi.daocloud.io/v1/apps/{app_id}/actions/restart',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "action_id": "80ae7c11-91d6-4edd-a785-e372bd04c4cb"
+}
+```
+
+启动 App.
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/apps/{app_id}/actions/restart`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+action_id | 事件 id
+
+## 重新发布 App
+
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/apps/<app_id>/actions/redeploy"
+  -H "Authorization: token <my token>" -H "Content-Type: application/json" -d '{"release_name": "v1.0.0"}'
+```
+
+```python
+import requests
+
+result = requests.post('https://openapi.daocloud.io/v1/apps/{app_id}/actions/redeploy',
+  json={"release_name": "v1.0.0"},
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "action_id": "80ae7c11-91d6-4edd-a785-e372bd04c4cb"
+}
+```
+
+发布 App 到指定版本.
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/apps/{app_id}/actions/redeploy`
+
+### 参数
+
+字段 | 描述
+--------- | -----------
+release_name | 要发布的版本名称
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+action_id | 事件 id
+
+
+## 获取事件 Action
+
+```shell
+curl "https://openapi.daocloud.io/v1/apps/<app_id>/actions/<action_id>"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.get('https://openapi.daocloud.io/v1/apps/{app_id}/actions/{action_id}',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "end_date": "2015-12-14T10:16:23+00:00",
+  "action_name": "start_app",
+  "state": "SUCCESS",
+  "app_id": "d535ca76-b388-4356-8ad8-990e488fc1eb",
+  "start_date": "2015-12-14T10:16:21+00:00",
+  "error_info": {
+    "message": null
+  },
+  "id": "8e3e490e-54ae-4214-924c-b7dcf3c33454",
+  "time_cost_seconds": 2
+}
+```
+
+获取事件信息.
+
+### HTTP 请求
+
+`GET https://openapi.daocloud.io/v1/apps/{app_id}/actions/{action_id}`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id | Action id
+action_name | Action 名称
+state | App 状态, SUCCESS -> 成功, FAILED -> 失败, IN_PROCESS -> 正在执行
+app_id | App id
+start_date | 事件开始时间 iso8601 utc
+end_date | 事件开始时间 iso8601 utc
+error_info | 错误信息
+time_cost_seconds | 耗费时间(秒)
+
+
+# 调用次数限制 Rate Limiting
+
+不同的API会有不同的调用次数限制, 请检查返回 header 中的如下字段
+
+header 字段 | 描述
+--------- | -----------
+X-RateLimit-Limit | 每小时的限制调用次数，超过后服务器会返回 403 错误
+X-RateLimit-Remaining | 当前小时中还剩下的调用次数
+X-RateLimit-Reset | 限制重置时间 unix time
 
 # WebHook
  
