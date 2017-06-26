@@ -853,17 +853,6 @@ end_date | 事件开始时间 iso8601 utc
 error_info | 错误信息
 time_cost_seconds | 耗费时间(秒)
 
-
-# 调用次数限制 Rate Limiting
-
-不同的API会有不同的调用次数限制, 请检查返回 header 中的如下字段
-
-header 字段 | 描述
---------- | -----------
-X-RateLimit-Limit | 每小时的限制调用次数，超过后服务器会返回 403 错误
-X-RateLimit-Remaining | 当前小时中还剩下的调用次数
-X-RateLimit-Reset | 限制重置时间 unix time
-
 # 堆栈编排 Stack
 
 ## Stack 列表
