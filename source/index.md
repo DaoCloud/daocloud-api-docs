@@ -482,9 +482,9 @@ state | App 状态
 release_name | App 镜像版本
 package | Package 信息
 app_runtime | App 运行时信息
-enable_auto_redeploy | 是否启用自动发布
+enable\_auto\_redeploy | 是否启用自动发布
 created_at | 创建时间 iso8601 utc
-last_operated_at | 最后操作时间 iso8601 utc
+last\_operated\_at | 最后操作时间 iso8601 utc
 
 
 ## 获取单个 App
@@ -544,7 +544,7 @@ print(result.json())
 }
 ```
 
-获取用户的 app 列表.
+获取用户单个 app.
 
 ### HTTP 请求
 
@@ -864,6 +864,434 @@ X-RateLimit-Limit | 每小时的限制调用次数，超过后服务器会返回
 X-RateLimit-Remaining | 当前小时中还剩下的调用次数
 X-RateLimit-Reset | 限制重置时间 unix time
 
+# 堆栈编排 Stack
+
+## Stack 列表
+
+```shell
+curl "https://openapi.daocloud.io/v1/stacks"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.get('https://openapi.daocloud.io/v1/stacks',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 返回结果如下:
+
+```json
+{
+  "stacks": [
+    {
+      "last_operated_at": "2017-06-14T08:06:30+00:00",
+      "created_at": "2017-06-14T08:06:30+00:00",
+      "stacks": [
+        {
+          "stack_id": "117ff1ab-d294-406c-9d4b-fa8688ae32e2"
+        },
+        {
+          "stack_id": "dc8e835c-b612-4eae-b977-02c6cb38692e"
+        }
+      ],
+      "id": "fd007fc5-3fdd-4350-9f30-6ea93b6f3b82",
+      "name": "test"
+    }
+  ]
+}
+```
+
+获取用户的 Stacks 列表.
+
+### HTTP 请求
+
+`GET https://openapi.daocloud.io/v1/stacks`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id | Stack id
+name | Stack 名称
+stack_id | Stack 中 stack 的 id
+created_at | 创建时间 iso8601 utc
+last\_operated\_at | 最后操作时间 iso8601 utc
+
+
+## 获取单个 Stack
+
+```shell
+curl "https://openapi.daocloud.io/v1/stacks/<stack_id>"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.get('https://openapi.daocloud.io/v1/stacks/{stack_id}',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "last_operated_at": "2017-06-14T16:06:30",
+  "created_at": "2017-06-14T16:06:30",
+  "stacks": [
+    {
+      "stack_id": "117ff1ab-d294-406c-9d4b-fa8688ae32e2"
+    },
+    {
+      "stack_id": "dc8e835c-b612-4eae-b977-02c6cb38692e"
+    }
+  ],
+  "id": "fd007fc5-3fdd-4350-9f30-6ea93b6f3b82",
+  "name": "asdadsaqwezaaaasd"
+}
+```
+
+获取用户的单个 Stack.
+
+### HTTP 请求
+
+`GET https://openapi.daocloud.io/v1/stacks/{stack_id}`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id | Stack id
+name | Stack 名称
+stack_id | Stack 中 stack 的 id
+created_at | 创建时间 iso8601 utc
+last\_operated\_at | 最后操作时间 iso8601 utc
+
+## 在自由主机部署Stack
+
+```shell
+curl -X "POST" "https://openapi.daocloud.io/v1/stacks" \
+     -H "Authorization: 3yl2gbdiyfoa4wgc46pqiedlreh9enf44x6qbpjt" \
+     -H "Content-Type: stacklication/json; charset=utf-8" \
+     -d $'{
+  "compose_yml": "wordpress: \\n  image: wordpress \\n  links: \\n    - db:mysql \\n  ports: \\n    - \\"80\\" \\n  restart: always \\ndb: \\n  image: mysql \\n  environment: \\n    - MYSQL_ROOT_PASSWORD=example \\n  restart: always",
+  "deploy_id": "7d11e027-386e-4d0a-8ea3-7f0d46d110e3",
+  "name": "wordpress",
+  "deploy_type": "node"
+}'
+```
+
+```python
+import requests
+import json
+
+result = requests.post(
+    url="https://192.168.1.24:8881/open/v1/stacks",
+    headers={
+        "Authorization": "token {token}",
+    },
+    data=json.dumps({
+        "name": "testtest3",
+        "compose_yml": '''wordpress: 
+  image: wordpress 
+  links: 
+    - db:mysql 
+  ports: 
+    - "80" 
+  restart: always 
+db: 
+  image: mysql 
+  environment: 
+    - MYSQL_ROOT_PASSWORD=example 
+  restart: always
+        ''',
+        "deploy_type": "node",
+        "deploy_id": "7d11e027-386e-4d0a-8ea3-7f0d46d110e3"
+    }
+))
+
+print(result.json())  
+```
+
+> 获取结果如下:
+
+```json
+{
+  "stack_id": "900fcdbf-e2f4-462e-844a-acea1fac2076",
+  "action_id": "35b14fe5-238f-41fd-9dfa-347382154198"
+}
+```
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/stacks`
+
+### 参数
+
+字段 | 描述
+--------- | -----------
+name | Stack 名称
+deploy_type | 部署类型(node|cluster)
+deploy_id   | 部署节点／集群 ID
+compose_yml | Stack compose YAML
+
+
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+stack_id | 创建的 Stack ID
+action_id | 创建事件 ID
+
+
+## 更改 Stack
+
+```shell
+curl -X "POST" "https://openapi.daocloud.io/v1/stacks/4ba8609d-f614-439e-8035-8c5e363e3034" \
+     -H "Authorization: 3yl2gbdiyfoa4wgc46pqiedlreh9enf44x6qbpjt" \
+     -H "Content-Type: stacklication/json; charset=utf-8" \
+     -d '{
+  "compose_yml": "wordpress: \\n  image: wordpress \\n  links: \\n    - db:mysql \\n  ports: \\n    - \\"80\\" \\n  restart: always \\ndb: \\n  image: mysql \\n  environment: \\n    - MYSQL_ROOT_PASSWORD=example \\n  restart: always"
+}'
+```
+
+```python
+import requests
+import json
+
+result = requests.patch(
+    url="https://192.168.1.24:8881/open/v1/stacks/4ba8609d-f614-439e-8035-8c5e363e3034",
+    headers={
+        "Authorization": "token {token}",
+    },
+    data=json.dumps({
+        "compose_yml": '''wordpress: 
+  image: wordpress 
+  links: 
+    - db:mysql 
+  ports: 
+    - "80" 
+  restart: always 
+db: 
+  image: mysql 
+  environment: 
+    - MYSQL_ROOT_PASSWORD=example 
+  restart: always
+        '''
+    }
+))
+
+print(result.json())  
+```
+
+> 获取结果如下:
+
+```json
+{
+  "action_id": "e8b62595-087f-4a85-a30d-d92c3dabdfa1"
+}
+```
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/stacks/4ba8609d-f614-439e-8035-8c5e363e3034`
+
+### 参数
+
+字段 | 描述
+--------- | -----------
+name | Stack 名称
+deploy_type | 部署类型(node|cluster)
+deploy_id   | 部署节点／集群 ID
+compose_yml | Stack compose YAML
+
+
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+action_id | 创建事件 ID
+
+
+## 启动 stack
+
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/stacks/<stack_id>/actions/start"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.post('https://openapi.daocloud.io/v1/stacks/{stack_id}/actions/start',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "action_id": "80ae7c11-91d6-4edd-a785-e372bd04c4cb"
+}
+```
+
+启动 stack.
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/stacks/{stack_id}/actions/start`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+action_id | 事件 id
+
+## 停止 stack
+
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/stacks/<stack_id>/actions/stop"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.post('https://openapi.daocloud.io/v1/stacks/{stack_id}/actions/stop',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "action_id": "80ae7c11-91d6-4edd-a785-e372bd04c4cb"
+}
+```
+
+停止 Stack.
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/stacks/{stack_id}/actions/stop`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+action_id | 事件 id
+
+## 重启 stack
+
+```shell
+curl -X POST "https://openapi.daocloud.io/v1/stacks/<stack_id>/actions/restart"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.post('https://openapi.daocloud.io/v1/stacks/{stack_id}/actions/restart',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "action_id": "80ae7c11-91d6-4edd-a785-e372bd04c4cb"
+}
+```
+
+重启 Stack.
+
+### HTTP 请求
+
+`POST https://openapi.daocloud.io/v1/stacks/{stack_id}/actions/restart`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+action_id | 事件 id
+
+
+## 获取 Stack Action
+
+```shell
+curl "https://openapi.daocloud.io/v1/stacks/<stack_id>/actions/<action_id>"
+  -H "Authorization: token <my token>"
+```
+
+```python
+import requests
+
+result = requests.get('https://openapi.daocloud.io/v1/stacks/{stack_id}/actions/{action_id}',
+  headers={"Authorization": "token {token}"})
+
+print(result.json())
+```
+
+> 获取结果如下:
+
+```json
+{
+  "time_cost_seconds": 5,
+  "end_date": "2017-06-14T01:08:27+00:00",
+  "app_id": null,
+  "action_name": "create_stack",
+  "state": "success",
+  "start_date": "2017-06-14T01:08:22+00:00",
+  "error_info": {
+    "message": null
+  },
+  "id": "313a3ba1-b776-4e6f-b88d-eb330f5e8b1c"
+}
+```
+
+获取事件信息.
+
+### HTTP 请求
+
+`GET https://openapi.daocloud.io/v1/stacks/{stack_id}/actions/{action_id}`
+
+### 返回结果
+
+字段 | 描述
+--------- | -----------
+id | Action id
+action_name | Action 名称
+state | stack 状态, SUCCESS -> 成功, FAILED -> 失败, IN_PROCESS -> 正在执行
+stack_id | stack id
+start_date | 事件开始时间 iso8601 utc
+end_date | 事件开始时间 iso8601 utc
+error_info | 错误信息
+time_cost_seconds | 耗费时间(秒)
+
+
+# 调用次数限制 Rate Limiting
+
+不同的API会有不同的调用次数限制, 请检查返回 header 中的如下字段
+
+header 字段 | 描述
+--------- | -----------
+X-RateLimit-Limit | 每小时的限制调用次数，超过后服务器会返回 403 错误
+X-RateLimit-Remaining | 当前小时中还剩下的调用次数
+X-RateLimit-Reset | 限制重置时间 unix time
 
 # WebHook
  
