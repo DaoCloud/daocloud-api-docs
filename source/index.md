@@ -981,9 +981,9 @@ curl -X "POST" "https://openapi.daocloud.io/v1/stacks" \
      -H "Content-Type: stacklication/json; charset=utf-8" \
      -d $'{
   "compose_yml": "wordpress: \\n  image: wordpress \\n  links: \\n    - db:mysql \\n  ports: \\n    - \\"80\\" \\n  restart: always \\ndb: \\n  image: mysql \\n  environment: \\n    - MYSQL_ROOT_PASSWORD=example \\n  restart: always",
-  "deploy_type": "7d11e027-386e-4d0a-8ea3-7f0d46d110e3",
+  "deploy_id": "7d11e027-386e-4d0a-8ea3-7f0d46d110e3",
   "name": "wordpress",
-  "deploy_id": "node"
+  "deploy_type": "node"
 }'
 ```
 
@@ -1057,7 +1057,7 @@ action_id | 创建事件 ID
 curl -X "POST" "https://openapi.daocloud.io/v1/stacks/4ba8609d-f614-439e-8035-8c5e363e3034" \
      -H "Authorization: 3yl2gbdiyfoa4wgc46pqiedlreh9enf44x6qbpjt" \
      -H "Content-Type: stacklication/json; charset=utf-8" \
-     -d $'{
+     -d '{
   "compose_yml": "wordpress: \\n  image: wordpress \\n  links: \\n    - db:mysql \\n  ports: \\n    - \\"80\\" \\n  restart: always \\ndb: \\n  image: mysql \\n  environment: \\n    - MYSQL_ROOT_PASSWORD=example \\n  restart: always"
 }'
 ```
