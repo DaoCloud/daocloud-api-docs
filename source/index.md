@@ -1026,7 +1026,7 @@ print(result.json())
 字段 | 描述
 --------- | -----------
 name | Stack 名称
-deploy_type | 部署类型(node\|cluster)
+deploy_type | 部署类型(node或cluster)
 deploy_id   | 部署节点／集群 ID
 compose_yml | Stack compose YAML
 
@@ -1097,7 +1097,7 @@ print(result.json())
 字段 | 描述
 --------- | -----------
 name | Stack 名称
-deploy_type | 部署类型(node\|cluster)
+deploy_type | 部署类型(node或cluster)
 deploy_id   | 部署节点／集群 ID
 compose_yml | Stack compose YAML
 
