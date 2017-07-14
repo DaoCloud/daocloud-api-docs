@@ -1026,7 +1026,7 @@ print(result.json())
 字段 | 描述
 --------- | -----------
 name | Stack 名称
-deploy_type | 部署类型(node|cluster)
+deploy_type | 部署类型(node\|cluster)
 deploy_id   | 部署节点／集群 ID
 compose_yml | Stack compose YAML
 
@@ -1043,7 +1043,7 @@ action_id | 创建事件 ID
 ## 更改 Stack
 
 ```shell
-curl -X "POST" "https://openapi.daocloud.io/v1/stacks/4ba8609d-f614-439e-8035-8c5e363e3034" \
+curl -X "PATCH" "https://openapi.daocloud.io/v1/stacks/4ba8609d-f614-439e-8035-8c5e363e3034" \
      -H "Authorization: 3yl2gbdiyfoa4wgc46pqiedlreh9enf44x6qbpjt" \
      -H "Content-Type: stacklication/json; charset=utf-8" \
      -d '{
@@ -1090,14 +1090,14 @@ print(result.json())
 
 ### HTTP 请求
 
-`POST https://openapi.daocloud.io/v1/stacks/4ba8609d-f614-439e-8035-8c5e363e3034`
+`PATCH https://openapi.daocloud.io/v1/stacks/4ba8609d-f614-439e-8035-8c5e363e3034`
 
 ### 参数
 
 字段 | 描述
 --------- | -----------
 name | Stack 名称
-deploy_type | 部署类型(node|cluster)
+deploy_type | 部署类型(node\|cluster)
 deploy_id   | 部署节点／集群 ID
 compose_yml | Stack compose YAML
 
