@@ -197,14 +197,14 @@ created_at | 构建时间戳
 ## 获取构建信息
 
 ```shell
-curl "https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/<build_type>/<build_id>" -H "Authorization: token <my token>" -H "Content-Type: application/json"
+curl "https://openapi.daocloud.io/v1/build-flows/<build_flow_id>/builds/<build_id>" -H "Authorization: token <my token>" -H "Content-Type: application/json"
 ```
 
 ```python
 import requests
 import json
 
-result = requests.get('https://openapi.daocloud.io/v1/build-flows/{build_flow_id}/{build_type}/{build_id}',
+result = requests.get('https://openapi.daocloud.io/v1/build-flows/{build_flow_id}/builds/{build_id}',
   headers={"Authorization": "token {token}"})
 
 print(result.json())  
@@ -231,14 +231,13 @@ print(result.json())
 
 ### HTTP 请求
 
-`GET https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/<build_type>/<build_id>`
+`GET https://openapi.daocloud.io/v1/build-flows/<buildflow_id>/builds/<build_id>`
 
 ### 参数
 
 字段 | 描述
 --------- | -----------
 build_flow_id | 项目ID
-build_type | 构建类型，为image_build或者ci_build
 build_id   | 构建ID
 
 ### 返回结果
