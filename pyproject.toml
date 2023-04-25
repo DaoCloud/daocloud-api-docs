@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dao-openapi"
+version = "0.1.0"
+description = "building all daocloud enterprise 5.0 module openapi docs."
+authors = ["samzong.lu <samzong.lu@gmail.com>"]
+readme = "README.md"
+packages = [{include = "dao_openapi"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+mkdocs = "^1.4.2"
+mkdocs-swagger-ui-tag = "^0.6.1"
+mkdocs-material = "^9.1.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
