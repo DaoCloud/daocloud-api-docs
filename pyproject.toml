@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "building all daocloud enterprise 5.0 module openapi docs."
 authors = ["samzong.lu <samzong.lu@gmail.com>"]
 readme = "README.md"
-packages = [{include = "dao_openapi"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
