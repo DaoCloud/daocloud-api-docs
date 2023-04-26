@@ -11,6 +11,10 @@ python = "^3.9"
 mkdocs = "^1.4.2"
 mkdocs-swagger-ui-tag = "^0.6.1"
 mkdocs-material = "^9.1.8"
+mkdocs-minify-plugin = "^0.6.4"
+mkdocs-redirects = "^1.2.0"
+mkdocs-git-revision-date-plugin = "^0.3.2"
+mkdocs-git-revision-date-localized-plugin = "^1.2.0"
 
 
 [build-system]
