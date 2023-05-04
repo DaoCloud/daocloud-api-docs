@@ -41,7 +41,7 @@
 
     ---
 
-    DCE 5.0 涵盖了 Elasticsearch、Kafka、MinIO、MySQL、PostgreSQL、RabbitMQ、Redis 等中间件。
+    Elasticsearch、Kafka、MinIO、MySQL、PostgreSQL、RabbitMQ、Redis 等中间件
 
     [:octicons-arrow-right-24: 中间件 OpenAPI 文档索引](./midware.md)
 
