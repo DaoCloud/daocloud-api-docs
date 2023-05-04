@@ -152,6 +152,21 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# doc builds
+.venv
+builds
+temp_dir
+.DS_Store
+_book/
+.idea/
+.vscode/
+public/
+scripts/config.py
+__pycache__
+.VSCodeCounter
+docs/zh/site/
+docs/en/site/
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
