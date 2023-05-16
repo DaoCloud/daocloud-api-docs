@@ -60,7 +60,6 @@
 <div class="grid cards" markdown>
 
 - :octicons-container-16: **容器管理 OpenAPI**
-- :material-microsoft-azure-devops: **应用工作台 OpenAPI**
 - :material-engine: **微服务引擎 OpenAPI**
 - :material-warehouse: **镜像仓库 OpenAPI**
 - :floppy_disk: **存储 OpenAPI**
