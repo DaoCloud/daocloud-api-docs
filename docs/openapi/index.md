@@ -37,6 +37,12 @@
     - [v0.5.0](./spidernet/v0.5.0.md)
     - [v0.6.0](./spidernet/v0.6.0.md)
 
+-   :material-microsoft-azure-devops:{ .lg .middle } __应用工作台 OpenAPI__
+
+    ---
+
+    - [v0.16.3](./amamba/v0.16.3.md)
+
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI__
 
     ---
