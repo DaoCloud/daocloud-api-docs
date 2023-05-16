@@ -1,6 +1,7 @@
 # OpenAPI 文档汇总
 
 本页列出 DCE 5.0 相关模块的 OpenAPI 文档，方便以程序方式调用。
+具体调用方式，请参阅 [OpenAPI 访问密钥](https://docs.daocloud.io/ghippo/user-guide/personal-center/accesstoken/)。
 
 <div class="grid cards" markdown>
 
