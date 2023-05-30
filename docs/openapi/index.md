@@ -44,6 +44,7 @@
     ---
 
     - [v0.105.1](./mspider/v0.105.1.md)
+    - [v0.106.2](./mspider/v0.106.2.md)
 
 -   :material-dot-net:{ .lg .middle } __网络 OpenAPI__
 
@@ -59,6 +60,12 @@
 
     - [v0.16.3](./amamba/v0.16.3.md)
 
+-   :material-warehouse:{ .lg .middle } __镜像仓库 OpenAPI__
+
+    ---
+
+    - [v0.8.0](./kangaroo/v0.8.0.md)
+
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI__
 
     ---
@@ -66,17 +73,6 @@
     Elasticsearch、Kafka、MinIO、MySQL、PostgreSQL、RabbitMQ、Redis 等中间件
 
     [:octicons-arrow-right-24: 中间件 OpenAPI 文档索引](./midware.md)
-
-</div>
-
-## 其他
-
-以下 OpenAPI 文档将于稍后添加。
-
-<div class="grid cards" markdown>
-
-- :material-warehouse: **镜像仓库 OpenAPI**
-- :floppy_disk: **存储 OpenAPI**
 
 </div>
 
