@@ -12,18 +12,32 @@
     - [v0.15.0](./ghippo/v0.15.0.md)
     - [v0.16.0](./ghippo/v0.16.0.md)
     - [v0.16.1](./ghippo/v0.16.1.md)
+    - [v0.17.0](./ghippo/v0.17.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
     ---
 
     - [v0.16.0](./insight/v0.16.0.md)
+    - [v0.17.0-rc6](./insight/v0.17.0-rc6.md)
+
+-   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
+
+    ---
+
+    - [v0.18.0](./kpanda/v0.18.0.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
     ---
 
     - [v0.8.0](./kairship/v0.8.0.md)
+
+-   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
+
+    ---
+
+    - [v0.22.1](./skoala/v0.22.1.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -61,8 +75,6 @@
 
 <div class="grid cards" markdown>
 
-- :octicons-container-16: **容器管理 OpenAPI**
-- :material-engine: **微服务引擎 OpenAPI**
 - :material-warehouse: **镜像仓库 OpenAPI**
 - :floppy_disk: **存储 OpenAPI**
 
