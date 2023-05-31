@@ -10,7 +10,6 @@
 
     - [v0.7.0](./mcamel/elasticsearch-v0.7.0.md)
     - [v0.7.1](./mcamel/elasticsearch-v0.7.1.md)
-    - [v0.8.0-rc1](./mcamel/elasticsearch-0.8.0-rc1.md)
 
 -   :simple-apachekafka:{ .lg .middle } __Kafka OpenAPI__
 
@@ -18,7 +17,6 @@
 
     - [v0.5.0](./mcamel/kafka-v0.5.0.md)
     - [v0.5.1](./mcamel/kafka-v0.5.1.md)
-    - [v0.6.0-rc1](./mcamel/kafka-0.6.0-rc1.md)
 
 -   :material-database:{ .lg .middle } __MinIO OpenAPI__
 
@@ -26,7 +24,6 @@
 
     - [v0.5.0](./mcamel/minio-v0.5.0.md)
     - [v0.5.1](./mcamel/minio-v0.5.1.md)
-    - [v0.6.0-rc1](./mcamel/minio-0.6.0-rc1.md)
 
 -   :simple-mysql:{ .lg .middle } __MySQL OpenAPI__
 
@@ -34,7 +31,6 @@
 
     - [v0.8.0](./mcamel/mysql-v0.8.0.md)
     - [v0.8.1](./mcamel/mysql-v0.8.1.md)
-    - [v0.9.0-rc1](./mcamel/mysql-0.9.0-rc1.md)
 
 -   :simple-postgresql:{ .lg .middle } __PostgreSQL OpenAPI__
 
@@ -43,7 +39,6 @@
     - [v0.1.0](./mcamel/postgresql-v0.1.0.md)
     - [v0.1.1](./mcamel/postgresql-v0.1.1.md)
     - [v0.1.2](./mcamel/postgresql-v0.1.2.md)
-    - [v0.2.0-rc1](./mcamel/postgresql-0.2.0-rc1.md)
 
 -   :simple-rabbitmq:{ .lg .middle } __RabbitMQ OpenAPI__
 
@@ -51,7 +46,6 @@
 
     - [v0.10.0](./mcamel/rabbitmq-v0.10.0.md)
     - [v0.10.1](./mcamel/rabbitmq-v0.10.1.md)
-    - [v0.11.0-rc1](./mcamel/rabbitmq-0.11.0-rc1.md)
 
 -   :simple-redis:{ .lg .middle } __Redis OpenAPI__
 
