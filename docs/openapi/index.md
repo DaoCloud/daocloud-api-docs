@@ -38,6 +38,7 @@
     ---
 
     - [v0.22.1](./skoala/v0.22.1.md)
+    - [v0.22.2](./skoala/v0.22.2.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
