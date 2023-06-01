@@ -1,9 +1,19 @@
 nav:
     - OpenAPI 文档:
         - OpenAPI 文档索引: openapi/index.md
+<<<<<<< HEAD
         - 容器管理 OpenAPI:
             - v0.18.0: openapi/kpanda/v0.18.0.md
             - v0.18.1: openapi/kpanda/v0.18.1.md
+=======
+        - 容器管理 OpenAPI: openapi/kpanda/v0.18.0.md
+        - 多云编排 OpenAPI: openapi/kairship/v0.8.0.md
+        - 应用工作台 OpenAPI: openapi/amamba/v0.16.3.md
+        - 微服务引擎 OpenAPI: 
+            - v0.22.1: openapi/skoala/v0.22.1.md
+            - v0.22.2: openapi/skoala/v0.22.2.md
+        - 镜像仓库 OpenAPI: openapi/kangaroo/v0.8.0.md
+>>>>>>> c3098a7 (update skoala&mcamel docs)
         - 全局管理 OpenAPI:
             - v0.15.0: openapi/ghippo/v0.15.0.md
             - v0.16.x: 
