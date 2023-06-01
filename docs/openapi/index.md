@@ -19,7 +19,8 @@
     ---
 
     - [v0.16.0](./insight/v0.16.0.md)
-    - [v0.17.0-rc6](./insight/v0.17.0-rc6.md)
+    - [v0.17.0](./insight/v0.17.0.md)
+    - [v0.17.1](./insight/v0.17.1.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
