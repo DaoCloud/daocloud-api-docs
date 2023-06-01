@@ -4,8 +4,10 @@ nav:
         - 容器管理 OpenAPI: openapi/kpanda/v0.18.0.md
         - 多云编排 OpenAPI: openapi/kairship/v0.8.0.md
         - 应用工作台 OpenAPI: openapi/amamba/v0.16.3.md
-        - 微服务引擎 OpenAPI: openapi/skoala/v0.22.1.md
         - 镜像仓库 OpenAPI: openapi/kangaroo/v0.8.0.md
+        - 微服务引擎 OpenAPI: 
+            - v0.22.1: openapi/skoala/v0.22.1.md
+            - v0.22.2: openapi/skoala/v0.22.2.md
         - 全局管理 OpenAPI:
             - v0.15.0: openapi/ghippo/v0.15.0.md
             - v0.16.0: openapi/ghippo/v0.16.0.md
@@ -26,22 +28,29 @@ nav:
             - Elasticsearch OpenAPI:
                 - v0.7.0: openapi/mcamel/elasticsearch-v0.7.0.md
                 - v0.7.1: openapi/mcamel/elasticsearch-v0.7.1.md
+                - v0.8.0: openapi/mcamel/elasticsearch-v0.8.0.md
             - Kafka OpenAPI:
                 - v0.5.0: openapi/mcamel/kafka-v0.5.0.md
                 - v0.5.1: openapi/mcamel/kafka-v0.5.1.md
+                - v0.6.0: openapi/mcamel/kafka-v0.6.0.md
             - MinIO OpenAPI: 
                 - v0.5.0: openapi/mcamel/minio-v0.5.0.md
                 - v0.5.1: openapi/mcamel/minio-v0.5.1.md
+                - v0.6.0: openapi/mcamel/minio-v0.6.0.md
             - MySQL OpenAPI: 
                 - v0.8.0: openapi/mcamel/mysql-v0.8.0.md
                 - v0.8.1: openapi/mcamel/mysql-v0.8.1.md
+                - v0.9.0: openapi/mcamel/mysql-v0.9.0.md
             - PostgreSQL OpenAPI: 
                 - v0.1.0: openapi/mcamel/postgresql-v0.1.0.md
                 - v0.1.1: openapi/mcamel/postgresql-v0.1.1.md
                 - v0.1.2: openapi/mcamel/postgresql-v0.1.2.md
+                - v0.2.0: openapi/mcamel/postgresql-v0.2.0.md
             - RabbitMQ OpenAPI: 
                 - v0.10.0: openapi/mcamel/rabbitmq-v0.10.0.md
                 - v0.10.1: openapi/mcamel/rabbitmq-v0.10.1.md
+                - v0.11.0: openapi/mcamel/rabbitmq-v0.11.0.md
             - Redis OpenAPI: 
                 - v0.7.0: openapi/mcamel/redis-v0.7.0.md
                 - v0.7.1: openapi/mcamel/redis-v0.7.1.md
+                - v0.8.0: openapi/mcamel/redis-v0.8.0.md
