@@ -17,6 +17,7 @@ nav:
             - v0.16.0: openapi/insight/v0.16.0.md
             - v0.17.0: openapi/insight/v0.17.0.md
             - v0.17.1: openapi/insight/v0.17.1.md
+            - v0.17.2: openapi/insight/v0.17.2.md
         - 服务网格 OpenAPI:
             - v0.105.1: openapi/mspider/v0.105.1.md
             - v0.106.2: openapi/mspider/v0.106.2.md
