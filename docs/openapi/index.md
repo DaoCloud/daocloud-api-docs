@@ -28,12 +28,14 @@
     ---
 
     - [v0.18.0](./kpanda/v0.18.0.md)
+    - [v0.18.1](./kpanda/v0.18.1.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
     ---
 
     - [v0.8.0](./kairship/v0.8.0.md)
+    - [v0.9.0](./kairship/v0.9.0.md)
 
 -   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
 
@@ -61,7 +63,7 @@
 
     ---
 
-    - [v0.16.3](./amamba/v0.16.3.md)
+    - [v0.109.1](./amamba/v0.109.1.md)
 
 -   :material-warehouse:{ .lg .middle } __镜像仓库 OpenAPI__
 
