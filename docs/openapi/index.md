@@ -10,10 +10,8 @@
     ---
 
     - [v0.15.0](./ghippo/v0.15.0.md)
-    - [v0.16.0](./ghippo/v0.16.0.md)
-    - [v0.16.1](./ghippo/v0.16.1.md)
-    - [v0.17.0](./ghippo/v0.17.0.md)
-    - [v0.17.1](./ghippo/v0.17.1.md)
+    - [v0.16.x](./ghippo/v0.16.0.md)
+    - [v0.17.x](./ghippo/v0.17.0.md)
     - [v0.18.0](./ghippo/v0.18.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
@@ -21,10 +19,7 @@
     ---
 
     - [v0.16.0](./insight/v0.16.0.md)
-    - [v0.17.0](./insight/v0.17.0.md)
-    - [v0.17.1](./insight/v0.17.1.md)
-    - [v0.17.2](./insight/v0.17.2.md)
-    - [v0.17.3](./insight/v0.17.3.md)
+    - [v0.17.x](./insight/v0.17.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
@@ -39,8 +34,7 @@
 
     - [v0.8.0](./kairship/v0.8.0.md)
     - [v0.9.0](./kairship/v0.9.0.md)
-    - [v0.10.0](./kairship/v0.10.0.md)
-    - [v0.10.1](./kairship/v0.10.1.md)
+    - [v0.10.x](./kairship/v0.10.0.md)
 
 -   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
 
