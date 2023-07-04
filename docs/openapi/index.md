@@ -20,6 +20,7 @@
 
     - [v0.16.0](./insight/v0.16.0.md)
     - [v0.17.x](./insight/v0.17.0.md)
+    - [v0.18.x](./insight/v0.18.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
@@ -43,6 +44,7 @@
     - [v0.22.1](./skoala/v0.22.1.md)
     - [v0.22.2](./skoala/v0.22.2.md)
     - [v0.23.0](./skoala/v0.23.0.md)
+    - [v0.24.0](./skoala/v0.24.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -72,6 +74,7 @@
     ---
 
     - [v0.8.0](./kangaroo/v0.8.0.md)
+    - [v0.9.1](./kangaroo/v0.9.1.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI__
 
