@@ -41,13 +41,9 @@
 
     ---
 
-    - [v0.22.1](./skoala/v0.22.1.md)
-    - [v0.22.2](./skoala/v0.22.2.md)
-<<<<<<< HEAD
+    - [v0.22.x](./skoala/v0.22.1.md)
     - [v0.23.0](./skoala/v0.23.0.md)
-    - [v0.24.0](./skoala/v0.24.0.md)
-=======
->>>>>>> c3098a7 (update skoala&mcamel docs)
+    - [v0.24.x](./skoala/v0.24.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
