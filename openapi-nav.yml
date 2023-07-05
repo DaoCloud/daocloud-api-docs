@@ -32,9 +32,13 @@ nav:
                 - v0.10.2: openapi/kairship/v0.10.2.md
                 - v0.10.3: openapi/kairship/v0.10.3.md
         - 微服务引擎 OpenAPI:
-            - v0.22.1: openapi/skoala/v0.22.1.md
-            - v0.22.2: openapi/skoala/v0.22.2.md
+            - v0.22.x:
+                - v0.22.1: openapi/skoala/v0.22.1.md
+                - v0.22.2: openapi/skoala/v0.22.2.md
             - v0.23.0: openapi/skoala/v0.23.0.md
+            - v0.24.x:
+                - v0.24.0: openapi/skoala/v0.24.0.md
+                - v0.24.1: openapi/skoala/v0.24.1.md
         - 服务网格 OpenAPI:
             - v0.105.1: openapi/mspider/v0.105.1.md
             - v0.106.2: openapi/mspider/v0.106.2.md
