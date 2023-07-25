@@ -12,7 +12,7 @@
     - [v0.15.0](./ghippo/v0.15.0.md)
     - [v0.16.x](./ghippo/v0.16.0.md)
     - [v0.17.x](./ghippo/v0.17.0.md)
-    - [v0.18.0](./ghippo/v0.18.0.md)
+    - [v0.18.x](./ghippo/v0.18.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
@@ -28,6 +28,7 @@
 
     - [v0.18.0](./kpanda/v0.18.0.md)
     - [v0.18.1](./kpanda/v0.18.1.md)
+    - [v0.19.0](./kpanda/v0.19.0.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
@@ -44,6 +45,7 @@
     - [v0.22.x](./skoala/v0.22.1.md)
     - [v0.23.0](./skoala/v0.23.0.md)
     - [v0.24.x](./skoala/v0.24.0.md)
+    - [v0.25.0](./skoala/v0.25.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -67,6 +69,7 @@
 
     - [v0.109.1](./amamba/v0.109.1.md)
     - [v0.110.0](./amamba/v0.110.0.md)
+    - [v0.111.0](./amamba/v0.111.0.md)
 
 -   :material-warehouse:{ .lg .middle } __镜像仓库 OpenAPI__
 
