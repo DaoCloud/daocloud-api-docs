@@ -72,14 +72,14 @@ nav:
             - Index: openapi/midware.md
             - Elasticsearch OpenAPI:
                 - v0.7.x:
-                    - v0.7.0: openapi/mcamel/es/elasticsearch-v0.7.0.md
-                    - v0.7.1: openapi/mcamel/es/elasticsearch-v0.7.1.md
-                - v0.8.0: openapi/mcamel/es/elasticsearch-v0.8.0.md
+                    - v0.7.0: openapi/mcamel/elasticsearch/elasticsearch-v0.7.0.md
+                    - v0.7.1: openapi/mcamel/elasticsearch/elasticsearch-v0.7.1.md
+                - v0.8.0: openapi/mcamel/elasticsearch/elasticsearch-v0.8.0.md
                 - v0.9.x:
-                    - v0.9.0: openapi/mcamel/es/elasticsearch-v0.9.0.md
-                    - v0.9.1: openapi/mcamel/es/elasticsearch-v0.9.1.md
-                    - v0.9.2: openapi/mcamel/es/elasticsearch-v0.9.2.md
-                    - v0.9.3: openapi/mcamel/es/elasticsearch-v0.9.3.md
+                    - v0.9.0: openapi/mcamel/elasticsearch/elasticsearch-v0.9.0.md
+                    - v0.9.1: openapi/mcamel/elasticsearch/elasticsearch-v0.9.1.md
+                    - v0.9.2: openapi/mcamel/elasticsearch/elasticsearch-v0.9.2.md
+                    - v0.9.3: openapi/mcamel/elasticsearch/elasticsearch-v0.9.3.md
             - Kafka OpenAPI:
                 - v0.5.x:
                     - v0.5.0: openapi/mcamel/kafka/kafka-v0.5.0.md
@@ -115,22 +115,22 @@ nav:
                     - v0.10.3: openapi/mcamel/mysql/mysql-v0.10.3.md
             - PostgreSQL OpenAPI:
                 - v0.1.x:
-                    - v0.1.0: openapi/mcamel/pg/postgresql-v0.1.0.md
-                    - v0.1.1: openapi/mcamel/pg/postgresql-v0.1.1.md
-                    - v0.1.2: openapi/mcamel/pg/postgresql-v0.1.2.md
-                - v0.2.0: openapi/mcamel/pg/postgresql-v0.2.0.md
-                - v0.3.0: openapi/mcamel/pg/postgresql-v0.3.0.md
-                - v0.4.0: openapi/mcamel/pg/postgresql-v0.4.0.md
+                    - v0.1.0: openapi/mcamel/postgresql/postgresql-v0.1.0.md
+                    - v0.1.1: openapi/mcamel/postgresql/postgresql-v0.1.1.md
+                    - v0.1.2: openapi/mcamel/postgresql/postgresql-v0.1.2.md
+                - v0.2.0: openapi/mcamel/postgresql/postgresql-v0.2.0.md
+                - v0.3.0: openapi/mcamel/postgresql/postgresql-v0.3.0.md
+                - v0.4.0: openapi/mcamel/postgresql/postgresql-v0.4.0.md
             - RabbitMQ OpenAPI:
                 - v0.10.x:
-                    - v0.10.0: openapi/mcamel/rmq/rabbitmq-v0.10.0.md
-                    - v0.10.1: openapi/mcamel/rmq/rabbitmq-v0.10.1.md
-                - v0.11.0: openapi/mcamel/rmq/rabbitmq-v0.11.0.md
+                    - v0.10.0: openapi/mcamel/rabbitmq/rabbitmq-v0.10.0.md
+                    - v0.10.1: openapi/mcamel/rabbitmq/rabbitmq-v0.10.1.md
+                - v0.11.0: openapi/mcamel/rabbitmq/rabbitmq-v0.11.0.md
                 - v0.12.x:
-                    - v0.12.0: openapi/mcamel/rmq/rabbitmq-v0.12.0.md
-                    - v0.12.1: openapi/mcamel/rmq/rabbitmq-v0.12.1.md
-                    - v0.12.2: openapi/mcamel/rmq/rabbitmq-v0.12.2.md
-                    - v0.12.3: openapi/mcamel/rmq/rabbitmq-v0.12.3.md
+                    - v0.12.0: openapi/mcamel/rabbitmq/rabbitmq-v0.12.0.md
+                    - v0.12.1: openapi/mcamel/rabbitmq/rabbitmq-v0.12.1.md
+                    - v0.12.2: openapi/mcamel/rabbitmq/rabbitmq-v0.12.2.md
+                    - v0.12.3: openapi/mcamel/rabbitmq/rabbitmq-v0.12.3.md
             - Redis OpenAPI: 
                 - v0.7.x:
                     - v0.7.0: openapi/mcamel/redis/redis-v0.7.0.md

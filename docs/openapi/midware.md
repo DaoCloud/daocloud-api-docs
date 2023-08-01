@@ -8,17 +8,15 @@
 
     ---
 
-    - [v0.7.0](mcamel/es/elasticsearch-v0.7.0.md)
-    - [v0.7.1](mcamel/es/elasticsearch-v0.7.1.md)
-    - [v0.8.0](mcamel/es/elasticsearch-v0.8.0.md)
-    - [v0.9.x](mcamel/es/elasticsearch-v0.9.0.md)
+    - [v0.7.x](mcamel/elasticsearch/elasticsearch-v0.7.0.md)
+    - [v0.8.0](mcamel/elasticsearch/elasticsearch-v0.8.0.md)
+    - [v0.9.x](mcamel/elasticsearch/elasticsearch-v0.9.0.md)
 
 -   :simple-apachekafka:{ .lg .middle } __Kafka OpenAPI__
 
     ---
 
-    - [v0.5.0](mcamel/kafka/kafka-v0.5.0.md)
-    - [v0.5.1](mcamel/kafka/kafka-v0.5.1.md)
+    - [v0.5.x](mcamel/kafka/kafka-v0.5.0.md)
     - [v0.6.0](mcamel/kafka/kafka-v0.6.0.md)
     - [v0.7.x](mcamel/kafka/kafka-v0.7.0.md)
 
@@ -26,17 +24,22 @@
 
     ---
 
-    - [v0.5.0](mcamel/minio/minio-v0.5.0.md)
-    - [v0.5.1](mcamel/minio/minio-v0.5.1.md)
+    - [v0.5.x](mcamel/minio/minio-v0.5.0.md)
     - [v0.6.0](mcamel/minio/minio-v0.6.0.md)
     - [v0.7.x](mcamel/minio/minio-v0.7.0.md)
+
+-   :simple-mongodb:{ .lg .middle } __MongoDB OpenAPI__
+
+    ---
+
+    - [v0.1.0](mcamel/mongodb/mongodb-v0.1.0.md)
+    - [v0.2.0](mcamel/mongodb/mongodb-v0.2.0.md)
 
 -   :simple-mysql:{ .lg .middle } __MySQL OpenAPI__
 
     ---
 
-    - [v0.8.0](mcamel/mysql/mysql-v0.8.0.md)
-    - [v0.8.1](mcamel/mysql/mysql-v0.8.1.md)
+    - [v0.8.x](mcamel/mysql/mysql-v0.8.0.md)
     - [v0.9.0](mcamel/mysql/mysql-v0.9.0.md)
     - [v0.10.x](mcamel/mysql/mysql-v0.10.0.md)
 
@@ -44,35 +47,27 @@
 
     ---
 
-    - [v0.1.0](mcamel/pg/postgresql-v0.1.0.md)
-    - [v0.1.1](mcamel/pg/postgresql-v0.1.1.md)
-    - [v0.1.2](mcamel/pg/postgresql-v0.1.2.md)
-    - [v0.2.0](mcamel/pg/postgresql-v0.2.0.md)
-    - [v0.3.0](mcamel/pg/postgresql-v0.3.0.md)
+    - [v0.1.x](mcamel/postgresql/postgresql-v0.1.0.md)
+    - [v0.2.0](mcamel/postgresql/postgresql-v0.2.0.md)
+    - [v0.3.0](mcamel/postgresql/postgresql-v0.3.0.md)
+    - [v0.4.0](mcamel/postgresql/postgresql-v0.4.0.md)
 
 -   :simple-rabbitmq:{ .lg .middle } __RabbitMQ OpenAPI__
 
     ---
 
-    - [v0.10.0](mcamel/rmq/rabbitmq-v0.10.0.md)
-    - [v0.10.1](mcamel/rmq/rabbitmq-v0.10.1.md)
-    - [v0.11.0](mcamel/rmq/rabbitmq-v0.11.0.md)
-    - [v0.12.x](mcamel/rmq/rabbitmq-v0.12.0.md)
+    - [v0.10.x](mcamel/rabbitmq/rabbitmq-v0.10.0.md)
+    - [v0.11.0](mcamel/rabbitmq/rabbitmq-v0.11.0.md)
+    - [v0.12.x](mcamel/rabbitmq/rabbitmq-v0.12.0.md)
 
 -   :simple-redis:{ .lg .middle } __Redis OpenAPI__
 
     ---
 
-    - [v0.7.0](mcamel/redis/redis-v0.7.0.md)
-    - [v0.7.1](mcamel/redis/redis-v0.7.1.md)
+    - [v0.7.x](mcamel/redis/redis-v0.7.0.md)
     - [v0.8.0](mcamel/redis/redis-v0.8.0.md)
     - [v0.9.0](mcamel/redis/redis-v0.9.0.md)
-
--   :simple-mongodb:{ .lg .middle } MongoDB OpenAPI__
-
-    ---
-
-    - [v0.1.0](mcamel/mongodb/mongodb-v0.1.0.md)
+    - [v0.10.0](mcamel/redis/redis-v0.10.0.md)
 
 </div>
 
