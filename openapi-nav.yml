@@ -5,7 +5,9 @@ nav:
             - v0.18.0: openapi/kpanda/v0.18.0.md
             - v0.18.1: openapi/kpanda/v0.18.1.md
             - v0.19.0: openapi/kpanda/v0.19.0.md
-            - v0.20.0: openapi/kpanda/v0.20.0.md
+            - v0.20.x: 
+                - v0.20.0: openapi/kpanda/v0.20.0.md
+                - v0.20.1: openapi/kpanda/v0.20.1.md
         - 全局管理 OpenAPI:
             - v0.15.0: openapi/ghippo/v0.15.0.md
             - v0.16.x: 
@@ -29,6 +31,9 @@ nav:
                 - v0.18.0: openapi/insight/v0.18.0.md
                 - v0.18.1: openapi/insight/v0.18.1.md
                 - v0.18.2: openapi/insight/v0.18.2.md
+            - v0.19.x:
+                - v0.19.0: openapi/insight/v0.19.0.md
+                - v0.19.1: openapi/insight/v0.19.1.md      
         - 多云编排 OpenAPI:
             - v0.8.0: openapi/kairship/v0.8.0.md
             - v0.9.0: openapi/kairship/v0.9.0.md
@@ -50,6 +55,7 @@ nav:
             - v0.26.x:
                 - v0.26.0: openapi/skoala/v0.26.0.md
                 - v0.26.1: openapi/skoala/v0.26.1.md
+                - v0.26.2: openapi/skoala/v0.26.2.md                
         - 服务网格 OpenAPI:
             - v0.105.1: openapi/mspider/v0.105.1.md
             - v0.106.2: openapi/mspider/v0.106.2.md
@@ -67,7 +73,9 @@ nav:
         - 镜像仓库 OpenAPI:
             - v0.8.0: openapi/kangaroo/v0.8.0.md
             - v0.9.1: openapi/kangaroo/v0.9.1.md
-            - v0.10.0: openapi/kangaroo/v0.10.0.md
+            - v0.10.x: 
+                - v0.10.0: openapi/kangaroo/v0.10.0.md
+                - v0.10.1: openapi/kangaroo/v0.10.1.md
         - 中间件 OpenAPI:
             - Index: openapi/midware.md
             - Elasticsearch OpenAPI:
