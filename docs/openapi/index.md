@@ -61,6 +61,7 @@
 
     - [v0.105.1](./mspider/v0.105.1.md)
     - [v0.106.2](./mspider/v0.106.2.md)
+    - [v0.108.3](./mspider/v0.108.3.md)
 
 -   :material-dot-net:{ .lg .middle } __网络 OpenAPI__
 
