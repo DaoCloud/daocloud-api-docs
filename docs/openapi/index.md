@@ -22,7 +22,7 @@
     - [v0.17.x](./ghippo/v0.17.0.md)
     - [v0.18.x](./ghippo/v0.18.0.md)
     - [v0.19.0](./ghippo/v0.19.0.md)
-    - [v0.20.0](./ghippo/v0.20.0.md)
+    - [v0.20.x](./ghippo/v0.20.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
@@ -32,6 +32,7 @@
     - [v0.17.x](./insight/v0.17.0.md)
     - [v0.18.x](./insight/v0.18.0.md)
     - [v0.19.x](./insight/v0.19.0.md)
+    - [v0.20.0](./insight/v0.20.0.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
@@ -41,6 +42,7 @@
     - [v0.9.0](./kairship/v0.9.0.md)
     - [v0.10.x](./kairship/v0.10.0.md)
     - [v0.11.x](./kairship/v0.11.0.md)
+    - [v0.12.0](./kairship/v0.12.0.md)
 
 -   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
 
@@ -51,7 +53,7 @@
     - [v0.24.x](./skoala/v0.24.0.md)
     - [v0.25.0](./skoala/v0.25.0.md)
     - [v0.26.x](./skoala/v0.26.0.md)
-    - [v0.27.0](./skoala/v0.27.0.md)
+    - [v0.27.x](./skoala/v0.27.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -86,6 +88,7 @@
     - [v0.8.0](./kangaroo/v0.8.0.md)
     - [v0.9.1](./kangaroo/v0.9.1.md)
     - [v0.10.x](./kangaroo/v0.10.0.md)
+    - [v0.11.0](./kangaroo/v0.11.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI__
 
