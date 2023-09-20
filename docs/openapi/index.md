@@ -12,6 +12,7 @@
     - [v0.18.x](./kpanda/v0.18.0.md)
     - [v0.19.0](./kpanda/v0.19.0.md)
     - [v0.20.x](./kpanda/v0.20.0.md)
+    - [v0.21.1](./kpanda/v0.21.1.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
@@ -62,6 +63,7 @@
     - [v0.105.1](./mspider/v0.105.1.md)
     - [v0.106.2](./mspider/v0.106.2.md)
     - [v0.108.3](./mspider/v0.108.3.md)
+    - [v0.109.0](./mspider/v0.109.0.md)
 
 -   :material-dot-net:{ .lg .middle } __网络 OpenAPI__
 
