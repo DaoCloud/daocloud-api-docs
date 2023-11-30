@@ -12,6 +12,8 @@ nav:
                 - v0.113.0: openapi/amamba/v0.113.0.md
                 - v0.113.1: openapi/amamba/v0.113.1.md
                 - v0.113.2: openapi/amamba/v0.113.2.md
+                - v0.113.3: openapi/amamba/v0.113.3.md
+            - v0.114.0: openapi/amamba/v0.114.0.md
         - 容器管理 OpenAPI:
             - v0.18.x:
                 - v0.18.0: openapi/kpanda/v0.18.0.md
@@ -46,6 +48,7 @@ nav:
             - v0.12.x:
                 - v0.12.0: openapi/kangaroo/v0.12.0.md
                 - v0.12.1: openapi/kangaroo/v0.12.1.md
+            - v0.13.0: openapi/kangaroo/v0.13.0.md
         - 网络 OpenAPI:
             - v0.5.0: openapi/spidernet/v0.5.0.md
             - v0.6.0: openapi/spidernet/v0.6.0.md
@@ -73,7 +76,10 @@ nav:
                 - v0.19.1: openapi/insight/v0.19.1.md
                 - v0.19.2: openapi/insight/v0.19.2.md
             - v0.20.0: openapi/insight/v0.20.0.md
-            - v0.21.1: openapi/insight/v0.21.1.md
+            - v0.21.x:
+                - v0.21.0: openapi/insight/v0.21.0.md
+                - v0.21.1: openapi/insight/v0.21.1.md
+                - v0.21.2: openapi/insight/v0.21.2.md
         - 微服务引擎 OpenAPI:
             - v0.22.x:
                 - v0.22.1: openapi/skoala/v0.22.1.md
@@ -94,6 +100,7 @@ nav:
             - v0.28.x:
                 - v0.28.0: openapi/skoala/v0.28.0.md
                 - v0.28.1: openapi/skoala/v0.28.1.md
+            - v0.29.0: openapi/skoala/v0.29.0.md
         - 服务网格 OpenAPI:
             - v0.105.1: openapi/mspider/v0.105.1.md
             - v0.106.2: openapi/mspider/v0.106.2.md
