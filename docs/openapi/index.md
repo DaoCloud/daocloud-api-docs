@@ -15,6 +15,7 @@
     - [v0.112.0](./amamba/v0.112.0.md)
     - [v0.113.x](./amamba/v0.113.0.md)
     - [v0.114.0](./amamba/v0.114.0.md)
+    - [v0.115.0](./amamba/v0.115.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
@@ -59,6 +60,7 @@
     - [v0.8.x](./spidernet/v0.8.0.md)
     - [v0.9.0](./spidernet/v0.9.0.md)
     - [v0.10.x](./spidernet/v0.10.0.md)
+    - [v0.12.0](./spidernet/v0.12.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
@@ -70,7 +72,7 @@
     - [v0.19.x](./insight/v0.19.0.md)
     - [v0.20.0](./insight/v0.20.0.md)
     - [v0.21.x](./insight/v0.21.0.md)
-    - [v0.22.0](./insight/v0.22.0.md)
+    - [v0.22.x](./insight/v0.22.0.md)
 
 -   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
 
