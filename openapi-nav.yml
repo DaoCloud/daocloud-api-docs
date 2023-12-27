@@ -14,6 +14,7 @@ nav:
                 - v0.113.2: openapi/amamba/v0.113.2.md
                 - v0.113.3: openapi/amamba/v0.113.3.md
             - v0.114.0: openapi/amamba/v0.114.0.md
+            - v0.115.0: openapi/amamba/v0.115.0.md
         - 容器管理 OpenAPI:
             - v0.18.x:
                 - v0.18.0: openapi/kpanda/v0.18.0.md
@@ -64,6 +65,7 @@ nav:
             - v0.10.x:
                 - v0.10.0: openapi/spidernet/v0.10.0.md
                 - v0.10.1: openapi/spidernet/v0.10.1.md
+            - v0.12.0: openapi/spidernet/v0.12.0.md
         - 可观测性 OpenAPI:
             - v0.16.0: openapi/insight/v0.16.0.md
             - v0.17.x:
@@ -84,7 +86,9 @@ nav:
                 - v0.21.0: openapi/insight/v0.21.0.md
                 - v0.21.1: openapi/insight/v0.21.1.md
                 - v0.21.2: openapi/insight/v0.21.2.md
-            - v0.22.0: openapi/insight/v0.22.0.md
+            - v0.22.x:
+                - v0.22.0: openapi/insight/v0.22.0.md
+                - v0.22.1: openapi/insight/v0.22.1.md
         - 微服务引擎 OpenAPI:
             - v0.22.x:
                 - v0.22.1: openapi/skoala/v0.22.1.md
