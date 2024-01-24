@@ -15,6 +15,7 @@ nav:
                 - v0.113.3: openapi/amamba/v0.113.3.md
             - v0.114.0: openapi/amamba/v0.114.0.md
             - v0.115.0: openapi/amamba/v0.115.0.md
+            - v0.116.0: openapi/amamba/v0.116.0.md
         - 容器管理 OpenAPI:
             - v0.18.x:
                 - v0.18.0: openapi/kpanda/v0.18.0.md
@@ -113,6 +114,8 @@ nav:
                 - v0.28.1: openapi/skoala/v0.28.1.md
             - v0.29.0: openapi/skoala/v0.29.0.md
             - v0.30.0: openapi/skoala/v0.30.0.md
+            - v0.31.2: openapi/skoala/v0.31.2.md
+            - v0.32.0: openapi/skoala/v0.32.0.md
         - 服务网格 OpenAPI:
             - v0.105.1: openapi/mspider/v0.105.1.md
             - v0.106.2: openapi/mspider/v0.106.2.md
@@ -259,4 +262,6 @@ nav:
                 - v0.20.1: openapi/ghippo/v0.20.1.md
             - v0.21.0: openapi/ghippo/v0.21.0.md
             - v0.22.1: openapi/ghippo/v0.22.1.md
-            - v0.23.0: openapi/ghippo/v0.23.0.md
+            - v0.23.x:
+                - v0.23.0: openapi/ghippo/v0.23.0.md
+                - v0.23.1: openapi/ghippo/v0.23.1.md
