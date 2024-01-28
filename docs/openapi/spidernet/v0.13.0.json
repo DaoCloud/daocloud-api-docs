@@ -1,0 +1,5678 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "网络spidernet",
+    "version": "v0.13.0"
+  },
+  "tags": [
+    {
+      "name": "Common"
+    },
+    {
+      "name": "EgressGateway"
+    },
+    {
+      "name": "Multus"
+    },
+    {
+      "name": "Sriov"
+    },
+    {
+      "name": "Spiderpool"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/apis/spidernet.io/v1alpha1/clusters": {
+      "get": {
+        "operationId": "Common_ListClustersEnabledNetwork",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListClustersEnabledNetworkResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "LIST_CLUSTERS_ENABLED_NETWORK_SORT_BY_UNSPECIFIED",
+              "LIST_CLUSTERS_ENABLED_NETWORK_SORT_BY_NAME"
+            ],
+            "default": "LIST_CLUSTERS_ENABLED_NETWORK_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Common"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/configmaps/egressgateway": {
+      "get": {
+        "operationId": "EgressGateway_GetEgressConfigMap",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetEgressConfigMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/gateways": {
+      "get": {
+        "operationId": "EgressGateway_ListEgressGateway",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListEgressGatewayResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "LISTEGRESSGATEWAY_SORT_BY_UNSPECIFIED",
+              "LISTEGRESSGATEWAY_SORT_BY_TIME",
+              "LISTEGRESSGATEWAY_SORT_BY_NAME"
+            ],
+            "default": "LISTEGRESSGATEWAY_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      },
+      "post": {
+        "operationId": "EgressGateway_CreateEgressGateway",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "descriptions": {
+                  "type": "string"
+                },
+                "nodeSelectorPolicy": {
+                  "type": "string"
+                },
+                "nodeSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "ippoolsV4": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "双栈情况下，v4 池 IP 数量应该和 v6 池 IP 数量相同， 目前不支持 cidr 格式"
+                },
+                "ippoolsV6": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "defaultEipV4": {
+                  "type": "string",
+                  "description": "eipV4 应该在 v4 池范围内"
+                },
+                "defaultEipV6": {
+                  "type": "string",
+                  "description": "eipV6 应该在 v6 池范围内"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/gateways/{name}": {
+      "get": {
+        "operationId": "EgressGateway_GetEgressGateway",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetEgressGatewayResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      },
+      "delete": {
+        "operationId": "EgressGateway_DeleteEgressGateway",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      },
+      "put": {
+        "operationId": "EgressGateway_UpdateEgressGateway",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "descriptions": {
+                  "type": "string"
+                },
+                "nodeSelectorPolicy": {
+                  "type": "string"
+                },
+                "nodeSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "ippoolsV4": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ippoolsV6": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "defaultEipV4": {
+                  "type": "string"
+                },
+                "defaultEipV6": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/gateways/{name}/nodes": {
+      "get": {
+        "operationId": "EgressGateway_ListEgressgatewayNode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListEgressgatewayNodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "LISTEGRESSGATEWAYNODE_SORT_BY_UNSPECIFIED",
+              "LISTEGRESSGATEWAYNODE_SORT_BY_NAME",
+              "LISTEGRESSGATEWAYNODE_SORT_BY_STATUS"
+            ],
+            "default": "LISTEGRESSGATEWAYNODE_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/gateways/{name}/nodes/{node}/eips": {
+      "get": {
+        "operationId": "EgressGateway_ListEgressgatewayNodeEip",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListEgressgatewayNodeEipResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "node",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ipVersion",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IP_VERSION_UNSPECIFIED",
+              "IP_VERSION_IPV4",
+              "IP_VERSION_IPV6"
+            ],
+            "default": "IP_VERSION_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "LISTEGRESSGATEWAYNODEEIP_SORT_BY_UNSPECIFIED",
+              "LISTEGRESSGATEWAYNODEEIP_SORT_BY_IP",
+              "LISTEGRESSGATEWAYNODEEIP_SORT_BY_NAMESPACE",
+              "LISTEGRESSGATEWAYNODEEIP_SORT_BY_POLICY_NAME"
+            ],
+            "default": "LISTEGRESSGATEWAYNODEEIP_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/resources/{resource}": {
+      "post": {
+        "operationId": "EgressGateway_CreateResourceByYaml",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resource",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "EGRESSCRD_UNSPECIFIED",
+              "EGRESSCRD_GATEWAY",
+              "EGRESSCRD_POLICY",
+              "EGRESSCRD_CLUSTER_POLICY"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/scop/{scop}/namespaces/{namespace}/policies/{name}": {
+      "get": {
+        "operationId": "EgressGateway_GetEgressPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetEgressPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      },
+      "delete": {
+        "operationId": "EgressGateway_DeleteEgressPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "namespace",
+            "description": "删除集群级别 policy 时，此字段为空",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      },
+      "put": {
+        "operationId": "EgressGateway_UpdateEgressPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "namespace",
+            "description": "集群级别 policy 时，此字段为空",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "descriptions": {
+                  "type": "string"
+                },
+                "podSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "此字段和 sourceSubnet 2必存1"
+                },
+                "namespaceSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "命名空间级别 policy 时，此字段为空"
+                },
+                "sourceSubnetV4": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "sourceSubnetV6": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "destSubnetV4": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "destSubnetV6": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "priority": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/scop/{scop}/namespaces/{namespace}/policies/{name}/endpoints": {
+      "get": {
+        "operationId": "EgressGateway_ListEgressPolicyEndpoint",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListEgressPolicyEndpointResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "LISTEGRESSPOLICYENDPOINT_SORT_BY_UNSPECIFIED",
+              "LISTEGRESSPOLICYENDPOINT_SORT_BY_POD_NAME",
+              "LISTEGRESSPOLICYENDPOINT_SORT_BY_NODE_NAME",
+              "LISTEGRESSPOLICYENDPOINT_SORT_BY_NAMESPACE"
+            ],
+            "default": "LISTEGRESSPOLICYENDPOINT_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/scop/{scop}/policies": {
+      "get": {
+        "operationId": "EgressGateway_ListEgressPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListEgressPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "LISTEGRESSPOLICY_SORT_BY_UNSPECIFIED",
+              "LISTEGRESSPOLICY_SORT_BY_TIME",
+              "LISTEGRESSPOLICY_SORT_BY_POLICY_NAME",
+              "LISTEGRESSPOLICY_SORT_BY_GATEWAY_NAME",
+              "LISTEGRESSPOLICY_SORT_BY_PRIORITY"
+            ],
+            "default": "LISTEGRESSPOLICY_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      },
+      "post": {
+        "operationId": "EgressGateway_CreateEgressPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "description": "此字段不能为空",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string",
+                  "description": "此字段在创建集群级别 policy 时，传空"
+                },
+                "descriptions": {
+                  "type": "string"
+                },
+                "egressgatewayName": {
+                  "type": "string"
+                },
+                "eipV4": {
+                  "type": "string"
+                },
+                "eipV6": {
+                  "type": "string"
+                },
+                "useNodeIp": {
+                  "type": "boolean"
+                },
+                "allocatorPolicy": {
+                  "$ref": "#/definitions/typesAllocatorPolicy"
+                },
+                "podSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "此字段和 sourceSubnet 字段2必存1"
+                },
+                "namespaceSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "此字段在创建命名空间级别的 policy 时，传空"
+                },
+                "sourceSubnetV4": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "sourceSubnetV6": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "destSubnetV4": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "destSubnetV6": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "priority": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/scop/{scop}/policies/{name}": {
+      "get": {
+        "operationId": "EgressGateway_GetEgressClusterPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetEgressPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      },
+      "delete": {
+        "operationId": "EgressGateway_DeleteEgressClusterPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "删除集群级别 policy 时，此字段为空",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      },
+      "put": {
+        "operationId": "EgressGateway_UpdateEgressClusterPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "descriptions": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string",
+                  "description": "集群级别 policy 时，此字段为空"
+                },
+                "podSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "此字段和 sourceSubnet 2必存1"
+                },
+                "namespaceSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "命名空间级别 policy 时，此字段为空"
+                },
+                "sourceSubnetV4": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "sourceSubnetV6": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "destSubnetV4": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "destSubnetV6": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "priority": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/egress/scop/{scop}/policies/{name}/endpoints": {
+      "get": {
+        "operationId": "EgressGateway_ListEgressClusterPolicyEndpoint",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListEgressPolicyEndpointResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scop",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SCOP_UNSPECIFIED",
+              "SCOP_CLUSTER",
+              "SCOP_NAMESPACE"
+            ]
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "LISTEGRESSPOLICYENDPOINT_SORT_BY_UNSPECIFIED",
+              "LISTEGRESSPOLICYENDPOINT_SORT_BY_POD_NAME",
+              "LISTEGRESSPOLICYENDPOINT_SORT_BY_NODE_NAME",
+              "LISTEGRESSPOLICYENDPOINT_SORT_BY_NAMESPACE"
+            ],
+            "default": "LISTEGRESSPOLICYENDPOINT_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "EgressGateway"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/multus/instance-annotations": {
+      "get": {
+        "summary": "GetMultusInstanceAnnotations parse annotations of multus instances",
+        "operationId": "Multus_ListMultusInstanceAnnotations",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListMultusInstanceAnnotationsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "Cluster the specified resources belongs to.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Multus"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/multus/multuscniconfig": {
+      "get": {
+        "summary": "ListMultusCniConfig list all MultusCniConfig instances",
+        "operationId": "Multus_ListMultusCniConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListMultusCniConfigResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "vlanId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cniType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_BY_UNSPECIFIED",
+              "SORT_BY_NAME",
+              "SORT_BY_CNI_TYPE",
+              "SORT_BY_VLAN",
+              "SORT_BY_CREATE_TIME"
+            ],
+            "default": "SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Multus"
+        ]
+      },
+      "post": {
+        "summary": "CreateMultusCniConfig create a multusCniConfig instance",
+        "operationId": "Multus_CreateMultusCniConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string",
+                  "title": "Reservation field"
+                },
+                "cniType": {
+                  "$ref": "#/definitions/multusv1alpha1Type",
+                  "title": "can't be updated"
+                },
+                "vlanId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "resourceName": {
+                  "type": "string"
+                },
+                "masters": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "bond": {
+                  "$ref": "#/definitions/v1alpha1Bond"
+                },
+                "customCniConfig": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "v4IPPools": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "v6IPPools": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "enableRdma": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Multus"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/multus/multuscniconfig/{name}": {
+      "get": {
+        "summary": "GetMultusCniConfig get a MultusCniConfig instance",
+        "operationId": "Multus_GetMultusCniConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1MultusCniConfig"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "Cluster the specified resources belongs to.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Multus"
+        ]
+      },
+      "put": {
+        "summary": "UpdateMultusCniConfig update a multusCniConfig instance",
+        "operationId": "Multus_UpdateMultusCniConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "namespace": {
+                  "type": "string"
+                },
+                "customCniConfig": {
+                  "type": "string"
+                },
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "vlanId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "masters": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "v4IPPools": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "v6IPPools": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "bond": {
+                  "$ref": "#/definitions/v1alpha1Bond"
+                },
+                "enableRdma": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Multus"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/multus/{namespace}/multuscniconfig/{name}": {
+      "delete": {
+        "summary": "DeleteMultusCniConfig delete a MultusCniConfig instance",
+        "operationId": "Multus_DeleteMultusCniConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Multus"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/namespaces": {
+      "get": {
+        "operationId": "Common_ListNamespaces",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListNamespacesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "NAMESPACE_SORT_BY_UNSPECIFIED",
+              "NAMESPACE_SORT_BY_NAME"
+            ],
+            "default": "NAMESPACE_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Common"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/networkplugins": {
+      "get": {
+        "operationId": "Common_GetNetworkPlugins",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetNetworkPluginsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Common"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/nodes": {
+      "get": {
+        "operationId": "Common_ListNodes",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListNodesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "NODE_SORT_BY_UNSPECIFIED",
+              "NODE_SORT_BY_NAME"
+            ],
+            "default": "NODE_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Common"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/ipversion": {
+      "get": {
+        "operationId": "Spiderpool_GetIPVersionEnablement",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1IPVersionEnablement"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderippools": {
+      "get": {
+        "operationId": "Spiderpool_ListSpiderIPPools",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSpiderIPPoolsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "controllerSubnet",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ipVersion",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IP_VERSION_UNSPECIFIED",
+              "IP_VERSION_IPV4",
+              "IP_VERSION_IPV6"
+            ],
+            "default": "IP_VERSION_UNSPECIFIED"
+          },
+          {
+            "name": "vlan",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "selectPod",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "selectNamespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IPPOOL_SORT_BY_UNSPECIFIED",
+              "IPPOOL_SORT_BY_NAME",
+              "IPPOOL_SORT_BY_STATIC",
+              "IPPOOL_SORT_BY_SUBNET",
+              "IPPOOL_SORT_BY_VLAN"
+            ],
+            "default": "IPPOOL_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      },
+      "post": {
+        "operationId": "Spiderpool_CreateSpiderIPPool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "subnet": {
+                  "type": "string"
+                },
+                "gateway": {
+                  "type": "string"
+                },
+                "routes": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/typesRoute"
+                  }
+                },
+                "podAffinity": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespaceAffinity": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "nodeAffinity": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "ips": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "vlan": {
+                  "type": "string",
+                  "format": "int64"
+                },
+                "namespaceName": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nodeName": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "multusName": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderippools/podresults": {
+      "get": {
+        "operationId": "Spiderpool_ListPodAllocationResults",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListPodAllocationResultsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "matchLabel",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "POD_ALLOCATION_RESULT_SORT_BY_UNSPECIFIED",
+              "POD_ALLOCATION_RESULT_SORT_BY_NIC"
+            ],
+            "default": "POD_ALLOCATION_RESULT_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderippools/{name}": {
+      "get": {
+        "operationId": "Spiderpool_GetSpiderIPPool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1IPPoolBasicInfo"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      },
+      "delete": {
+        "operationId": "Spiderpool_DeleteSpiderIPPool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      },
+      "put": {
+        "operationId": "Spiderpool_UpdateSpiderIPPool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "gateway": {
+                  "type": "string"
+                },
+                "vlan": {
+                  "type": "string",
+                  "format": "int64"
+                },
+                "routes": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/typesRoute"
+                  }
+                },
+                "podAffinity": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespaceAffinity": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "nodeAffinity": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespaceName": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nodeName": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "multusName": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderippools/{name}/addips": {
+      "put": {
+        "operationId": "Spiderpool_AddIPPoolIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "ips": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderippools/{name}/allocations": {
+      "get": {
+        "operationId": "Spiderpool_ListIPAllocations",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListIPAllocationsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IPPOOL_IP_SORT_BY_UNSPECIFIED",
+              "IPPOOL_IP_SORT_BY_ADDRESS",
+              "IPPOOL_IP_SORT_BY_STATUS",
+              "IPPOOL_IP_SORT_BY_NAMESPACE",
+              "IPPOOL_IP_SORT_BY_WORKLOAD",
+              "IPPOOL_IP_SORT_BY_POD"
+            ],
+            "default": "IPPOOL_IP_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderippools/{name}/exist": {
+      "get": {
+        "operationId": "Spiderpool_CheckSpiderIPPoolExist",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/typesExist"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderippools/{name}/matchedworkloads": {
+      "get": {
+        "operationId": "Spiderpool_ListMatchedWorkloads",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListMatchedWorkloadsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "MATCHED_WORKLOAD_SORT_BY_UNSPECIFIED",
+              "MATCHED_WORKLOAD_SORT_BY_NAMESPACE",
+              "MATCHED_WORKLOAD_SORT_BY_TYPE",
+              "MATCHED_WORKLOAD_SORT_BY_NAME"
+            ],
+            "default": "MATCHED_WORKLOAD_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderippools/{name}/rmips": {
+      "put": {
+        "operationId": "Spiderpool_RemoveIPPoolIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "ips": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderreservedips": {
+      "get": {
+        "operationId": "Spiderpool_ListSpiderReservedIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSpiderReservedIPsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ipVersion",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IP_VERSION_UNSPECIFIED",
+              "IP_VERSION_IPV4",
+              "IP_VERSION_IPV6"
+            ],
+            "default": "IP_VERSION_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderreservedips/{ipVersion}/addips": {
+      "put": {
+        "operationId": "Spiderpool_AddSpiderReservedIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ipVersion",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "IP_VERSION_UNSPECIFIED",
+              "IP_VERSION_IPV4",
+              "IP_VERSION_IPV6"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "reservedIps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spiderreservedips/{ipVersion}/rmips": {
+      "put": {
+        "operationId": "Spiderpool_RemoveSpiderReservedIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ipVersion",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "IP_VERSION_UNSPECIFIED",
+              "IP_VERSION_IPV4",
+              "IP_VERSION_IPV6"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "reservedIps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spidersubnets": {
+      "get": {
+        "operationId": "Spiderpool_ListSpiderSubnets",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSpiderSubnetsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ipVersion",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IP_VERSION_UNSPECIFIED",
+              "IP_VERSION_IPV4",
+              "IP_VERSION_IPV6"
+            ],
+            "default": "IP_VERSION_UNSPECIFIED"
+          },
+          {
+            "name": "vlan",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SUBNET_SORT_BY_UNSPECIFIED",
+              "SUBNET_SORT_BY_NAME",
+              "SUBNET_SORT_BY_SUBNET",
+              "SUBNET_SORT_BY_VLAN",
+              "SUBNET_SORT_BY_IPPOOL_COUNT",
+              "SUBNET_SORT_BY_IP_IN_USE"
+            ],
+            "default": "SUBNET_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      },
+      "post": {
+        "operationId": "Spiderpool_CreateSpiderSubnet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "subnet": {
+                  "type": "string"
+                },
+                "gateway": {
+                  "type": "string"
+                },
+                "vlan": {
+                  "type": "string",
+                  "format": "int64"
+                },
+                "routes": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/typesRoute"
+                  }
+                },
+                "ips": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spidersubnets/{name}": {
+      "get": {
+        "operationId": "Spiderpool_GetSpiderSubnet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1SubnetBasicInfo"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      },
+      "delete": {
+        "operationId": "Spiderpool_DeleteSpiderSubnet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      },
+      "put": {
+        "operationId": "Spiderpool_UpdateSpiderSubnet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "gateway": {
+                  "type": "string"
+                },
+                "vlan": {
+                  "type": "string",
+                  "format": "int64"
+                },
+                "routes": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/typesRoute"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spidersubnets/{name}/addips": {
+      "put": {
+        "operationId": "Spiderpool_AddSubnetIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "ips": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spidersubnets/{name}/allocations": {
+      "get": {
+        "operationId": "Spiderpool_ListPreIPAllocations",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListPreIPAllocationsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SUBNET_IP_SORT_BY_UNSPECIFIED",
+              "SUBNET_IP_SORT_BY_ADDRESS",
+              "SUBNET_IP_SORT_BY_STATUS",
+              "SUBNET_IP_SORT_BY_IPPOOL"
+            ],
+            "default": "SUBNET_IP_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spidersubnets/{name}/exist": {
+      "get": {
+        "operationId": "Spiderpool_CheckSpiderSubnetExist",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/typesExist"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spidersubnets/{name}/freeips": {
+      "get": {
+        "operationId": "Spiderpool_ListIPPoolAddibleIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListIPPoolAddibleIPsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ADDIBLEIP_IP_SORT_BY_UNSPECIFIED",
+              "ADDIBLEIP_IP_SORT_BY_ADDRESS"
+            ],
+            "default": "ADDIBLEIP_IP_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/spiderpool/spidersubnets/{name}/rmips": {
+      "put": {
+        "operationId": "Spiderpool_RemoveSubnetIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "ips": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/sriov/nodepolicy": {
+      "get": {
+        "summary": "ListSriovNodePolicy list all SriovNodePolicy instances",
+        "operationId": "Sriov_ListSriovNodePolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSriovNodePolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNSPECIFIED",
+              "NAME",
+              "CREATE_TIME"
+            ],
+            "default": "UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Sriov"
+        ]
+      },
+      "post": {
+        "summary": "CreateSriovNodePolicy create a SriovNodePolicy instance",
+        "operationId": "Sriov_CreateSriovNodePolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "resourceName": {
+                  "type": "string"
+                },
+                "linkType": {
+                  "$ref": "#/definitions/v1alpha1linkType"
+                },
+                "isRdma": {
+                  "type": "boolean"
+                },
+                "nodeSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "nicSelector": {
+                  "$ref": "#/definitions/v1alpha1nicSelector"
+                },
+                "numVfs": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Sriov"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/sriov/nodepolicy/{name}": {
+      "get": {
+        "summary": "GetSriovNodePolicy get a SriovNodePolicy instance",
+        "operationId": "Sriov_GetSriovNodePolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1SriovNodePolicy"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Sriov"
+        ]
+      },
+      "put": {
+        "summary": "UpdateSriovNodePolicy update a SriovNodePolicy instance",
+        "operationId": "Sriov_UpdateSriovNodePolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "namespace": {
+                  "type": "string"
+                },
+                "resourceName": {
+                  "type": "string"
+                },
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "linkType": {
+                  "$ref": "#/definitions/v1alpha1linkType"
+                },
+                "isRdma": {
+                  "type": "boolean"
+                },
+                "nodeSelector": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "nicSelector": {
+                  "$ref": "#/definitions/v1alpha1nicSelector"
+                },
+                "numVfs": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Sriov"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/sriov/resourceprefix": {
+      "get": {
+        "summary": "GetSriovResourcePrefix returns the sriov resource prefix",
+        "operationId": "Sriov_GetSriovResourcePrefix",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetSriovResourcePrefixResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Sriov"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/clusters/{cluster}/sriov/{namespace}/nodepolicy/{name}": {
+      "delete": {
+        "summary": "DeleteSriovNodePolicy delete a SriovNodePolicy instance",
+        "operationId": "Sriov_DeleteSriovNodePolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Sriov"
+        ]
+      }
+    },
+    "/apis/spidernet.io/v1alpha1/spiderpool/clusters": {
+      "get": {
+        "operationId": "Spiderpool_ListSpiderpoolClusters",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSpiderpoolClustersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "CLUSTER_SORT_BY_UNSPECIFIED",
+              "CLUSTER_SORT_BY_NAME"
+            ],
+            "default": "CLUSTER_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Spiderpool"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "multusv1alpha1Type": {
+      "type": "string",
+      "enum": [
+        "macvlan",
+        "ipvlan",
+        "sriov",
+        "custom",
+        "default",
+        "calico",
+        "cilium",
+        "flannel",
+        "kubeovn",
+        "weave"
+      ],
+      "default": "macvlan",
+      "title": "- default: The following types are only for show\n - kubeovn: kubeovn -> kube-ovn"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "typesAllocatorPolicy": {
+      "type": "string",
+      "enum": [
+        "ALLOCATORPOLICY_UNSPECIFIED",
+        "ALLOCATORPOLICY_DEFAULT",
+        "ALLOCATORPOLICY_ROUND_ROBIN"
+      ],
+      "default": "ALLOCATORPOLICY_UNSPECIFIED"
+    },
+    "typesExist": {
+      "type": "object",
+      "properties": {
+        "exist": {
+          "type": "boolean"
+        }
+      }
+    },
+    "typesIPStatus": {
+      "type": "string",
+      "enum": [
+        "IP_STATUS_UNSPECIFIED",
+        "IP_STATUS_FREE",
+        "IP_STATUS_IN_USE",
+        "IP_STATUS_UNALLOCATED",
+        "IP_STATUS_PRE_ALLOCATED"
+      ],
+      "default": "IP_STATUS_UNSPECIFIED"
+    },
+    "typesIPVersion": {
+      "type": "string",
+      "enum": [
+        "IP_VERSION_UNSPECIFIED",
+        "IP_VERSION_IPV4",
+        "IP_VERSION_IPV6"
+      ],
+      "default": "IP_VERSION_UNSPECIFIED"
+    },
+    "typesPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total is the total number of referents."
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page is current page."
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "PageSize is the data number shown per page."
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Pages is the number of pages."
+        }
+      },
+      "description": "Pagination is for data paging."
+    },
+    "typesRoute": {
+      "type": "object",
+      "properties": {
+        "dst": {
+          "type": "string"
+        },
+        "gw": {
+          "type": "string"
+        }
+      }
+    },
+    "typesScop": {
+      "type": "string",
+      "enum": [
+        "SCOP_UNSPECIFIED",
+        "SCOP_CLUSTER",
+        "SCOP_NAMESPACE"
+      ],
+      "default": "SCOP_UNSPECIFIED"
+    },
+    "typesSortDir": {
+      "type": "string",
+      "enum": [
+        "SORT_DIR_UNSPECIFIED",
+        "SORT_DIR_DESC",
+        "SORT_DIR_ASC"
+      ],
+      "default": "SORT_DIR_UNSPECIFIED",
+      "description": "SortDir determines the data list order.\n\n - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order."
+    },
+    "v1alpha1AddibleIPSortBy": {
+      "type": "string",
+      "enum": [
+        "ADDIBLEIP_IP_SORT_BY_UNSPECIFIED",
+        "ADDIBLEIP_IP_SORT_BY_ADDRESS"
+      ],
+      "default": "ADDIBLEIP_IP_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1AnnotationKeys": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string",
+          "title": "value: v1.multus-cni.io/default-network"
+        },
+        "addon": {
+          "type": "string",
+          "title": "value: k8s.v1.cni.cncf.io/networks"
+        }
+      }
+    },
+    "v1alpha1AnnotationValues": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "name the name of the multus instance"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "namespace the namespace of the multus instance"
+        },
+        "type": {
+          "$ref": "#/definitions/multusv1alpha1Type",
+          "title": "type the type of this multus instance"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "isUnderlay": {
+          "type": "boolean",
+          "title": "isUnderlay indicates that is underlay cni"
+        },
+        "vlanId": {
+          "type": "string",
+          "title": "vlanId specify for underlay cni( required for isUnderlay is true)"
+        },
+        "coexistTypeList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "coexistTypeList the list of coexistedType that can be work with this multus\ninstance"
+        },
+        "v4IPPools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "v6IPPools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nickName": {
+          "type": "string",
+          "title": "nickName is alias for name"
+        }
+      },
+      "title": "the base info for  multus InstanceAnnotations"
+    },
+    "v1alpha1Bond": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "the name of bond device; required"
+        },
+        "mode": {
+          "type": "integer",
+          "format": "int32",
+          "title": "the mode of bond device; required; [0,6]"
+        },
+        "options": {
+          "type": "string",
+          "description": "options for the bonding driver are supplied as parameters to the bonding\nmodule at load time.Multiple parameters separated by \";\" input-formatted:\n\"primary=ens160;arp_interval=1\"; optional."
+        }
+      }
+    },
+    "v1alpha1ClusterRecord": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1ClusterSortBy": {
+      "type": "string",
+      "enum": [
+        "CLUSTER_SORT_BY_UNSPECIFIED",
+        "CLUSTER_SORT_BY_NAME"
+      ],
+      "default": "CLUSTER_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1EgressCrd": {
+      "type": "string",
+      "enum": [
+        "EGRESSCRD_UNSPECIFIED",
+        "EGRESSCRD_GATEWAY",
+        "EGRESSCRD_POLICY",
+        "EGRESSCRD_CLUSTER_POLICY"
+      ],
+      "default": "EGRESSCRD_UNSPECIFIED"
+    },
+    "v1alpha1GetEgressConfigMapResponse": {
+      "type": "object",
+      "properties": {
+        "ipv4Enabled": {
+          "type": "boolean"
+        },
+        "ipv6Enabled": {
+          "type": "boolean"
+        },
+        "datapathMode": {
+          "type": "string"
+        },
+        "maxNumberEndpointPerSlice": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tunnelDetectMethod": {
+          "type": "string"
+        },
+        "tunnelIpv4Subnet": {
+          "type": "string"
+        },
+        "tunnelIpv6Subnet": {
+          "type": "string"
+        },
+        "iptablesBackendMode": {
+          "type": "string"
+        },
+        "vxlanDisableChecksumOffload": {
+          "type": "boolean"
+        },
+        "vxlanId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "vxlanName": {
+          "type": "string"
+        },
+        "vxlanPort": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1GetEgressGatewayResponse": {
+      "type": "object",
+      "properties": {
+        "resourceVersion": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "descriptions": {
+          "type": "string"
+        },
+        "defaultEipV4": {
+          "type": "string"
+        },
+        "defaultEipV6": {
+          "type": "string"
+        },
+        "ippoolsV4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ippoolsV6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nodeSelector": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "totalIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "usedIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1GetEgressPolicyResponse": {
+      "type": "object",
+      "properties": {
+        "resourceVersion": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "descriptions": {
+          "type": "string"
+        },
+        "egressgatewayName": {
+          "type": "string"
+        },
+        "eipV4": {
+          "type": "string"
+        },
+        "eipV6": {
+          "type": "string"
+        },
+        "useNodeIp": {
+          "type": "boolean"
+        },
+        "gatewayNode": {
+          "type": "string"
+        },
+        "allocatorPolicy": {
+          "$ref": "#/definitions/typesAllocatorPolicy"
+        },
+        "sourceSubnetV4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceSubnetV6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "podSelector": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "destSubnetV4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "destSubnetV6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "namespaceSelector": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1GetNetworkPluginsResponse": {
+      "type": "object",
+      "properties": {
+        "spiderpool": {
+          "type": "boolean"
+        },
+        "egress": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1GetSriovResourcePrefixResponse": {
+      "type": "object",
+      "properties": {
+        "resourcePrefix": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1IPAllocation": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/typesIPStatus"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "pod": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1IPPoolBasicInfo": {
+      "type": "object",
+      "properties": {
+        "resourceVersion": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "allocatedIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "gateway": {
+          "type": "string"
+        },
+        "vlan": {
+          "type": "string",
+          "format": "int64"
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typesRoute"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1IPPoolStatus"
+        },
+        "podAffinity": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "namespaceAffinity": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "nodeAffinity": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "namespaceName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nodeName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "multusName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1alpha1IPPoolIPSortBy": {
+      "type": "string",
+      "enum": [
+        "IPPOOL_IP_SORT_BY_UNSPECIFIED",
+        "IPPOOL_IP_SORT_BY_ADDRESS",
+        "IPPOOL_IP_SORT_BY_STATUS",
+        "IPPOOL_IP_SORT_BY_NAMESPACE",
+        "IPPOOL_IP_SORT_BY_WORKLOAD",
+        "IPPOOL_IP_SORT_BY_POD"
+      ],
+      "default": "IPPOOL_IP_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1IPPoolRecord": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1IPPoolStatus"
+        },
+        "subnet": {
+          "type": "string"
+        },
+        "vlan": {
+          "type": "string",
+          "format": "int64"
+        },
+        "allocatedIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalIpCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1IPPoolSortBy": {
+      "type": "string",
+      "enum": [
+        "IPPOOL_SORT_BY_UNSPECIFIED",
+        "IPPOOL_SORT_BY_NAME",
+        "IPPOOL_SORT_BY_STATIC",
+        "IPPOOL_SORT_BY_SUBNET",
+        "IPPOOL_SORT_BY_VLAN"
+      ],
+      "default": "IPPOOL_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1IPPoolStatus": {
+      "type": "string",
+      "enum": [
+        "IPPOOL_STATUS_UNSPECIFIED",
+        "IPPOOL_STATUS_ORDINARY",
+        "IPPOOL_STATUS_STATIC"
+      ],
+      "default": "IPPOOL_STATUS_UNSPECIFIED"
+    },
+    "v1alpha1IPVersionEnablement": {
+      "type": "object",
+      "properties": {
+        "enableIpv4": {
+          "type": "boolean"
+        },
+        "enableIpv6": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1ListClustersEnabledNetworkRecord": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1ListClustersEnabledNetworkResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ListClustersEnabledNetworkRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListClustersEnabledNetworkSortBy": {
+      "type": "string",
+      "enum": [
+        "LIST_CLUSTERS_ENABLED_NETWORK_SORT_BY_UNSPECIFIED",
+        "LIST_CLUSTERS_ENABLED_NETWORK_SORT_BY_NAME"
+      ],
+      "default": "LIST_CLUSTERS_ENABLED_NETWORK_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1ListEgressGatewayRecord": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "defaultEipV4": {
+          "type": "string"
+        },
+        "defaultEipV6": {
+          "type": "string"
+        },
+        "ippoolsV4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ippoolsV6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "descriptions": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1ListEgressGatewayResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ListEgressGatewayRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListEgressGatewaySortBy": {
+      "type": "string",
+      "enum": [
+        "LISTEGRESSGATEWAY_SORT_BY_UNSPECIFIED",
+        "LISTEGRESSGATEWAY_SORT_BY_TIME",
+        "LISTEGRESSGATEWAY_SORT_BY_NAME"
+      ],
+      "default": "LISTEGRESSGATEWAY_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1ListEgressPolicyEndpointRecord": {
+      "type": "object",
+      "properties": {
+        "podName": {
+          "type": "string"
+        },
+        "nodeName": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "ipV4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipV6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1alpha1ListEgressPolicyEndpointResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ListEgressPolicyEndpointRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListEgressPolicyEndpointSortBy": {
+      "type": "string",
+      "enum": [
+        "LISTEGRESSPOLICYENDPOINT_SORT_BY_UNSPECIFIED",
+        "LISTEGRESSPOLICYENDPOINT_SORT_BY_POD_NAME",
+        "LISTEGRESSPOLICYENDPOINT_SORT_BY_NODE_NAME",
+        "LISTEGRESSPOLICYENDPOINT_SORT_BY_NAMESPACE"
+      ],
+      "default": "LISTEGRESSPOLICYENDPOINT_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1ListEgressPolicyRecord": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "egressgatewayName": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "eipV4": {
+          "type": "string"
+        },
+        "eipV6": {
+          "type": "string"
+        },
+        "useNodeIp": {
+          "type": "boolean"
+        },
+        "nodeIpV4": {
+          "type": "string"
+        },
+        "nodeIpV6": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "descriptions": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1ListEgressPolicyResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ListEgressPolicyRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListEgressPolicySortBy": {
+      "type": "string",
+      "enum": [
+        "LISTEGRESSPOLICY_SORT_BY_UNSPECIFIED",
+        "LISTEGRESSPOLICY_SORT_BY_TIME",
+        "LISTEGRESSPOLICY_SORT_BY_POLICY_NAME",
+        "LISTEGRESSPOLICY_SORT_BY_GATEWAY_NAME",
+        "LISTEGRESSPOLICY_SORT_BY_PRIORITY"
+      ],
+      "default": "LISTEGRESSPOLICY_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1ListEgressgatewayNodeEipRecord": {
+      "type": "object",
+      "properties": {
+        "ip": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "policyName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1ListEgressgatewayNodeEipResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ListEgressgatewayNodeEipRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListEgressgatewayNodeEipSortBy": {
+      "type": "string",
+      "enum": [
+        "LISTEGRESSGATEWAYNODEEIP_SORT_BY_UNSPECIFIED",
+        "LISTEGRESSGATEWAYNODEEIP_SORT_BY_IP",
+        "LISTEGRESSGATEWAYNODEEIP_SORT_BY_NAMESPACE",
+        "LISTEGRESSGATEWAYNODEEIP_SORT_BY_POLICY_NAME"
+      ],
+      "default": "LISTEGRESSGATEWAYNODEEIP_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1ListEgressgatewayNodeRecord": {
+      "type": "object",
+      "properties": {
+        "node": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1ListEgressgatewayNodeStatus"
+        }
+      }
+    },
+    "v1alpha1ListEgressgatewayNodeResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ListEgressgatewayNodeRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListEgressgatewayNodeSortBy": {
+      "type": "string",
+      "enum": [
+        "LISTEGRESSGATEWAYNODE_SORT_BY_UNSPECIFIED",
+        "LISTEGRESSGATEWAYNODE_SORT_BY_NAME",
+        "LISTEGRESSGATEWAYNODE_SORT_BY_STATUS"
+      ],
+      "default": "LISTEGRESSGATEWAYNODE_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1ListEgressgatewayNodeStatus": {
+      "type": "string",
+      "enum": [
+        "LISTEGRESSGATEWAYNODE_STATUS_UNSPECIFIED",
+        "LISTEGRESSGATEWAYNODE_STATUS_INIT",
+        "LISTEGRESSGATEWAYNODE_STATUS_PENDING",
+        "LISTEGRESSGATEWAYNODE_STATUS_FAILED",
+        "LISTEGRESSGATEWAYNODE_STATUS_READY"
+      ],
+      "default": "LISTEGRESSGATEWAYNODE_STATUS_UNSPECIFIED"
+    },
+    "v1alpha1ListIPAllocationsResponse": {
+      "type": "object",
+      "properties": {
+        "resourceVersion": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1IPAllocation"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListIPPoolAddibleIPsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListMatchedWorkloadsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1MatchedWorkloadRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListMultusCniConfigResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1MultusCniConfig"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListMultusInstanceAnnotationsResponse": {
+      "type": "object",
+      "properties": {
+        "annotationValueList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1AnnotationValues"
+          },
+          "title": "items list of the all multus instances"
+        },
+        "annotationKeyList": {
+          "$ref": "#/definitions/v1alpha1AnnotationKeys"
+        }
+      }
+    },
+    "v1alpha1ListNamespacesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1NamespaceRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListNodesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1NodeRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListPodAllocationResultsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1PodAllocationResultRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListPreIPAllocationsResponse": {
+      "type": "object",
+      "properties": {
+        "resourceVersion": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1PreIPAllocation"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListSpiderIPPoolsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1IPPoolRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListSpiderReservedIPsResponse": {
+      "type": "object",
+      "properties": {
+        "resourceVersion": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListSpiderSubnetsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1SubnetRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListSpiderpoolClustersResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ClusterRecord"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListSriovNodePolicyResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1SriovNodePolicy"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1MatchedWorkloadRecord": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1MatchedWorkloadSortBy": {
+      "type": "string",
+      "enum": [
+        "MATCHED_WORKLOAD_SORT_BY_UNSPECIFIED",
+        "MATCHED_WORKLOAD_SORT_BY_NAMESPACE",
+        "MATCHED_WORKLOAD_SORT_BY_TYPE",
+        "MATCHED_WORKLOAD_SORT_BY_NAME"
+      ],
+      "default": "MATCHED_WORKLOAD_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1MultusCniConfig": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "cniType": {
+          "$ref": "#/definitions/multusv1alpha1Type"
+        },
+        "macvlanConfig": {
+          "$ref": "#/definitions/v1alpha1VlanCniConfig"
+        },
+        "ipvlanConfig": {
+          "$ref": "#/definitions/v1alpha1VlanCniConfig"
+        },
+        "sriovConfig": {
+          "$ref": "#/definitions/v1alpha1SriovConfig"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "customCniConfig": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "resourceVersion": {
+          "type": "string"
+        },
+        "v4IPPools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "v6IPPools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1alpha1NamespaceRecord": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1NamespaceSortBy": {
+      "type": "string",
+      "enum": [
+        "NAMESPACE_SORT_BY_UNSPECIFIED",
+        "NAMESPACE_SORT_BY_NAME"
+      ],
+      "default": "NAMESPACE_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1NodeRecord": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1NodeSortBy": {
+      "type": "string",
+      "enum": [
+        "NODE_SORT_BY_UNSPECIFIED",
+        "NODE_SORT_BY_NAME"
+      ],
+      "default": "NODE_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1PodAllocationResultRecord": {
+      "type": "object",
+      "properties": {
+        "nic": {
+          "type": "string"
+        },
+        "ipVersion": {
+          "$ref": "#/definitions/typesIPVersion"
+        },
+        "pool": {
+          "type": "string"
+        },
+        "poolStatus": {
+          "$ref": "#/definitions/v1alpha1IPPoolStatus"
+        },
+        "poolAllocatedIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "poolTotalIpCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1PodAllocationResultSortBy": {
+      "type": "string",
+      "enum": [
+        "POD_ALLOCATION_RESULT_SORT_BY_UNSPECIFIED",
+        "POD_ALLOCATION_RESULT_SORT_BY_NIC"
+      ],
+      "default": "POD_ALLOCATION_RESULT_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1PreIPAllocation": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/typesIPStatus"
+        },
+        "pool": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1SortBy": {
+      "type": "string",
+      "enum": [
+        "SORT_BY_UNSPECIFIED",
+        "SORT_BY_NAME",
+        "SORT_BY_CNI_TYPE",
+        "SORT_BY_VLAN",
+        "SORT_BY_CREATE_TIME"
+      ],
+      "default": "SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1SriovConfig": {
+      "type": "object",
+      "properties": {
+        "resourceName": {
+          "type": "string",
+          "title": "can't be updated"
+        },
+        "vlanId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "enableRdma": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1SriovNodePolicy": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "numVfs": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Number of VFs for each PF"
+        },
+        "isRdma": {
+          "type": "boolean",
+          "description": "RDMA mode. Defaults to false."
+        },
+        "resourceName": {
+          "type": "string",
+          "description": "SRIOV Network device plugin endpoint resource name."
+        },
+        "resourceVersion": {
+          "type": "string"
+        },
+        "linkType": {
+          "$ref": "#/definitions/v1alpha1linkType",
+          "description": "NIC Link Type. Allowed value \"eth\", \"ETH\", \"ib\", and \"IB\"."
+        },
+        "deviceType": {
+          "$ref": "#/definitions/v1alpha1deviceType",
+          "description": "The driver type for configured VFs. Allowed value \"netdevice\", \"vfio-pci\".\nDefaults to netdevice."
+        },
+        "nodeSelector": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "NodeSelector selects the nodes to be configured"
+        },
+        "nicSelector": {
+          "$ref": "#/definitions/v1alpha1nicSelector",
+          "title": "NicSelector selects the NICs to be configured"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1SriovNodePolicySortBy": {
+      "type": "string",
+      "enum": [
+        "UNSPECIFIED",
+        "NAME",
+        "CREATE_TIME"
+      ],
+      "default": "UNSPECIFIED"
+    },
+    "v1alpha1SubnetBasicInfo": {
+      "type": "object",
+      "properties": {
+        "resourceVersion": {
+          "type": "string"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ipVersion": {
+          "$ref": "#/definitions/typesIPVersion"
+        },
+        "subnet": {
+          "type": "string"
+        },
+        "poolCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "allocatedIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "gateway": {
+          "type": "string"
+        },
+        "vlan": {
+          "type": "string",
+          "format": "int64"
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typesRoute"
+          }
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1SubnetIPSortBy": {
+      "type": "string",
+      "enum": [
+        "SUBNET_IP_SORT_BY_UNSPECIFIED",
+        "SUBNET_IP_SORT_BY_ADDRESS",
+        "SUBNET_IP_SORT_BY_STATUS",
+        "SUBNET_IP_SORT_BY_IPPOOL"
+      ],
+      "default": "SUBNET_IP_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1SubnetRecord": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "ipVersion": {
+          "$ref": "#/definitions/typesIPVersion"
+        },
+        "subnet": {
+          "type": "string"
+        },
+        "vlan": {
+          "type": "string",
+          "format": "int64"
+        },
+        "poolCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "allocatedIpCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalIpCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1SubnetSortBy": {
+      "type": "string",
+      "enum": [
+        "SUBNET_SORT_BY_UNSPECIFIED",
+        "SUBNET_SORT_BY_NAME",
+        "SUBNET_SORT_BY_SUBNET",
+        "SUBNET_SORT_BY_VLAN",
+        "SUBNET_SORT_BY_IPPOOL_COUNT",
+        "SUBNET_SORT_BY_IP_IN_USE"
+      ],
+      "default": "SUBNET_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1VlanCniConfig": {
+      "type": "object",
+      "properties": {
+        "masters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vlanId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "bond": {
+          "$ref": "#/definitions/v1alpha1Bond",
+          "description": "only for the length of masters greater than 1."
+        }
+      }
+    },
+    "v1alpha1deviceID": {
+      "type": "string",
+      "enum": [
+        "deviceID_unspecified",
+        "deviceID_1017",
+        "deviceID_0d58",
+        "deviceID_1572",
+        "deviceID_158b",
+        "deviceID_1013",
+        "deviceID_1015",
+        "deviceID_101b"
+      ],
+      "default": "deviceID_unspecified"
+    },
+    "v1alpha1deviceType": {
+      "type": "string",
+      "enum": [
+        "netdevice",
+        "vfioPci"
+      ],
+      "default": "netdevice",
+      "title": "- vfioPci: vfioPci -> vfio-pci"
+    },
+    "v1alpha1linkType": {
+      "type": "string",
+      "enum": [
+        "eth",
+        "ib"
+      ],
+      "default": "eth"
+    },
+    "v1alpha1nicSelector": {
+      "type": "object",
+      "properties": {
+        "deviceID": {
+          "$ref": "#/definitions/v1alpha1deviceID",
+          "description": "The device hex code of SR-IoV device. Allowed value \"0d58\", \"1572\", \"158b\",\n\"1013\", \"1015\", \"1017\", \"101b\"."
+        },
+        "vendor": {
+          "$ref": "#/definitions/v1alpha1vendor",
+          "description": "The vendor hex code of SR-IoV device. Allowed value \"8086\", \"15b3\"."
+        },
+        "pfNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Name of SR-IoV PF."
+        },
+        "rootDevices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "PCI address of SR-IoV PF."
+        }
+      },
+      "title": "nicSelector selects the NICs to be configured"
+    },
+    "v1alpha1vendor": {
+      "type": "string",
+      "enum": [
+        "vendor_unspecified",
+        "vendor_8086",
+        "vendor_15b3"
+      ],
+      "default": "vendor_unspecified"
+    }
+  }
+}
