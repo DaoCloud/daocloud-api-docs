@@ -62,10 +62,9 @@ hide:
 
     ---
 
-    - [v0.22.x](./skoala/v0.22.1.md), [v0.23.0](./skoala/v0.23.0.md), [v0.24.x](./skoala/v0.24.0.md)
-    - [v0.25.0](./skoala/v0.25.0.md), [v0.26.x](./skoala/v0.26.0.md), [v0.27.x](./skoala/v0.27.0.md)
-    - [v0.28.x](./skoala/v0.28.0.md), [v0.29.0](./skoala/v0.29.0.md), [v0.30.0](./skoala/v0.30.0.md)
-    - [v0.32.0](./skoala/v0.32.0.md), [v0.33.x](./skoala/v0.33.0.md), [v0.34.0](./skoala/v0.34.0.md)
+    - [v0.22.x](./skoala/v0.22.1.md), [v0.23.0](./skoala/v0.23.0.md), [v0.24.x](./skoala/v0.24.0.md), [v0.25.0](./skoala/v0.25.0.md)
+    - [v0.26.x](./skoala/v0.26.0.md), [v0.27.x](./skoala/v0.27.0.md), [v0.28.x](./skoala/v0.28.0.md), [v0.29.0](./skoala/v0.29.0.md)
+    - [v0.30.0](./skoala/v0.30.0.md), [v0.32.0](./skoala/v0.32.0.md), [v0.33.x](./skoala/v0.33.0.md), [v0.34.0](./skoala/v0.34.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -86,14 +85,14 @@ hide:
 
     - [v0.15.0](./ghippo/v0.15.0.md), [v0.16.x](./ghippo/v0.16.0.md), [v0.17.x](./ghippo/v0.17.0.md)
     - [v0.18.x](./ghippo/v0.18.0.md), [v0.19.0](./ghippo/v0.19.0.md), [v0.20.x](./ghippo/v0.20.0.md)
-    - [v0.21.0](./ghippo/v0.21.0.md), [v0.22.1](./ghippo/v0.22.1.md), [v0.23.x](./ghippo/v0.23.0.md)
-    - [v0.24.0](./ghippo/v0.24.0.md)
+    - [v0.21.0](./ghippo/v0.21.0.md), [v0.22.1](./ghippo/v0.22.1.md), [v0.23.x](./ghippo/v0.23.0.md), [v0.24.0](./ghippo/v0.24.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI__
 
     ---
 
-    - [:octicons-arrow-right-24: 中间件 OpenAPI 文档索引](./midware.md)
+    [:octicons-arrow-right-24: 中间件 OpenAPI 文档索引](./midware.md)
+
     - 搜索服务：[Elasticsearch](./mcamel/elasticsearch/elasticsearch-v0.7.0.md)
     - 消息队列：[Kafka](./mcamel/kafka/kafka-v0.5.0.md),
       [RabbitMQ](./mcamel/rabbitmq/rabbitmq-v0.10.0.md),
