@@ -26,6 +26,12 @@ hide:
     - [v0.20.x](./kpanda/v0.20.0.md), [v0.21.1](./kpanda/v0.21.1.md)
     - [v0.23.0](./kpanda/v0.23.0.md), [v0.25.x](./kpanda/v0.25.0.md)
 
+-   :octicons-container-16:{ .lg .middle } __虚拟机 OpenAPI__
+
+    ---
+
+    - [v0.6.x](./virtnest/v0.6.0.md)
+
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
     ---
