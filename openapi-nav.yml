@@ -29,6 +29,8 @@ nav:
             - v0.18.x:
                 - v0.18.0: openapi/kpanda/v0.18.0.md
                 - v0.18.1: openapi/kpanda/v0.18.1.md
+        - 虚拟机 OpenAPI:
+            - v0.6.0: openapi/virtnest/v0.6.0.md
         - 多云编排 OpenAPI:
             - v0.16.0: openapi/kairship/v0.16.0.md
             - v0.15.0: openapi/kairship/v0.15.0.md
