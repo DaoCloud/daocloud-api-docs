@@ -26,12 +26,6 @@ hide:
     - [v0.20.x](./kpanda/v0.20.0.md), [v0.21.1](./kpanda/v0.21.1.md)
     - [v0.23.0](./kpanda/v0.23.0.md), [v0.25.x](./kpanda/v0.25.0.md)
 
--   :octicons-container-16:{ .lg .middle } __虚拟机 OpenAPI__
-
-    ---
-
-    - [v0.6.x](./virtnest/v0.6.0.md)
-
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
     ---
@@ -55,6 +49,12 @@ hide:
     - [v0.5.0](./spidernet/v0.5.0.md), [v0.6.0](./spidernet/v0.6.0.md), [v0.7.0](./spidernet/v0.7.0.md)
     - [v0.8.x](./spidernet/v0.8.0.md), [v0.9.0](./spidernet/v0.9.0.md), [v0.10.x](./spidernet/v0.10.0.md)
     - [v0.12.x](./spidernet/v0.12.0.md), [v0.13.0](./spidernet/v0.13.0.md)
+
+-   :material-train-car-container:{ .lg .middle } __虚拟机 OpenAPI__
+
+    ---
+
+    - [v0.6.x](./virtnest/v0.6.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
@@ -84,12 +84,6 @@ hide:
     ---
 
     - [v0.8.0](./kant/v0.8.0.md)
-
--   :material-train-car-container:{ .lg .middle } __虚拟机 OpenAPI__
-
-    ---
-
-    - [v0.6.0](./virtnest/v0.6.0.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
