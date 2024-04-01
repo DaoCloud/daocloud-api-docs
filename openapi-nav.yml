@@ -34,6 +34,7 @@ nav:
                 - v0.18.1: openapi/kpanda/v0.18.1.md
         - 虚拟机 OpenAPI:
             - v0.6.0: openapi/virtnest/v0.6.0.md
+            - v0.7.0: openapi/virtnest/v0.7.0.md
         - 多云编排 OpenAPI:
             - v0.17.0: openapi/kairship/v0.17.0.md
             - v0.16.0: openapi/kairship/v0.16.0.md
@@ -279,6 +280,7 @@ nav:
                     - v0.7.3: openapi/mcamel/redis/redis-v0.7.3.md     
         - 云边协同 OpenAPI:
             - v0.8.0: openapi/kant/v0.8.0.md
+            - v0.9.0: openapi/kant/v0.9.0.md
         - 全局管理 OpenAPI:
             - v0.24.x:
                 - v0.24.0: openapi/ghippo/v0.24.0.md
