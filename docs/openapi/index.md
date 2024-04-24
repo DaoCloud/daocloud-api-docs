@@ -16,7 +16,7 @@ hide:
 
     - [v0.109.1](./amamba/v0.109.1.md), [v0.110.0](./amamba/v0.110.0.md), [v0.111.x](./amamba/v0.111.0.md)
     - [v0.112.0](./amamba/v0.112.0.md), [v0.113.x](./amamba/v0.113.0.md), [v0.114.0](./amamba/v0.114.0.md)
-    - [v0.115.0](./amamba/v0.115.0.md), [v0.116.0](./amamba/v0.116.0.md), [v0.117.x](./amamba/v0.117.0.md)
+    - [v0.115.0](./amamba/v0.115.0.md), [v0.116.0](./amamba/v0.116.0.md), [v0.117.x](./amamba/v0.117.0.md), [v0.118.0](./amamba/v0.118.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
@@ -92,9 +92,9 @@ hide:
 
     ---
 
-    - [v0.15.0](./ghippo/v0.15.0.md), [v0.16.x](./ghippo/v0.16.0.md), [v0.17.x](./ghippo/v0.17.0.md)
-    - [v0.18.x](./ghippo/v0.18.0.md), [v0.19.0](./ghippo/v0.19.0.md), [v0.20.x](./ghippo/v0.20.0.md)
-    - [v0.21.0](./ghippo/v0.21.0.md), [v0.22.1](./ghippo/v0.22.1.md), [v0.23.x](./ghippo/v0.23.0.md), [v0.24.x](./ghippo/v0.24.0.md)
+    - [v0.15.0](./ghippo/v0.15.0.md), [v0.16.x](./ghippo/v0.16.0.md), [v0.17.x](./ghippo/v0.17.0.md), [v0.18.x](./ghippo/v0.18.0.md)
+    - [v0.19.0](./ghippo/v0.19.0.md), [v0.20.x](./ghippo/v0.20.0.md), [v0.21.0](./ghippo/v0.21.0.md), [v0.22.1](./ghippo/v0.22.1.md)
+    - [v0.23.x](./ghippo/v0.23.0.md), [v0.24.x](./ghippo/v0.24.0.md), [v0.25.x](./ghippo/v0.25.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI__
 
