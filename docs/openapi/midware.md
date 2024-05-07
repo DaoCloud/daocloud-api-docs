@@ -15,7 +15,7 @@ hide:
 
     - [v0.7.x](mcamel/elasticsearch/elasticsearch-v0.7.0.md), [v0.8.0](mcamel/elasticsearch/elasticsearch-v0.8.0.md), [v0.9.x](mcamel/elasticsearch/elasticsearch-v0.9.0.md)
     - [v0.10.x](mcamel/elasticsearch/elasticsearch-v0.10.0.md), [v0.11.0](mcamel/elasticsearch/elasticsearch-v0.11.0.md), [v0.12.0](mcamel/elasticsearch/elasticsearch-v0.12.0.md)
-    - [v0.13.0](mcamel/elasticsearch/elasticsearch-v0.13.0.md), [v0.14.0](mcamel/elasticsearch/elasticsearch-v0.14.0.md), [v0.15.0](mcamel/elasticsearch/elasticsearch-v0.15.0.md)
+    - [v0.13.0](mcamel/elasticsearch/elasticsearch-v0.13.0.md), [v0.14.0](mcamel/elasticsearch/elasticsearch-v0.14.0.md), [v0.15.0](mcamel/elasticsearch/elasticsearch-v0.15.0.md), [v0.16.0](mcamel/elasticsearch/elasticsearch-v0.16.0.md)
 
 -   :simple-apachekafka:{ .lg .middle } __Kafka OpenAPI__
 
@@ -23,7 +23,7 @@ hide:
 
     - [v0.5.x](mcamel/kafka/kafka-v0.5.0.md), [v0.6.0](mcamel/kafka/kafka-v0.6.0.md), [v0.7.x](mcamel/kafka/kafka-v0.7.0.md)
     - [v0.8.x](mcamel/kafka/kafka-v0.8.0.md), [v0.9.0](mcamel/kafka/kafka-v0.9.0.md), [v0.10.0](mcamel/kafka/kafka-v0.10.0.md)
-    - [v0.11.x](mcamel/kafka/kafka-v0.11.0.md), [v0.12.0](mcamel/kafka/kafka-v0.12.0.md), [v0.13.0](mcamel/kafka/kafka-v0.13.0.md)
+    - [v0.11.x](mcamel/kafka/kafka-v0.11.0.md), [v0.12.0](mcamel/kafka/kafka-v0.12.0.md), [v0.13.0](mcamel/kafka/kafka-v0.13.0.md), [v0.14.0](mcamel/kafka/kafka-v0.14.0.md)
 
 -   :material-database:{ .lg .middle } __MinIO OpenAPI__
 
@@ -39,7 +39,7 @@ hide:
 
     - [v0.1.0](mcamel/mongodb/mongodb-v0.1.0.md), [v0.2.0](mcamel/mongodb/mongodb-v0.2.0.md), [v0.3.x](mcamel/mongodb/mongodb-v0.3.0.md)
     - [v0.4.0](mcamel/mongodb/mongodb-v0.4.0.md), [v0.5.0](mcamel/mongodb/mongodb-v0.5.0.md), [v0.6.0](mcamel/mongodb/mongodb-v0.6.0.md)
-    - [v0.7.0](mcamel/mongodb/mongodb-v0.7.0.md), [v0.8.0](mcamel/mongodb/mongodb-v0.8.0.md)
+    - [v0.7.0](mcamel/mongodb/mongodb-v0.7.0.md), [v0.8.0](mcamel/mongodb/mongodb-v0.8.0.md), [v0.9.0](mcamel/mongodb/mongodb-v0.9.0.md)
 
 -   :simple-mysql:{ .lg .middle } __MySQL OpenAPI__
 
@@ -47,7 +47,7 @@ hide:
 
     - [v0.8.x](mcamel/mysql/mysql-v0.8.0.md), [v0.9.0](mcamel/mysql/mysql-v0.9.0.md), [v0.10.x](mcamel/mysql/mysql-v0.10.0.md)
     - [v0.11.x](mcamel/mysql/mysql-v0.11.0.md), [v0.12.0](mcamel/mysql/mysql-v0.12.0.md), [v0.13.0](mcamel/mysql/mysql-v0.13.0.md)
-    - [v0.14.0](mcamel/mysql/mysql-v0.14.0.md), [v0.15.0](mcamel/mysql/mysql-v0.15.0.md), [v0.16.0](mcamel/mysql/mysql-v0.16.0.md)
+    - [v0.14.0](mcamel/mysql/mysql-v0.14.0.md), [v0.15.0](mcamel/mysql/mysql-v0.15.0.md), [v0.16.0](mcamel/mysql/mysql-v0.16.0.md), [v0.17.1](mcamel/mysql/mysql-v0.17.1.md)
 
 -   :simple-postgresql:{ .lg .middle } __PostgreSQL OpenAPI__
 
@@ -71,7 +71,7 @@ hide:
 
     - [v0.7.x](mcamel/redis/redis-v0.7.0.md), [v0.8.0](mcamel/redis/redis-v0.8.0.md), [v0.9.0](mcamel/redis/redis-v0.9.0.md)
     - [v0.10.0](mcamel/redis/redis-v0.10.0.md), [v0.11.x](mcamel/redis/redis-v0.11.0.md), [v0.13.0](mcamel/redis/redis-v0.13.0.md)
-    - [v0.14.0](mcamel/redis/redis-v0.14.0.md), [v0.15.0](mcamel/redis/redis-v0.15.0.md), [v0.16.0](mcamel/redis/redis-v0.16.0.md)
+    - [v0.14.0](mcamel/redis/redis-v0.14.0.md), [v0.15.0](mcamel/redis/redis-v0.15.0.md), [v0.16.0](mcamel/redis/redis-v0.16.0.md), [v0.17.0](mcamel/redis/redis-v0.17.0.md)
 
 -   :simple-apacherocketmq:{ .lg .middle } __RocketMQ OpenAPI__
 

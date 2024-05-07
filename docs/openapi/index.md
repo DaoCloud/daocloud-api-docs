@@ -22,9 +22,9 @@ hide:
 
     ---
 
-    - [v0.18.x](./kpanda/v0.18.0.md), [v0.19.0](./kpanda/v0.19.0.md)
-    - [v0.20.x](./kpanda/v0.20.0.md), [v0.21.1](./kpanda/v0.21.1.md)
-    - [v0.23.0](./kpanda/v0.23.0.md), [v0.25.x](./kpanda/v0.25.0.md)
+    - [v0.18.x](./kpanda/v0.18.0.md), [v0.19.0](./kpanda/v0.19.0.md), [v0.20.x](./kpanda/v0.20.0.md)
+    - [v0.21.1](./kpanda/v0.21.1.md), [v0.23.0](./kpanda/v0.23.0.md)
+    - [v0.25.x](./kpanda/v0.25.0.md), [v0.27.0](./kpanda/v0.27.0.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
@@ -48,31 +48,32 @@ hide:
 
     - [v0.5.0](./spidernet/v0.5.0.md), [v0.6.0](./spidernet/v0.6.0.md), [v0.7.0](./spidernet/v0.7.0.md)
     - [v0.8.x](./spidernet/v0.8.0.md), [v0.9.0](./spidernet/v0.9.0.md), [v0.10.x](./spidernet/v0.10.0.md)
-    - [v0.12.x](./spidernet/v0.12.0.md), [v0.13.0](./spidernet/v0.13.0.md)
+    - [v0.12.x](./spidernet/v0.12.0.md), [v0.13.0](./spidernet/v0.13.0.md), [v0.14.0](./spidernet/v0.14.0.md)
 
 -   :material-train-car-container:{ .lg .middle } __虚拟机 OpenAPI__
 
     ---
 
     - [v0.6.0](./virtnest/v0.6.0.md)
-    - [v0.7.0](./virtnest/v0.7.0.md)
-    - [v0.7.1](./virtnest/v0.7.1.md)
+    - [v0.7.x](./virtnest/v0.7.0.md)
+    - [v0.8.0](./virtnest/v0.8.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
     ---
 
-    - [v0.16.0](./insight/v0.16.0.md), [v0.17.x](./insight/v0.17.0.md), [v0.18.x](./insight/v0.18.0.md)
-    - [v0.19.x](./insight/v0.19.0.md), [v0.20.0](./insight/v0.20.0.md), [v0.21.x](./insight/v0.21.0.md)
-    - [v0.22.x](./insight/v0.22.0.md), [v0.23.1](./insight/v0.23.1.md), [v0.24.0](./insight/v0.24.0.md), [v0.25.2](./insight/v0.25.2.md)
+    - [v0.16.0](./insight/v0.16.0.md), [v0.17.x](./insight/v0.17.0.md), [v0.18.x](./insight/v0.18.0.md), [v0.19.x](./insight/v0.19.0.md)
+    - [v0.20.0](./insight/v0.20.0.md), [v0.21.x](./insight/v0.21.0.md), [v0.22.x](./insight/v0.22.0.md), [v0.23.1](./insight/v0.23.1.md)
+    - [v0.24.0](./insight/v0.24.0.md), [v0.25.2](./insight/v0.25.2.md), [v0.26.0](./insight/v0.26.0.md)
 
 -   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
 
     ---
 
-    - [v0.22.x - v0.24.x](./skoala/v0.22.1.md), [v0.25.0](./skoala/v0.25.0.md), [v0.26.x](./skoala/v0.26.0.md)
-    - [v0.27.x](./skoala/v0.27.0.md), [v0.28.x](./skoala/v0.28.0.md), [v0.29.0](./skoala/v0.29.0.md)
-    - [v0.30.0 - v0.32.0](./skoala/v0.30.0.md), [v0.33.x](./skoala/v0.33.0.md), [v0.35.x](./skoala/v0.35.0.md), [v0.36.0](./skoala/v0.36.0.md)
+    - [v0.22.x](./skoala/v0.22.1.md), [v0.23.0](./skoala/v0.23.0.md), [v0.24.x](./skoala/v0.24.0.md), [v0.25.0](./skoala/v0.25.0.md)
+    - [v0.26.x](./skoala/v0.26.0.md), [v0.27.x](./skoala/v0.27.0.md), [v0.28.x](./skoala/v0.28.0.md), [v0.29.0](./skoala/v0.29.0.md)
+    - [v0.30.0](./skoala/v0.30.0.md), [v0.31.2](./skoala/v0.31.2.md), [v0.32.0](./skoala/v0.32.0.md), [v0.33.x](./skoala/v0.33.0.md)
+    - [v0.34.0](./skoala/v0.34.0.md), [v0.35.x](./skoala/v0.35.0.md), [v0.36.x](./skoala/v0.36.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
