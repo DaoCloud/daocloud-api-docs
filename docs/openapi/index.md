@@ -48,7 +48,7 @@ hide:
 
     - [v0.5.0](./spidernet/v0.5.0.md), [v0.6.0](./spidernet/v0.6.0.md), [v0.7.0](./spidernet/v0.7.0.md)
     - [v0.8.x](./spidernet/v0.8.0.md), [v0.9.0](./spidernet/v0.9.0.md), [v0.10.x](./spidernet/v0.10.0.md)
-    - [v0.12.x](./spidernet/v0.12.0.md), [v0.13.0](./spidernet/v0.13.0.md), [v0.14.0](./spidernet/v0.14.0.md)
+    - [v0.12.x](./spidernet/v0.12.0.md), [v0.13.0](./spidernet/v0.13.0.md), [v0.14.x](./spidernet/v0.14.0.md)
 
 -   :material-train-car-container:{ .lg .middle } __虚拟机 OpenAPI__
 
@@ -56,7 +56,7 @@ hide:
 
     - [v0.6.0](./virtnest/v0.6.0.md)
     - [v0.7.x](./virtnest/v0.7.0.md)
-    - [v0.8.0](./virtnest/v0.8.0.md)
+    - [v0.8.x](./virtnest/v0.8.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
@@ -96,7 +96,7 @@ hide:
 
     - [v0.15.0](./ghippo/v0.15.0.md), [v0.16.x](./ghippo/v0.16.0.md), [v0.17.x](./ghippo/v0.17.0.md), [v0.18.x](./ghippo/v0.18.0.md)
     - [v0.19.0](./ghippo/v0.19.0.md), [v0.20.x](./ghippo/v0.20.0.md), [v0.21.0](./ghippo/v0.21.0.md), [v0.22.1](./ghippo/v0.22.1.md)
-    - [v0.23.x](./ghippo/v0.23.0.md), [v0.24.x](./ghippo/v0.24.0.md), [v0.25.x](./ghippo/v0.25.0.md)
+    - [v0.23.x](./ghippo/v0.23.0.md), [v0.24.x](./ghippo/v0.24.0.md), [v0.25.x](./ghippo/v0.25.0.md), [v0.26.0](./ghippo/v0.26.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI__
 

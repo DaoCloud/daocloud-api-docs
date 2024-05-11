@@ -75,7 +75,9 @@ nav:
                 - v0.9.1: openapi/kangaroo/v0.9.1.md
                 - v0.8.0: openapi/kangaroo/v0.8.0.md
             - 网络 OpenAPI:
-                - v0.14.0: openapi/spidernet/v0.14.0.md
+                - v0.14.x:
+                    - v0.14.0: openapi/spidernet/v0.14.0.md
+                    - v0.14.1: openapi/spidernet/v0.14.1.md
                 - v0.13.0: openapi/spidernet/v0.13.0.md
                 - v0.12.x: openapi/spidernet/v0.12.0.md
                 - v0.10.x:
@@ -89,9 +91,12 @@ nav:
                 - v0.6.0: openapi/spidernet/v0.6.0.md
                 - v0.5.0: openapi/spidernet/v0.5.0.md
             - 虚拟机 OpenAPI:
-                - v0.8.0: openapi/virtnest/v0.8.0.md
-                - v0.7.1: openapi/virtnest/v0.7.1.md
-                - v0.7.0: openapi/virtnest/v0.7.0.md
+                - v0.8.x:
+                    - v0.8.0: openapi/virtnest/v0.8.0.md
+                    - v0.8.1: openapi/virtnest/v0.8.1.md
+                - v0.7.x:
+                    - v0.7.0: openapi/virtnest/v0.7.0.md
+                    - v0.7.1: openapi/virtnest/v0.7.1.md
                 - v0.6.0: openapi/virtnest/v0.6.0.md
         - 微服务:
             - 可观测性 OpenAPI:
@@ -320,6 +325,7 @@ nav:
                 - v0.8.0: openapi/kant/v0.8.0.md
         - 管理:
             - 全局管理 OpenAPI:
+                - v0.26.0: openapi/ghippo/v0.26.0.md
                 - v0.25.x:
                     - v0.25.0: openapi/ghippo/v0.25.0.md
                     - v0.25.1: openapi/ghippo/v0.25.1.md
