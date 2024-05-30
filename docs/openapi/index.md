@@ -16,7 +16,7 @@ hide:
 
     - [v0.109.1](./amamba/v0.109.1.md), [v0.110.0](./amamba/v0.110.0.md), [v0.111.x](./amamba/v0.111.0.md), [v0.112.0](./amamba/v0.112.0.md)
     - [v0.113.x](./amamba/v0.113.0.md), [v0.114.0](./amamba/v0.114.0.md), [v0.115.0](./amamba/v0.115.0.md), [v0.116.0](./amamba/v0.116.0.md)
-    - [v0.117.x](./amamba/v0.117.0.md), [v0.118.x](./amamba/v0.118.0.md)
+    - [v0.117.x](./amamba/v0.117.0.md), [v0.118.x](./amamba/v0.118.0.md), [v0.119.0](./amamba/v0.119.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
@@ -32,7 +32,7 @@ hide:
 
     - [v0.8.x](./kairship/v0.8.0.md), [v0.9.x](./kairship/v0.9.0.md), [v0.10.x](./kairship/v0.10.0.md), [v0.11.x](./kairship/v0.11.0.md)
     - [v0.12.0](./kairship/v0.12.0.md), [v0.13.x](./kairship/v0.13.0.md), [v0.14.0](./kairship/v0.14.0.md), [v0.15.0](./kairship/v0.15.0.md)
-    - [v0.16.0](./kairship/v0.16.0.md), [v0.17.0](./kairship/v0.17.0.md), [v0.18.0](./kairship/v0.18.0.md)
+    - [v0.16.0](./kairship/v0.16.0.md), [v0.17.0](./kairship/v0.17.0.md), [v0.18.0](./kairship/v0.18.0.md), [v0.19.0](./kairship/v0.19.0.md)
 
 -   :material-warehouse:{ .lg .middle } __镜像仓库 OpenAPI__
 
@@ -40,7 +40,7 @@ hide:
 
     - [v0.8.0](./kangaroo/v0.8.0.md), [v0.9.1](./kangaroo/v0.9.1.md), [v0.10.x](./kangaroo/v0.10.0.md)
     - [v0.11.0](./kangaroo/v0.11.0.md), [v0.12.x](./kangaroo/v0.12.0.md), [v0.13.x](./kangaroo/v0.13.0.md)
-    - [v0.14.0](./kangaroo/v0.14.0.md), [v0.15.0](./kangaroo/v0.15.0.md), [v0.17.0](./kangaroo/v0.17.0.md)
+    - [v0.14.0](./kangaroo/v0.14.0.md), [v0.15.0](./kangaroo/v0.15.0.md), [v0.17.0](./kangaroo/v0.17.0.md), [v0.18.0](./kangaroo/v0.18.0.md)
 
 -   :material-dot-net:{ .lg .middle } __网络 OpenAPI__
 
@@ -48,7 +48,7 @@ hide:
 
     - [v0.5.0](./spidernet/v0.5.0.md), [v0.6.0](./spidernet/v0.6.0.md), [v0.7.0](./spidernet/v0.7.0.md)
     - [v0.8.x](./spidernet/v0.8.0.md), [v0.9.0](./spidernet/v0.9.0.md), [v0.10.x](./spidernet/v0.10.0.md)
-    - [v0.12.x](./spidernet/v0.12.0.md), [v0.13.0](./spidernet/v0.13.0.md), [v0.14.x](./spidernet/v0.14.0.md)
+    - [v0.12.x](./spidernet/v0.12.0.md), [v0.13.0](./spidernet/v0.13.0.md), [v0.14.x](./spidernet/v0.14.0.md), [v0.15.0](./spidernet/v0.15.0.md)
 
 -   :material-train-car-container:{ .lg .middle } __虚拟机 OpenAPI__
 
@@ -73,7 +73,7 @@ hide:
     - [v0.22.x](./skoala/v0.22.1.md), [v0.23.0](./skoala/v0.23.0.md), [v0.24.x](./skoala/v0.24.0.md), [v0.25.0](./skoala/v0.25.0.md)
     - [v0.26.x](./skoala/v0.26.0.md), [v0.27.x](./skoala/v0.27.0.md), [v0.28.x](./skoala/v0.28.0.md), [v0.29.0](./skoala/v0.29.0.md)
     - [v0.30.0](./skoala/v0.30.0.md), [v0.31.2](./skoala/v0.31.2.md), [v0.32.0](./skoala/v0.32.0.md), [v0.33.x](./skoala/v0.33.0.md)
-    - [v0.34.0](./skoala/v0.34.0.md), [v0.35.x](./skoala/v0.35.0.md), [v0.36.x](./skoala/v0.36.0.md)
+    - [v0.34.0](./skoala/v0.34.0.md), [v0.35.x](./skoala/v0.35.0.md), [v0.36.x](./skoala/v0.36.0.md), [v0.37.0](./skoala/v0.37.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -86,9 +86,8 @@ hide:
 
     ---
 
-    - [v0.8.0](./kant/v0.8.0.md)
-    - [v0.9.0](./kant/v0.9.0.md)
-    - [v0.10.0](./kant/v0.10.0.md)
+    - [v0.8.0](./kant/v0.8.0.md), [v0.9.0](./kant/v0.9.0.md)
+    - [v0.10.0](./kant/v0.10.0.md), [v0.11.0](./kant/v0.11.0.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
