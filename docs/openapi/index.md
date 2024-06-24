@@ -80,6 +80,7 @@ hide:
 
     - [v0.105.1](./mspider/v0.105.1.md), [v0.106.2](./mspider/v0.106.2.md)
     - [v0.108.3](./mspider/v0.108.3.md), [v0.109.0](./mspider/v0.109.0.md)
+    - [v0.116.0](./mspider/v0.116.0.md)
 
 -   :fontawesome-brands-edge:{ .lg .middle } __云边协同 OpenAPI__
 
