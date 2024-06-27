@@ -3,6 +3,7 @@ nav:
         - OpenAPI 文档索引: openapi/index.md
         - 工作台:
             - 应用工作台 OpenAPI:
+                - v0.120.0: openapi/amamba/v0.120.0.md
                 - v0.119.0: openapi/amamba/v0.119.0.md
                 - v0.118.x:
                     - v0.118.0: openapi/amamba/v0.118.0.md
@@ -105,6 +106,9 @@ nav:
                 - v0.6.0: openapi/virtnest/v0.6.0.md
         - 微服务:
             - 可观测性 OpenAPI:
+                - v0.27.x:
+                    - v0.27.0: openapi/insight/v0.27.0.md
+                    - v0.27.1: openapi/insight/v0.27.1.md
                 - v0.26.0: openapi/insight/v0.26.0.md
                 - v0.25.2: openapi/insight/v0.25.2.md
                 - v0.24.0: openapi/insight/v0.24.0.md
@@ -132,7 +136,10 @@ nav:
                     - v0.17.3: openapi/insight/v0.17.3.md
                 - v0.16.0: openapi/insight/v0.16.0.md
             - 微服务引擎 OpenAPI:
-                - v0.37.0: openapi/skoala/v0.37.0.md
+                - v0.38.1: openapi/skoala/v0.38.1.md
+                - v0.37.x:
+                    - v0.37.0: openapi/skoala/v0.37.0.md
+                    - v0.37.1: openapi/skoala/v0.37.1.md
                 - v0.36.x:
                     - v0.36.0: openapi/skoala/v0.36.0.md
                     - v0.36.1: openapi/skoala/v0.36.1.md
@@ -170,6 +177,7 @@ nav:
                     - v0.22.1: openapi/skoala/v0.22.1.md
                     - v0.22.2: openapi/skoala/v0.22.2.md
             - 服务网格 OpenAPI:
+                - v0.116.0: openapi/mspider/v0.116.0.md
                 - v0.109.0: openapi/mspider/v0.109.0.md
                 - v0.108.3: openapi/mspider/v0.108.3.md
                 - v0.106.2: openapi/mspider/v0.106.2.md
