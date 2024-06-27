@@ -1,0 +1,6480 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "title": "Baize swagger api docs",
+    "version": "v1alpha1"
+  },
+  "host": "demo-dev.daocloud.io",
+  "paths": {
+    "/apis/baize.io/v1alpha1/clusters": {
+      "get": {
+        "tags": [
+          "ClusterService"
+        ],
+        "summary": "获取集群列表",
+        "operationId": "ClusterService_ListClusters",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListAIClustersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/clusters/{cluster}/namespaces": {
+      "get": {
+        "tags": [
+          "ClusterService"
+        ],
+        "summary": "获取集群命名空间",
+        "operationId": "ClusterService_ListClusterNamespaces",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListClusterNamespaceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/clusters/{cluster}/queues": {
+      "post": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_CreateQueue",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "required": [
+                    "name"
+                  ]
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1alpha1QueueResource"
+                  }
+                },
+                "strategy": {
+                  "title": "队列策略",
+                  "$ref": "#/definitions/v1alpha1QueueStrategy"
+                },
+                "type": {
+                  "title": "队列类型",
+                  "$ref": "#/definitions/v1alpha1QueueType"
+                },
+                "workspace": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Queue"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/clusters/{cluster}/queues/{name}": {
+      "get": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_GetQueue",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "enum": [
+              "QUEUE_TYPE_UNSPECIFIED",
+              "KUEUE"
+            ],
+            "type": "string",
+            "default": "QUEUE_TYPE_UNSPECIFIED",
+            "description": "队列类型",
+            "name": "type",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Queue"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_UpdateQueue",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1alpha1QueueResource"
+                  }
+                },
+                "strategy": {
+                  "title": "队列策略",
+                  "$ref": "#/definitions/v1alpha1QueueStrategy"
+                },
+                "type": {
+                  "title": "队列类型",
+                  "$ref": "#/definitions/v1alpha1QueueType"
+                },
+                "workspace": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Queue"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_DeleteQueue",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "title": "队列类型",
+                  "$ref": "#/definitions/v1alpha1QueueType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Queue"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/clusters/{cluster}/queues/{name}/json": {
+      "get": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_GetQueueByJSON",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "enum": [
+              "QUEUE_TYPE_UNSPECIFIED",
+              "KUEUE"
+            ],
+            "type": "string",
+            "default": "QUEUE_TYPE_UNSPECIFIED",
+            "description": "队列类型",
+            "name": "type",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1QueueJSON"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/clusters/{cluster}/settings/gpu-resources": {
+      "get": {
+        "tags": [
+          "ClusterService"
+        ],
+        "summary": "获取集群 GPU 配置",
+        "operationId": "ClusterService_GetClusterGPUSettings",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GPUSettingsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/current-user/permission": {
+      "get": {
+        "tags": [
+          "PermissionService"
+        ],
+        "operationId": "PermissionService_GetCurrentUserPermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1UserPermission"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/datasets/conda/options": {
+      "get": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_GetDatasetCondaOptions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetDatasetCondaOptionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/devices/gpus": {
+      "get": {
+        "tags": [
+          "DeviceService"
+        ],
+        "summary": "ListDevicesGPUs 获取 GPU 设备列表",
+        "operationId": "DeviceService_ListDevicesGPUs",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListDevicesGPUsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：*"
+      }
+    },
+    "/apis/baize.io/v1alpha1/grafana-dashboards/admin-overview": {
+      "get": {
+        "tags": [
+          "MetricsService"
+        ],
+        "summary": "管理员概览面板",
+        "operationId": "MetricsService_GetAdminGrafanaDashboard",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "可选，不选为全部集群",
+            "name": "cluster",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "起始时间",
+            "name": "from",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "结束时间，且作为单值指标的时间点",
+            "name": "to",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GrafanaDashboard"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/metrics/multiple-queries": {
+      "get": {
+        "tags": [
+          "MetricsService"
+        ],
+        "summary": "查询具体的单一指标\ndeprecated, use GetAdminGrafanaDashboard instead",
+        "operationId": "MetricsService_QueryMultipleVectors",
+        "parameters": [
+          {
+            "type": "array",
+            "items": {
+              "enum": [
+                "QUERY_METRIC_UNSPECIFIED",
+                "QUERY_METRIC_GPU_INSTALLED_NODES",
+                "QUERY_METRIC_TOTAL_NODES",
+                "QUERY_METRIC_INUSE_GPUS",
+                "QUERY_METRIC_TOTAL_GPUS",
+                "QUERY_METRIC_INUSE_CPUS",
+                "QUERY_METRIC_TOTAL_CPUS",
+                "QUERY_METRIC_INUSE_MEM",
+                "QUERY_METRIC_TOTAL_MEM",
+                "QUERY_METRIC_INUSE_VGPU_MEM",
+                "QUERY_METRIC_TOTAL_VGPU_MEM",
+                "QUERY_METRIC_TOTAL_CLUSTERS"
+              ],
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "name": "queryMetrics",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "uint64",
+            "name": "time",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1MultipleVectorQueryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/metrics/time-series-queries": {
+      "get": {
+        "tags": [
+          "MetricsService"
+        ],
+        "summary": "查询时间序列指标\ndeprecated, use GetAdminGrafanaDashboard instead",
+        "operationId": "MetricsService_QueryTimeSeriesVectors",
+        "parameters": [
+          {
+            "type": "array",
+            "items": {
+              "enum": [
+                "QUERY_TIME_SERIES_UNSPECIFIED",
+                "QUERY_TIME_SERIES_METRIC_GPU_DISTRIBUTION",
+                "QUERY_TIME_SERIES_METRIC_GPU_UTILIZATION"
+              ],
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "name": "queryMetrics",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "QUERY_TIME_SERIES_METRIC_RANGES_UNSPECIFIED",
+              "QUERY_TIME_SERIES_METRIC_RANGES_LAST_3_DAYS",
+              "QUERY_TIME_SERIES_METRIC_RANGES_LAST_7_DAYS",
+              "QUERY_TIME_SERIES_METRIC_RANGES_LAST_15_DAYS"
+            ],
+            "type": "string",
+            "default": "QUERY_TIME_SERIES_METRIC_RANGES_UNSPECIFIED",
+            "name": "queryMetricRange",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1QueryTimeSeriesVectorsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/notebook-images": {
+      "get": {
+        "tags": [
+          "NotebookService"
+        ],
+        "operationId": "NotebookService_GetNotebookImageList",
+        "parameters": [
+          {
+            "enum": [
+              "TYPE_UNSPECIFIED",
+              "JUPYTER",
+              "CODE"
+            ],
+            "type": "string",
+            "default": "TYPE_UNSPECIFIED",
+            "description": "镜像类型，可以为空，空表示 Jupyter",
+            "name": "type",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1NotebookImageListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/queues": {
+      "get": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_ListQueues",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "QUEUE_TYPE_UNSPECIFIED",
+              "KUEUE"
+            ],
+            "type": "string",
+            "default": "QUEUE_TYPE_UNSPECIFIED",
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListQueueResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：workspace"
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspace/{workspace}/queues": {
+      "get": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_ListQueues2",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "QUEUE_TYPE_UNSPECIFIED",
+              "KUEUE"
+            ],
+            "type": "string",
+            "default": "QUEUE_TYPE_UNSPECIFIED",
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListQueueResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：workspace"
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces": {
+      "get": {
+        "tags": [
+          "WorkspaceService"
+        ],
+        "operationId": "WorkspaceService_ListWorkspaces",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListWorkspacesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/analysis": {
+      "get": {
+        "tags": [
+          "AnalysisManagement"
+        ],
+        "operationId": "AnalysisManagement_ListAnalysis",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "queueName",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListAnalysisResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：type, owner"
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters": {
+      "get": {
+        "tags": [
+          "ClusterService"
+        ],
+        "summary": "获取集群列表",
+        "operationId": "ClusterService_ListClusters2",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListAIClustersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces": {
+      "get": {
+        "tags": [
+          "ClusterService"
+        ],
+        "summary": "获取集群命名空间",
+        "operationId": "ClusterService_ListClusterNamespaces2",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListClusterNamespaceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/analysis": {
+      "get": {
+        "tags": [
+          "AnalysisManagement"
+        ],
+        "operationId": "AnalysisManagement_ListAnalysis2",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "queueName",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListAnalysisResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：type, owner"
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/analysis/{name}": {
+      "delete": {
+        "tags": [
+          "AnalysisManagement"
+        ],
+        "operationId": "AnalysisManagement_DeleteAnalysis",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Analysis"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/datasets": {
+      "get": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_ListDatasets",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListDatasetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：type, uri, phase"
+      },
+      "post": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_CreateDataset",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "boundPVC": {
+                  "title": "绑定 PVC 设置",
+                  "$ref": "#/definitions/v1alpha1DatasetBoundPVC"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "name": {
+                  "type": "string"
+                },
+                "secretOptions": {
+                  "$ref": "#/definitions/v1alpha1SecretOptions"
+                },
+                "source": {
+                  "title": "定义数据源",
+                  "$ref": "#/definitions/v1alpha1DataSource"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Dataset"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/datasets/{name}": {
+      "get": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_GetDataset",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Dataset"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_UpdateDataset",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "conda": {
+                  "$ref": "#/definitions/v1alpha1DataSourceOptionsConda"
+                },
+                "secretOptions": {
+                  "$ref": "#/definitions/v1alpha1SecretOptions"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Dataset"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_DeleteDataset",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Dataset"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/datasets/{name}/actions": {
+      "post": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_DatasetDoAction",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "$ref": "#/definitions/DatasetActionRequestAction"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Dataset"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/datasets/{name}/related-instances": {
+      "get": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_GetRelatedInstances",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1RelatedInstancesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：datasets"
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/datasets/{name}/sync-process": {
+      "get": {
+        "tags": [
+          "DatasetManagement"
+        ],
+        "operationId": "DatasetManagement_GetDatasetSyncProcess",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1DatasetSyncProcess"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/grafana-dashboards": {
+      "get": {
+        "tags": [
+          "MetricsService"
+        ],
+        "summary": "工作负载实例监控面板",
+        "operationId": "MetricsService_GetWorkloadGrafanaDashboard",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "pod",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "container",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "起始时间",
+            "name": "from",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "结束时间，且作为单值指标的时间点",
+            "name": "to",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GrafanaDashboard"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/inference-serving": {
+      "get": {
+        "tags": [
+          "InferenceServingManagement"
+        ],
+        "summary": "获取推理服务列表",
+        "operationId": "InferenceServingManagement_ListInferenceServings",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListInferenceServingsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：phase, lastUpdated"
+      },
+      "post": {
+        "tags": [
+          "InferenceServingManagement"
+        ],
+        "summary": "创建推理服务",
+        "operationId": "InferenceServingManagement_CreateInferenceServing",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "auth": {
+                  "$ref": "#/definitions/v1alpha1ServingAuth"
+                },
+                "framework": {
+                  "$ref": "#/definitions/v1alpha1Framework"
+                },
+                "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "models": {
+                  "type": "array",
+                  "title": "模型配置，暂时只支持一个，这里用数组只是为了扩展",
+                  "items": {
+                    "$ref": "#/definitions/v1alpha1ServingConfig"
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "required": [
+                    "name"
+                  ]
+                },
+                "podConfig": {
+                  "title": "kubernetes pod 配置",
+                  "$ref": "#/definitions/commonPodConfig"
+                },
+                "replicas": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "serviceConfig": {
+                  "$ref": "#/definitions/v1alpha1ServiceConfig"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1InferenceServing"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/inference-serving/{name}": {
+      "get": {
+        "tags": [
+          "InferenceServingManagement"
+        ],
+        "summary": "获取推理服务",
+        "operationId": "InferenceServingManagement_GetInferenceServing",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1InferenceServing"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "InferenceServingManagement"
+        ],
+        "summary": "更新推理服务",
+        "operationId": "InferenceServingManagement_UpdateInferenceServing",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "auth": {
+                  "$ref": "#/definitions/v1alpha1ServingAuth"
+                },
+                "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "models": {
+                  "type": "array",
+                  "title": "模型配置，暂时只支持一个，这里用数组只是为了扩展",
+                  "items": {
+                    "$ref": "#/definitions/v1alpha1ServingConfig"
+                  }
+                },
+                "podConfig": {
+                  "title": "kubernetes pod 配置",
+                  "$ref": "#/definitions/commonPodConfig"
+                },
+                "replicas": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1InferenceServing"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "InferenceServingManagement"
+        ],
+        "summary": "删除推理服务",
+        "operationId": "InferenceServingManagement_DeleteInferenceServing",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1InferenceServing"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/jobs": {
+      "get": {
+        "tags": [
+          "JobsManagement"
+        ],
+        "operationId": "JobsManagement_ListJobs2",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "cluster 表示查询所有集群的 Job。",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "namespace 表示查询所有命名空间的 Job。",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "enum": [
+              "JOB_TYPE_UNSPECIFIED",
+              "PYTORCH",
+              "TENSORFLOW",
+              "PADDLE",
+              "MPI",
+              "MXNET"
+            ],
+            "type": "string",
+            "default": "JOB_TYPE_UNSPECIFIED",
+            "description": "任务类型，如果为空，表示所有任务类型。\n\n - MPI: XGBOOST              = 4;",
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListJobsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：trainingMode, runningDuration"
+      },
+      "post": {
+        "tags": [
+          "JobsManagement"
+        ],
+        "operationId": "JobsManagement_CreateJob",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "analysis": {
+                  "title": "任务分析",
+                  "$ref": "#/definitions/v1alpha1AnalysisConfig"
+                },
+                "baseConfig": {
+                  "$ref": "#/definitions/v1alpha1JobCreationBaseConfig"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string",
+                  "required": [
+                    "name"
+                  ]
+                },
+                "roleConfig": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/definitions/v1alpha1JobRoleDifferenceConfig"
+                  }
+                },
+                "trainingConfig": {
+                  "title": "训练配置",
+                  "$ref": "#/definitions/v1alpha1TrainingConfig"
+                },
+                "trainingMode": {
+                  "$ref": "#/definitions/v1alpha1TrainingMode"
+                },
+                "type": {
+                  "$ref": "#/definitions/v1alpha1JobType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Job"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/jobs/{name}": {
+      "get": {
+        "tags": [
+          "JobsManagement"
+        ],
+        "operationId": "JobsManagement_GetJob",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "enum": [
+              "JOB_TYPE_UNSPECIFIED",
+              "PYTORCH",
+              "TENSORFLOW",
+              "PADDLE",
+              "MPI",
+              "MXNET"
+            ],
+            "type": "string",
+            "default": "JOB_TYPE_UNSPECIFIED",
+            "description": " - MPI: XGBOOST              = 4;",
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "boolean",
+            "description": "是否删除关联的任务分析工作负载",
+            "name": "deleteAnalysis",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Job"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "JobsManagement"
+        ],
+        "operationId": "JobsManagement_DeleteJob",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "deleteAnalysis": {
+                  "type": "boolean",
+                  "title": "是否删除关联的任务分析工作负载"
+                },
+                "type": {
+                  "$ref": "#/definitions/v1alpha1JobType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Job"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/jobs/{name}/actions": {
+      "post": {
+        "tags": [
+          "JobsManagement"
+        ],
+        "operationId": "JobsManagement_DoJobAction",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "$ref": "#/definitions/JobActionRequestAction"
+                },
+                "params": {
+                  "$ref": "#/definitions/JobActionRequestParams"
+                },
+                "type": {
+                  "$ref": "#/definitions/v1alpha1JobType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Job"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/jobs/{name}/schedulers": {
+      "put": {
+        "tags": [
+          "JobsManagement"
+        ],
+        "operationId": "JobsManagement_ListSchedulers",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "analysis": {
+                  "title": "任务分析",
+                  "$ref": "#/definitions/v1alpha1AnalysisConfig"
+                },
+                "baseConfig": {
+                  "$ref": "#/definitions/v1alpha1JobCreationBaseConfig"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "roleConfig": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/definitions/v1alpha1JobRoleDifferenceConfig"
+                  }
+                },
+                "trainingConfig": {
+                  "title": "训练配置",
+                  "$ref": "#/definitions/v1alpha1TrainingConfig"
+                },
+                "trainingMode": {
+                  "$ref": "#/definitions/v1alpha1TrainingMode"
+                },
+                "type": {
+                  "$ref": "#/definitions/v1alpha1JobType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1JobSchedulersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/localqueues": {
+      "post": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_CreateLocalQueue",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "title": "队列类型",
+                  "$ref": "#/definitions/v1alpha1QueueType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateLocalQueueResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/notebooks": {
+      "get": {
+        "tags": [
+          "NotebookService"
+        ],
+        "operationId": "NotebookService_ListNotebooks2",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "queueName",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListNotebooksResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：type"
+      },
+      "post": {
+        "tags": [
+          "NotebookService"
+        ],
+        "operationId": "NotebookService_CreateNotebook",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "analysis": {
+                  "title": "任务分析",
+                  "$ref": "#/definitions/v1alpha1AnalysisConfig"
+                },
+                "config": {
+                  "$ref": "#/definitions/v1alpha1NotebookConfig"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string",
+                  "required": [
+                    "name"
+                  ]
+                },
+                "priorityClass": {
+                  "type": "string",
+                  "title": "notebook Pod 的优先级，Baize 会内建三个优先级：\nbaize-high-priority\nbaize-medium-priority\nbaize-low-priority\n目前只支持这三个，后续可能会支持系统其他优先级。"
+                },
+                "queueName": {
+                  "type": "string"
+                },
+                "type": {
+                  "$ref": "#/definitions/v1alpha1NotebookType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Notebook"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/notebooks/{name}": {
+      "get": {
+        "tags": [
+          "NotebookService"
+        ],
+        "operationId": "NotebookService_GetNotebook",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "boolean",
+            "description": "是否删除关联的任务分析工作负载",
+            "name": "deleteAnalysis",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Notebook"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "NotebookService"
+        ],
+        "operationId": "NotebookService_UpdateNotebook",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "analysis": {
+                  "title": "任务分析",
+                  "$ref": "#/definitions/v1alpha1AnalysisConfig"
+                },
+                "config": {
+                  "$ref": "#/definitions/v1alpha1NotebookConfig"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "priorityClass": {
+                  "type": "string",
+                  "title": "notebook Pod 的优先级，Baize 会内建三个优先级：\nbaize-high-priority\nbaize-medium-priority\nbaize-low-priority\n目前只支持这三个，后续可能会支持系统其他优先级。"
+                },
+                "queueName": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Notebook"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "NotebookService"
+        ],
+        "operationId": "NotebookService_DeleteNotebook",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "deleteAnalysis": {
+                  "type": "boolean",
+                  "title": "是否删除关联的任务分析工作负载"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Notebook"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/notebooks/{name}/actions": {
+      "post": {
+        "tags": [
+          "NotebookService"
+        ],
+        "operationId": "NotebookService_NotebookDoAction",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "$ref": "#/definitions/NotebookActionRequestAction"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Notebook"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/pvcs": {
+      "get": {
+        "tags": [
+          "ClusterService"
+        ],
+        "summary": "获取 PVC 列表",
+        "operationId": "ClusterService_ListPVCs",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListPVCsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：storageClass, capacity"
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/namespaces/{namespace}/resources/{name}/instances": {
+      "get": {
+        "tags": [
+          "PodsManagement"
+        ],
+        "operationId": "PodsManagement_GetPodInstanceList",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "enum": [
+              "JOB_TYPE_UNSPECIFIED",
+              "PYTORCH",
+              "TENSORFLOW",
+              "PADDLE",
+              "NOTEBOOK",
+              "INFERENCE",
+              "MXNET",
+              "MPI"
+            ],
+            "type": "string",
+            "default": "JOB_TYPE_UNSPECIFIED",
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1PodInstanceListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/queues/{name}/capacites": {
+      "get": {
+        "tags": [
+          "QueueManagement"
+        ],
+        "operationId": "QueueManagement_CheckQueue",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true
+          },
+          {
+            "enum": [
+              "QUEUE_TYPE_UNSPECIFIED",
+              "KUEUE"
+            ],
+            "type": "string",
+            "default": "QUEUE_TYPE_UNSPECIFIED",
+            "description": "队列类型",
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CheckQueueResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/clusters/{cluster}/storage-classes": {
+      "get": {
+        "tags": [
+          "ClusterService"
+        ],
+        "summary": "获取存储类列表",
+        "operationId": "ClusterService_ListStorageClasses",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListStorageClassesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：provisioner"
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/grafana-dashboards/dev-overview": {
+      "get": {
+        "tags": [
+          "MetricsService"
+        ],
+        "summary": "开发者视角概览面板",
+        "operationId": "MetricsService_GetDevGrafanaDashboard",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "起始时间",
+            "name": "from",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "结束时间，且作为单值指标的时间点",
+            "name": "to",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GrafanaDashboard"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/jobs": {
+      "get": {
+        "tags": [
+          "JobsManagement"
+        ],
+        "operationId": "JobsManagement_ListJobs",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "enum": [
+              "JOB_TYPE_UNSPECIFIED",
+              "PYTORCH",
+              "TENSORFLOW",
+              "PADDLE",
+              "MPI",
+              "MXNET"
+            ],
+            "type": "string",
+            "default": "JOB_TYPE_UNSPECIFIED",
+            "description": "任务类型，如果为空，表示所有任务类型。\n\n - MPI: XGBOOST              = 4;",
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "cluster 表示查询所有集群的 Job。",
+            "name": "cluster",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "namespace 表示查询所有命名空间的 Job。",
+            "name": "namespace",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListJobsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：trainingMode, runningDuration"
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/metrics/dev-dashboard-multiple-queries": {
+      "get": {
+        "tags": [
+          "MetricsService"
+        ],
+        "summary": "查询开发者面板指标\ndeprecated, use GetDevGrafanaDashboard instead",
+        "operationId": "MetricsService_QueryDevDashboardMultipleVectors",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "array",
+            "items": {
+              "enum": [
+                "DEV_DASH_QUERY_METRIC_UNSPECIFIED",
+                "DEV_DASH_QUERY_RUNNING_NOTEBOOKS",
+                "DEV_DASH_QUERY_TOTAL_NOTEBOOKS",
+                "DEV_DASH_QUERY_RUNNING_PYTORCH_JOBS",
+                "DEV_DASH_QUERY_TOTAL_PYTORCH_JOBS",
+                "DEV_DASH_QUERY_RUNNING_TENSORFLOW_JOBS",
+                "DEV_DASH_QUERY_TOTAL_TENSORFLOW_JOBS",
+                "DEV_DASH_QUERY_TOTAL_DATASETS",
+                "DEV_DASH_TASKS_STATS"
+              ],
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "name": "queryMetrics",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "uint64",
+            "name": "time",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1MultipleDevDashboardVectorQueryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        }
+      }
+    },
+    "/apis/baize.io/v1alpha1/workspaces/{workspace}/notebooks": {
+      "get": {
+        "tags": [
+          "NotebookService"
+        ],
+        "operationId": "NotebookService_ListNotebooks",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "workspace",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "cluster",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "namespace",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "queueName",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "description": "总共有多少条目，请求时可以不用传递",
+            "name": "page.total",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage",
+            "name": "page.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize",
+            "name": "page.pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "排序规则，支持字符串和数字类型的字段进行排序",
+            "name": "page.sort",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+            "name": "page.search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListNotebooksResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "description": "额外支持的搜索、排序字段：type"
+      }
+    }
+  },
+  "definitions": {
+    "DataSourceOptionsCondaPackageManager": {
+      "type": "string",
+      "default": "PACKAGE_MANAGER_UNSPECIFIED",
+      "enum": [
+        "PACKAGE_MANAGER_UNSPECIFIED",
+        "PIP",
+        "CONDA"
+      ]
+    },
+    "DataSourceOptionsGit": {
+      "type": "object",
+      "properties": {
+        "branch": {
+          "type": "string",
+          "title": "Git 分支名称，不填写默认为主分支"
+        },
+        "commit": {
+          "type": "string",
+          "title": "需要 checkout 的 commit，不填写不做 checkout"
+        },
+        "depth": {
+          "type": "integer",
+          "format": "int32",
+          "title": "克隆的深度，不填写克隆所有历史，填写 1\n只克隆最近一次提交，可以减少克隆时间，无法和 commit 同时使用"
+        },
+        "submodules": {
+          "type": "boolean",
+          "title": "是否克隆子模块"
+        }
+      }
+    },
+    "DataSourceOptionsS3": {
+      "type": "object",
+      "properties": {
+        "endpoint": {
+          "type": "string",
+          "title": "S3 访问端点，可以是域名或者 IP"
+        },
+        "region": {
+          "type": "string",
+          "title": "S3 存储桶区域"
+        }
+      }
+    },
+    "DatasetActionRequestAction": {
+      "type": "string",
+      "default": "ACTION_UNSPECIFIED",
+      "enum": [
+        "ACTION_UNSPECIFIED",
+        "RERUN"
+      ]
+    },
+    "DatasetBoundPVCAccessMode": {
+      "type": "string",
+      "default": "ACCESS_MODE_UNSPECIFIED",
+      "enum": [
+        "ACCESS_MODE_UNSPECIFIED",
+        "READ_ONLY_MANY",
+        "READ_WRITE_ONCE",
+        "READ_WRITE_MANY"
+      ]
+    },
+    "DatasetStatusPhase": {
+      "type": "string",
+      "title": "- PENDING: 刚创建完的状态\n - READY: 可以被挂载的状态\n - PROCESSING: 正在处理中的状态\n - FAILED: 处理失败的状态，无法被挂载",
+      "default": "DATA_SET_PHASE_UNSPECIFIED",
+      "enum": [
+        "DATA_SET_PHASE_UNSPECIFIED",
+        "PENDING",
+        "READY",
+        "PROCESSING",
+        "FAILED"
+      ]
+    },
+    "FrameworkTriton": {
+      "type": "object",
+      "properties": {
+        "backend": {
+          "title": "Triton 后端类型",
+          "$ref": "#/definitions/TritonBackend"
+        }
+      }
+    },
+    "InferenceServingStatusModelStatus": {
+      "type": "object",
+      "properties": {
+        "accessPath": {
+          "type": "string",
+          "title": "模型的访问路径，如 /v2/llama/generate\n如果要能够直接访问，需要和 .status.access_base_url 拼接。"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "InferenceServingStatusPhase": {
+      "type": "string",
+      "default": "PHASE_UNSPECIFIED",
+      "enum": [
+        "PHASE_UNSPECIFIED",
+        "PENDING",
+        "UPDATING_OR_CREATING",
+        "RUNNING",
+        "FAILED",
+        "DELETING",
+        "STOPPED"
+      ]
+    },
+    "JobActionRequestAction": {
+      "type": "string",
+      "title": "- RESTART: 重启任务",
+      "default": "JOB_ACTION_UNSPECIFIED",
+      "enum": [
+        "JOB_ACTION_UNSPECIFIED",
+        "RESTART",
+        "CHANGE_PRIORITY"
+      ]
+    },
+    "JobActionRequestParams": {
+      "type": "object",
+      "properties": {
+        "priorityClass": {
+          "type": "string",
+          "title": "当 action = CHANGE_PRIORITY 时，需要传入 priority_class"
+        }
+      }
+    },
+    "JobSchedulersResponseScheduler": {
+      "type": "object",
+      "properties": {
+        "alias": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean",
+          "title": "如果 default = true，表示默认应该选择的调度器，这个可能是配置在 training-center 的配置。"
+        },
+        "enabledFeatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SchedulerFeature"
+          }
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "KubeVolumeVolumeType": {
+      "description": " - PERSISTENT_VOLUME_CLAIM: The volume is a persistent volume claim.",
+      "type": "string",
+      "default": "VOLUME_TYPE_UNSPECIFIED",
+      "enum": [
+        "VOLUME_TYPE_UNSPECIFIED",
+        "PERSISTENT_VOLUME_CLAIM",
+        "DATASET",
+        "DATASET_RUNTIME_ENV"
+      ]
+    },
+    "ModelInputFormat": {
+      "description": "- FORMAT_NONE: @@    .. cpp:enumerator:: Format::FORMAT_NONE = 0\n@@\n@@       The input has no specific format. This is the default.\n@@\n - FORMAT_NHWC: @@    .. cpp:enumerator:: Format::FORMAT_NHWC = 1\n@@\n@@       HWC image format. Tensors with this format require 3 dimensions\n@@       if the model does not support batching (max_batch_size = 0) or 4\n@@       dimensions if the model does support batching (max_batch_size\n@@       >= 1). In either case the 'dims' below should only specify the\n@@       3 non-batch dimensions (i.e. HWC or CHW).\n@@\n - FORMAT_NCHW: @@    .. cpp:enumerator:: Format::FORMAT_NCHW = 2\n@@\n@@       CHW image format. Tensors with this format require 3 dimensions\n@@       if the model does not support batching (max_batch_size = 0) or 4\n@@       dimensions if the model does support batching (max_batch_size\n@@       >= 1). In either case the 'dims' below should only specify the\n@@       3 non-batch dimensions (i.e. HWC or CHW).\n@@",
+      "type": "string",
+      "title": "@@\n@@  .. cpp:enum:: Format\n@@\n@@     The format for the input.\n@@",
+      "default": "FORMAT_NONE",
+      "enum": [
+        "FORMAT_NONE",
+        "FORMAT_NHWC",
+        "FORMAT_NCHW"
+      ]
+    },
+    "NotebookActionRequestAction": {
+      "type": "string",
+      "default": "ACTION_UNSPECIFIED",
+      "enum": [
+        "ACTION_UNSPECIFIED",
+        "START",
+        "STOP"
+      ]
+    },
+    "NotebookConfigKubeMetadata": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "NotebookConfigServiceType": {
+      "description": " - NODE_PORT: The notebook is exposed as a NodePort service.\n - LOAD_BALANCER: The notebook is exposed as a LoadBalancer service.",
+      "type": "string",
+      "default": "SERVICE_TYPE_UNSPECIFIED",
+      "enum": [
+        "SERVICE_TYPE_UNSPECIFIED",
+        "NODE_PORT",
+        "LOAD_BALANCER"
+      ]
+    },
+    "PodInstanceContainer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "RelatedInstancesResponseInstance": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        }
+      }
+    },
+    "SchedulerFeature": {
+      "type": "string",
+      "title": "- BINPACK: 任务队列",
+      "default": "FEATURE_UNSPECIFIED",
+      "enum": [
+        "FEATURE_UNSPECIFIED",
+        "BINPACK",
+        "GANG",
+        "FAIR"
+      ]
+    },
+    "SecretOptionsAkSkAuth": {
+      "type": "object",
+      "properties": {
+        "accessKey": {
+          "type": "string"
+        },
+        "secretKey": {
+          "type": "string"
+        }
+      }
+    },
+    "SecretOptionsAuthType": {
+      "type": "string",
+      "title": "- AUTH_TYPE_UNSPECIFIED: 不需要认证\n - BASIC: 使用用户名密码认证\n - SSH: 使用 SSH 证书认证\n - TOKEN: 使用 Token 认证\n - AK_SK: 使用 AK/SK 认证",
+      "default": "AUTH_TYPE_UNSPECIFIED",
+      "enum": [
+        "AUTH_TYPE_UNSPECIFIED",
+        "BASIC",
+        "SSH",
+        "TOKEN",
+        "AK_SK"
+      ]
+    },
+    "SecretOptionsBasicAuth": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "SecretOptionsSSHAuth": {
+      "type": "object",
+      "properties": {
+        "passphrase": {
+          "type": "string"
+        },
+        "privateKey": {
+          "type": "string"
+        }
+      }
+    },
+    "SecretOptionsTokenAuth": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "ServingAuthAuthType": {
+      "type": "string",
+      "default": "AUTH_TYPE_UNSPECIFIED",
+      "enum": [
+        "AUTH_TYPE_UNSPECIFIED",
+        "TRITON_RESTRICTED_KEY"
+      ]
+    },
+    "ServingAuthTritonRestrictedKeyValue": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "ServingConfigTritonModelConfig": {
+      "type": "object",
+      "properties": {
+        "customConfig": {
+          "type": "string",
+          "title": "用于自定义配置"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/tritonModelInput"
+          }
+        },
+        "maxBatchSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/tritonModelOutput"
+          }
+        }
+      }
+    },
+    "ServingConfigTritonServingConfig": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/ServingConfigTritonModelConfig"
+        },
+        "customModelConfig": {
+          "type": "object",
+          "title": "可以用于自定义 python 后端的模型配置，\n比如 model.py: \"import torch\\nimport torchvision\\nfrom torchvision import models\\n\\nmodel = models.resnet50(pretrained=True)\\nmodel.eval()\"\n暂时用不到",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "vllm": {
+          "title": "deprecated, DO NOT USE ME",
+          "$ref": "#/definitions/v1alpha1ServingConfigVLLM"
+        }
+      }
+    },
+    "StatusPhase": {
+      "description": " - PENDING: The analysis is being prepared for use.\n - RUNNING: The analysis is active and ready to use.\n - STOPPED: The analysis is being stopped.\n - FAILED: The analysis is failed.",
+      "type": "string",
+      "default": "PHASE_UNSPECIFIED",
+      "enum": [
+        "PHASE_UNSPECIFIED",
+        "PENDING",
+        "RUNNING",
+        "STOPPED",
+        "FAILED"
+      ]
+    },
+    "TritonBackend": {
+      "type": "string",
+      "title": "- TRITON_BACKEND_VLLM: deprecated: DO NOT USE ME",
+      "default": "TRITON_BACKEND_UNSPECIFIED",
+      "enum": [
+        "TRITON_BACKEND_UNSPECIFIED",
+        "TRITON_BACKEND_PYTORCH",
+        "TRITON_BACKEND_TENSORFLOW",
+        "TRITON_BACKEND_VLLM",
+        "TRITON_BACKEND_ONNX"
+      ]
+    },
+    "VLLMLoraModel": {
+      "type": "object",
+      "properties": {
+        "relativePath": {
+          "type": "string",
+          "title": "模型文件相对于数据集的位置"
+        },
+        "volume": {
+          "title": "数据集，不需要传 mountPath，会自动。",
+          "$ref": "#/definitions/commonKubeVolume"
+        }
+      }
+    },
+    "commonAffinity": {
+      "description": "The following message is from k8s official: https://github.com/kubernetes/api/blob/master/core/v1/generated.proto\nAffinity is a group of affinity scheduling rules.",
+      "type": "object",
+      "properties": {
+        "nodeAffinity": {
+          "description": "Describes node affinity scheduling rules for the pod.",
+          "$ref": "#/definitions/commonNodeAffinity"
+        },
+        "podAffinity": {
+          "description": "Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).",
+          "$ref": "#/definitions/commonPodAffinity"
+        },
+        "podAntiAffinity": {
+          "description": "Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).",
+          "$ref": "#/definitions/commonPodAntiAffinity"
+        }
+      }
+    },
+    "commonKubeEnv": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "commonKubeVolume": {
+      "type": "object",
+      "properties": {
+        "mountPath": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/KubeVolumeVolumeType"
+        }
+      }
+    },
+    "commonLabelSelector": {
+      "type": "object",
+      "properties": {
+        "matchExpressions": {
+          "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonLabelSelectorRequirement"
+          }
+        },
+        "matchLabels": {
+          "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "commonLabelSelectorRequirement": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "title": "key is the label key that the selector applies to.\n+patchMergeKey=key\n+patchStrategy=merge"
+        },
+        "operator": {
+          "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+          "type": "string"
+        },
+        "values": {
+          "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "commonNodeAffinity": {
+      "description": "Node affinity is a group of node affinity scheduling rules.",
+      "type": "object",
+      "properties": {
+        "preferredDuringSchedulingIgnoredDuringExecution": {
+          "description": "The scheduler will prefer to schedule pods to nodes that satisfy\nthe affinity expressions specified by this field, but it may choose\na node that violates one or more of the expressions. The node that is\nmost preferred is the one with the greatest sum of weights, i.e.\nfor each node that meets all of the scheduling requirements (resource\nrequest, requiredDuringScheduling affinity expressions, etc.),\ncompute a sum by iterating through the elements of this field and adding\n\"weight\" to the sum if the node matches the corresponding matchExpressions; the\nnode(s) with the highest sum are the most preferred.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonPreferredSchedulingTerm"
+          }
+        },
+        "requiredDuringSchedulingIgnoredDuringExecution": {
+          "description": "If the affinity requirements specified by this field are not met at\nscheduling time, the pod will not be scheduled onto the node.\nIf the affinity requirements specified by this field cease to be met\nat some point during pod execution (e.g. due to an update), the system\nmay or may not try to eventually evict the pod from its node.",
+          "$ref": "#/definitions/commonNodeSelector"
+        }
+      }
+    },
+    "commonNodeSelector": {
+      "type": "object",
+      "title": "A node selector represents the union of the results of one or more label queries\nover a set of nodes; that is, it represents the OR of the selectors represented\nby the node selector terms.\n+structType=atomic",
+      "properties": {
+        "nodeSelectorTerms": {
+          "description": "Required. A list of node selector terms. The terms are ORed.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonNodeSelectorTerm"
+          }
+        }
+      }
+    },
+    "commonNodeSelectorRequirement": {
+      "description": "A node selector requirement is a selector that contains values, a key, and an operator\nthat relates the key and values.",
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "The label key that the selector applies to.",
+          "type": "string"
+        },
+        "operator": {
+          "description": "Represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+          "type": "string"
+        },
+        "values": {
+          "description": "An array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. If the operator is Gt or Lt, the values\narray must have a single element, which will be interpreted as an integer.\nThis array is replaced during a strategic merge patch.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "commonNodeSelectorTerm": {
+      "type": "object",
+      "title": "A null or empty node selector term matches no objects. The requirements of\nthem are ANDed.\nThe TopologySelectorTerm type implements a subset of the NodeSelectorTerm.\n+structType=atomic",
+      "properties": {
+        "matchExpressions": {
+          "description": "A list of node selector requirements by node's labels.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonNodeSelectorRequirement"
+          }
+        },
+        "matchFields": {
+          "description": "A list of node selector requirements by node's fields.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonNodeSelectorRequirement"
+          }
+        }
+      }
+    },
+    "commonPagination": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页索引，从 1 开始，为 0 时，会自动重置为默认值 constants.DefaultPage"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页数据量，为 -1 时表示查询全部，为 0 时会重置为默认值\nconstants.DefaultPageSize"
+        },
+        "search": {
+          "description": "搜索关键字，支持模糊搜索,精准匹配和高级搜索.",
+          "type": "string"
+        },
+        "sort": {
+          "type": "string",
+          "title": "排序规则，支持字符串和数字类型的字段进行排序"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "title": "总共有多少条目，请求时可以不用传递"
+        }
+      }
+    },
+    "commonPodAffinity": {
+      "description": "Pod affinity is a group of inter pod affinity scheduling rules.",
+      "type": "object",
+      "properties": {
+        "preferredDuringSchedulingIgnoredDuringExecution": {
+          "description": "The scheduler will prefer to schedule pods to nodes that satisfy\nthe affinity expressions specified by this field, but it may choose\na node that violates one or more of the expressions. The node that is\nmost preferred is the one with the greatest sum of weights, i.e.\nfor each node that meets all of the scheduling requirements (resource\nrequest, requiredDuringScheduling affinity expressions, etc.),\ncompute a sum by iterating through the elements of this field and adding\n\"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the\nnode(s) with the highest sum are the most preferred.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonWeightedPodAffinityTerm"
+          }
+        },
+        "requiredDuringSchedulingIgnoredDuringExecution": {
+          "description": "If the affinity requirements specified by this field are not met at\nscheduling time, the pod will not be scheduled onto the node.\nIf the affinity requirements specified by this field cease to be met\nat some point during pod execution (e.g. due to a pod label update), the\nsystem may or may not try to eventually evict the pod from its node.\nWhen there are multiple elements, the lists of nodes corresponding to each\npodAffinityTerm are intersected, i.e. all terms must be satisfied.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonPodAffinityTerm"
+          }
+        }
+      }
+    },
+    "commonPodAffinityTerm": {
+      "type": "object",
+      "properties": {
+        "labelSelector": {
+          "description": "A label query over a set of resources, in this case pods.",
+          "$ref": "#/definitions/commonLabelSelector"
+        },
+        "namespaceSelector": {
+          "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.\nThis field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+          "$ref": "#/definitions/commonLabelSelector"
+        },
+        "namespaces": {
+          "type": "array",
+          "title": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\"",
+          "items": {
+            "type": "string"
+          }
+        },
+        "topologyKey": {
+          "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
+          "type": "string"
+        }
+      }
+    },
+    "commonPodAntiAffinity": {
+      "description": "Pod anti affinity is a group of inter pod anti affinity scheduling rules.",
+      "type": "object",
+      "properties": {
+        "preferredDuringSchedulingIgnoredDuringExecution": {
+          "description": "The scheduler will prefer to schedule pods to nodes that satisfy\nthe anti-affinity expressions specified by this field, but it may choose\na node that violates one or more of the expressions. The node that is\nmost preferred is the one with the greatest sum of weights, i.e.\nfor each node that meets all of the scheduling requirements (resource\nrequest, requiredDuringScheduling anti-affinity expressions, etc.),\ncompute a sum by iterating through the elements of this field and adding\n\"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the\nnode(s) with the highest sum are the most preferred.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonWeightedPodAffinityTerm"
+          }
+        },
+        "requiredDuringSchedulingIgnoredDuringExecution": {
+          "description": "If the anti-affinity requirements specified by this field are not met at\nscheduling time, the pod will not be scheduled onto the node.\nIf the anti-affinity requirements specified by this field cease to be met\nat some point during pod execution (e.g. due to a pod label update), the\nsystem may or may not try to eventually evict the pod from its node.\nWhen there are multiple elements, the lists of nodes corresponding to each\npodAffinityTerm are intersected, i.e. all terms must be satisfied.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonPodAffinityTerm"
+          }
+        }
+      }
+    },
+    "commonPodConfig": {
+      "type": "object",
+      "title": "PodTemplateConfig is a configuration for a pod template,\nit includes the environment variables, volumes, resources, affinity and schedulerName.\nThe configuration is used to create a pod template for serving or job?",
+      "properties": {
+        "affinity": {
+          "description": "The affinity of the pod.",
+          "$ref": "#/definitions/commonAffinity"
+        },
+        "kubeEnvs": {
+          "description": "The environment variables of the pod.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonKubeEnv"
+          }
+        },
+        "kubeVolumes": {
+          "description": "The volumes of the pod.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonKubeVolume"
+          }
+        },
+        "priorityClass": {
+          "type": "string",
+          "title": "the priority class of pod.\nbaize-high-priority\nbaize-medium-priority\nbaize-low-priority\n目前只支持这三个，后续可能会支持系统其他优先级。"
+        },
+        "queue": {
+          "type": "string",
+          "title": "queue name"
+        },
+        "resources": {
+          "description": "The resources of the pod.",
+          "$ref": "#/definitions/commonResources"
+        },
+        "schedulerName": {
+          "description": "The name of the scheduler to use.",
+          "type": "string"
+        },
+        "tolerationSeconds": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "commonPreferredSchedulingTerm": {
+      "description": "An empty preferred scheduling term matches all objects with implicit weight 0\n(i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).",
+      "type": "object",
+      "properties": {
+        "preference": {
+          "description": "A node selector term, associated with the corresponding weight.",
+          "$ref": "#/definitions/commonNodeSelectorTerm"
+        },
+        "weight": {
+          "description": "Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.",
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "commonResources": {
+      "type": "object",
+      "properties": {
+        "limits": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "requests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "commonWeightedPodAffinityTerm": {
+      "type": "object",
+      "title": "The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)",
+      "properties": {
+        "podAffinityTerm": {
+          "description": "Required. A pod affinity term, associated with the corresponding weight.",
+          "$ref": "#/definitions/commonPodAffinityTerm"
+        },
+        "weight": {
+          "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "错误 ID，用于判断错误类型",
+          "type": "string"
+        },
+        "message": {
+          "description": "错误消息，会自动切换中英文",
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "protobufNullValue": {
+      "description": "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\n The JSON representation for `NullValue` is JSON `null`.\n\n - NULL_VALUE: Null value.",
+      "type": "string",
+      "default": "NULL_VALUE",
+      "enum": [
+        "NULL_VALUE"
+      ]
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "错误 ID，用于判断错误类型",
+          "type": "string"
+        },
+        "message": {
+          "description": "错误消息，会自动切换中英文",
+          "type": "string"
+        }
+      }
+    },
+    "tritonDataType": {
+      "description": "- TYPE_INVALID: @@  .. cpp:enumerator:: DataType::INVALID = 0\n - TYPE_BOOL: @@  .. cpp:enumerator:: DataType::BOOL = 1\n - TYPE_UINT8: @@  .. cpp:enumerator:: DataType::UINT8 = 2\n - TYPE_UINT16: @@  .. cpp:enumerator:: DataType::UINT16 = 3\n - TYPE_UINT32: @@  .. cpp:enumerator:: DataType::UINT32 = 4\n - TYPE_UINT64: @@  .. cpp:enumerator:: DataType::UINT64 = 5\n - TYPE_INT8: @@  .. cpp:enumerator:: DataType::INT8 = 6\n - TYPE_INT16: @@  .. cpp:enumerator:: DataType::INT16 = 7\n - TYPE_INT32: @@  .. cpp:enumerator:: DataType::INT32 = 8\n - TYPE_INT64: @@  .. cpp:enumerator:: DataType::INT64 = 9\n - TYPE_FP16: @@  .. cpp:enumerator:: DataType::FP16 = 10\n - TYPE_FP32: @@  .. cpp:enumerator:: DataType::FP32 = 11\n - TYPE_FP64: @@  .. cpp:enumerator:: DataType::FP64 = 12\n - TYPE_STRING: @@  .. cpp:enumerator:: DataType::STRING = 13\n - TYPE_BF16: @@  .. cpp:enumerator:: DataType::BF16 = 14",
+      "type": "string",
+      "title": "@@\n@@.. cpp:enum:: DataType\n@@\n@@   Data types supported for input and output tensors.\n@@",
+      "default": "TYPE_INVALID",
+      "enum": [
+        "TYPE_INVALID",
+        "TYPE_BOOL",
+        "TYPE_UINT8",
+        "TYPE_UINT16",
+        "TYPE_UINT32",
+        "TYPE_UINT64",
+        "TYPE_INT8",
+        "TYPE_INT16",
+        "TYPE_INT32",
+        "TYPE_INT64",
+        "TYPE_FP16",
+        "TYPE_FP32",
+        "TYPE_FP64",
+        "TYPE_STRING",
+        "TYPE_BF16"
+      ]
+    },
+    "tritonModelInput": {
+      "type": "object",
+      "title": "@@\n@@.. cpp:var:: message ModelInput\n@@\n@@   An input required by the model.\n@@",
+      "properties": {
+        "allowRaggedBatch": {
+          "type": "boolean",
+          "title": "@@  .. cpp:var:: bool allow_ragged_batch\n@@\n@@     Whether or not the input is allowed to be \"ragged\" in a dynamically\n@@     created batch. Default is false indicating that two requests will\n@@     only be batched if this tensor has the same shape in both requests.\n@@     True indicates that two requests can be batched even if this tensor\n@@     has a different shape in each request.\n@@"
+        },
+        "dataType": {
+          "title": "@@  .. cpp:var:: DataType data_type\n@@\n@@     The data-type of the input.\n@@",
+          "$ref": "#/definitions/tritonDataType"
+        },
+        "dims": {
+          "type": "array",
+          "title": "@@  .. cpp:var:: int64 dims (repeated)\n@@\n@@     The dimensions/shape of the input tensor that must be provided\n@@     when invoking the inference API for this model.\n@@",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "format": {
+          "title": "@@  .. cpp:var:: Format format\n@@\n@@     The format of the input. Optional.\n@@",
+          "$ref": "#/definitions/ModelInputFormat"
+        },
+        "isShapeTensor": {
+          "type": "boolean",
+          "title": "@@  .. cpp:var:: bool is_shape_tensor\n@@\n@@     Whether or not the input is a shape tensor to the model. This field\n@@     is currently supported only for the TensorRT model. An error will be\n@@     generated if this specification does not comply with underlying\n@@     model.\n@@"
+        },
+        "name": {
+          "type": "string",
+          "title": "@@  .. cpp:var:: string name\n@@\n@@     The name of the input.\n@@"
+        },
+        "optional": {
+          "type": "boolean",
+          "title": "@@  .. cpp:var:: bool optional\n@@\n@@     Whether or not the input is optional for the model execution.\n@@     If true, the input is not required in the inference request.\n@@     Default value is false.\n@@"
+        },
+        "reshape": {
+          "title": "@@  .. cpp:var:: ModelTensorReshape reshape\n@@\n@@     The shape expected for this input by the backend. The input will\n@@     be reshaped to this before being presented to the backend. The\n@@     reshape must have the same number of elements as the input shape\n@@     specified by 'dims'. Optional.\n@@",
+          "$ref": "#/definitions/tritonModelTensorReshape"
+        }
+      }
+    },
+    "tritonModelOutput": {
+      "type": "object",
+      "title": "@@\n@@.. cpp:var:: message ModelOutput\n@@\n@@   An output produced by the model.\n@@",
+      "properties": {
+        "dataType": {
+          "title": "@@  .. cpp:var:: DataType data_type\n@@\n@@     The data-type of the output.\n@@",
+          "$ref": "#/definitions/tritonDataType"
+        },
+        "dims": {
+          "type": "array",
+          "title": "@@  .. cpp:var:: int64 dims (repeated)\n@@\n@@     The dimensions/shape of the output tensor.\n@@",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "isShapeTensor": {
+          "type": "boolean",
+          "title": "@@  .. cpp:var:: bool is_shape_tensor\n@@\n@@     Whether or not the output is a shape tensor to the model. This field\n@@     is currently supported only for the TensorRT model. An error will be\n@@     generated if this specification does not comply with underlying\n@@     model.\n@@"
+        },
+        "labelFilename": {
+          "type": "string",
+          "title": "@@  .. cpp:var:: string label_filename\n@@\n@@     The label file associated with this output. Should be specified only\n@@     for outputs that represent classifications. Optional.\n@@"
+        },
+        "name": {
+          "type": "string",
+          "title": "@@  .. cpp:var:: string name\n@@\n@@     The name of the output.\n@@"
+        },
+        "reshape": {
+          "title": "@@  .. cpp:var:: ModelTensorReshape reshape\n@@\n@@     The shape produced for this output by the backend. The output will\n@@     be reshaped from this to the shape specified in 'dims' before being\n@@     returned in the inference response. The reshape must have the same\n@@     number of elements as the output shape specified by 'dims'. Optional.\n@@",
+          "$ref": "#/definitions/tritonModelTensorReshape"
+        }
+      }
+    },
+    "tritonModelTensorReshape": {
+      "type": "object",
+      "title": "@@\n@@.. cpp:var:: message ModelTensorReshape\n@@\n@@   Reshape specification for input and output tensors.\n@@",
+      "properties": {
+        "shape": {
+          "type": "array",
+          "title": "@@  .. cpp:var:: int64 shape (repeated)\n@@\n@@     The shape to use for reshaping.\n@@",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "v1alpha1AICluster": {
+      "type": "object",
+      "properties": {
+        "clusterStatus": {
+          "$ref": "#/definitions/v1alpha1ClusterStatus"
+        },
+        "name": {
+          "type": "string"
+        },
+        "withAiSuite": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1Analysis": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kubeVolumes": {
+          "description": "Which volume to mount to the monitor.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonKubeVolume"
+          }
+        },
+        "logPath": {
+          "description": "The path that contains the tensorboard, visualdl, or other monitor logs.",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "queueName": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1AnalysisStatus"
+        },
+        "type": {
+          "description": "The type of the monitor.",
+          "$ref": "#/definitions/v1alpha1AnalysisType"
+        },
+        "workspace": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1AnalysisConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "description": "Whether to enable the monitor.",
+          "type": "boolean"
+        },
+        "kubeVolumes": {
+          "description": "Which volume to mount to the monitor.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonKubeVolume"
+          }
+        },
+        "logPath": {
+          "description": "The path that contains the tensorboard, visualdl, or other monitor logs.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the monitor.",
+          "$ref": "#/definitions/v1alpha1AnalysisType"
+        }
+      }
+    },
+    "v1alpha1AnalysisStatus": {
+      "type": "object",
+      "properties": {
+        "accessUrl": {
+          "description": "The url of the analysis (tensorboard, visualdl) panel.",
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "phase": {
+          "$ref": "#/definitions/StatusPhase"
+        }
+      }
+    },
+    "v1alpha1AnalysisType": {
+      "description": "Different types of monitor.\n\n - TENSORBOARD: The monitor as TensorBoard.",
+      "type": "string",
+      "default": "TYPE_UNSPECIFIED",
+      "enum": [
+        "TYPE_UNSPECIFIED",
+        "TENSORBOARD"
+      ]
+    },
+    "v1alpha1CheckQueueResponse": {
+      "type": "object",
+      "properties": {
+        "exist": {
+          "type": "boolean"
+        },
+        "type": {
+          "title": "队列类型",
+          "$ref": "#/definitions/v1alpha1QueueType"
+        }
+      }
+    },
+    "v1alpha1ClusterNamespace": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "clusterStatus": {
+          "$ref": "#/definitions/v1alpha1ClusterStatus"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1ClusterStatus": {
+      "type": "string",
+      "default": "CLUSTER_STATUS_UNSPECIFIED",
+      "enum": [
+        "CLUSTER_STATUS_UNSPECIFIED",
+        "CLUSTER_STATUS_RUNNING",
+        "CLUSTER_STATUS_NOT_RUNNING",
+        "CLUSTER_STATUS_UNKNOWN"
+      ]
+    },
+    "v1alpha1CreateLocalQueueResponse": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1QueueStatus"
+        },
+        "type": {
+          "title": "队列类型",
+          "$ref": "#/definitions/v1alpha1QueueType"
+        },
+        "workspace": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1DataSource": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "title": "非敏感数据配置参数",
+          "$ref": "#/definitions/v1alpha1DataSourceOptions"
+        },
+        "type": {
+          "title": "数据源类型",
+          "$ref": "#/definitions/v1alpha1DataSourceType"
+        },
+        "uri": {
+          "type": "string",
+          "title": "数据源地址，除去 GIT 类型之外的数据集都需要以协议开头，如：http://、https://、s3://、pvc://、nfs://"
+        }
+      }
+    },
+    "v1alpha1DataSourceOptions": {
+      "type": "object",
+      "properties": {
+        "conda": {
+          "$ref": "#/definitions/v1alpha1DataSourceOptionsConda"
+        },
+        "git": {
+          "$ref": "#/definitions/DataSourceOptionsGit"
+        },
+        "http": {
+          "$ref": "#/definitions/v1alpha1DataSourceOptionsHttp"
+        },
+        "s3": {
+          "$ref": "#/definitions/DataSourceOptionsS3"
+        }
+      }
+    },
+    "v1alpha1DataSourceOptionsConda": {
+      "type": "object",
+      "properties": {
+        "condaEnvironmentYml": {
+          "type": "string"
+        },
+        "gpuType": {
+          "type": "string",
+          "title": "是否使用 GPU, 为空表示不使用 GPU\n直接传 GPU 卡的 Resources name， 比如 nvidia.com/gpu, 或者 nvidia.com/vgpu"
+        },
+        "packageManager": {
+          "$ref": "#/definitions/DataSourceOptionsCondaPackageManager"
+        },
+        "pipExtraIndexUrl": {
+          "type": "string"
+        },
+        "pipIndexUrl": {
+          "type": "string"
+        },
+        "pipRequirementsTxt": {
+          "type": "string"
+        },
+        "pythonVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1DataSourceOptionsHttp": {
+      "type": "object",
+      "properties": {
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1alpha1DataSourceType": {
+      "type": "string",
+      "default": "DATA_SOURCE_TYPE_UNSPECIFIED",
+      "enum": [
+        "DATA_SOURCE_TYPE_UNSPECIFIED",
+        "GIT",
+        "S3",
+        "HTTP",
+        "PVC",
+        "NFS",
+        "CONDA"
+      ]
+    },
+    "v1alpha1Dataset": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "pvcName": {
+          "type": "string",
+          "title": "需要挂载的 PVC 名称"
+        },
+        "secretRef": {
+          "type": "string",
+          "title": "数据源敏感数据存储的 Secret 名称。"
+        },
+        "source": {
+          "title": "定义数据源",
+          "$ref": "#/definitions/v1alpha1DataSource"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1DatasetStatus"
+        }
+      }
+    },
+    "v1alpha1DatasetBoundPVC": {
+      "type": "object",
+      "properties": {
+        "accessMode": {
+          "$ref": "#/definitions/DatasetBoundPVCAccessMode"
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "capacity": {
+          "type": "string",
+          "format": "int64",
+          "title": "PVC 容量，单位为 bytes。"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "storageClassName": {
+          "type": "string",
+          "title": "currently we do not support custom pvc name.\n string name = 1;"
+        }
+      }
+    },
+    "v1alpha1DatasetStatus": {
+      "type": "object",
+      "properties": {
+        "phase": {
+          "$ref": "#/definitions/DatasetStatusPhase"
+        }
+      }
+    },
+    "v1alpha1DatasetSyncProcess": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "title": "Dataset 状态，只有到 phase 为 PROCESSING 时，才需要展示",
+          "$ref": "#/definitions/v1alpha1DatasetStatus"
+        },
+        "syncProcess": {
+          "type": "number",
+          "format": "float",
+          "title": "预热进度，0 - 100 之间的值，表示百分比。"
+        }
+      }
+    },
+    "v1alpha1DevDashboardQueryMetric": {
+      "type": "string",
+      "default": "DEV_DASH_QUERY_METRIC_UNSPECIFIED",
+      "enum": [
+        "DEV_DASH_QUERY_METRIC_UNSPECIFIED",
+        "DEV_DASH_QUERY_RUNNING_NOTEBOOKS",
+        "DEV_DASH_QUERY_TOTAL_NOTEBOOKS",
+        "DEV_DASH_QUERY_RUNNING_PYTORCH_JOBS",
+        "DEV_DASH_QUERY_TOTAL_PYTORCH_JOBS",
+        "DEV_DASH_QUERY_RUNNING_TENSORFLOW_JOBS",
+        "DEV_DASH_QUERY_TOTAL_TENSORFLOW_JOBS",
+        "DEV_DASH_QUERY_TOTAL_DATASETS",
+        "DEV_DASH_TASKS_STATS"
+      ]
+    },
+    "v1alpha1DevDashboardVectorQueryResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "metric": {
+          "$ref": "#/definitions/v1alpha1DevDashboardQueryMetric"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1DevDashboardVectorQueryResponseStatus"
+        },
+        "vector": {
+          "$ref": "#/definitions/v1alpha1Vector"
+        }
+      }
+    },
+    "v1alpha1DevDashboardVectorQueryResponseStatus": {
+      "type": "string",
+      "default": "STATUS_UNSPECIFIED",
+      "enum": [
+        "STATUS_UNSPECIFIED",
+        "SUCCESS",
+        "FAILURE"
+      ]
+    },
+    "v1alpha1DeviceGPU": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "deviceUUID": {
+          "type": "string"
+        },
+        "modelName": {
+          "type": "string"
+        },
+        "nodeIP": {
+          "type": "string"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "totalFrameBufferMemory": {
+          "type": "string",
+          "format": "int64"
+        },
+        "usedFrameBufferMemory": {
+          "type": "string",
+          "format": "int64"
+        },
+        "vendor": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1Framework": {
+      "type": "object",
+      "properties": {
+        "triton": {
+          "title": "Triton配置",
+          "$ref": "#/definitions/FrameworkTriton"
+        },
+        "type": {
+          "title": "推理框架类型，目前支持Triton",
+          "$ref": "#/definitions/v1alpha1FrameworkType"
+        },
+        "vllm": {
+          "$ref": "#/definitions/v1alpha1FrameworkVLLM"
+        }
+      }
+    },
+    "v1alpha1FrameworkType": {
+      "type": "string",
+      "default": "FRAMEWORK_TYPE_UNSPECIFIED",
+      "enum": [
+        "FRAMEWORK_TYPE_UNSPECIFIED",
+        "FRAMEWORK_TYPE_TRITON",
+        "FRAMEWORK_TYPE_VLLM"
+      ]
+    },
+    "v1alpha1FrameworkVLLM": {
+      "type": "object",
+      "title": "VLLM Engine args"
+    },
+    "v1alpha1GPUResourceSetting": {
+      "type": "object",
+      "properties": {
+        "alias": {
+          "type": "string",
+          "title": "gpu workload type resources alias"
+        },
+        "aliasZh": {
+          "type": "string",
+          "title": "gpu workload type resources zh alias"
+        },
+        "description": {
+          "type": "string",
+          "title": "gpu workload type resources description"
+        },
+        "isAllocatable": {
+          "type": "boolean",
+          "title": "Resource quota can be allocated"
+        },
+        "key": {
+          "type": "string",
+          "title": "gpu workload type resources key"
+        },
+        "range": {
+          "title": "gpu resource range",
+          "$ref": "#/definitions/v1alpha1ResourceRange"
+        }
+      }
+    },
+    "v1alpha1GPUSetting": {
+      "type": "object",
+      "properties": {
+        "alias": {
+          "type": "string",
+          "title": "alias is gpu card alias"
+        },
+        "resource": {
+          "type": "array",
+          "title": "gpu card resource setting",
+          "items": {
+            "$ref": "#/definitions/v1alpha1GPUResourceSetting"
+          }
+        },
+        "type": {
+          "type": "string",
+          "title": "type is gpu card type"
+        }
+      }
+    },
+    "v1alpha1GPUSettingsResponse": {
+      "type": "object",
+      "title": "GPUSettingResponse is the response message for GPUSetting",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1GPUSetting"
+          }
+        }
+      }
+    },
+    "v1alpha1GetDatasetCondaOptionsResponse": {
+      "type": "object",
+      "properties": {
+        "pythonVersions": {
+          "type": "array",
+          "title": "支持的 Python 版本",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1alpha1GrafanaDashboard": {
+      "type": "object",
+      "properties": {
+        "urlEN": {
+          "type": "string",
+          "title": "英文面板的 URL"
+        },
+        "urlZH": {
+          "type": "string",
+          "title": "中文面板的 URL"
+        }
+      }
+    },
+    "v1alpha1InferenceServing": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "authType": {
+          "$ref": "#/definitions/ServingAuthAuthType"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "framework": {
+          "$ref": "#/definitions/v1alpha1Framework"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ServingConfig"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "podConfig": {
+          "title": "kubernetes pod 配置",
+          "$ref": "#/definitions/commonPodConfig"
+        },
+        "replicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "serviceConfig": {
+          "$ref": "#/definitions/v1alpha1ServiceConfig"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1InferenceServingStatus"
+        }
+      }
+    },
+    "v1alpha1InferenceServingStatus": {
+      "type": "object",
+      "properties": {
+        "accessBaseUrl": {
+          "type": "string",
+          "title": "服务访问地址"
+        },
+        "availableReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "models": {
+          "type": "array",
+          "title": "模型状态，暂时只支持一个，这里用数组只是为了扩展",
+          "items": {
+            "$ref": "#/definitions/InferenceServingStatusModelStatus"
+          }
+        },
+        "phase": {
+          "title": "推理服务状态",
+          "$ref": "#/definitions/InferenceServingStatusPhase"
+        }
+      }
+    },
+    "v1alpha1Job": {
+      "type": "object",
+      "properties": {
+        "analysis": {
+          "title": "任务分析",
+          "$ref": "#/definitions/v1alpha1AnalysisConfig"
+        },
+        "baseConfig": {
+          "$ref": "#/definitions/v1alpha1JobCreationBaseConfig"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "jobSpec": {
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "phase": {
+          "$ref": "#/definitions/v1alpha1JobPhase"
+        },
+        "roleConfig": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/v1alpha1JobRoleDifferenceConfig"
+          }
+        },
+        "runningDuration": {
+          "type": "integer",
+          "format": "int32",
+          "title": "任务运行时长"
+        },
+        "totalResources": {
+          "title": "任务总资源（对所有容器做统计）",
+          "$ref": "#/definitions/commonResources"
+        },
+        "trainingConfig": {
+          "title": "训练配置",
+          "$ref": "#/definitions/v1alpha1TrainingConfig"
+        },
+        "trainingMode": {
+          "$ref": "#/definitions/v1alpha1TrainingMode"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1JobType"
+        }
+      }
+    },
+    "v1alpha1JobCreationBaseConfig": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "command": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "image": {
+          "type": "string"
+        },
+        "imagePullSecret": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "noOverrideEnvPath": {
+          "type": "boolean"
+        },
+        "podConfig": {
+          "$ref": "#/definitions/commonPodConfig"
+        },
+        "shmSize": {
+          "type": "integer",
+          "format": "int32",
+          "title": "SHM 空间的大小，单位 MB\n为 0 表示不分配 SHM 空间"
+        },
+        "workingDir": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1JobPhase": {
+      "type": "string",
+      "title": "- JOB_PHASE_UNSPECIFIED: Unspecified type.\n - CREATED: 任务创建成功。\n - RUNNING: 任务运行中。\n - FAILED: 任务运行失败。\n - SUCCEEDED: 任务运行成功。\n - SUSPENDED: 任务停止。",
+      "default": "JOB_PHASE_UNSPECIFIED",
+      "enum": [
+        "JOB_PHASE_UNSPECIFIED",
+        "CREATED",
+        "RUNNING",
+        "FAILED",
+        "SUCCEEDED",
+        "SUSPENDED"
+      ]
+    },
+    "v1alpha1JobRoleDifferenceConfig": {
+      "type": "object",
+      "properties": {
+        "replicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "resources": {
+          "$ref": "#/definitions/commonResources"
+        }
+      }
+    },
+    "v1alpha1JobSchedulersResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobSchedulersResponseScheduler"
+          }
+        }
+      }
+    },
+    "v1alpha1JobType": {
+      "type": "string",
+      "title": "- MPI: XGBOOST              = 4;",
+      "default": "JOB_TYPE_UNSPECIFIED",
+      "enum": [
+        "JOB_TYPE_UNSPECIFIED",
+        "PYTORCH",
+        "TENSORFLOW",
+        "PADDLE",
+        "MPI",
+        "MXNET"
+      ]
+    },
+    "v1alpha1ListAIClustersResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1AICluster"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListAnalysisResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Analysis"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListClusterNamespaceResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ClusterNamespace"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListDatasetResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Dataset"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListDevicesGPUsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1DeviceGPU"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListInferenceServingsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1InferenceServing"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListJobsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Job"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListNotebooksResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Notebook"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListPVCsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1PersistentVolumeClaims"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListQueueResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Queue"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListStorageClassesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1StorageClass"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ListWorkspacesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Workspace"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1Matrix": {
+      "type": "object",
+      "properties": {
+        "matrix": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1SampleStream"
+          }
+        }
+      }
+    },
+    "v1alpha1MultipleDevDashboardVectorQueryResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1DevDashboardVectorQueryResponse"
+          }
+        }
+      }
+    },
+    "v1alpha1MultipleVectorQueryResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1VectorQueryResponse"
+          }
+        }
+      }
+    },
+    "v1alpha1Notebook": {
+      "type": "object",
+      "properties": {
+        "analysis": {
+          "title": "任务分析",
+          "$ref": "#/definitions/v1alpha1AnalysisConfig"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "config": {
+          "$ref": "#/definitions/v1alpha1NotebookConfig"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "priorityClass": {
+          "type": "string"
+        },
+        "queueName": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1NotebookStatus"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1NotebookType"
+        },
+        "workspace": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1NotebookConfig": {
+      "type": "object",
+      "properties": {
+        "affinity": {
+          "description": "The affinity of the pod.",
+          "$ref": "#/definitions/commonAffinity"
+        },
+        "enableSSH": {
+          "type": "boolean",
+          "title": "Control whether ssh service is enabled on notebooks"
+        },
+        "image": {
+          "type": "string"
+        },
+        "kubeEnvs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonKubeEnv"
+          }
+        },
+        "kubeMetadata": {
+          "$ref": "#/definitions/NotebookConfigKubeMetadata"
+        },
+        "kubeVolumes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonKubeVolume"
+          }
+        },
+        "resources": {
+          "$ref": "#/definitions/commonResources"
+        },
+        "runAsRoot": {
+          "type": "boolean"
+        },
+        "serviceType": {
+          "title": "deprecated",
+          "$ref": "#/definitions/NotebookConfigServiceType"
+        },
+        "token": {
+          "type": "string",
+          "title": "deprecated"
+        },
+        "tolerationSeconds": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1NotebookImage": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1NotebookType"
+        }
+      }
+    },
+    "v1alpha1NotebookImageListResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1NotebookImage"
+          }
+        }
+      }
+    },
+    "v1alpha1NotebookStatus": {
+      "type": "object",
+      "properties": {
+        "accessUrl": {
+          "description": "The url of the notebook.",
+          "type": "string"
+        },
+        "message": {
+          "description": "A human readable message indicating details about why the notebook is\nin this condition.",
+          "type": "string"
+        },
+        "phase": {
+          "$ref": "#/definitions/v1alpha1NotebookStatusPhase"
+        }
+      }
+    },
+    "v1alpha1NotebookStatusPhase": {
+      "description": " - PENDING: The notebook is being prepared for use.\n - RUNNING: The notebook is active and ready to use.\n - STOPPED: The notebook is being stopped.\n - FAILED: The notebook is failed.",
+      "type": "string",
+      "default": "PHASE_UNSPECIFIED",
+      "enum": [
+        "PHASE_UNSPECIFIED",
+        "PENDING",
+        "RUNNING",
+        "STOPPED",
+        "FAILED"
+      ]
+    },
+    "v1alpha1NotebookType": {
+      "type": "string",
+      "default": "TYPE_UNSPECIFIED",
+      "enum": [
+        "TYPE_UNSPECIFIED",
+        "JUPYTER",
+        "CODE"
+      ]
+    },
+    "v1alpha1PersistentVolumeClaims": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "type": "string"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "storageClass": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1PodInstance": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "containerReadyCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "containerTotalCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "containers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PodInstanceContainer"
+          }
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string",
+          "title": "pod name"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "nodeName": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string",
+          "title": "Pod phase"
+        },
+        "podIp": {
+          "type": "string"
+        },
+        "resources": {
+          "$ref": "#/definitions/commonResources"
+        }
+      }
+    },
+    "v1alpha1PodInstanceListResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1PodInstance"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1QueryMetric": {
+      "type": "string",
+      "default": "QUERY_METRIC_UNSPECIFIED",
+      "enum": [
+        "QUERY_METRIC_UNSPECIFIED",
+        "QUERY_METRIC_GPU_INSTALLED_NODES",
+        "QUERY_METRIC_TOTAL_NODES",
+        "QUERY_METRIC_INUSE_GPUS",
+        "QUERY_METRIC_TOTAL_GPUS",
+        "QUERY_METRIC_INUSE_CPUS",
+        "QUERY_METRIC_TOTAL_CPUS",
+        "QUERY_METRIC_INUSE_MEM",
+        "QUERY_METRIC_TOTAL_MEM",
+        "QUERY_METRIC_INUSE_VGPU_MEM",
+        "QUERY_METRIC_TOTAL_VGPU_MEM",
+        "QUERY_METRIC_TOTAL_CLUSTERS"
+      ]
+    },
+    "v1alpha1QueryTimeSeriesMetric": {
+      "type": "string",
+      "default": "QUERY_TIME_SERIES_UNSPECIFIED",
+      "enum": [
+        "QUERY_TIME_SERIES_UNSPECIFIED",
+        "QUERY_TIME_SERIES_METRIC_GPU_DISTRIBUTION",
+        "QUERY_TIME_SERIES_METRIC_GPU_UTILIZATION"
+      ]
+    },
+    "v1alpha1QueryTimeSeriesMetricRange": {
+      "type": "string",
+      "default": "QUERY_TIME_SERIES_METRIC_RANGES_UNSPECIFIED",
+      "enum": [
+        "QUERY_TIME_SERIES_METRIC_RANGES_UNSPECIFIED",
+        "QUERY_TIME_SERIES_METRIC_RANGES_LAST_3_DAYS",
+        "QUERY_TIME_SERIES_METRIC_RANGES_LAST_7_DAYS",
+        "QUERY_TIME_SERIES_METRIC_RANGES_LAST_15_DAYS"
+      ]
+    },
+    "v1alpha1QueryTimeSeriesVectorsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1TimeSeriesVectorQueryResponse"
+          }
+        }
+      }
+    },
+    "v1alpha1Queue": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1QueueResource"
+          }
+        },
+        "resourcesAvailable": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1QueueResource"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1QueueStatus"
+        },
+        "strategy": {
+          "title": "队列策略",
+          "$ref": "#/definitions/v1alpha1QueueStrategy"
+        },
+        "type": {
+          "title": "队列类型",
+          "$ref": "#/definitions/v1alpha1QueueType"
+        },
+        "workspace": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "workspaceAlias": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1QueueJSON": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1QueuePhase": {
+      "type": "string",
+      "default": "QUEUE_PHASE_UNSPECIFIED",
+      "enum": [
+        "QUEUE_PHASE_UNSPECIFIED",
+        "READY"
+      ]
+    },
+    "v1alpha1QueueResource": {
+      "type": "object",
+      "properties": {
+        "borrowingLimit": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1QueueStatus": {
+      "type": "object",
+      "properties": {
+        "phase": {
+          "$ref": "#/definitions/v1alpha1QueuePhase"
+        }
+      }
+    },
+    "v1alpha1QueueStrategy": {
+      "type": "string",
+      "default": "QUEUE_STRATEGY_UNSPECIFIED",
+      "enum": [
+        "QUEUE_STRATEGY_UNSPECIFIED",
+        "STRICT_FIFO",
+        "BEST_EFFORT_FIFO"
+      ]
+    },
+    "v1alpha1QueueType": {
+      "type": "string",
+      "default": "QUEUE_TYPE_UNSPECIFIED",
+      "enum": [
+        "QUEUE_TYPE_UNSPECIFIED",
+        "KUEUE"
+      ]
+    },
+    "v1alpha1RelatedInstancesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RelatedInstancesResponseInstance"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "v1alpha1ResourceRange": {
+      "type": "object",
+      "properties": {
+        "max": {
+          "type": "integer",
+          "format": "int32",
+          "title": "resource max value"
+        },
+        "maxDesc": {
+          "type": "string",
+          "title": "max resource description"
+        },
+        "min": {
+          "type": "integer",
+          "format": "int32",
+          "title": "resource min value"
+        },
+        "minDesc": {
+          "type": "string",
+          "title": "min resource description"
+        }
+      }
+    },
+    "v1alpha1ResourceType": {
+      "type": "string",
+      "default": "JOB_TYPE_UNSPECIFIED",
+      "enum": [
+        "JOB_TYPE_UNSPECIFIED",
+        "PYTORCH",
+        "TENSORFLOW",
+        "PADDLE",
+        "NOTEBOOK",
+        "INFERENCE",
+        "MXNET",
+        "MPI"
+      ]
+    },
+    "v1alpha1RestartPolicy": {
+      "type": "string",
+      "title": "- RESTART_POLICY_NEVER: 如果任务失败，则不重启任务。\n - RESTART_POLICY_ON_FAILURE: 如果任务失败，则重启任务，",
+      "default": "RESTART_POLICY_UNSPECIFIED",
+      "enum": [
+        "RESTART_POLICY_UNSPECIFIED",
+        "RESTART_POLICY_NEVER",
+        "RESTART_POLICY_ON_FAILURE"
+      ]
+    },
+    "v1alpha1Sample": {
+      "type": "object",
+      "properties": {
+        "metric": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "$ref": "#/definitions/v1alpha1SamplePair"
+        }
+      }
+    },
+    "v1alpha1SamplePair": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1SampleStream": {
+      "type": "object",
+      "properties": {
+        "metric": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1SamplePair"
+          }
+        }
+      }
+    },
+    "v1alpha1SecretOptions": {
+      "type": "object",
+      "properties": {
+        "akSk": {
+          "$ref": "#/definitions/SecretOptionsAkSkAuth"
+        },
+        "authType": {
+          "title": "认证类型",
+          "$ref": "#/definitions/SecretOptionsAuthType"
+        },
+        "basic": {
+          "$ref": "#/definitions/SecretOptionsBasicAuth"
+        },
+        "ssh": {
+          "$ref": "#/definitions/SecretOptionsSSHAuth"
+        },
+        "token": {
+          "$ref": "#/definitions/SecretOptionsTokenAuth"
+        }
+      }
+    },
+    "v1alpha1ServiceConfig": {
+      "type": "object",
+      "properties": {
+        "serviceType": {
+          "$ref": "#/definitions/v1alpha1ServiceType"
+        }
+      }
+    },
+    "v1alpha1ServiceType": {
+      "type": "string",
+      "default": "SERVICE_TYPE_UNSPECIFIED",
+      "enum": [
+        "SERVICE_TYPE_UNSPECIFIED",
+        "NODE_PORT",
+        "LOAD_BALANCER",
+        "CLUSTER_IP"
+      ]
+    },
+    "v1alpha1ServingAuth": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "title": "推理服务的认证方式",
+          "$ref": "#/definitions/ServingAuthAuthType"
+        },
+        "tritonRestrictedKeyValue": {
+          "title": "Triton 服务的认证方式",
+          "$ref": "#/definitions/ServingAuthTritonRestrictedKeyValue"
+        }
+      }
+    },
+    "v1alpha1ServingConfig": {
+      "type": "object",
+      "properties": {
+        "modelPath": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "triton": {
+          "$ref": "#/definitions/ServingConfigTritonServingConfig"
+        },
+        "version": {
+          "type": "string"
+        },
+        "vllm": {
+          "$ref": "#/definitions/v1alpha1ServingConfigVLLM"
+        }
+      }
+    },
+    "v1alpha1ServingConfigVLLM": {
+      "type": "object",
+      "properties": {
+        "enableLora": {
+          "type": "boolean"
+        },
+        "loraModels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VLLMLoraModel"
+          }
+        },
+        "maxCpuLoras": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxLoras": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxLorasRank": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tensorParallelSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "trustRemoteCode": {
+          "type": "boolean",
+          "title": "VLLM 模型的配置"
+        }
+      }
+    },
+    "v1alpha1StorageClass": {
+      "type": "object",
+      "properties": {
+        "allowReclaim": {
+          "type": "boolean",
+          "title": "是否允许扩容"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "isDefault": {
+          "type": "boolean",
+          "title": "是否默认存储类"
+        },
+        "name": {
+          "type": "string"
+        },
+        "provisioner": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1TimeSeriesVectorQueryResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "matrix": {
+          "$ref": "#/definitions/v1alpha1Matrix"
+        },
+        "metric": {
+          "$ref": "#/definitions/v1alpha1QueryTimeSeriesMetric"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1TimeSeriesVectorQueryResponseStatus"
+        }
+      }
+    },
+    "v1alpha1TimeSeriesVectorQueryResponseStatus": {
+      "type": "string",
+      "default": "STATUS_UNSPECIFIED",
+      "enum": [
+        "STATUS_UNSPECIFIED",
+        "SUCCESS",
+        "FAILURE"
+      ]
+    },
+    "v1alpha1TrainingConfig": {
+      "type": "object",
+      "properties": {
+        "maxRetries": {
+          "type": "integer",
+          "format": "int32",
+          "title": "最大重启次数"
+        },
+        "maxTrainingDuration": {
+          "type": "string",
+          "format": "int64",
+          "title": "最大训练时长，以秒为单位"
+        },
+        "restartPolicy": {
+          "$ref": "#/definitions/v1alpha1RestartPolicy"
+        }
+      }
+    },
+    "v1alpha1TrainingMode": {
+      "type": "string",
+      "title": "- TRAINING_MODE_UNSPECIFIED: Unspecified type.\n - SINGLE: 单机模式。\n - DISTRIBUTED: 分布式模式。",
+      "default": "TRAINING_MODE_UNSPECIFIED",
+      "enum": [
+        "TRAINING_MODE_UNSPECIFIED",
+        "SINGLE",
+        "DISTRIBUTED"
+      ]
+    },
+    "v1alpha1UserPermission": {
+      "type": "object",
+      "properties": {
+        "isBaizeOwner": {
+          "type": "boolean",
+          "title": "string name =1;\n是否是 Baize 平台管理员"
+        }
+      }
+    },
+    "v1alpha1Vector": {
+      "type": "object",
+      "properties": {
+        "vector": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Sample"
+          }
+        }
+      }
+    },
+    "v1alpha1VectorQueryResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "metric": {
+          "$ref": "#/definitions/v1alpha1QueryMetric"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1VectorQueryResponseStatus"
+        },
+        "vector": {
+          "$ref": "#/definitions/v1alpha1Vector"
+        }
+      }
+    },
+    "v1alpha1VectorQueryResponseStatus": {
+      "type": "string",
+      "default": "STATUS_UNSPECIFIED",
+      "enum": [
+        "STATUS_UNSPECIFIED",
+        "SUCCESS",
+        "FAILURE"
+      ]
+    },
+    "v1alpha1Workspace": {
+      "type": "object",
+      "properties": {
+        "alias": {
+          "type": "string"
+        },
+        "workspaceId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "AnalysisManagement"
+    },
+    {
+      "name": "ClusterService"
+    },
+    {
+      "name": "DatasetManagement"
+    },
+    {
+      "name": "DeviceService"
+    },
+    {
+      "name": "JobsManagement"
+    },
+    {
+      "name": "MetricsService"
+    },
+    {
+      "name": "NotebookService"
+    },
+    {
+      "name": "PermissionService"
+    },
+    {
+      "name": "PodsManagement"
+    },
+    {
+      "name": "QueueManagement"
+    },
+    {
+      "name": "InferenceServingManagement"
+    },
+    {
+      "name": "WorkspaceService"
+    }
+  ]
+}
