@@ -37,9 +37,9 @@ hide:
 
     ---
 
-    - [v0.1.0](mcamel/mongodb/mongodb-v0.1.0.md), [v0.2.0](mcamel/mongodb/mongodb-v0.2.0.md), [v0.3.x](mcamel/mongodb/mongodb-v0.3.0.md)
-    - [v0.4.0](mcamel/mongodb/mongodb-v0.4.0.md), [v0.5.0](mcamel/mongodb/mongodb-v0.5.0.md), [v0.6.0](mcamel/mongodb/mongodb-v0.6.0.md)
-    - [v0.7.0](mcamel/mongodb/mongodb-v0.7.0.md), [v0.8.0](mcamel/mongodb/mongodb-v0.8.0.md), [v0.9.0](mcamel/mongodb/mongodb-v0.9.0.md), [v0.11.0](mcamel/mongodb/mongodb-v0.11.0.md)
+    - [v0.1.0](mcamel/mongodb/mongodb-v0.1.0.md), [v0.2.0](mcamel/mongodb/mongodb-v0.2.0.md), [v0.3.x](mcamel/mongodb/mongodb-v0.3.0.md), [v0.4.0](mcamel/mongodb/mongodb-v0.4.0.md)
+    - [v0.5.0](mcamel/mongodb/mongodb-v0.5.0.md), [v0.6.0](mcamel/mongodb/mongodb-v0.6.0.md), [v0.7.0](mcamel/mongodb/mongodb-v0.7.0.md)
+    - [v0.8.0](mcamel/mongodb/mongodb-v0.8.0.md), [v0.9.0](mcamel/mongodb/mongodb-v0.9.0.md), [v0.11.0](mcamel/mongodb/mongodb-v0.11.0.md)
 
 -   :simple-mysql:{ .lg .middle } __MySQL OpenAPI__
 
@@ -77,8 +77,8 @@ hide:
 
     ---
 
-    - [v0.1.1](mcamel/rocketmq/rocketmq-v0.1.1.md), [v0.2.0](mcamel/rocketmq/rocketmq-v0.2.0.md), [v0.3.0](mcamel/rocketmq/rocketmq-v0.3.0.md)
-    - [v0.4.0](mcamel/rocketmq/rocketmq-v0.4.0.md), [v0.5.0](mcamel/rocketmq/rocketmq-v0.5.0.md), [v0.7.0](mcamel/rocketmq/rocketmq-v0.7.0.md), [v0.9.0](mcamel/rocketmq/rocketmq-v0.9.0.md)
+    - [v0.1.1](mcamel/rocketmq/rocketmq-v0.1.1.md), [v0.2.0](mcamel/rocketmq/rocketmq-v0.2.0.md), [v0.3.0](mcamel/rocketmq/rocketmq-v0.3.0.md), [v0.4.0](mcamel/rocketmq/rocketmq-v0.4.0.md)
+    - [v0.5.0](mcamel/rocketmq/rocketmq-v0.5.0.md), [v0.7.0](mcamel/rocketmq/rocketmq-v0.7.0.md), [v0.9.0](mcamel/rocketmq/rocketmq-v0.9.0.md)
 
 </div>
 
