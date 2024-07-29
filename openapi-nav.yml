@@ -3,6 +3,7 @@ nav:
         - OpenAPI 文档索引: openapi/index.md
         - 工作台:
             - 应用工作台 OpenAPI:
+                - v0.121.0: openapi/amamba/v0.121.0.md
                 - v0.120.0: openapi/amamba/v0.120.0.md
                 - v0.119.0: openapi/amamba/v0.119.0.md
                 - v0.118.x:
