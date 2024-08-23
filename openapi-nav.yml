@@ -28,7 +28,10 @@ nav:
                 - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
-                - v0.29.0: openapi/kpanda/v0.29.0.md
+                - v0.30.1: openapi/kpanda/v0.30.1.md
+                - v0.29.x:
+                    - v0.29.0: openapi/kpanda/v0.29.0.md
+                    - v0.29.1: openapi/kpanda/v0.29.1.md
                 - v0.28.x:
                     - v0.28.0: openapi/kpanda/v0.28.0.md
                     - v0.28.1: openapi/kpanda/v0.28.1.md
@@ -46,6 +49,9 @@ nav:
                     - v0.18.0: openapi/kpanda/v0.18.0.md
                     - v0.18.1: openapi/kpanda/v0.18.1.md
             - 多云编排 OpenAPI:
+                - v0.21.x:
+                    - v0.21.0: openapi/kairship/v0.21.0.md
+                    - v0.21.1: openapi/kairship/v0.21.1.md
                 - v0.20.x:
                     - v0.20.0: openapi/kairship/v0.20.0.md
                     - v0.20.1: openapi/kairship/v0.20.1.md
@@ -87,7 +93,9 @@ nav:
                 - v0.9.1: openapi/kangaroo/v0.9.1.md
                 - v0.8.0: openapi/kangaroo/v0.8.0.md
             - 网络 OpenAPI:
-                - v0.15.0: openapi/spidernet/v0.15.0.md
+                - v0.15.x:
+                    - v0.15.0: openapi/spidernet/v0.15.0.md
+                    - v0.15.1: openapi/spidernet/v0.15.1.md
                 - v0.14.x:
                     - v0.14.0: openapi/spidernet/v0.14.0.md
                     - v0.14.1: openapi/spidernet/v0.14.1.md
@@ -145,7 +153,10 @@ nav:
                     - v0.17.3: openapi/insight/v0.17.3.md
                 - v0.16.0: openapi/insight/v0.16.0.md
             - 微服务引擎 OpenAPI:
-                - v0.38.1: openapi/skoala/v0.38.1.md
+                - v0.39.4: openapi/skoala/v0.39.4.md
+                - v0.38.x:
+                    - v0.38.1: openapi/skoala/v0.38.1.md
+                    - v0.38.2: openapi/skoala/v0.38.2.md
                 - v0.37.x:
                     - v0.37.0: openapi/skoala/v0.37.0.md
                     - v0.37.1: openapi/skoala/v0.37.1.md
@@ -216,6 +227,7 @@ nav:
                         - v0.7.0: openapi/mcamel/elasticsearch/elasticsearch-v0.7.0.md
                         - v0.7.1: openapi/mcamel/elasticsearch/elasticsearch-v0.7.1.md
                 - Kafka 消息队列:
+                    - v0.17.0: openapi/mcamel/kafka/kafka-v0.17.0.md
                     - v0.16.0: openapi/mcamel/kafka/kafka-v0.16.0.md
                     - v0.15.0: openapi/mcamel/kafka/kafka-v0.15.0.md
                     - v0.14.0: openapi/mcamel/kafka/kafka-v0.14.0.md
@@ -240,6 +252,7 @@ nav:
                         - v0.5.0: openapi/mcamel/kafka/kafka-v0.5.0.md
                         - v0.5.1: openapi/mcamel/kafka/kafka-v0.5.1.md
                 - RabbitMQ 消息队列:
+                    - v0.22.0: openapi/mcamel/rabbitmq/rabbitmq-v0.22.0.md
                     - v0.21.0: openapi/mcamel/rabbitmq/rabbitmq-v0.21.0.md
                     - v0.20.0: openapi/mcamel/rabbitmq/rabbitmq-v0.20.0.md
                     - v0.18.0: openapi/mcamel/rabbitmq/rabbitmq-v0.18.0.md
@@ -288,6 +301,7 @@ nav:
                         - v0.5.0: openapi/mcamel/minio/minio-v0.5.0.md
                         - v0.5.1: openapi/mcamel/minio/minio-v0.5.1.md
                 - MongoDB 数据库:
+                    - v0.12.0: openapi/mcamel/mongodb/mongodb-v0.12.0.md
                     - v0.11.0: openapi/mcamel/mongodb/mongodb-v0.11.0.md
                     - v0.9.0: openapi/mcamel/mongodb/mongodb-v0.9.0.md
                     - v0.8.0: openapi/mcamel/mongodb/mongodb-v0.8.0.md
@@ -322,6 +336,7 @@ nav:
                         - v0.8.0: openapi/mcamel/mysql/mysql-v0.8.0.md
                         - v0.8.1: openapi/mcamel/mysql/mysql-v0.8.1.md
                 - PostgreSQL 数据库:
+                    - v0.14.0: openapi/mcamel/postgresql/postgresql-v0.14.0.md
                     - v0.13.0: openapi/mcamel/postgresql/postgresql-v0.13.0.md
                     - v0.10.0: openapi/mcamel/postgresql/postgresql-v0.10.0.md
                     - v0.9.0: openapi/mcamel/postgresql/postgresql-v0.9.0.md
@@ -362,6 +377,8 @@ nav:
                 - v0.107.4: openapi/baize/v0.107.4.md
         - 边缘计算:
             - 云边协同 OpenAPI:
+                - v0.13.0: openapi/kant/v0.13.0.md
+                - v0.12.0: openapi/kant/v0.12.0.md
                 - v0.11.0: openapi/kant/v0.11.0.md
                 - v0.10.0: openapi/kant/v0.10.0.md
                 - v0.9.0: openapi/kant/v0.9.0.md
