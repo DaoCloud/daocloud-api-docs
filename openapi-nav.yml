@@ -3,6 +3,9 @@ nav:
         - OpenAPI 文档索引: openapi/index.md
         - 工作台:
             - 应用工作台 OpenAPI:
+                - v0.122.x:
+                    - v0.122.0: openapi/amamba/v0.122.0.md
+                    - v0.122.1: openapi/amamba/v0.122.1.md
                 - v0.121.0: openapi/amamba/v0.121.0.md
                 - v0.120.0: openapi/amamba/v0.120.0.md
                 - v0.119.0: openapi/amamba/v0.119.0.md
@@ -28,7 +31,9 @@ nav:
                 - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
-                - v0.30.1: openapi/kpanda/v0.30.1.md
+                - v0.30.x:
+                    - v0.30.1: openapi/kpanda/v0.30.1.md
+                    - v0.30.2: openapi/kpanda/v0.30.2.md
                 - v0.29.x:
                     - v0.29.0: openapi/kpanda/v0.29.0.md
                     - v0.29.1: openapi/kpanda/v0.29.1.md
@@ -76,6 +81,7 @@ nav:
                 - v0.9.0: openapi/kairship/v0.9.0.md
                 - v0.8.0: openapi/kairship/v0.8.0.md
             - 镜像仓库 OpenAPI:
+                - v0.21.0: openapi/kangaroo/v0.21.0.md
                 - v0.18.0: openapi/kangaroo/v0.18.0.md
                 - v0.17.0: openapi/kangaroo/v0.17.0.md
                 - v0.15.0: openapi/kangaroo/v0.15.0.md
@@ -377,6 +383,7 @@ nav:
                 - v0.107.4: openapi/baize/v0.107.4.md
         - 边缘计算:
             - 云边协同 OpenAPI:
+                - v0.14.0: openapi/kant/v0.14.0.md
                 - v0.13.0: openapi/kant/v0.13.0.md
                 - v0.12.0: openapi/kant/v0.12.0.md
                 - v0.11.0: openapi/kant/v0.11.0.md
