@@ -32,7 +32,7 @@ hide:
 
     - [v0.5.x](mcamel/minio/minio-v0.5.0.md), [v0.6.0](mcamel/minio/minio-v0.6.0.md), [v0.7.x](mcamel/minio/minio-v0.7.0.md), [v0.8.x](mcamel/minio/minio-v0.8.0.md)
     - [v0.9.0](mcamel/minio/minio-v0.9.0.md), [v0.10.0](mcamel/minio/minio-v0.10.0.md), [v0.11.0](mcamel/minio/minio-v0.11.0.md), [v0.12.0](mcamel/minio/minio-v0.12.0.md)
-    - [v0.13.0](mcamel/minio/minio-v0.13.0.md), [v0.15.0](mcamel/minio/minio-v0.15.0.md), [v0.16.0](mcamel/minio/minio-v0.16.0.md), [v0.18.0](mcamel/minio/minio-v0.18.0.md)
+    - [v0.13.0](mcamel/minio/minio-v0.13.0.md), [v0.15.0](mcamel/minio/minio-v0.15.0.md), [v0.16.0](mcamel/minio/minio-v0.16.0.md), [v0.18.x](mcamel/minio/minio-v0.18.0.md)
 
 -   :simple-mongodb:{ .lg .middle } __MongoDB OpenAPI__
 
