@@ -398,7 +398,7 @@ nav:
                         - v0.7.2: openapi/mcamel/redis/redis-v0.7.2.md
                         - v0.7.3: openapi/mcamel/redis/redis-v0.7.3.md     
         - 云原生 AI:
-            - 智能算力 OpenAPI:
+            - AI Lab OpenAPI:
                 - v0.107.4: openapi/baize/v0.107.4.md
         - 边缘计算:
             - 云边协同 OpenAPI:
