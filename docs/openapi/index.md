@@ -25,7 +25,7 @@ hide:
 
     - [v0.18.x](./kpanda/v0.18.0.md), [v0.19.0](./kpanda/v0.19.0.md), [v0.20.x](./kpanda/v0.20.0.md), [v0.21.1](./kpanda/v0.21.1.md)
     - [v0.23.0](./kpanda/v0.23.0.md), [v0.25.x](./kpanda/v0.25.0.md), [v0.27.0](./kpanda/v0.27.0.md), [v0.28.x](./kpanda/v0.28.0.md)
-    - [v0.29.x](./kpanda/v0.29.0.md), [v0.30.x](./kpanda/v0.30.1.md), [v0.31.1](./kpanda/v0.31.1.md), [v0.32.0](./kpanda/v0.32.0.md)
+    - [v0.29.x](./kpanda/v0.29.0.md), [v0.30.x](./kpanda/v0.30.1.md), [v0.31.1](./kpanda/v0.31.1.md), [v0.32.x](./kpanda/v0.32.0.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
@@ -42,7 +42,7 @@ hide:
 
     - [v0.8.0](./kangaroo/v0.8.0.md), [v0.9.1](./kangaroo/v0.9.1.md), [v0.10.x](./kangaroo/v0.10.0.md), [v0.11.0](./kangaroo/v0.11.0.md)
     - [v0.12.x](./kangaroo/v0.12.0.md), [v0.13.x](./kangaroo/v0.13.0.md), [v0.14.0](./kangaroo/v0.14.0.md), [v0.15.0](./kangaroo/v0.15.0.md)
-    - [v0.17.0](./kangaroo/v0.17.0.md), [v0.18.0](./kangaroo/v0.18.0.md), [v0.21.0](./kangaroo/v0.21.0.md)
+    - [v0.17.0](./kangaroo/v0.17.0.md), [v0.18.0](./kangaroo/v0.18.0.md), [v0.21.0](./kangaroo/v0.21.0.md), [v0.22.0](./kangaroo/v0.22.0.md)
 
 -   :material-dot-net:{ .lg .middle } __网络 OpenAPI__
 
