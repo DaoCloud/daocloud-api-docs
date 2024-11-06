@@ -97,6 +97,7 @@ hide:
     ---
 
     - [v0.107.4](./baize/v0.107.4.md)
+    - [v0.111.2](./baize/v0.111.2.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
