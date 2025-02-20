@@ -65,10 +65,10 @@ hide:
 
     ---
 
-    - [v0.31.3](./insight/v0.31.3.md), [v0.28.0](./insight/v0.28.0.md), [v0.27.x](./insight/v0.27.0.md), [v0.26.0](./insight/v0.26.0.md)
-    - [v0.25.2](./insight/v0.25.2.md), [v0.24.0](./insight/v0.24.0.md), [v0.22.x](./insight/v0.22.0.md), [v0.21.x](./insight/v0.21.0.md)
-    - [v0.20.0](./insight/v0.20.0.md), [v0.19.x](./insight/v0.19.0.md), [v0.18.x](./insight/v0.18.0.md), [v0.17.x](./insight/v0.17.0.md)
-    - [v0.16.0](./insight/v0.16.0.md)
+    - [v0.34.x](./insight/v0.34.0.md), [v0.33.1](./insight/v0.33.1.md), [v0.31.3](./insight/v0.31.3.md), [v0.28.0](./insight/v0.28.0.md)
+    - [v0.27.x](./insight/v0.27.0.md), [v0.26.0](./insight/v0.26.0.md), [v0.25.2](./insight/v0.25.2.md), [v0.24.0](./insight/v0.24.0.md)
+    - [v0.22.x](./insight/v0.22.0.md), [v0.21.x](./insight/v0.21.0.md), [v0.20.0](./insight/v0.20.0.md), [v0.19.x](./insight/v0.19.0.md)
+    - [v0.18.x](./insight/v0.18.0.md), [v0.17.x](./insight/v0.17.0.md), [v0.16.0](./insight/v0.16.0.md)
 
 -   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
 
@@ -96,21 +96,21 @@ hide:
     - [v0.13.0](./kant/v0.13.0.md), [v0.12.0](./kant/v0.12.0.md), [v0.11.0](./kant/v0.11.0.md), [v0.10.0](./kant/v0.10.0.md)
     - [v0.9.0](./kant/v0.9.0.md), [v0.8.0](./kant/v0.8.0.md)
 
--   :robot:{ .lg .middle } __AI Lab OpenAPI__
+-   :robot:{ .lg .middle } __AI Lab 和算力云 OpenAPI__
 
     ---
 
-    - [v0.111.2](./baize/v0.111.2.md)
-    - [v0.107.4](./baize/v0.107.4.md)
+    - [AI Lab v0.111.2](./baize/v0.111.2.md), [AI Lab v0.107.4](./baize/v0.107.4.md)
+    - [算力云 v0.2.0](./zestu/v0.2.0.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
     ---
 
-    - [v0.31.0](./ghippo/v0.31.0.md), [v0.30.0](./ghippo/v0.30.0.md), [v0.28.0](./ghippo/v0.28.0.md), [v0.27.0](./ghippo/v0.27.0.md)
-    - [v0.26.0](./ghippo/v0.26.0.md), [v0.25.x](./ghippo/v0.25.0.md), [v0.24.x](./ghippo/v0.24.0.md), [v0.22.1](./ghippo/v0.22.1.md)
-    - [v0.21.0](./ghippo/v0.21.0.md), [v0.20.x](./ghippo/v0.20.0.md), [v0.19.0](./ghippo/v0.19.0.md), [v0.18.x](./ghippo/v0.18.0.md)
-    - [v0.16.x](./ghippo/v0.16.0.md), [v0.15.0](./ghippo/v0.15.0.md)
+    - [v0.34.0](./ghippo/v0.34.0.md), [v0.33.0](./ghippo/v0.33.0.md), [v0.31.0](./ghippo/v0.31.0.md), [v0.30.0](./ghippo/v0.30.0.md)
+    - [v0.28.0](./ghippo/v0.28.0.md), [v0.27.0](./ghippo/v0.27.0.md), [v0.26.0](./ghippo/v0.26.0.md), [v0.25.x](./ghippo/v0.25.0.md)
+    - [v0.24.x](./ghippo/v0.24.0.md), [v0.22.1](./ghippo/v0.22.1.md), [v0.21.0](./ghippo/v0.21.0.md), [v0.20.x](./ghippo/v0.20.0.md)
+    - [v0.19.0](./ghippo/v0.19.0.md), [v0.18.x](./ghippo/v0.18.0.md), [v0.16.x](./ghippo/v0.16.0.md), [v0.15.0](./ghippo/v0.15.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI 之一__
 
