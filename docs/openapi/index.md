@@ -144,9 +144,9 @@ hide:
 
 登录 DCE 5.0，在右上角的下拉菜单中找到 __个人中心__ ，可以在 __访问密钥__ 页签中管理账号的访问密钥。
 
-![ak list](https://docs.daocloud.io/daocloud-docs-images/docs/ghippo/images/platform02.png)
+![ak list](./images/platform02.png)
 
-![created a key](https://docs.daocloud.io/daocloud-docs-images/docs/ghippo/images/platform03.png)
+![created a key](./images/platform03.png)
 
 !!! info
 
