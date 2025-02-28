@@ -1,0 +1,4373 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "虚拟机",
+    "version": "v0.16.0"
+  },
+  "tags": [
+    {
+      "name": "Cluster"
+    },
+    {
+      "name": "FeatureGate"
+    },
+    {
+      "name": "Image"
+    },
+    {
+      "name": "Role"
+    },
+    {
+      "name": "VM"
+    },
+    {
+      "name": "VMTemplate"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/apis/virtnest.io/v1alpha1/clusters": {
+      "get": {
+        "operationId": "Cluster_ListClusters",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/clusterListClustersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/custom-resource": {
+      "post": {
+        "operationId": "VM_CreateCustomResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmCreateCustomResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces": {
+      "get": {
+        "operationId": "Cluster_ListClusterNamespaces",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/clusterListClusterNamespacesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/secrets": {
+      "get": {
+        "operationId": "Image_ListSecrets",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/imageListSecretsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Image"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/secrets/{name}/check": {
+      "get": {
+        "operationId": "Image_CheckSecret",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/imageCheckSecretResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Image"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vm": {
+      "post": {
+        "operationId": "VM_CreateVM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmCreateVMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "aliasName": {
+                  "type": "string"
+                },
+                "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "imageSource": {
+                  "$ref": "#/definitions/v1alpha1vmImageSource"
+                },
+                "imageUrl": {
+                  "type": "string"
+                },
+                "disks": {
+                  "$ref": "#/definitions/v1alpha1vmVMDisks"
+                },
+                "cpu": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "memory": {
+                  "type": "string",
+                  "format": "int64",
+                  "title": "单位：字节"
+                },
+                "ssh": {
+                  "$ref": "#/definitions/vmSSH"
+                },
+                "osFamily": {
+                  "type": "string"
+                },
+                "osVersion": {
+                  "type": "string"
+                },
+                "secret": {
+                  "type": "string"
+                },
+                "network": {
+                  "$ref": "#/definitions/vmMultusNetwork"
+                },
+                "createPowerOn": {
+                  "type": "boolean"
+                },
+                "gpus": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1alpha1vmGPU"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vm-disk-count": {
+      "get": {
+        "operationId": "VM_GetVMDiskCount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmGetVMDiskCountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vm-network-count": {
+      "get": {
+        "operationId": "VM_GetVMNetworkCount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmGetVMNetworkCountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vm-status-count": {
+      "get": {
+        "operationId": "VM_GetVMStatusCount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmGetVMStatusCountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vm-with-vmtemplate/{vmtemplateName}": {
+      "post": {
+        "operationId": "VM_CreateVMWithVMTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmCreateVMWithVMTemplateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vmtemplateName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "aliasName": {
+                  "type": "string"
+                },
+                "cpu": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "memory": {
+                  "type": "string",
+                  "format": "int64",
+                  "title": "单位：字节"
+                },
+                "disks": {
+                  "$ref": "#/definitions/v1alpha1vmVMDisks"
+                },
+                "ssh": {
+                  "$ref": "#/definitions/vmSSH"
+                },
+                "imageSource": {
+                  "$ref": "#/definitions/v1alpha1vmImageSource"
+                },
+                "imageUrl": {
+                  "type": "string"
+                },
+                "osFamily": {
+                  "type": "string"
+                },
+                "osVersion": {
+                  "type": "string"
+                },
+                "secret": {
+                  "type": "string"
+                },
+                "network": {
+                  "$ref": "#/definitions/vmMultusNetwork"
+                },
+                "createPowerOn": {
+                  "type": "boolean"
+                },
+                "gpus": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1alpha1vmGPU"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/events": {
+      "get": {
+        "operationId": "VM_ListVMEvents",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListVMEventsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}": {
+      "get": {
+        "operationId": "VM_GetVM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmGetVMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      },
+      "delete": {
+        "operationId": "VM_DeleteVM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmDeleteVMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      },
+      "put": {
+        "operationId": "VM_UpdateVM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmUpdateVMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "aliasName": {
+                  "type": "string"
+                },
+                "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "cpu": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "memory": {
+                  "type": "string",
+                  "format": "int64",
+                  "title": "单位：字节"
+                },
+                "disks": {
+                  "$ref": "#/definitions/v1alpha1vmVMDisks"
+                },
+                "gpus": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1alpha1vmGPU"
+                  }
+                },
+                "network": {
+                  "$ref": "#/definitions/vmMultusNetwork"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/clone": {
+      "post": {
+        "operationId": "VM_CloneVM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmCloneVMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cloneName": {
+                  "type": "string"
+                },
+                "aliasName": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/cold-migration": {
+      "post": {
+        "operationId": "VM_ColdMigration",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmColdMigrationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "targetNode": {
+                  "type": "string",
+                  "title": "空值表示随机选择节点"
+                },
+                "disks": {
+                  "$ref": "#/definitions/v1alpha1vmVMDisks"
+                },
+                "powerOn": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/custom-resource": {
+      "get": {
+        "operationId": "VM_GetCustomResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1vmGetCustomResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      },
+      "put": {
+        "operationId": "VM_UpdateCustomResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1vmUpdateCustomResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/disk-volume": {
+      "post": {
+        "operationId": "VM_AddDiskVolumeToVM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmAddDiskVolumeToVMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "diskVolumes": {
+                  "$ref": "#/definitions/v1alpha1vmDiskVolume"
+                },
+                "hotplug": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/disk-volume/{diskName}": {
+      "delete": {
+        "operationId": "VM_RemoveVMDiskVolume",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmRemoveVMDiskVolumeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "diskName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/disk-volume/{diskName}/expand-capacity": {
+      "put": {
+        "operationId": "VM_ExpandVMDiskCapacity",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmExpandVMDiskCapacityResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "diskName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "capacity": {
+                  "type": "string",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/live-migration": {
+      "post": {
+        "operationId": "VM_LiveMigrateVM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmLiveMigrateVMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "targetNode": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/live-migration/{migrationName}/status": {
+      "get": {
+        "operationId": "VM_LiveMigrateStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmLiveMigrateStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "migrationName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/networks": {
+      "get": {
+        "operationId": "VM_ListVMNetworks",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListVMNetworksResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/restore": {
+      "post": {
+        "operationId": "VM_RestoreVMSnapshot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmRestoreVMSnapshotResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "snapshotName": {
+                  "type": "string"
+                },
+                "restoreName": {
+                  "type": "string"
+                },
+                "restoreDescription": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/restores/{restoreName}": {
+      "delete": {
+        "operationId": "VM_DeleteVMRestore",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmDeleteVMRestoreResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "restoreName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/running-status": {
+      "put": {
+        "operationId": "VM_UpdateVMRunningStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmUpdateVMRunningStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "vmOperation": {
+                  "$ref": "#/definitions/vmVMOperation"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/snapshot": {
+      "post": {
+        "operationId": "VM_CreateVMSnapshot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmCreateVMSnapshotResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "snapshotName": {
+                  "type": "string"
+                },
+                "snapshotDescription": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/snapshots": {
+      "get": {
+        "operationId": "VM_ListVMSnapshots",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListVMSnapshotsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/snapshots/{snapshotName}": {
+      "delete": {
+        "operationId": "VM_DeleteVMSnapshot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmDeleteVMSnapshotResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "snapshotName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      },
+      "put": {
+        "operationId": "VM_UpdateVMSnapshot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmUpdateVMSnapshotResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "snapshotName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "snapshotDescription": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/snapshots/{snapshotName}/restores": {
+      "get": {
+        "operationId": "VM_ListVMRestores",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListVMRestoresResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "snapshotName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/vms/{name}/storages": {
+      "get": {
+        "operationId": "VM_ListVMStorages",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListVMStoragesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/network-interfaces": {
+      "get": {
+        "operationId": "VM_ListNetworkInterfaces",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListNetworkInterfacesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/nodes": {
+      "get": {
+        "operationId": "VM_ListClusterNodes",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListClusterNodesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/snapshots": {
+      "get": {
+        "operationId": "VM_ListClusterSnapshots",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListClusterSnapshotsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "created_at",
+              "field_name"
+            ],
+            "default": "created_at"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "desc"
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/storageclasses": {
+      "get": {
+        "operationId": "VM_ListClusterStorageClasses",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListClusterStorageClassesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/system-images": {
+      "get": {
+        "operationId": "VM_ListSystemImages",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListSystemImagesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/vm-monitor/ready": {
+      "get": {
+        "operationId": "Cluster_IsVMMonitorReady",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/clusterIsVMMonitorReadyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/clusters/{cluster}/vms": {
+      "get": {
+        "operationId": "VM_ListClusterVMs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmListClusterVmsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "created_at",
+              "field_name"
+            ],
+            "default": "created_at"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "desc"
+          },
+          {
+            "name": "namespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VM"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/feature-gate": {
+      "get": {
+        "operationId": "FeatureGate_ListFeatureGates",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/feature_gateListFeatureGatesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "FeatureGate"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/projects": {
+      "get": {
+        "operationId": "Image_ListProjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/imageListProjectsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "Cluster is the current cluster.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "Namespace is the current namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "registry",
+            "description": "Registry is registry name.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "public",
+            "description": "Public is distinguish public projects and private projects.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "page",
+            "description": "Page requested.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Size per page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Image"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/registries": {
+      "get": {
+        "operationId": "Image_ListRegistries",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/imageListRegistriesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "Cluster is the current cluster.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "Namespace is the current namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Page requested.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Size per page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "public",
+            "description": "Public is distinguish public images and private images.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Image"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/repositories": {
+      "get": {
+        "operationId": "Image_ListRepositories",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/imageListRepositoriesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "Cluster is the current cluster.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "Namespace is the current namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "registry",
+            "description": "Registry is registry name.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project is the project to request, \"/\" is a possible value.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzyName",
+            "description": "FuzzyName is used to fuzzy search by multiple parameters including name.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Page requested.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Size per page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "public",
+            "description": "Public is distinguish public images and private images.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "showArtifacts",
+            "description": "ShowArtifacts is to list artifacts of per image, default false.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Image"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/roles": {
+      "get": {
+        "operationId": "Role_GetUserRoles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/roleGetUserRolesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Role"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/vm-template-count": {
+      "get": {
+        "operationId": "VMTemplate_GetVMTemplateCount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmtemplateGetVMTemplateCountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "VMTemplate"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/vmtemplate-by-vm": {
+      "post": {
+        "summary": "rpc UpdateVMTemplate(UpdateVMTemplateRequest) returns (UpdateVMTemplateResponse) {\n   option (google.api.http) = {\n     put: \"/apis/virtnest.io/v1alpha1/vmtemplates/{name}\"\n     body: \"*\"\n   };\n }",
+        "operationId": "VMTemplate_CreateVMTemplateByVM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmtemplateCreateVMTemplateByVMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/vmtemplateCreateVMTemplateByVMRequest"
+            }
+          }
+        ],
+        "tags": [
+          "VMTemplate"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/vmtemplates": {
+      "get": {
+        "operationId": "VMTemplate_ListVMTemplates",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmtemplateListVMTemplatesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "description": " - UNSPECIFIED: Unspecified is default, no sorting.\n - created_at: Sort result by creationTimestamp.\n - field_name: Sort result by name.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNSPECIFIED",
+              "created_at",
+              "field_name"
+            ],
+            "default": "UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "desc"
+          }
+        ],
+        "tags": [
+          "VMTemplate"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/vmtemplates/{name}": {
+      "get": {
+        "operationId": "VMTemplate_GetVMTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmtemplateGetVMTemplateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VMTemplate"
+        ]
+      },
+      "delete": {
+        "summary": "rpc CreateVMTemplate(CreateVMTemplateRequest) returns (CreateVMTemplateResponse) {\n   option (google.api.http) = {\n     post: \"/apis/virtnest.io/v1alpha1/vmtemplates\"\n     body: \"*\"\n   };\n }",
+        "operationId": "VMTemplate_DeleteVMTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/vmtemplateDeleteVMTemplateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VMTemplate"
+        ]
+      }
+    },
+    "/apis/virtnest.io/v1alpha1/vmtemplates/{name}/custom-resource": {
+      "get": {
+        "operationId": "VMTemplate_GetCustomResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1vmtemplateGetCustomResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VMTemplate"
+        ]
+      },
+      "put": {
+        "operationId": "VMTemplate_UpdateCustomResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1vmtemplateUpdateCustomResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "VMTemplate"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "clusterClusterInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1clusterStatus"
+        },
+        "isKubevirtInstalled": {
+          "type": "boolean"
+        },
+        "isInsightAgentReady": {
+          "type": "boolean"
+        },
+        "spiderpool": {
+          "$ref": "#/definitions/clusterSpiderPool"
+        },
+        "gpuInfo": {
+          "$ref": "#/definitions/clusterGPUInfo"
+        }
+      }
+    },
+    "clusterGPUInfo": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1clusterGPUType"
+          }
+        },
+        "gpus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1clusterGPU"
+          }
+        }
+      }
+    },
+    "clusterIsVMMonitorReadyResponse": {
+      "type": "object",
+      "properties": {
+        "ready": {
+          "type": "boolean"
+        }
+      }
+    },
+    "clusterListClusterNamespacesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "clusterListClustersResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/clusterClusterInfo"
+          }
+        }
+      }
+    },
+    "clusterSpiderPool": {
+      "type": "object",
+      "properties": {
+        "isInstalled": {
+          "type": "boolean"
+        },
+        "enableIpv4": {
+          "type": "boolean"
+        },
+        "enableIpv6": {
+          "type": "boolean"
+        }
+      }
+    },
+    "feature_gateFeatureGateID": {
+      "type": "string",
+      "enum": [
+        "VirtualMachineSnapshot",
+        "VirtualMachineClone"
+      ],
+      "default": "VirtualMachineSnapshot"
+    },
+    "feature_gateFeatureGateInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/feature_gateFeatureGateID",
+          "title": "唯一标志符"
+        },
+        "description": {
+          "type": "string",
+          "title": "关于此 FeatureGate 的描述"
+        },
+        "enabled": {
+          "type": "boolean",
+          "title": "是否启用"
+        }
+      }
+    },
+    "feature_gateListFeatureGatesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/feature_gateFeatureGateInfo"
+          }
+        }
+      }
+    },
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "imageArtifact": {
+      "type": "object",
+      "properties": {
+        "digest": {
+          "type": "string",
+          "description": "Digest is artifact digest."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageTag"
+          },
+          "description": "Tags is a list of tags."
+        },
+        "imageSize": {
+          "type": "string",
+          "format": "int64",
+          "description": "Size of artifact. Unit: byte. 1024 GenericBinary."
+        },
+        "pushTime": {
+          "type": "string",
+          "format": "int64",
+          "description": "First push time."
+        }
+      },
+      "title": "Artifact is the concept of harbor artifact"
+    },
+    "imageCheckSecretResponse": {
+      "type": "object",
+      "properties": {
+        "canUse": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "imageListProjectsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Items is a list of project names."
+        }
+      },
+      "title": "ListProjectsResponse returns a list of projects of a registry"
+    },
+    "imageListRegistriesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageRegistry"
+          },
+          "title": "items is registry host"
+        }
+      },
+      "title": "ListRegistriesResponse returns a list of registries"
+    },
+    "imageListRepositoriesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageRepository"
+          },
+          "description": "Items is a list of repositories."
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1imagePagination"
+        }
+      },
+      "title": "ListRepositoriesResponse returns a list of projects of a registry"
+    },
+    "imageListSecretsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageSecret"
+          }
+        }
+      }
+    },
+    "imageRegistry": {
+      "type": "object",
+      "properties": {
+        "alias": {
+          "type": "string",
+          "description": "Alias is an alias for the registry, showed in list."
+        },
+        "host": {
+          "type": "string",
+          "description": "Host is registry host."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name is registry name, use to query project lists."
+        }
+      },
+      "title": "Registry contains necessary info"
+    },
+    "imageRepository": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of repository."
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageArtifact"
+          },
+          "description": "Artifacts of repository."
+        }
+      },
+      "title": "Repository concept from Harbor"
+    },
+    "imageSecret": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "imageTag": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the tag."
+        },
+        "pushTime": {
+          "type": "string",
+          "format": "int64",
+          "description": "Tag push time."
+        }
+      },
+      "description": "Tag of an image."
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "roleClusterRoles": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/roleRoleEnum"
+          }
+        },
+        "nsRoles": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/roleNSRoles"
+          }
+        }
+      }
+    },
+    "roleGetUserRolesResponse": {
+      "type": "object",
+      "properties": {
+        "platformRoles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/roleRoleEnum"
+          }
+        },
+        "clusterRoles": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/roleClusterRoles"
+          }
+        }
+      }
+    },
+    "roleNSRoles": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/roleRoleEnum"
+          }
+        }
+      }
+    },
+    "roleRoleEnum": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "cluster_admin",
+        "cluster_edit",
+        "cluster_view",
+        "ns_admin",
+        "ns_edit",
+        "ns_view"
+      ],
+      "default": "admin"
+    },
+    "v1alpha1clusterGPU": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/v1alpha1clusterGPUType"
+        },
+        "deviceName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1clusterGPUType": {
+      "type": "string",
+      "enum": [
+        "Nvidia_GPU",
+        "Nvidia_vGPU",
+        "Metax_GPU",
+        "Unknown_GPU",
+        "Unknown_vGPU"
+      ],
+      "default": "Nvidia_GPU"
+    },
+    "v1alpha1clusterStatus": {
+      "type": "string",
+      "enum": [
+        "running",
+        "failed"
+      ],
+      "default": "running"
+    },
+    "v1alpha1imagePagination": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1vmDiskVolume": {
+      "type": "object",
+      "properties": {
+        "storageClass": {
+          "type": "string"
+        },
+        "capacity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pvAccessMode": {
+          "$ref": "#/definitions/v1alpha1vmPersistentVolumeAccessMode"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1vmGPU": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/v1alpha1vmGPUType"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1vmGPUType": {
+      "type": "string",
+      "enum": [
+        "Nvidia_GPU",
+        "Nvidia_vGPU",
+        "Metax_GPU",
+        "Unknown_GPU",
+        "Unknown_vGPU"
+      ],
+      "default": "Nvidia_GPU"
+    },
+    "v1alpha1vmGetCustomResourceResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1vmImageSource": {
+      "type": "string",
+      "enum": [
+        "docker",
+        "http",
+        "s3"
+      ],
+      "default": "docker",
+      "title": "TODO:"
+    },
+    "v1alpha1vmMultusConfigInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "cniType": {
+          "type": "string"
+        },
+        "hasDefaultIppool": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1vmMultusNetworkInfo": {
+      "type": "object",
+      "properties": {
+        "networkMode": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmMultusNetworkInfoItem"
+          }
+        }
+      }
+    },
+    "v1alpha1vmMultusNetworkInfoItem": {
+      "type": "object",
+      "properties": {
+        "multusConfig": {
+          "$ref": "#/definitions/v1alpha1vmMultusConfigInfo"
+        },
+        "interface": {
+          "type": "string"
+        },
+        "ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mac": {
+          "type": "string"
+        },
+        "subnet": {
+          "type": "string"
+        },
+        "gateway": {
+          "type": "string"
+        },
+        "vlanId": {
+          "type": "string"
+        },
+        "ipPool": {
+          "type": "string"
+        },
+        "ipPoolV6": {
+          "type": "string"
+        },
+        "ipPoolNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipPoolNamesV6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1alpha1vmNetworkInterfaceInfo": {
+      "type": "object",
+      "properties": {
+        "networkInterface": {
+          "type": "string"
+        },
+        "multusConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmMultusConfigInfo"
+          }
+        }
+      }
+    },
+    "v1alpha1vmPagination": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1vmPersistentVolumeAccessMode": {
+      "type": "string",
+      "enum": [
+        "ReadWriteOnce",
+        "ReadOnlyMany",
+        "ReadWriteMany",
+        "ReadWriteOncePod"
+      ],
+      "default": "ReadWriteOnce"
+    },
+    "v1alpha1vmSortBy": {
+      "type": "string",
+      "enum": [
+        "created_at",
+        "field_name"
+      ],
+      "default": "created_at"
+    },
+    "v1alpha1vmSortDir": {
+      "type": "string",
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "default": "desc"
+    },
+    "v1alpha1vmUpdateCustomResourceResponse": {
+      "type": "object"
+    },
+    "v1alpha1vmVMDisks": {
+      "type": "object",
+      "properties": {
+        "systemVolume": {
+          "$ref": "#/definitions/v1alpha1vmDiskVolume"
+        },
+        "dataVolumes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmDiskVolume"
+          }
+        }
+      }
+    },
+    "v1alpha1vmtemplateDiskVolume": {
+      "type": "object",
+      "properties": {
+        "storageClass": {
+          "type": "string"
+        },
+        "capacity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pvAccessMode": {
+          "$ref": "#/definitions/v1alpha1vmtemplatePersistentVolumeAccessMode"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1vmtemplateGPU": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/v1alpha1vmtemplateGPUType"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1vmtemplateGPUType": {
+      "type": "string",
+      "enum": [
+        "Nvidia_GPU",
+        "Nvidia_vGPU",
+        "Metax_GPU",
+        "Unknown_GPU",
+        "Unknown_vGPU"
+      ],
+      "default": "Nvidia_GPU"
+    },
+    "v1alpha1vmtemplateGetCustomResourceResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1vmtemplateImageSource": {
+      "type": "string",
+      "enum": [
+        "docker",
+        "http",
+        "s3"
+      ],
+      "default": "docker"
+    },
+    "v1alpha1vmtemplateMultusConfigInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "cniType": {
+          "type": "string"
+        },
+        "hasDefaultIppool": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1vmtemplateMultusNetworkInfo": {
+      "type": "object",
+      "properties": {
+        "networkMode": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmtemplateMultusNetworkInfoItem"
+          }
+        }
+      }
+    },
+    "v1alpha1vmtemplateMultusNetworkInfoItem": {
+      "type": "object",
+      "properties": {
+        "multusConfig": {
+          "$ref": "#/definitions/v1alpha1vmtemplateMultusConfigInfo"
+        },
+        "interface": {
+          "type": "string"
+        },
+        "ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mac": {
+          "type": "string"
+        },
+        "subnet": {
+          "type": "string"
+        },
+        "gateway": {
+          "type": "string"
+        },
+        "vlanId": {
+          "type": "string"
+        },
+        "ipPool": {
+          "$ref": "#/definitions/vmtemplateIPPool"
+        }
+      }
+    },
+    "v1alpha1vmtemplatePagination": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1vmtemplatePersistentVolumeAccessMode": {
+      "type": "string",
+      "enum": [
+        "ReadWriteOnce",
+        "ReadOnlyMany",
+        "ReadWriteMany",
+        "ReadWriteOncePod"
+      ],
+      "default": "ReadWriteOnce"
+    },
+    "v1alpha1vmtemplateSortBy": {
+      "type": "string",
+      "enum": [
+        "UNSPECIFIED",
+        "created_at",
+        "field_name"
+      ],
+      "default": "UNSPECIFIED",
+      "description": " - UNSPECIFIED: Unspecified is default, no sorting.\n - created_at: Sort result by creationTimestamp.\n - field_name: Sort result by name."
+    },
+    "v1alpha1vmtemplateSortDir": {
+      "type": "string",
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "default": "desc"
+    },
+    "v1alpha1vmtemplateUpdateCustomResourceResponse": {
+      "type": "object"
+    },
+    "v1alpha1vmtemplateVMDisks": {
+      "type": "object",
+      "properties": {
+        "systemVolume": {
+          "$ref": "#/definitions/v1alpha1vmtemplateDiskVolume"
+        },
+        "dataVolumes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmtemplateDiskVolume"
+          }
+        }
+      }
+    },
+    "vmAddDiskVolumeToVMResponse": {
+      "type": "object",
+      "properties": {
+        "needRestart": {
+          "type": "boolean"
+        }
+      }
+    },
+    "vmAllowedOperation": {
+      "type": "string",
+      "enum": [
+        "allowed_operation_snapshot",
+        "allowed_operation_clone",
+        "allowed_operation_live_migration"
+      ],
+      "default": "allowed_operation_snapshot"
+    },
+    "vmCloneVMResponse": {
+      "type": "object"
+    },
+    "vmColdMigrationResponse": {
+      "type": "object"
+    },
+    "vmCreateCustomResourceResponse": {
+      "type": "object"
+    },
+    "vmCreateVMResponse": {
+      "type": "object"
+    },
+    "vmCreateVMSnapshotResponse": {
+      "type": "object"
+    },
+    "vmCreateVMWithVMTemplateResponse": {
+      "type": "object"
+    },
+    "vmDeleteVMResponse": {
+      "type": "object"
+    },
+    "vmDeleteVMRestoreResponse": {
+      "type": "object"
+    },
+    "vmDeleteVMSnapshotResponse": {
+      "type": "object"
+    },
+    "vmEventLevel": {
+      "type": "string",
+      "enum": [
+        "UNSPECIFIED",
+        "Normal",
+        "Warning"
+      ],
+      "default": "UNSPECIFIED",
+      "description": " - UNSPECIFIED: This is only a meaningless placeholder, to avoid zero not return."
+    },
+    "vmExpandVMDiskCapacityResponse": {
+      "type": "object",
+      "properties": {
+        "needRestart": {
+          "type": "boolean"
+        }
+      }
+    },
+    "vmGetVMDiskCountResponse": {
+      "type": "object",
+      "properties": {
+        "system": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "vmGetVMNetworkCountResponse": {
+      "type": "object",
+      "properties": {
+        "ipPool": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipModel": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "vmGetVMResponse": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "aliasName": {
+          "type": "string"
+        },
+        "describe": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/vmVMStatus"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "sshKey": {
+          "type": "string"
+        },
+        "cpu": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memory": {
+          "type": "string",
+          "format": "int64",
+          "title": "单位：字节"
+        },
+        "vmErrorMessage": {
+          "$ref": "#/definitions/vmVmErrorMessage"
+        },
+        "imageSource": {
+          "$ref": "#/definitions/v1alpha1vmImageSource"
+        },
+        "osFamily": {
+          "type": "string"
+        },
+        "osVersion": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "node": {
+          "type": "string"
+        },
+        "allowedOperation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmAllowedOperation"
+          }
+        },
+        "secret": {
+          "type": "string"
+        },
+        "network": {
+          "$ref": "#/definitions/v1alpha1vmMultusNetworkInfo"
+        },
+        "gpus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmGPU"
+          }
+        },
+        "migNodeSelector": {
+          "type": "string"
+        }
+      }
+    },
+    "vmGetVMStatusCountResponse": {
+      "type": "object",
+      "properties": {
+        "running": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "error": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "processing": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "poweroff": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "vmListClusterNodesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmNode"
+          }
+        }
+      }
+    },
+    "vmListClusterSnapshotsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmVMSnapshot"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1vmPagination"
+        }
+      }
+    },
+    "vmListClusterStorageClassesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmStorageClass"
+          }
+        }
+      }
+    },
+    "vmListClusterVmsInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/vmVMStatus"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cpu": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memory": {
+          "type": "string",
+          "format": "int64",
+          "title": "单位：字节"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "osFamily": {
+          "type": "string"
+        },
+        "vmErrorMessage": {
+          "$ref": "#/definitions/vmVmErrorMessage"
+        },
+        "allowedOperation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmAllowedOperation"
+          }
+        },
+        "node": {
+          "type": "string"
+        },
+        "gpus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmGPUType"
+          }
+        },
+        "migNodeSelector": {
+          "type": "string"
+        }
+      }
+    },
+    "vmListClusterVmsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmListClusterVmsInfo"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1vmPagination"
+        }
+      }
+    },
+    "vmListNetworkInterfacesResponse": {
+      "type": "object",
+      "properties": {
+        "ipPools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "interfaces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmNetworkInterfaceInfo"
+          }
+        },
+        "ipPoolsV6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "vmListSystemImagesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmSystemImage"
+          }
+        }
+      }
+    },
+    "vmListVMEventsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmVmEvents"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1vmPagination"
+        }
+      }
+    },
+    "vmListVMNetworksResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmVMNetwork"
+          }
+        }
+      }
+    },
+    "vmListVMRestoresResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmVMRestore"
+          }
+        }
+      }
+    },
+    "vmListVMSnapshotsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmVMSnapshot"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1vmPagination"
+        }
+      }
+    },
+    "vmListVMStoragesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmVMStorage"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1vmPagination"
+        }
+      }
+    },
+    "vmLiveMigrateStatusResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/vmMigrationStatus"
+        },
+        "failureReason": {
+          "type": "string"
+        }
+      }
+    },
+    "vmLiveMigrateVMResponse": {
+      "type": "object",
+      "properties": {
+        "migrationName": {
+          "type": "string"
+        }
+      }
+    },
+    "vmMigrationStatus": {
+      "type": "string",
+      "enum": [
+        "Success",
+        "Failed",
+        "Processing"
+      ],
+      "default": "Success"
+    },
+    "vmMultusNetwork": {
+      "type": "object",
+      "properties": {
+        "networkMode": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmMultusNetworkItem"
+          }
+        }
+      }
+    },
+    "vmMultusNetworkItem": {
+      "type": "object",
+      "properties": {
+        "interface": {
+          "type": "string"
+        },
+        "multusConfig": {
+          "$ref": "#/definitions/v1alpha1vmMultusConfigInfo"
+        },
+        "ipPoolNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipPoolNamesV6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "vmNode": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "phase": {
+          "$ref": "#/definitions/vmNodePhase"
+        }
+      }
+    },
+    "vmNodePhase": {
+      "type": "string",
+      "enum": [
+        "PhaseUnspecified",
+        "PhaseReady",
+        "PhaseNotReady",
+        "PhaseUnknown"
+      ],
+      "default": "PhaseUnspecified"
+    },
+    "vmObject": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "vmRemoveVMDiskVolumeResponse": {
+      "type": "object"
+    },
+    "vmRestoreVMSnapshotResponse": {
+      "type": "object"
+    },
+    "vmSSH": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "sshKey": {
+          "type": "string"
+        }
+      }
+    },
+    "vmSnapshotStatus": {
+      "type": "string",
+      "enum": [
+        "snapshot_succeeded",
+        "snapshot_failed",
+        "snapshot_deleting",
+        "snapshot_processing",
+        "snapshot_unknown"
+      ],
+      "default": "snapshot_succeeded"
+    },
+    "vmStorageClass": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "supportAccessMode": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmPersistentVolumeAccessMode"
+          }
+        }
+      }
+    },
+    "vmStorageStatus": {
+      "type": "string",
+      "enum": [
+        "storage_processing",
+        "storage_ready",
+        "storage_failed"
+      ],
+      "default": "storage_processing"
+    },
+    "vmStorageType": {
+      "type": "string",
+      "enum": [
+        "system",
+        "data"
+      ],
+      "default": "system"
+    },
+    "vmSystemImage": {
+      "type": "object",
+      "properties": {
+        "osFamily": {
+          "type": "string"
+        },
+        "version": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmSystemImageVersion"
+          }
+        }
+      }
+    },
+    "vmSystemImageVersion": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "vmUpdateVMResponse": {
+      "type": "object"
+    },
+    "vmUpdateVMRunningStatusResponse": {
+      "type": "object"
+    },
+    "vmUpdateVMSnapshotResponse": {
+      "type": "object"
+    },
+    "vmVMNetwork": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        }
+      }
+    },
+    "vmVMOperation": {
+      "type": "string",
+      "enum": [
+        "start",
+        "stop",
+        "restart"
+      ],
+      "default": "start"
+    },
+    "vmVMRestore": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "restoreTime": {
+          "type": "string"
+        },
+        "lastRestore": {
+          "type": "boolean"
+        }
+      }
+    },
+    "vmVMSnapshot": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/vmSnapshotStatus"
+        },
+        "restoreTime": {
+          "type": "string"
+        },
+        "vmName": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        }
+      }
+    },
+    "vmVMStatus": {
+      "type": "string",
+      "enum": [
+        "running",
+        "processing",
+        "error",
+        "poweroff",
+        "migrating"
+      ],
+      "default": "running"
+    },
+    "vmVMStorage": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/vmStorageType"
+        },
+        "capacity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/vmStorageStatus"
+        },
+        "storageClass": {
+          "type": "string"
+        },
+        "allowExpand": {
+          "type": "boolean"
+        },
+        "pvAccessMode": {
+          "$ref": "#/definitions/v1alpha1vmPersistentVolumeAccessMode"
+        },
+        "hotpluggable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "vmVmErrorMessage": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "vmVmEvents": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "$ref": "#/definitions/vmEventLevel"
+        },
+        "component": {
+          "type": "string"
+        },
+        "object": {
+          "$ref": "#/definitions/vmObject"
+        },
+        "name": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "vmtemplateCreateVMTemplateByVMRequest": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "vmName": {
+          "type": "string"
+        },
+        "vmtemplateName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "vmtemplateCreateVMTemplateByVMResponse": {
+      "type": "object"
+    },
+    "vmtemplateDeleteVMTemplateResponse": {
+      "type": "object"
+    },
+    "vmtemplateGetVMTemplateCountResponse": {
+      "type": "object",
+      "properties": {
+        "internal": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "custom": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "vmtemplateGetVMTemplateResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "cpu": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memory": {
+          "type": "string",
+          "format": "int64",
+          "title": "单位：字节"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "osFamily": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/vmtemplateTemplateType"
+        },
+        "systemDiskCapacity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "imageSource": {
+          "$ref": "#/definitions/v1alpha1vmtemplateImageSource"
+        },
+        "osVersion": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "disks": {
+          "$ref": "#/definitions/v1alpha1vmtemplateVMDisks"
+        },
+        "gpus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmtemplateGPU"
+          }
+        },
+        "networks": {
+          "$ref": "#/definitions/v1alpha1vmtemplateMultusNetworkInfo"
+        }
+      }
+    },
+    "vmtemplateIPPool": {
+      "type": "object",
+      "properties": {
+        "ipv4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipv6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "vmtemplateListVMTemplatesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/vmtemplateVMTemplateInfo"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1vmtemplatePagination"
+        }
+      }
+    },
+    "vmtemplateTemplateType": {
+      "type": "string",
+      "enum": [
+        "custom",
+        "internal"
+      ],
+      "default": "custom"
+    },
+    "vmtemplateVMTemplateInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/vmtemplateTemplateType"
+        },
+        "cpu": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memory": {
+          "type": "string",
+          "format": "int64",
+          "title": "单位：字节"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "osFamily": {
+          "type": "string"
+        },
+        "gpus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1vmtemplateGPUType"
+          }
+        }
+      }
+    }
+  }
+}
