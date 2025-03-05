@@ -3,6 +3,7 @@ nav:
         - OpenAPI 文档索引: openapi/index.md
         - 工作台:
             - 应用工作台 OpenAPI:
+                - v0.127.0: openapi/amamba/v0.127.0.md
                 - v0.126.0: openapi/amamba/v0.126.0.md
                 - v0.125.0: openapi/amamba/v0.125.0.md
                 - v0.124.1: openapi/amamba/v0.124.1.md
@@ -37,6 +38,7 @@ nav:
                 - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
+                - v0.37.0: openapi/kpanda/v0.37.0.md
                 - v0.34.0: openapi/kpanda/v0.34.0.md
                 - v0.33.x:
                     - v0.33.0: openapi/kpanda/v0.33.0.md
@@ -141,6 +143,7 @@ nav:
                 - v0.6.0: openapi/spidernet/v0.6.0.md
                 - v0.5.0: openapi/spidernet/v0.5.0.md
             - 虚拟机 OpenAPI:
+                - v0.16.0: openapi/virtnest/v0.16.0.md
                 - v0.15.0: openapi/virtnest/v0.15.0.md
                 - v0.13.0: openapi/virtnest/v0.13.0.md
                 - v0.12.0: openapi/virtnest/v0.12.0.md
@@ -256,6 +259,7 @@ nav:
             - 中间件 OpenAPI:
                 - Index: openapi/midware.md
                 - Elasticsearch 搜索服务:
+                    - v0.24.0: openapi/mcamel/elasticsearch/elasticsearch-v0.24.0.md
                     - v0.23.0: openapi/mcamel/elasticsearch/elasticsearch-v0.23.0.md
                     - v0.21.x:
                         - v0.21.0: openapi/mcamel/elasticsearch/elasticsearch-v0.21.0.md
@@ -395,6 +399,7 @@ nav:
                     - v0.2.0: openapi/mcamel/mongodb/mongodb-v0.2.0.md
                     - v0.1.0: openapi/mcamel/mongodb/mongodb-v0.1.0.md
                 - MySQL 数据库:
+                    - v0.26.0: openapi/mcamel/mysql/mysql-v0.26.0.md
                     - v0.25.0: openapi/mcamel/mysql/mysql-v0.25.0.md
                     - v0.24.0: openapi/mcamel/mysql/mysql-v0.24.0.md
                     - v0.23.0: openapi/mcamel/mysql/mysql-v0.23.0.md
@@ -471,6 +476,7 @@ nav:
                 - v0.111.2: openapi/baize/v0.111.2.md
                 - v0.107.4: openapi/baize/v0.107.4.md
             - 算力云 OpenAPI:
+                - v0.2.1: openapi/zestu/v0.2.1.md
                 - v0.2.0: openapi/zestu/v0.2.0.md
         - 边缘计算:
             - 云边协同 OpenAPI:
@@ -486,6 +492,7 @@ nav:
                 - v0.8.0: openapi/kant/v0.8.0.md
         - 管理:
             - 全局管理 OpenAPI:
+                - v0.35.0: openapi/ghippo/v0.35.0.md
                 - v0.34.0: openapi/ghippo/v0.34.0.md
                 - v0.33.0: openapi/ghippo/v0.33.0.md
                 - v0.31.0: openapi/ghippo/v0.31.0.md
