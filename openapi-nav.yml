@@ -38,6 +38,7 @@ nav:
                 - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
+                - v0.38.0: openapi/kpanda/v0.38.0.md
                 - v0.37.0: openapi/kpanda/v0.37.0.md
                 - v0.34.0: openapi/kpanda/v0.34.0.md
                 - v0.33.x:
@@ -157,9 +158,13 @@ nav:
                 - v0.6.0: openapi/virtnest/v0.6.0.md
         - 微服务:
             - 可观测性 OpenAPI:
+                - v0.35.x:
+                    - v0.35.0: openapi/insight/v0.35.0.md
+                    - v0.35.1: openapi/insight/v0.35.1.md
                 - v0.34.x:
                     - v0.34.0: openapi/insight/v0.34.0.md
                     - v0.34.1: openapi/insight/v0.34.1.md
+                    - v0.34.2: openapi/insight/v0.34.2.md
                 - v0.33.1: openapi/insight/v0.33.1.md
                 - v0.31.3: openapi/insight/v0.31.3.md
                 - v0.28.0: openapi/insight/v0.28.0.md
@@ -476,8 +481,16 @@ nav:
                 - v0.111.2: openapi/baize/v0.111.2.md
                 - v0.107.4: openapi/baize/v0.107.4.md
             - 算力云 OpenAPI:
-                - v0.2.1: openapi/zestu/v0.2.1.md
-                - v0.2.0: openapi/zestu/v0.2.0.md
+                - v0.4.x:
+                    - v0.4.0: openapi/zestu/v0.4.0.md
+                    - v0.4.1: openapi/zestu/v0.4.1.md
+                - v0.3.x:
+                    - v0.3.0: openapi/zestu/v0.3.0.md
+                    - v0.3.1: openapi/zestu/v0.3.1.md
+                    - v0.3.2: openapi/zestu/v0.3.2.md
+                - v0.2.x:
+                    - v0.2.0: openapi/zestu/v0.2.0.md
+                    - v0.2.1: openapi/zestu/v0.2.1.md
         - 边缘计算:
             - 云边协同 OpenAPI:
                 - v0.17.0: openapi/kant/v0.17.0.md
@@ -492,7 +505,9 @@ nav:
                 - v0.8.0: openapi/kant/v0.8.0.md
         - 管理:
             - 全局管理 OpenAPI:
-                - v0.35.0: openapi/ghippo/v0.35.0.md
+                - v0.35.x:
+                    - v0.35.0: openapi/ghippo/v0.35.0.md
+                    - v0.35.1: openapi/ghippo/v0.35.1.md
                 - v0.34.0: openapi/ghippo/v0.34.0.md
                 - v0.33.0: openapi/ghippo/v0.33.0.md
                 - v0.31.0: openapi/ghippo/v0.31.0.md
