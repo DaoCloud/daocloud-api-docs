@@ -57,9 +57,9 @@ hide:
 
     ---
 
-    - [v0.16.0](./virtnest/v0.16.0.md), [v0.15.0](./virtnest/v0.15.0.md), [v0.13.0](./virtnest/v0.13.0.md)
-    - [v0.12.0](./virtnest/v0.12.0.md), [v0.9.x](./virtnest/v0.8.0.md), [v0.8.x](./virtnest/v0.8.0.md)
-    - [v0.7.x](./virtnest/v0.7.0.md), [v0.6.0](./virtnest/v0.6.0.md)
+    - [v0.17.0](./virtnest/v0.17.0.md), [v0.16.0](./virtnest/v0.16.0.md), [v0.15.0](./virtnest/v0.15.0.md)
+    - [v0.13.0](./virtnest/v0.13.0.md), [v0.12.0](./virtnest/v0.12.0.md), [v0.9.x](./virtnest/v0.8.0.md)
+    - [v0.8.x](./virtnest/v0.8.0.md), [v0.7.x](./virtnest/v0.7.0.md), [v0.6.0](./virtnest/v0.6.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
@@ -99,8 +99,8 @@ hide:
 
     ---
 
-    - [AI Lab v0.111.2](./baize/v0.111.2.md), [AI Lab v0.107.4](./baize/v0.107.4.md)
-    - [算力云 v0.4.x](./zestu/v0.4.0.md), [算力云 v0.3.x](./zestu/v0.3.0.md), [算力云 v0.2.x](./zestu/v0.2.0.md)
+    - AI Lab: [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
+    - 算力云: [v0.4.x](./zestu/v0.4.0.md), [v0.3.x](./zestu/v0.3.0.md), [v0.2.x](./zestu/v0.2.0.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
