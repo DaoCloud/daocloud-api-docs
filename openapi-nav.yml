@@ -38,6 +38,7 @@ nav:
                 - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
+                - v0.39.0: openapi/kpanda/v0.39.0.md
                 - v0.38.0: openapi/kpanda/v0.38.0.md
                 - v0.37.0: openapi/kpanda/v0.37.0.md
                 - v0.34.0: openapi/kpanda/v0.34.0.md
@@ -160,6 +161,9 @@ nav:
                 - v0.6.0: openapi/virtnest/v0.6.0.md
         - 微服务:
             - 可观测性 OpenAPI:
+                - v0.36.x:
+                    - v0.36.0: openapi/insight/v0.36.0.md
+                    - v0.36.1: openapi/insight/v0.36.1.md
                 - v0.35.x:
                     - v0.35.0: openapi/insight/v0.35.0.md
                     - v0.35.1: openapi/insight/v0.35.1.md
@@ -295,6 +299,7 @@ nav:
                         - v0.7.0: openapi/mcamel/elasticsearch/elasticsearch-v0.7.0.md
                         - v0.7.1: openapi/mcamel/elasticsearch/elasticsearch-v0.7.1.md
                 - Kafka 消息队列:
+                    - v0.24.0: openapi/mcamel/kafka/kafka-v0.24.0.md
                     - v0.22.0: openapi/mcamel/kafka/kafka-v0.22.0.md
                     - v0.21.0: openapi/mcamel/kafka/kafka-v0.21.0.md
                     - v0.19.0: openapi/mcamel/kafka/kafka-v0.19.0.md
@@ -327,6 +332,7 @@ nav:
                     - v0.27.x:
                         - v0.27.0: openapi/mcamel/rabbitmq/rabbitmq-v0.27.0.md
                         - v0.27.1: openapi/mcamel/rabbitmq/rabbitmq-v0.27.1.md
+                        - v0.27.2: openapi/mcamel/rabbitmq/rabbitmq-v0.27.2.md
                     - v0.26.0: openapi/mcamel/rabbitmq/rabbitmq-v0.26.0.md
                     - v0.25.0: openapi/mcamel/rabbitmq/rabbitmq-v0.25.0.md
                     - v0.24.0: openapi/mcamel/rabbitmq/rabbitmq-v0.24.0.md
@@ -352,6 +358,7 @@ nav:
                         - v0.10.0: openapi/mcamel/rabbitmq/rabbitmq-v0.10.0.md
                         - v0.10.1: openapi/mcamel/rabbitmq/rabbitmq-v0.10.1.md
                 - RocketMQ 消息队列:
+                    - v0.15.0: openapi/mcamel/rocketmq/rocketmq-v0.15.0.md
                     - v0.13.0: openapi/mcamel/rocketmq/rocketmq-v0.13.0.md
                     - v0.12.0: openapi/mcamel/rocketmq/rocketmq-v0.12.0.md
                     - v0.11.0: openapi/mcamel/rocketmq/rocketmq-v0.11.0.md
@@ -449,6 +456,7 @@ nav:
                         - v0.18.0: openapi/mcamel/postgresql/postgresql-v0.18.0.md
                         - v0.18.1: openapi/mcamel/postgresql/postgresql-v0.18.1.md
                         - v0.18.2: openapi/mcamel/postgresql/postgresql-v0.18.2.md
+                        - v0.18.3: openapi/mcamel/postgresql/postgresql-v0.18.3.md
                     - v0.17.0: openapi/mcamel/postgresql/postgresql-v0.17.0.md
                     - v0.16.0: openapi/mcamel/postgresql/postgresql-v0.16.0.md
                     - v0.15.0: openapi/mcamel/postgresql/postgresql-v0.15.0.md
@@ -499,6 +507,7 @@ nav:
                 - v0.111.2: openapi/baize/v0.111.2.md
                 - v0.107.4: openapi/baize/v0.107.4.md
             - 算力云 OpenAPI:
+                - v0.5.0: openapi/zestu/v0.5.0.md
                 - v0.4.x:
                     - v0.4.0: openapi/zestu/v0.4.0.md
                     - v0.4.1: openapi/zestu/v0.4.1.md
@@ -523,6 +532,7 @@ nav:
                 - v0.8.0: openapi/kant/v0.8.0.md
         - 管理:
             - 全局管理 OpenAPI:
+                - v0.36.0: openapi/ghippo/v0.36.0.md
                 - v0.35.x:
                     - v0.35.0: openapi/ghippo/v0.35.0.md
                     - v0.35.1: openapi/ghippo/v0.35.1.md
