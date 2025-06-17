@@ -530,6 +530,9 @@ nav:
                 - v0.10.0: openapi/kant/v0.10.0.md
                 - v0.9.0: openapi/kant/v0.9.0.md
                 - v0.8.0: openapi/kant/v0.8.0.md
+        - 设备:
+            - 设备管理 OpenAPI: 
+                - v0.2.0: openapi/topohub/v0.2.0.md                
         - 管理:
             - 全局管理 OpenAPI:
                 - v0.36.0: openapi/ghippo/v0.36.0.md
