@@ -14,19 +14,19 @@ hide:
 
     ---
 
-    - [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md), [v0.125.0](./amamba/v0.125.0.md), [v0.124.1](./amamba/v0.124.1.md)
-    - [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md), [v0.121.0](./amamba/v0.121.0.md), [v0.120.0](./amamba/v0.120.0.md)
-    - [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md), [v0.117.x](./amamba/v0.117.0.md), [v0.116.0](./amamba/v0.116.0.md)
-    - [v0.115.0](./amamba/v0.115.0.md), [v0.114.0](./amamba/v0.114.0.md), [v0.113.x](./amamba/v0.113.0.md), [v0.112.0](./amamba/v0.112.0.md)
+    - [v0.128.0](./amamba/v0.128.0.md), [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md), [v0.125.0](./amamba/v0.125.0.md)
+    - [v0.124.1](./amamba/v0.124.1.md), [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md), [v0.121.0](./amamba/v0.121.0.md)
+    - [v0.120.0](./amamba/v0.120.0.md), [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md), [v0.117.x](./amamba/v0.117.0.md)
+    - [v0.116.0](./amamba/v0.116.0.md), [v0.115.0](./amamba/v0.115.0.md), [v0.114.0](./amamba/v0.114.0.md), [v0.113.x](./amamba/v0.113.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
     ---
 
-    - [v0.39.0](./kpanda/v0.39.0.md), [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md), [v0.34.0](./kpanda/v0.34.0.md)
-    - [v0.33.x](./kpanda/v0.33.0.md), [v0.32.x](./kpanda/v0.32.0.md), [v0.31.1](./kpanda/v0.31.1.md), [v0.30.x](./kpanda/v0.30.1.md)
-    - [v0.29.x](./kpanda/v0.29.0.md), [v0.28.x](./kpanda/v0.28.0.md), [v0.27.0](./kpanda/v0.27.0.md), [v0.25.x](./kpanda/v0.25.0.md)
-    - [v0.23.0](./kpanda/v0.23.0.md), [v0.21.1](./kpanda/v0.21.1.md), [v0.20.x](./kpanda/v0.20.0.md), [v0.19.0](./kpanda/v0.19.0.md)
+    - [v0.40.0](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md), [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md)
+    - [v0.34.0](./kpanda/v0.34.0.md), [v0.33.x](./kpanda/v0.33.0.md), [v0.32.x](./kpanda/v0.32.0.md), [v0.31.1](./kpanda/v0.31.1.md)
+    - [v0.30.x](./kpanda/v0.30.1.md), [v0.29.x](./kpanda/v0.29.0.md), [v0.28.x](./kpanda/v0.28.0.md), [v0.27.0](./kpanda/v0.27.0.md)
+    - [v0.25.x](./kpanda/v0.25.0.md), [v0.23.0](./kpanda/v0.23.0.md), [v0.21.1](./kpanda/v0.21.1.md), [v0.20.x](./kpanda/v0.20.0.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
@@ -91,31 +91,37 @@ hide:
 
     ---
 
-    - [v0.17.0](./kant/v0.17.0.md), [v0.16.1](./kant/v0.16.1.md), [v0.15.0](./kant/v0.15.0.md), [v0.14.0](./kant/v0.14.0.md)
-    - [v0.13.0](./kant/v0.13.0.md), [v0.12.0](./kant/v0.12.0.md), [v0.11.0](./kant/v0.11.0.md), [v0.10.0](./kant/v0.10.0.md)
-    - [v0.9.0](./kant/v0.9.0.md), [v0.8.0](./kant/v0.8.0.md)
+    - [v0.20.0](./kant/v0.20.0.md), [v0.17.0](./kant/v0.17.0.md), [v0.16.1](./kant/v0.16.1.md), [v0.15.0](./kant/v0.15.0.md)
+    - [v0.14.0](./kant/v0.14.0.md), [v0.13.0](./kant/v0.13.0.md), [v0.12.0](./kant/v0.12.0.md), [v0.11.0](./kant/v0.11.0.md)
+    - [v0.10.0](./kant/v0.10.0.md), [v0.9.0](./kant/v0.9.0.md), [v0.8.0](./kant/v0.8.0.md)
 
--   :octicons-devices-16:{ .lg .middle } __设备 OpenAPI__
+-   :octicons-devices-16:{ .lg .middle } __设备管理 OpenAPI__
 
     ---
 
     - [v0.2.0](./topohub/v0.2.0.md)
 
--   :robot:{ .lg .middle } __AI Lab 和算力云 OpenAPI__
+-   :robot:{ .lg .middle } __AI Lab OpenAPI__
 
     ---
 
-    - AI Lab: [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
-    - 算力云: [v0.5.0](./zestu/v0.5.0.md), [v0.4.x](./zestu/v0.4.0.md), [v0.3.x](./zestu/v0.3.0.md), [v0.2.x](./zestu/v0.2.0.md)
+    - [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
+
+-   :computer:{ .lg .middle } __算力云 OpenAPI__
+
+    ---
+
+    - [v0.6.x](./zestu/v0.6.0.md), [v0.5.x](./zestu/v0.5.0.md), [v0.4.x](./zestu/v0.4.0.md)
+    - [v0.3.x](./zestu/v0.3.0.md), [v0.2.x](./zestu/v0.2.0.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
     ---
 
-    - [v0.36.0](./ghippo/v0.36.0.md), [v0.35.x](./ghippo/v0.35.0.md), [v0.34.0](./ghippo/v0.34.0.md), [v0.33.0](./ghippo/v0.33.0.md)
-    - [v0.31.0](./ghippo/v0.31.0.md), [v0.30.0](./ghippo/v0.30.0.md), [v0.28.0](./ghippo/v0.28.0.md), [v0.27.0](./ghippo/v0.27.0.md)
-    - [v0.26.0](./ghippo/v0.26.0.md), [v0.25.x](./ghippo/v0.25.0.md), [v0.24.x](./ghippo/v0.24.0.md), [v0.22.1](./ghippo/v0.22.1.md)
-    - [v0.21.0](./ghippo/v0.21.0.md), [v0.20.x](./ghippo/v0.20.0.md), [v0.19.0](./ghippo/v0.19.0.md), [v0.18.x](./ghippo/v0.18.0.md)
+    - [v0.37.0](./ghippo/v0.37.0.md), [v0.36.0](./ghippo/v0.36.0.md), [v0.35.x](./ghippo/v0.35.0.md), [v0.34.0](./ghippo/v0.34.0.md)
+    - [v0.33.0](./ghippo/v0.33.0.md), [v0.31.0](./ghippo/v0.31.0.md), [v0.30.0](./ghippo/v0.30.0.md), [v0.28.0](./ghippo/v0.28.0.md)
+    - [v0.27.0](./ghippo/v0.27.0.md), [v0.26.0](./ghippo/v0.26.0.md), [v0.25.x](./ghippo/v0.25.0.md), [v0.24.x](./ghippo/v0.24.0.md)
+    - [v0.22.1](./ghippo/v0.22.1.md), [v0.21.0](./ghippo/v0.21.0.md), [v0.20.x](./ghippo/v0.20.0.md), [v0.19.0](./ghippo/v0.19.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI 之一__
 
