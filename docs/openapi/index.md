@@ -95,7 +95,7 @@ hide:
     - [v0.13.0](./kant/v0.13.0.md), [v0.12.0](./kant/v0.12.0.md), [v0.11.0](./kant/v0.11.0.md), [v0.10.0](./kant/v0.10.0.md)
     - [v0.9.0](./kant/v0.9.0.md), [v0.8.0](./kant/v0.8.0.md)
 
--   :fontawesome-brands-edge:{ .lg .middle } __设备 OpenAPI__
+-   :octicons-devices-16:{ .lg .middle } __设备 OpenAPI__
 
     ---
 
