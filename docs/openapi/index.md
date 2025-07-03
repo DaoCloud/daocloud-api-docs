@@ -23,7 +23,7 @@ hide:
 
     ---
 
-    - [v0.40.0](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md), [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md)
+    - [v0.40.x](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md), [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md)
     - [v0.34.0](./kpanda/v0.34.0.md), [v0.33.x](./kpanda/v0.33.0.md), [v0.32.x](./kpanda/v0.32.0.md), [v0.31.1](./kpanda/v0.31.1.md)
     - [v0.30.x](./kpanda/v0.30.1.md), [v0.29.x](./kpanda/v0.29.0.md), [v0.28.x](./kpanda/v0.28.0.md), [v0.27.0](./kpanda/v0.27.0.md)
     - [v0.25.x](./kpanda/v0.25.0.md), [v0.23.0](./kpanda/v0.23.0.md), [v0.21.1](./kpanda/v0.21.1.md), [v0.20.x](./kpanda/v0.20.0.md)
@@ -57,7 +57,7 @@ hide:
 
     ---
 
-    - [v0.17.0](./virtnest/v0.17.0.md), [v0.16.0](./virtnest/v0.16.0.md), [v0.15.0](./virtnest/v0.15.0.md)
+    - [v0.18.x](./virtnest/v0.18.0.md), [v0.17.0](./virtnest/v0.17.0.md), [v0.16.0](./virtnest/v0.16.0.md), [v0.15.0](./virtnest/v0.15.0.md)
     - [v0.13.0](./virtnest/v0.13.0.md), [v0.12.0](./virtnest/v0.12.0.md), [v0.9.x](./virtnest/v0.8.0.md)
     - [v0.8.x](./virtnest/v0.8.0.md), [v0.7.x](./virtnest/v0.7.0.md), [v0.6.0](./virtnest/v0.6.0.md)
 
@@ -65,10 +65,10 @@ hide:
 
     ---
 
-    - [v0.36.x](./insight/v0.36.0.md), [v0.35.x](./insight/v0.35.0.md), [v0.34.x](./insight/v0.34.0.md), [v0.33.1](./insight/v0.33.1.md)
-    - [v0.31.3](./insight/v0.31.3.md), [v0.28.0](./insight/v0.28.0.md), [v0.27.x](./insight/v0.27.0.md), [v0.26.0](./insight/v0.26.0.md)
-    - [v0.25.2](./insight/v0.25.2.md), [v0.24.0](./insight/v0.24.0.md), [v0.22.x](./insight/v0.22.0.md), [v0.21.x](./insight/v0.21.0.md)
-    - [v0.20.0](./insight/v0.20.0.md), [v0.19.x](./insight/v0.19.0.md), [v0.18.x](./insight/v0.18.0.md), [v0.17.x](./insight/v0.17.0.md)
+    - [v0.37.0](./insight/v0.36.0.md), [v0.36.x](./insight/v0.36.0.md), [v0.35.x](./insight/v0.35.0.md), [v0.34.x](./insight/v0.34.0.md)
+    - [v0.33.1](./insight/v0.33.1.md), [v0.31.3](./insight/v0.31.3.md), [v0.28.0](./insight/v0.28.0.md), [v0.27.x](./insight/v0.27.0.md)
+    - [v0.26.0](./insight/v0.26.0.md), [v0.25.2](./insight/v0.25.2.md), [v0.24.0](./insight/v0.24.0.md), [v0.22.x](./insight/v0.22.0.md)
+    - [v0.21.x](./insight/v0.21.0.md), [v0.20.0](./insight/v0.20.0.md), [v0.19.x](./insight/v0.19.0.md), [v0.18.x](./insight/v0.18.0.md)
 
 -   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
 
@@ -99,7 +99,7 @@ hide:
 
     ---
 
-    - [v0.2.0](./topohub/v0.2.0.md)
+    - [v0.3.0](./topohub/v0.3.0.md), [v0.2.0](./topohub/v0.2.0.md)
 
 -   :robot:{ .lg .middle } __AI Lab OpenAPI__
 
@@ -111,8 +111,8 @@ hide:
 
     ---
 
-    - [v0.6.x](./zestu/v0.6.0.md), [v0.5.x](./zestu/v0.5.0.md), [v0.4.x](./zestu/v0.4.0.md)
-    - [v0.3.x](./zestu/v0.3.0.md), [v0.2.x](./zestu/v0.2.0.md)
+    - [v0.7.0](./zestu/v0.7.0.md), [v0.6.x](./zestu/v0.6.0.md), [v0.5.x](./zestu/v0.5.0.md)
+    - [v0.4.x](./zestu/v0.4.0.md), [v0.3.x](./zestu/v0.3.0.md), [v0.2.x](./zestu/v0.2.0.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
