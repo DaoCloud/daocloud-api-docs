@@ -1,0 +1,2675 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "算力云",
+    "version": "147352d"
+  },
+  "tags": [
+    {
+      "name": "ContainerInstance"
+    },
+    {
+      "name": "Region"
+    },
+    {
+      "name": "Resources"
+    },
+    {
+      "name": "FileStorage"
+    },
+    {
+      "name": "StorageResource"
+    },
+    {
+      "name": "Image"
+    },
+    {
+      "name": "Webhook"
+    },
+    {
+      "name": "Agent"
+    },
+    {
+      "name": "Metrics"
+    },
+    {
+      "name": "User"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/apis/zestu.io/v1/containerinstances": {
+      "get": {
+        "operationId": "ContainerInstance_ListAllContainerInstances",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListContainerInstancesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "description": "Name represents the name of container instance to search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Page is current page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Size is the data number shown per page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "description": "Status represents the phase of container instance to search.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "STATUS_UNSPECIFIED",
+              "RUNNING",
+              "PENDING",
+              "STOPPING",
+              "DELETING",
+              "STOPPED",
+              "DELETED",
+              "CREATING"
+            ],
+            "default": "STATUS_UNSPECIFIED"
+          },
+          {
+            "name": "regionId",
+            "description": "Region means region of container instance to search, eg: xb2, bj1.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "Search container instance with instance id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/containerinstances": {
+      "get": {
+        "operationId": "ContainerInstance_ListContainerInstances",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListContainerInstancesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region means region of container instance to search, eg: xb2, bj1.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "Name represents the name of container instance to search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Page is current page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Size is the data number shown per page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "description": "Status represents the phase of container instance to search.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "STATUS_UNSPECIFIED",
+              "RUNNING",
+              "PENDING",
+              "STOPPING",
+              "DELETING",
+              "STOPPED",
+              "DELETED",
+              "CREATING"
+            ],
+            "default": "STATUS_UNSPECIFIED"
+          },
+          {
+            "name": "instanceId",
+            "description": "Search container instance with instance id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      },
+      "post": {
+        "operationId": "ContainerInstance_CreateContainerInstance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateContainerInstanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the container instance."
+                },
+                "charge": {
+                  "$ref": "#/definitions/v1alpha1ChargeInfo",
+                  "description": "Charge info of the container instance."
+                },
+                "instanceSpec": {
+                  "$ref": "#/definitions/v1alpha1InstanceSpec",
+                  "description": "Specs of the container instance."
+                },
+                "image": {
+                  "$ref": "#/definitions/v1alpha1Image",
+                  "description": "Image of the container instance."
+                },
+                "serviceEnable": {
+                  "$ref": "#/definitions/v1alpha1ServiceEnable",
+                  "description": "Service_enable means whether a service in the container needs to be started."
+                },
+                "packageSource": {
+                  "$ref": "#/definitions/v1alpha1PackageSource",
+                  "description": "Package_source config package sources of the container instance."
+                },
+                "volumeSpec": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1alpha1VolumeSpec"
+                  },
+                  "description": "Volume_spec means mounted data volume of the container instance."
+                },
+                "sshKeyLoginEnable": {
+                  "type": "boolean"
+                },
+                "schedule": {
+                  "$ref": "#/definitions/v1alpha1Schedule",
+                  "description": "Schedule info of the container instance."
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/containerinstances/{instanceId}": {
+      "get": {
+        "operationId": "ContainerInstance_GetContainerInstances",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetContainerInstanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region means region of container instance to search, eg: xb2, bj1.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "ID of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      },
+      "delete": {
+        "operationId": "ContainerInstance_DeleteContainerInstance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "ID of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      },
+      "put": {
+        "operationId": "ContainerInstance_UpdateContainerInstance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1UpdateContainerInstanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "ID of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "$ref": "#/definitions/v1alpha1Image",
+                  "description": "Image of the container instance."
+                },
+                "schedule": {
+                  "$ref": "#/definitions/v1alpha1Schedule",
+                  "description": "Schedule info of the container instance."
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/containerinstances/{instanceId}/metricsrange": {
+      "post": {
+        "operationId": "Metrics_QueryMetricsRange",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1MetricsRangeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Name of the cluster where the workload is located",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "ID of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "range": {
+                  "$ref": "#/definitions/v1alpha1TimeRange",
+                  "title": "Time range for metrics query"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Metrics"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/containerinstances/{instanceId}/ports": {
+      "post": {
+        "operationId": "ContainerInstance_AddContainerInstanceNetwork",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1AddContainerInstanceNetworkResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "ID of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "protocol": {
+                  "$ref": "#/definitions/v1alpha1NetworkProtocol",
+                  "description": "Protocol of the network."
+                },
+                "port": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Port of the network."
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/containerinstances/{instanceId}/ports/{name}": {
+      "delete": {
+        "operationId": "ContainerInstance_DeleteContainerInstanceNetwork",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "ID of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "Name for deleted network.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/containerinstances/{instanceId}/start": {
+      "patch": {
+        "operationId": "ContainerInstance_StartContainerInstance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1StartContainerInstanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "ID of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/containerinstances/{instanceId}/stop": {
+      "patch": {
+        "operationId": "ContainerInstance_StopContainerInstance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1StopContainerInstanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "instanceId",
+            "description": "ID of the container instance.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "needSaveImage": {
+                  "type": "boolean",
+                  "title": "if need save image when stop container instance,and save image"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ContainerInstance"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/filestorage": {
+      "get": {
+        "operationId": "FileStorage_ListDirectoriesAndFiles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListDirectoriesAndFilesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dirPath",
+            "description": "The directory path where the files are stored",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Page is current page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Size is the data number shown per page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "description": "SortBy determines the data list order reference.\n\n - Name: Name is the default sort by.\n - Size: Size is the sort by size.\n - UpdatedAt: UpdatedAt is the sort by updated at.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Name",
+              "Size",
+              "UpdatedAt"
+            ],
+            "default": "Name"
+          },
+          {
+            "name": "sortDir",
+            "description": "SortDir determines the data list order.\n\n - desc: Desc stands for descending order.\n - asc: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "desc"
+          },
+          {
+            "name": "type",
+            "description": "Type determines the type of selection.\n\n - FILE: Select only files\n - DIRECTORY: Select only directories\n - ALL: Select all files and directories",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "FILE",
+              "DIRECTORY",
+              "ALL"
+            ],
+            "default": "FILE"
+          },
+          {
+            "name": "fuzzyName",
+            "description": "FuzzyName is used to fuzzy search by filename or dirname.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "recursive",
+            "description": "Recursive determines if the search dir should be recursive.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "FileStorage"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/filestorage/currentusage": {
+      "get": {
+        "operationId": "FileStorage_GetCurrentUsage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetCurrentUsageResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "FileStorage"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/filestorage/details": {
+      "get": {
+        "operationId": "FileStorage_GetStorageDetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetStorageDetailsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "excludeCurrentUsage",
+            "description": "ExcludeCurrentUsage indicates if the current usage should be excluded.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "FileStorage"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/filestorage/file": {
+      "delete": {
+        "operationId": "FileStorage_DeleteFile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "filename": {
+                  "type": "string",
+                  "description": "The name of the file to be deleted."
+                },
+                "dirPath": {
+                  "type": "string",
+                  "description": "The directory path where the file is stored."
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "FileStorage"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/filestorage/file/downloadsignature": {
+      "post": {
+        "operationId": "FileStorage_GenerateFileDownloadSignature",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GenerateFileDownloadSignatureResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "filename": {
+                  "type": "string",
+                  "description": "The name of the file to be downloaded."
+                },
+                "dirPath": {
+                  "type": "string",
+                  "description": "The directory path where the file is stored."
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "FileStorage"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/filestorage/file/uploadsignature": {
+      "post": {
+        "operationId": "FileStorage_GenerateFileUploadSignature",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GenerateFileUploadSignatureResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "filename": {
+                  "type": "string",
+                  "description": "The name of the file to be uploaded."
+                },
+                "dirPath": {
+                  "type": "string",
+                  "description": "The directory path where the file is stored."
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "FileStorage"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/filestorage/init": {
+      "post": {
+        "operationId": "FileStorage_InitFileStorage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1InitFileStorageResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "FileStorage"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/filestorage/quota": {
+      "post": {
+        "operationId": "FileStorage_UpdateQuota",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1UpdateQuotaResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quota": {
+                  "type": "string",
+                  "format": "int64",
+                  "description": "The new quota value."
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "FileStorage"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/public-images": {
+      "get": {
+        "operationId": "Image_ListPublicImages",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListPublicImagesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Image"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/resources": {
+      "get": {
+        "operationId": "Resources_ListResources",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListResourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "Region means region of container instance to search, eg: xb2, bj1.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "model",
+            "description": "model represents the model of gpu model.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "billingType",
+            "description": "BillingType means billing type of container instance to search, eg: postpaid, prepaid.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "PayAsYouGo"
+            ],
+            "default": "PayAsYouGo"
+          },
+          {
+            "name": "page",
+            "description": "Page is current page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Size is the data number shown per page.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortField",
+            "description": "SortField means the field to sort.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UnknownField",
+              "GPU_TYPE",
+              "GPU_MEMORY",
+              "GPU_COUNT"
+            ],
+            "default": "UnknownField"
+          },
+          {
+            "name": "sortType",
+            "description": "SortType means the type to sort.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UnknownType",
+              "ASC",
+              "DESC"
+            ],
+            "default": "UnknownType"
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/resources/models": {
+      "get": {
+        "operationId": "Resources_ListResourceModel",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListResourceModelResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "region_id is the region of the resource.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/storageresource/price": {
+      "get": {
+        "operationId": "StorageResource_GetStoragePrice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetStoragePriceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "StorageResource"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/region/{regionId}/supportednetworks": {
+      "get": {
+        "operationId": "Region_ListSupportedNetworks",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSupportedNetworksResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "description": "ID of the region.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Region"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/regions": {
+      "get": {
+        "operationId": "Region_ListRegions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListRegionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Region"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/resources/{skuId}/saleable": {
+      "get": {
+        "operationId": "Resources_GetSkuSaleable",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetSkuSaleableResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "skuId",
+            "description": "sku_id is the unique identifier of the resource.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/userinfo": {
+      "get": {
+        "operationId": "User_GetUserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetUserInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/apis/zestu.io/v1/webhook/sshkeys": {
+      "post": {
+        "operationId": "Webhook_SyncSSHKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Webhook"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "typesBillingType": {
+      "type": "string",
+      "enum": [
+        "PayAsYouGo"
+      ],
+      "default": "PayAsYouGo"
+    },
+    "typesCurrency": {
+      "type": "string",
+      "enum": [
+        "Cny"
+      ],
+      "default": "Cny"
+    },
+    "typesPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total is the total number of referents."
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page is current page."
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "PageSize is the data number shown per page."
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Pages is the number of pages."
+        }
+      },
+      "description": "Pagination is for data paging."
+    },
+    "typesSortDir": {
+      "type": "string",
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "default": "desc",
+      "description": "SortDir determines the data list order.\n\n - desc: Desc stands for descending order.\n - asc: Asc stands for ascending order."
+    },
+    "typesUnitType": {
+      "type": "string",
+      "enum": [
+        "Hour",
+        "ThousandTokens",
+        "GBDay",
+        "ComputeUnit"
+      ],
+      "default": "Hour"
+    },
+    "v1alpha1AddContainerInstanceNetworkResponse": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "$ref": "#/definitions/v1alpha1ContainerInstanceNetwork"
+        }
+      }
+    },
+    "v1alpha1ChargeInfo": {
+      "type": "object",
+      "properties": {
+        "chargeMode": {
+          "$ref": "#/definitions/typesBillingType",
+          "description": "BillingType means billing type of container instance."
+        },
+        "duration": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1Children": {
+      "type": "object",
+      "properties": {
+        "Key": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Children"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Detail"
+          }
+        }
+      }
+    },
+    "v1alpha1ContainerInstance": {
+      "type": "object",
+      "properties": {
+        "instanceName": {
+          "type": "string",
+          "description": "Name of the container instance."
+        },
+        "namespace": {
+          "type": "string",
+          "description": "Namespace of the container instance pod."
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "int64",
+          "description": "Create time of the container instance."
+        },
+        "instanceId": {
+          "type": "string",
+          "description": "ID of the container instance."
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1InstanceStatus",
+          "description": "Status of the container instance."
+        },
+        "charge": {
+          "$ref": "#/definitions/v1alpha1ChargeInfo",
+          "description": "Charge info of the container instance."
+        },
+        "hardware": {
+          "$ref": "#/definitions/v1alpha1Hardware",
+          "description": "Hardware details."
+        },
+        "volumeSpec": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1VolumeSpec"
+          },
+          "description": "Volume info of the container instance."
+        },
+        "image": {
+          "$ref": "#/definitions/v1alpha1Image",
+          "description": "Image of the container instance."
+        },
+        "instanceSpec": {
+          "$ref": "#/definitions/v1alpha1InstanceSpec",
+          "description": "Specs of the container instance."
+        },
+        "regionId": {
+          "type": "string",
+          "description": "Region of the container instance."
+        },
+        "networks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ContainerInstanceNetwork"
+          },
+          "description": "Network info for jupyter, vscode."
+        },
+        "saveImage": {
+          "$ref": "#/definitions/v1alpha1SaveImage"
+        },
+        "ssh": {
+          "$ref": "#/definitions/v1alpha1SSHInfo",
+          "description": "SSH login info."
+        },
+        "schedule": {
+          "$ref": "#/definitions/v1alpha1Schedule",
+          "description": "Schedule info of the container instance."
+        },
+        "serviceEnable": {
+          "$ref": "#/definitions/v1alpha1ServiceEnable",
+          "description": "Service_enable means whether a service in the container needs to be started."
+        }
+      }
+    },
+    "v1alpha1ContainerInstanceEvent": {
+      "type": "object",
+      "properties": {
+        "powerType": {
+          "$ref": "#/definitions/v1alpha1PowerType"
+        }
+      }
+    },
+    "v1alpha1ContainerInstanceNetwork": {
+      "type": "object",
+      "properties": {
+        "networkType": {
+          "$ref": "#/definitions/v1alpha1NetworkType",
+          "title": "Type of network"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of network, eg jupyter, vscode."
+        },
+        "url": {
+          "type": "string",
+          "title": "URL means the external access address.\nFor exposed ports, url like: 123.123.123.123:31332,\nFor jupyter and vscode, url like: http://103.12.12.12/zestu.io/user-xx/instance-xx/xx"
+        },
+        "containerPort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Port of the service in the container instance."
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1NetworkProtocol",
+          "description": "Protocol of the service."
+        },
+        "externalPort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "External port of the service."
+        }
+      }
+    },
+    "v1alpha1CreateContainerInstanceResponse": {
+      "type": "object",
+      "properties": {
+        "containerInstance": {
+          "$ref": "#/definitions/v1alpha1ContainerInstance"
+        }
+      }
+    },
+    "v1alpha1Detail": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1ImageType"
+        }
+      }
+    },
+    "v1alpha1EventType": {
+      "type": "string",
+      "enum": [
+        "EVENT_TYPE_UNSPECIFIED",
+        "EVENT_CONTAINER_INSTANCE",
+        "EVENT_FILE_STORAGE"
+      ],
+      "default": "EVENT_TYPE_UNSPECIFIED"
+    },
+    "v1alpha1FileInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the file or directory."
+        },
+        "fullPath": {
+          "type": "string",
+          "description": "The full path of the file or directory."
+        },
+        "size": {
+          "type": "string",
+          "format": "int64",
+          "description": "The size of the file in bytes."
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "The last updated timestamp in ISO 8601 format."
+        },
+        "isDir": {
+          "type": "boolean",
+          "description": "Indicates if the entry is a directory."
+        }
+      },
+      "description": "FileInfo represents the details of a file or directory."
+    },
+    "v1alpha1FileStorageEvent": {
+      "type": "object",
+      "properties": {
+        "scaleStorage": {
+          "$ref": "#/definitions/v1alpha1ScaleStorage"
+        }
+      }
+    },
+    "v1alpha1GenerateFileDownloadSignatureResponse": {
+      "type": "object",
+      "properties": {
+        "signatureUrl": {
+          "type": "string",
+          "description": "Signature URL for downloading the file."
+        }
+      }
+    },
+    "v1alpha1GenerateFileUploadSignatureResponse": {
+      "type": "object",
+      "properties": {
+        "signatureUrl": {
+          "type": "string",
+          "description": "Signature URL for uploading the file."
+        }
+      }
+    },
+    "v1alpha1GetContainerInstanceResponse": {
+      "type": "object",
+      "properties": {
+        "instance": {
+          "$ref": "#/definitions/v1alpha1ContainerInstance"
+        }
+      }
+    },
+    "v1alpha1GetCurrentUsageResponse": {
+      "type": "object",
+      "properties": {
+        "currentUsage": {
+          "type": "string",
+          "format": "int64",
+          "description": "CurrentUsage is the current usage of the file storage."
+        }
+      }
+    },
+    "v1alpha1GetNodeResourceResponse": {
+      "type": "object",
+      "properties": {
+        "nodeName": {
+          "type": "string",
+          "description": "node_name is the name of the node."
+        },
+        "clusterName": {
+          "type": "string",
+          "description": "cluster_name is the name of the cluster."
+        },
+        "deviceVendor": {
+          "type": "string",
+          "title": "device_vendor is the accelerators device vendor"
+        },
+        "deviceModel": {
+          "type": "string",
+          "title": "device_model is the accelerators device model"
+        },
+        "gpuMemory": {
+          "type": "string",
+          "format": "int64",
+          "title": "gpu_memory is the memory of the gpu"
+        },
+        "deviceQuantity": {
+          "$ref": "#/definitions/v1alpha1RegisterResourceQuantity",
+          "title": "device_quantity is the number of the accelerators device"
+        },
+        "cpuQuantity": {
+          "$ref": "#/definitions/v1alpha1RegisterResourceQuantity",
+          "title": "cpu_quantity is the number of the cpu"
+        },
+        "memoryQuantity": {
+          "$ref": "#/definitions/v1alpha1RegisterResourceQuantity",
+          "title": "memory_quantity is the number of the memory"
+        },
+        "storageQuantity": {
+          "$ref": "#/definitions/v1alpha1RegisterResourceQuantity",
+          "title": "storage_quantity is the number of the storage"
+        },
+        "gpuDevices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1NvidiaDevices"
+          },
+          "title": "devices is the list of the devices"
+        },
+        "gpuType": {
+          "type": "string",
+          "title": "gpu_type is the model of the gpu or vgpu"
+        },
+        "cpuVendor": {
+          "type": "string",
+          "title": "cpu_vendor is the vendor of the cpu"
+        }
+      }
+    },
+    "v1alpha1GetSkuSaleableResponse": {
+      "type": "object",
+      "properties": {
+        "saleable": {
+          "type": "boolean",
+          "description": "saleable is the status of the resource sale."
+        }
+      }
+    },
+    "v1alpha1GetStorageDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/v1alpha1RegionStorageStatus",
+          "description": "Status of the file storage."
+        },
+        "currentUsage": {
+          "type": "string",
+          "format": "int64",
+          "description": "CurrentUsage is the current usage of the file storage. Use GetCurrentUsage interface instead."
+        },
+        "quota": {
+          "type": "string",
+          "format": "int64",
+          "description": "Quota is the total quota of the file storage."
+        },
+        "userMaxQuota": {
+          "type": "string",
+          "format": "int64",
+          "description": "UserMaxQuota is the maximum available quota for single user."
+        },
+        "userDefaultQuota": {
+          "type": "string",
+          "format": "int64",
+          "description": "UserDefaultQuota is the default quota for the user."
+        },
+        "freeSize": {
+          "type": "string",
+          "format": "int64",
+          "description": "FreeSize is the free size of the file storage."
+        },
+        "mountPath": {
+          "type": "string",
+          "description": "MountPath is the mount path of the file storage."
+        },
+        "initializedAt": {
+          "type": "string",
+          "description": "InitializedAt is the timestamp when the file storage was initialized."
+        }
+      }
+    },
+    "v1alpha1GetStoragePriceResponse": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "#/definitions/v1alpha1ResourcePrice",
+          "description": "The price of the storage."
+        }
+      }
+    },
+    "v1alpha1GetUserInfoResponse": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1GpuType": {
+      "type": "string",
+      "enum": [
+        "VGPU",
+        "GPU"
+      ],
+      "default": "VGPU"
+    },
+    "v1alpha1Hardware": {
+      "type": "object",
+      "properties": {
+        "systemDiskSize": {
+          "type": "string",
+          "description": "System disk size."
+        },
+        "gpuMemory": {
+          "type": "string",
+          "description": "Memory of the gpu."
+        },
+        "cpuNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of cpu."
+        },
+        "memory": {
+          "type": "string",
+          "description": "memory size."
+        },
+        "gpuModel": {
+          "type": "string",
+          "description": "Type of gup."
+        },
+        "gpuNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of gpu."
+        },
+        "gpuType": {
+          "$ref": "#/definitions/v1alpha1GpuType"
+        },
+        "gpuVendor": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1Image": {
+      "type": "object",
+      "properties": {
+        "imageType": {
+          "$ref": "#/definitions/v1alpha1ImageType",
+          "description": "Type of image."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of image."
+        },
+        "username": {
+          "type": "string",
+          "description": "User name for auth."
+        },
+        "password": {
+          "type": "string",
+          "description": "Password for auth."
+        }
+      }
+    },
+    "v1alpha1ImageType": {
+      "type": "string",
+      "enum": [
+        "IMAGE_TYPE_UNSPECIFIED",
+        "IMAGE_OFFICIAL",
+        "IMAGE_APPLICATION",
+        "IMAGE_CUSTOM",
+        "IMAGE_PRIVATE"
+      ],
+      "default": "IMAGE_TYPE_UNSPECIFIED"
+    },
+    "v1alpha1InitFileStorageResponse": {
+      "type": "object",
+      "properties": {
+        "initializedAt": {
+          "type": "string",
+          "description": "InitializedAt is the timestamp when the file storage was initialized."
+        },
+        "defaultQuota": {
+          "type": "string",
+          "format": "int64",
+          "description": "DefaultQuota is the default quota for the file storage."
+        }
+      }
+    },
+    "v1alpha1InstanceSpec": {
+      "type": "object",
+      "properties": {
+        "instanceType": {
+          "$ref": "#/definitions/v1alpha1InstanceType",
+          "description": "Type of container instance."
+        },
+        "skuId": {
+          "type": "string"
+        },
+        "specName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1InstanceStatus": {
+      "type": "string",
+      "enum": [
+        "STATUS_UNSPECIFIED",
+        "RUNNING",
+        "PENDING",
+        "STOPPING",
+        "DELETING",
+        "STOPPED",
+        "DELETED",
+        "CREATING"
+      ],
+      "default": "STATUS_UNSPECIFIED"
+    },
+    "v1alpha1InstanceType": {
+      "type": "string",
+      "enum": [
+        "INSTANCE_TYPE_UNSPECIFIED",
+        "POD",
+        "VM"
+      ],
+      "default": "INSTANCE_TYPE_UNSPECIFIED",
+      "description": " - POD: Pod container instance.\n - VM: VM container instance."
+    },
+    "v1alpha1ListContainerInstancesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ContainerInstance"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListDirectoriesAndFilesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1FileInfo"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
+        }
+      }
+    },
+    "v1alpha1ListInventoriesResponse": {
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ListInventoriesResponseresource"
+          }
+        }
+      }
+    },
+    "v1alpha1ListInventoriesResponseresource": {
+      "type": "object",
+      "properties": {
+        "specFieldKey": {
+          "type": "string"
+        },
+        "specFieldValue": {
+          "type": "string"
+        },
+        "total": {
+          "type": "number",
+          "format": "double"
+        },
+        "free": {
+          "type": "number",
+          "format": "double"
+        },
+        "serial": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1ListPublicImagesResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Children"
+          }
+        }
+      }
+    },
+    "v1alpha1ListRegionsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Region"
+          }
+        }
+      }
+    },
+    "v1alpha1ListResourceModelResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Items is the list of resource models."
+        }
+      }
+    },
+    "v1alpha1ListResourcesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1Resource"
+          },
+          "description": "Items is the list of resources."
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination",
+          "description": "Page is the page information."
+        }
+      }
+    },
+    "v1alpha1ListSupportedNetworksResponse": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "$ref": "#/definitions/v1alpha1Region"
+        }
+      }
+    },
+    "v1alpha1MetricRangeResult": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/v1alpha1PrometheusQueryRangeResult",
+          "title": "The dat of prometheus query range result"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1requestStatus",
+          "title": "The request status"
+        },
+        "errorMessage": {
+          "type": "string",
+          "title": "The error message returned"
+        }
+      },
+      "title": "The result of batch query range"
+    },
+    "v1alpha1MetricsRangeResponse": {
+      "type": "object",
+      "properties": {
+        "gpuUsageRate": {
+          "$ref": "#/definitions/v1alpha1MetricRangeResult"
+        },
+        "gpuMemoryUsageRate": {
+          "$ref": "#/definitions/v1alpha1MetricRangeResult"
+        },
+        "cpuUsageRate": {
+          "$ref": "#/definitions/v1alpha1MetricRangeResult"
+        },
+        "memoryUsageRate": {
+          "$ref": "#/definitions/v1alpha1MetricRangeResult"
+        }
+      }
+    },
+    "v1alpha1NetworkProtocol": {
+      "type": "string",
+      "enum": [
+        "PROTOCOL_UNSPECIFIED",
+        "HTTP",
+        "HTTPS",
+        "TCP",
+        "UDP"
+      ],
+      "default": "PROTOCOL_UNSPECIFIED"
+    },
+    "v1alpha1NetworkType": {
+      "type": "string",
+      "enum": [
+        "NETWORK_TYPE_UNSPECIFIED",
+        "SSH",
+        "JUPYTER",
+        "VSCODE",
+        "CUSTOM",
+        "SYSTEM"
+      ],
+      "default": "NETWORK_TYPE_UNSPECIFIED"
+    },
+    "v1alpha1NotifyType": {
+      "type": "string",
+      "enum": [
+        "ContainerDeleteWarning",
+        "ContainerDeleted"
+      ],
+      "default": "ContainerDeleteWarning"
+    },
+    "v1alpha1NvidiaDevices": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "uuid is the unique identifier of the device."
+        },
+        "deviceName": {
+          "type": "string",
+          "description": "device_name is the name of the device."
+        },
+        "splitCount": {
+          "type": "string",
+          "format": "int64",
+          "description": "split_count is the number of the split device."
+        },
+        "memoryQuantity": {
+          "$ref": "#/definitions/v1alpha1RegisterResourceQuantity",
+          "title": "memory_quantity is the number of the memory. we need to consider scaling"
+        },
+        "coreQuantity": {
+          "$ref": "#/definitions/v1alpha1RegisterResourceQuantity",
+          "title": "core_quantity is the number of the core. we need to consider scaling"
+        }
+      }
+    },
+    "v1alpha1PackageSource": {
+      "type": "object",
+      "properties": {
+        "pip": {
+          "type": "string",
+          "description": "Pip package source name."
+        },
+        "conda": {
+          "type": "string",
+          "description": "Conda package source name."
+        },
+        "apt": {
+          "type": "string",
+          "description": "Apt package source name."
+        }
+      }
+    },
+    "v1alpha1PowerType": {
+      "type": "string",
+      "enum": [
+        "POWER_TYPE_UNSPECIFIED",
+        "POWER_ON",
+        "POWER_OFF"
+      ],
+      "default": "POWER_TYPE_UNSPECIFIED"
+    },
+    "v1alpha1PrometheusQueryRangeResult": {
+      "type": "object",
+      "properties": {
+        "matrix": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1SampleStream"
+          },
+          "title": "the matrix of sample stream"
+        }
+      },
+      "title": "The result of prometheus query range"
+    },
+    "v1alpha1Region": {
+      "type": "object",
+      "properties": {
+        "regionId": {
+          "type": "string",
+          "description": "ID of the region."
+        },
+        "regionName": {
+          "type": "string",
+          "description": "Name of the region according to current language."
+        },
+        "networkSupported": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1NetworkProtocol"
+          },
+          "description": "Network supported by the region."
+        }
+      }
+    },
+    "v1alpha1RegionStorageStatus": {
+      "type": "string",
+      "enum": [
+        "unspecified",
+        "uninitialized",
+        "created"
+      ],
+      "default": "unspecified"
+    },
+    "v1alpha1RegisterAction": {
+      "type": "string",
+      "enum": [
+        "AddOrUpdate",
+        "Delete"
+      ],
+      "default": "AddOrUpdate"
+    },
+    "v1alpha1RegisterResourceQuantity": {
+      "type": "object",
+      "properties": {
+        "allocatable": {
+          "type": "string",
+          "description": "allocatable is the number of the resource allocatable."
+        },
+        "allocated": {
+          "type": "string",
+          "description": "allocated is the number of the resource allocated."
+        }
+      }
+    },
+    "v1alpha1RegisterResourceResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "message is the response message."
+        }
+      }
+    },
+    "v1alpha1Resource": {
+      "type": "object",
+      "properties": {
+        "skuId": {
+          "type": "string",
+          "description": "sku_id is the unique identifier of the resource."
+        },
+        "regionId": {
+          "type": "string",
+          "description": "region_id is the region of the resource."
+        },
+        "saleable": {
+          "type": "boolean",
+          "description": "saleable is the status of the resource sale."
+        },
+        "specName": {
+          "type": "string",
+          "description": "spec_name is the name of the resource spec."
+        },
+        "detail": {
+          "$ref": "#/definitions/v1alpha1ResourceDetail",
+          "description": "detail is the detail information of the resource."
+        },
+        "gpu": {
+          "$ref": "#/definitions/v1alpha1ResourceGPU",
+          "description": "gpu is the gpu information of the resource."
+        },
+        "prices": {
+          "$ref": "#/definitions/v1alpha1ResourcePrice",
+          "description": "price is the price of the resource."
+        }
+      }
+    },
+    "v1alpha1ResourceDetail": {
+      "type": "object",
+      "properties": {
+        "gpuModel": {
+          "type": "string",
+          "description": "gpu_model is the model of the gpu."
+        },
+        "gpuNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "gpu_number is the number of the gpu."
+        },
+        "cpu": {
+          "type": "integer",
+          "format": "int32",
+          "description": "cpu is the number of the cpu."
+        },
+        "cpuFamily": {
+          "type": "string",
+          "description": "cpu_family is the family of the cpu."
+        },
+        "memory": {
+          "type": "string",
+          "description": "memory is the size of the memory."
+        },
+        "systemDisk": {
+          "type": "string",
+          "description": "system_disk is the size of the system disk."
+        },
+        "gpuType": {
+          "$ref": "#/definitions/v1alpha1GpuType",
+          "description": "gpu_type is the type of the gpu."
+        },
+        "gpuMemory": {
+          "type": "string",
+          "description": "gpu_memory is the model of the gpu."
+        },
+        "gpuCore": {
+          "type": "string",
+          "description": "gpu_core is the number of the gpu."
+        },
+        "gpuVendor": {
+          "type": "string",
+          "description": "gpu vendor."
+        }
+      }
+    },
+    "v1alpha1ResourceGPU": {
+      "type": "object",
+      "properties": {
+        "gpuMemory": {
+          "type": "string",
+          "description": "gpu_model is the model of the gpu."
+        },
+        "driverVersion": {
+          "type": "string",
+          "description": "driver_version is the version of the driver."
+        },
+        "cudaVersion": {
+          "type": "string",
+          "description": "cuda_version is the version of the cuda."
+        },
+        "connection": {
+          "type": "string",
+          "description": "connection is the connection of the gpu to gpu."
+        },
+        "vendor": {
+          "type": "string",
+          "description": "vendor is the vendor of the gpu."
+        }
+      }
+    },
+    "v1alpha1ResourcePrice": {
+      "type": "object",
+      "properties": {
+        "billingType": {
+          "$ref": "#/definitions/typesBillingType",
+          "title": "billing_type is the type of the price. eg. postpaid, prepaid.\n   string billing_type = 1;\n   leopard.io.api.proto.BillingType billing_type = 1;"
+        },
+        "unit": {
+          "$ref": "#/definitions/typesUnitType",
+          "description": "unit is the unit of the price. eg. hour, month."
+        },
+        "price": {
+          "type": "string",
+          "description": "price is the price of the resource."
+        },
+        "currency": {
+          "$ref": "#/definitions/typesCurrency",
+          "description": "currency is the currency of the price. eg. CNY, USD."
+        }
+      }
+    },
+    "v1alpha1SSHInfo": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "username for ssh login."
+        },
+        "password": {
+          "type": "string",
+          "description": "Password for ssh login."
+        },
+        "host": {
+          "type": "string",
+          "description": "Host for ssh login."
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Port for ssh login."
+        }
+      }
+    },
+    "v1alpha1SampleStream": {
+      "type": "object",
+      "properties": {
+        "metric": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "The labels of match"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1samplePair"
+          },
+          "title": "The time stamp"
+        }
+      },
+      "title": "The time stamp stream"
+    },
+    "v1alpha1SaveImage": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/v1alpha1SaveImageStatus",
+          "description": "Whether the image is saved."
+        },
+        "failReason": {
+          "type": "string",
+          "description": "fail_reason\nif status is failed, fail_reason is the reason."
+        }
+      }
+    },
+    "v1alpha1SaveImageStatus": {
+      "type": "string",
+      "enum": [
+        "SAVE_IMAGE_STATUS_UNSPECIFIED",
+        "SAVE_IMAGE_STATUS_SUCCESS",
+        "SAVE_IMAGE_STATUS_FAILED",
+        "SAVE_IMAGE_STATUS_SAVING"
+      ],
+      "default": "SAVE_IMAGE_STATUS_UNSPECIFIED"
+    },
+    "v1alpha1ScaleStorage": {
+      "type": "object",
+      "properties": {
+        "scaleFrom": {
+          "type": "string"
+        },
+        "scaleTo": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1Schedule": {
+      "type": "object",
+      "properties": {
+        "shutdownTime": {
+          "type": "string",
+          "description": "shutdown_time is the time to shutdown the container instance, in RFC3339 format (e.g: 2023-10-01T12:00:00Z).\nThe time is in UTC timezone."
+        }
+      }
+    },
+    "v1alpha1SelectionType": {
+      "type": "string",
+      "enum": [
+        "FILE",
+        "DIRECTORY",
+        "ALL"
+      ],
+      "default": "FILE",
+      "title": "- FILE: Select only files\n - DIRECTORY: Select only directories\n - ALL: Select all files and directories"
+    },
+    "v1alpha1ServiceEnable": {
+      "type": "object",
+      "properties": {
+        "ssh": {
+          "type": "boolean",
+          "description": "Whether the ssh service is enabled."
+        },
+        "jupyter": {
+          "type": "boolean",
+          "description": "Whether the jupyter service is enabled."
+        },
+        "vscode": {
+          "type": "boolean",
+          "description": "Whether the vscode service is enabled."
+        }
+      }
+    },
+    "v1alpha1SortField": {
+      "type": "string",
+      "enum": [
+        "UnknownField",
+        "GPU_TYPE",
+        "GPU_MEMORY",
+        "GPU_COUNT"
+      ],
+      "default": "UnknownField"
+    },
+    "v1alpha1SortType": {
+      "type": "string",
+      "enum": [
+        "UnknownType",
+        "ASC",
+        "DESC"
+      ],
+      "default": "UnknownType"
+    },
+    "v1alpha1StartContainerInstanceResponse": {
+      "type": "object",
+      "properties": {
+        "containerInstance": {
+          "$ref": "#/definitions/v1alpha1ContainerInstance"
+        }
+      }
+    },
+    "v1alpha1StopContainerInstanceResponse": {
+      "type": "object",
+      "properties": {
+        "containerInstance": {
+          "$ref": "#/definitions/v1alpha1ContainerInstance"
+        }
+      }
+    },
+    "v1alpha1TimeRange": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "int64",
+          "title": "Start time for query"
+        },
+        "end": {
+          "type": "string",
+          "format": "int64",
+          "title": "End time end for query"
+        },
+        "step": {
+          "type": "number",
+          "format": "double",
+          "title": "Interval for query"
+        }
+      },
+      "title": "The parameters of batch queryRangeRequest"
+    },
+    "v1alpha1UpdateContainerInstanceResponse": {
+      "type": "object",
+      "properties": {
+        "containerInstance": {
+          "$ref": "#/definitions/v1alpha1ContainerInstance"
+        }
+      }
+    },
+    "v1alpha1UpdateInventoryRequestresource": {
+      "type": "object",
+      "properties": {
+        "specFieldKey": {
+          "type": "string"
+        },
+        "specFieldValue": {
+          "type": "string"
+        },
+        "total": {
+          "type": "number",
+          "format": "double"
+        },
+        "free": {
+          "type": "number",
+          "format": "double"
+        },
+        "serial": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1UpdateInventoryResponse": {
+      "type": "object"
+    },
+    "v1alpha1UpdateQuotaResponse": {
+      "type": "object",
+      "properties": {
+        "quota": {
+          "type": "string",
+          "format": "int64",
+          "description": "The new quota value."
+        }
+      }
+    },
+    "v1alpha1VolumeSpec": {
+      "type": "object",
+      "properties": {
+        "sourcePath": {
+          "type": "string",
+          "description": "Mounted data source subpath, which is a relative path."
+        },
+        "mountPath": {
+          "type": "string",
+          "description": "Mounted path of the container, which is a absolute path."
+        }
+      }
+    },
+    "v1alpha1requestStatus": {
+      "type": "string",
+      "enum": [
+        "STATUS_UNSPECIFIED",
+        "SUCCESS",
+        "FAIL"
+      ],
+      "default": "STATUS_UNSPECIFIED",
+      "title": "The request of status"
+    },
+    "v1alpha1samplePair": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "int64",
+          "title": "Timestamp of the query"
+        },
+        "value": {
+          "type": "string",
+          "title": "Value of the query"
+        }
+      },
+      "title": "The sample pair"
+    },
+    "v1alpha1sortBy": {
+      "type": "string",
+      "enum": [
+        "Name",
+        "Size",
+        "UpdatedAt"
+      ],
+      "default": "Name",
+      "description": " - Name: Name is the default sort by.\n - Size: Size is the sort by size.\n - UpdatedAt: UpdatedAt is the sort by updated at."
+    }
+  }
+}
