@@ -214,6 +214,7 @@ nav:
                     - v0.17.3: openapi/insight/v0.17.3.md
                 - v0.16.0: openapi/insight/v0.16.0.md
             - 微服务引擎 OpenAPI:
+                - v0.47.1: openapi/skoala/v0.47.1.md
                 - v0.43.x:
                     - v0.43.0: openapi/skoala/v0.43.0.md
                     - v0.43.1: openapi/skoala/v0.43.1.md
@@ -529,25 +530,7 @@ nav:
                 - v0.107.4: openapi/baize/v0.107.4.md
             - 算力云 OpenAPI:
                 - v0.7.0: openapi/zestu/v0.7.0.md
-                - v0.6.x:
-                    - v0.6.0: openapi/zestu/v0.6.0.md
-                    - v0.6.1: openapi/zestu/v0.6.1.md
-                - v0.5.x:
-                    - v0.5.0: openapi/zestu/v0.5.0.md
-                    - v0.5.1: openapi/zestu/v0.5.1.md
-                    - v0.5.2: openapi/zestu/v0.5.2.md
-                    - v0.5.3: openapi/zestu/v0.5.3.md
-                    - v0.5.4: openapi/zestu/v0.5.4.md
-                - v0.4.x:
-                    - v0.4.0: openapi/zestu/v0.4.0.md
-                    - v0.4.1: openapi/zestu/v0.4.1.md
-                - v0.3.x:
-                    - v0.3.0: openapi/zestu/v0.3.0.md
-                    - v0.3.1: openapi/zestu/v0.3.1.md
-                    - v0.3.2: openapi/zestu/v0.3.2.md
-                - v0.2.x:
-                    - v0.2.0: openapi/zestu/v0.2.0.md
-                    - v0.2.1: openapi/zestu/v0.2.1.md
+                - v0.5.5: openapi/zestu/v0.5.5.md
         - 边缘计算:
             - 云边协同 OpenAPI:
                 - v0.20.0: openapi/kant/v0.20.0.md
