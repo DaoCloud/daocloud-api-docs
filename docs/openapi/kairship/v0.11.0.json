@@ -214,7 +214,7 @@
     },
     "/apis/kairship.io/v1alpha1/instances/{instance}/cloudshells": {
       "post": {
-        "summary": "CreateCloudShell create a cloudshell in golobal cluster.",
+        "summary": "CreateCloudShell create a cloudshell in global cluster.",
         "operationId": "CloudShell_CreateCloudShell",
         "responses": {
           "200": {
@@ -261,7 +261,7 @@
     },
     "/apis/kairship.io/v1alpha1/instances/{instance}/cloudshells/{name}": {
       "get": {
-        "summary": "GetCloudShell get a cloudshell in golobal cluster.",
+        "summary": "GetCloudShell get a cloudshell in global cluster.",
         "operationId": "CloudShell_GetCloudShell",
         "responses": {
           "200": {
@@ -298,7 +298,7 @@
         ]
       },
       "delete": {
-        "summary": "DeleteCloudShell delete a cloudshell in golobal cluster.",
+        "summary": "DeleteCloudShell delete a cloudshell in global cluster.",
         "operationId": "CloudShell_DeleteCloudShell",
         "responses": {
           "200": {

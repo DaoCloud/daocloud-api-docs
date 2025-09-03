@@ -2654,7 +2654,7 @@
             "description": "cluster specified the cluster name for cloudshell."
           }
         ], 
-        "summary": "DeleteCloudShell delete a cloudshell in golobal cluster."
+        "summary": "DeleteCloudShell delete a cloudshell in global cluster."
       }, 
       "get": {
         "tags": [
@@ -2684,7 +2684,7 @@
             "description": "name specified the cloudshell name."
           }
         ], 
-        "summary": "GetCloudShell get a cloudshell in golobal cluster."
+        "summary": "GetCloudShell get a cloudshell in global cluster."
       }
     }, 
     "/apis/core.kant.io/v1alpha1/clusters/{cluster}/namespaces/ruleendpoints": {
@@ -3351,7 +3351,7 @@
             "in": "body"
           }
         ], 
-        "summary": "CreateCloudShell create a cloudshell in golobal cluster."
+        "summary": "CreateCloudShell create a cloudshell in global cluster."
       }
     }, 
     "/apis/core.kant.io/v1alpha1/clusters/{cluster}/namespaces/{namespace}/{kind}/json": {
