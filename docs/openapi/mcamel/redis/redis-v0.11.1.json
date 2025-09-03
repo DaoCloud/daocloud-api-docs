@@ -65,7 +65,7 @@
     },
     "/apis/mcamel.io/redis/v1alpha1/cloudshells/{name}": {
       "get": {
-        "summary": "GetCloudShell get a cloudshell in golobal cluster.",
+        "summary": "GetCloudShell get a cloudshell in global cluster.",
         "operationId": "CloudShellService_GetCloudShell",
         "responses": {
           "200": {
@@ -94,7 +94,7 @@
         ]
       },
       "delete": {
-        "summary": "DeleteCloudShell delete a cloudshell in golobal cluster.",
+        "summary": "DeleteCloudShell delete a cloudshell in global cluster.",
         "operationId": "CloudShellService_DeleteCloudShell",
         "responses": {
           "200": {
@@ -382,14 +382,14 @@
         "parameters": [
           {
             "name": "cluster",
-            "description": "@inject_tag: v:\"delete|required#RBAC error|unkonwn clusterName!\"",
+            "description": "@inject_tag: v:\"delete|required#RBAC error|unknown clusterName!\"",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "namespace",
-            "description": "@inject_tag: v:\"required#unkonwn namespace!\"",
+            "description": "@inject_tag: v:\"required#unknown namespace!\"",
             "in": "path",
             "required": true,
             "type": "string"
@@ -706,14 +706,14 @@
           },
           {
             "name": "cluster",
-            "description": "@inject_tag: v:\"delete|required#RBAC error|unkonwn clusterName!\"",
+            "description": "@inject_tag: v:\"delete|required#RBAC error|unknown clusterName!\"",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "namespace",
-            "description": "@inject_tag: v:\"required#unkonwn namespace!\"",
+            "description": "@inject_tag: v:\"required#unknown namespace!\"",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1499,7 +1499,7 @@
         "parameters": [
           {
             "name": "cluster",
-            "description": "mcamel_type is holdplace for mcamel type.",
+            "description": "mcamel_type is placeholder for mcamel type.",
             "in": "path",
             "required": true,
             "type": "string"
@@ -3133,11 +3133,11 @@
       "properties": {
         "cluster": {
           "type": "string",
-          "title": "@inject_tag: v:\"delete|required#RBAC error|unkonwn clusterName!\""
+          "title": "@inject_tag: v:\"delete|required#RBAC error|unknown clusterName!\""
         },
         "namespace": {
           "type": "string",
-          "title": "@inject_tag: v:\"required#unkonwn namespace!\""
+          "title": "@inject_tag: v:\"required#unknown namespace!\""
         },
         "name": {
           "type": "string",

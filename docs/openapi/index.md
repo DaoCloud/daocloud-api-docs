@@ -14,19 +14,19 @@ hide:
 
     ---
 
-    - [v0.128.0](./amamba/v0.128.0.md), [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md), [v0.125.0](./amamba/v0.125.0.md)
-    - [v0.124.1](./amamba/v0.124.1.md), [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md), [v0.121.0](./amamba/v0.121.0.md)
-    - [v0.120.0](./amamba/v0.120.0.md), [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md), [v0.117.x](./amamba/v0.117.0.md)
-    - [v0.116.0](./amamba/v0.116.0.md), [v0.115.0](./amamba/v0.115.0.md), [v0.114.0](./amamba/v0.114.0.md), [v0.113.x](./amamba/v0.113.0.md)
+    - [v0.129.0](./amamba/v0.129.0.md), [v0.128.0](./amamba/v0.128.0.md), [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md)
+    - [v0.125.0](./amamba/v0.125.0.md), [v0.124.1](./amamba/v0.124.1.md), [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md)
+    - [v0.121.0](./amamba/v0.121.0.md), [v0.120.0](./amamba/v0.120.0.md), [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md)
+    - [v0.117.x](./amamba/v0.117.0.md), [v0.116.0](./amamba/v0.116.0.md), [v0.115.0](./amamba/v0.115.0.md), [v0.114.0](./amamba/v0.114.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
     ---
 
-    - [v0.40.x](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md), [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md)
-    - [v0.34.0](./kpanda/v0.34.0.md), [v0.33.x](./kpanda/v0.33.0.md), [v0.32.x](./kpanda/v0.32.0.md), [v0.31.1](./kpanda/v0.31.1.md)
-    - [v0.30.x](./kpanda/v0.30.1.md), [v0.29.x](./kpanda/v0.29.0.md), [v0.28.x](./kpanda/v0.28.0.md), [v0.27.0](./kpanda/v0.27.0.md)
-    - [v0.25.x](./kpanda/v0.25.0.md), [v0.23.0](./kpanda/v0.23.0.md), [v0.21.1](./kpanda/v0.21.1.md), [v0.20.x](./kpanda/v0.20.0.md)
+    - [v0.42.0](./kpanda/v0.42.0.md), [v0.41.0](./kpanda/v0.41.0.md), [v0.40.x](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md)
+    - [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md), [v0.34.0](./kpanda/v0.34.0.md), [v0.33.x](./kpanda/v0.33.0.md)
+    - [v0.32.x](./kpanda/v0.32.0.md), [v0.31.1](./kpanda/v0.31.1.md), [v0.30.x](./kpanda/v0.30.1.md), [v0.29.x](./kpanda/v0.29.0.md)
+    - [v0.28.x](./kpanda/v0.28.0.md), [v0.27.0](./kpanda/v0.27.0.md), [v0.25.x](./kpanda/v0.25.0.md), [v0.23.0](./kpanda/v0.23.0.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
@@ -65,19 +65,19 @@ hide:
 
     ---
 
-    - [v0.37.0](./insight/v0.36.0.md), [v0.36.x](./insight/v0.36.0.md), [v0.35.x](./insight/v0.35.0.md), [v0.34.x](./insight/v0.34.0.md)
-    - [v0.33.1](./insight/v0.33.1.md), [v0.31.3](./insight/v0.31.3.md), [v0.28.0](./insight/v0.28.0.md), [v0.27.x](./insight/v0.27.0.md)
-    - [v0.26.0](./insight/v0.26.0.md), [v0.25.2](./insight/v0.25.2.md), [v0.24.0](./insight/v0.24.0.md), [v0.22.x](./insight/v0.22.0.md)
-    - [v0.21.x](./insight/v0.21.0.md), [v0.20.0](./insight/v0.20.0.md), [v0.19.x](./insight/v0.19.0.md), [v0.18.x](./insight/v0.18.0.md)
+    - [v0.38.0](./insight/v0.38.0.md), [v0.37.x](./insight/v0.37.0.md), [v0.36.x](./insight/v0.36.0.md), [v0.35.x](./insight/v0.35.0.md)
+    - [v0.34.x](./insight/v0.34.0.md), [v0.33.1](./insight/v0.33.1.md), [v0.31.3](./insight/v0.31.3.md), [v0.28.0](./insight/v0.28.0.md)
+    - [v0.27.x](./insight/v0.27.0.md), [v0.26.0](./insight/v0.26.0.md), [v0.25.2](./insight/v0.25.2.md), [v0.24.0](./insight/v0.24.0.md)
+    - [v0.22.x](./insight/v0.22.0.md), [v0.21.x](./insight/v0.21.0.md), [v0.20.0](./insight/v0.20.0.md), [v0.19.x](./insight/v0.19.0.md)
 
 -   :material-engine:{ .lg .middle } __微服务引擎 OpenAPI__
 
     ---
 
-    - [v0.47.1](./skoala/v0.47.1.md), [v0.43.x](./skoala/v0.43.0.md), [v0.42.x](./skoala/v0.42.0.md), [v0.41.x](./skoala/v0.41.1.md)
-    - [v0.40.1](./skoala/v0.40.1.md), [v0.39.4](./skoala/v0.39.4.md), [v0.38.x](./skoala/v0.38.1.md), [v0.37.x](./skoala/v0.37.0.md)
-    - [v0.36.x](./skoala/v0.36.0.md), [v0.35.x](./skoala/v0.35.0.md), [v0.34.0](./skoala/v0.34.0.md), [v0.32.0](./skoala/v0.32.0.md)
-    - [v0.31.2](./skoala/v0.31.2.md), [v0.30.0](./skoala/v0.30.0.md), [v0.29.0](./skoala/v0.29.0.md), [v0.28.x](./skoala/v0.28.0.md)
+    - [v0.48.0](./skoala/v0.48.0.md), [v0.47.1](./skoala/v0.47.1.md), [v0.43.x](./skoala/v0.43.0.md), [v0.42.x](./skoala/v0.42.0.md)
+    - [v0.41.x](./skoala/v0.41.1.md), [v0.40.1](./skoala/v0.40.1.md), [v0.39.4](./skoala/v0.39.4.md), [v0.38.x](./skoala/v0.38.1.md)
+    - [v0.37.x](./skoala/v0.37.0.md), [v0.36.x](./skoala/v0.36.0.md), [v0.35.x](./skoala/v0.35.0.md), [v0.34.0](./skoala/v0.34.0.md)
+    - [v0.32.0](./skoala/v0.32.0.md), [v0.31.2](./skoala/v0.31.2.md), [v0.30.0](./skoala/v0.30.0.md), [v0.29.0](./skoala/v0.29.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -99,7 +99,7 @@ hide:
 
     ---
 
-    - [v0.3.0](./topohub/v0.3.0.md), [v0.2.0](./topohub/v0.2.0.md)
+    - [v0.4.1](./topohub/v0.4.1.md), [v0.3.0](./topohub/v0.3.0.md), [v0.2.0](./topohub/v0.2.0.md)
 
 -   :robot:{ .lg .middle } __AI Lab OpenAPI__
 
@@ -111,7 +111,8 @@ hide:
 
     ---
 
-    - [v0.7.0](./zestu/v0.7.0.md), [v0.5.5](./zestu/v0.5.0.md)
+    - [v0.10.0](./zestu/v0.10.0.md), [v0.9.0](./zestu/v0.9.0.md)
+    - [v0.8.0](./zestu/v0.8.0.md), [v0.7.0](./zestu/v0.7.0.md), [v0.5.5](./zestu/v0.5.0.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
