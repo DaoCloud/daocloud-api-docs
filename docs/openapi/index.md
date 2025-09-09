@@ -23,7 +23,7 @@ hide:
 
     ---
 
-    - [v0.42.0](./kpanda/v0.42.0.md), [v0.41.0](./kpanda/v0.41.0.md), [v0.40.x](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md)
+    - [v0.42.x](./kpanda/v0.42.0.md), [v0.41.0](./kpanda/v0.41.0.md), [v0.40.x](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md)
     - [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md), [v0.34.0](./kpanda/v0.34.0.md), [v0.33.x](./kpanda/v0.33.0.md)
     - [v0.32.x](./kpanda/v0.32.0.md), [v0.31.1](./kpanda/v0.31.1.md), [v0.30.x](./kpanda/v0.30.1.md), [v0.29.x](./kpanda/v0.29.0.md)
     - [v0.28.x](./kpanda/v0.28.0.md), [v0.27.0](./kpanda/v0.27.0.md), [v0.25.x](./kpanda/v0.25.0.md), [v0.23.0](./kpanda/v0.23.0.md)
@@ -65,7 +65,7 @@ hide:
 
     ---
 
-    - [v0.38.0](./insight/v0.38.0.md), [v0.37.x](./insight/v0.37.0.md), [v0.36.x](./insight/v0.36.0.md), [v0.35.x](./insight/v0.35.0.md)
+    - [v0.38.x](./insight/v0.38.0.md), [v0.37.x](./insight/v0.37.0.md), [v0.36.x](./insight/v0.36.0.md), [v0.35.x](./insight/v0.35.0.md)
     - [v0.34.x](./insight/v0.34.0.md), [v0.33.1](./insight/v0.33.1.md), [v0.31.3](./insight/v0.31.3.md), [v0.28.0](./insight/v0.28.0.md)
     - [v0.27.x](./insight/v0.27.0.md), [v0.26.0](./insight/v0.26.0.md), [v0.25.2](./insight/v0.25.2.md), [v0.24.0](./insight/v0.24.0.md)
     - [v0.22.x](./insight/v0.22.0.md), [v0.21.x](./insight/v0.21.0.md), [v0.20.0](./insight/v0.20.0.md), [v0.19.x](./insight/v0.19.0.md)

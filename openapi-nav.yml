@@ -6,7 +6,7 @@ nav:
                 - v0.129.0: openapi/amamba/v0.129.0.md
                 - v0.128.0: openapi/amamba/v0.128.0.md
                 - v0.127.0: openapi/amamba/v0.127.0.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.126.0: openapi/amamba/v0.126.0.md
                     - v0.125.0: openapi/amamba/v0.125.0.md
                     - v0.124.1: openapi/amamba/v0.124.1.md
@@ -41,13 +41,15 @@ nav:
                     - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
-                - v0.42.0: openapi/kpanda/v0.42.0.md
+                - v0.42.x:
+                    - v0.42.0: openapi/kpanda/v0.42.0.md
+                    - v0.42.1: openapi/kpanda/v0.42.1.md
                 - v0.41.0: openapi/kpanda/v0.41.0.md
-                - v0.40.x: 
-                    - v0.40.0: openapi/kpanda/v0.40.0.md
-                    - v0.40.1: openapi/kpanda/v0.40.1.md
-                    - v0.40.2: openapi/kpanda/v0.40.2.md
-                - Archived Releases:
+                - 早期版本:
+                    - v0.40.x: 
+                        - v0.40.0: openapi/kpanda/v0.40.0.md
+                        - v0.40.1: openapi/kpanda/v0.40.1.md
+                        - v0.40.2: openapi/kpanda/v0.40.2.md
                     - v0.39.x:
                         - v0.39.0: openapi/kpanda/v0.39.0.md
                         - v0.39.1: openapi/kpanda/v0.39.1.md
@@ -91,7 +93,7 @@ nav:
                 - v0.21.x:
                     - v0.21.0: openapi/kairship/v0.21.0.md
                     - v0.21.1: openapi/kairship/v0.21.1.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.20.x:
                         - v0.20.0: openapi/kairship/v0.20.0.md
                         - v0.20.1: openapi/kairship/v0.20.1.md
@@ -119,7 +121,7 @@ nav:
                 - v0.22.0: openapi/kangaroo/v0.22.0.md
                 - v0.21.0: openapi/kangaroo/v0.21.0.md
                 - v0.18.0: openapi/kangaroo/v0.18.0.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.17.0: openapi/kangaroo/v0.17.0.md
                     - v0.15.0: openapi/kangaroo/v0.15.0.md
                     - v0.14.0: openapi/kangaroo/v0.14.0.md
@@ -147,7 +149,7 @@ nav:
                 - v0.14.x:
                     - v0.14.0: openapi/spidernet/v0.14.0.md
                     - v0.14.1: openapi/spidernet/v0.14.1.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.13.0: openapi/spidernet/v0.13.0.md
                     - v0.12.x: openapi/spidernet/v0.12.0.md
                     - v0.10.x:
@@ -166,7 +168,7 @@ nav:
                     - v0.18.1: openapi/virtnest/v0.18.1.md
                 - v0.17.0: openapi/virtnest/v0.17.0.md
                 - v0.16.0: openapi/virtnest/v0.16.0.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.15.0: openapi/virtnest/v0.15.0.md
                     - v0.13.0: openapi/virtnest/v0.13.0.md
                     - v0.12.0: openapi/virtnest/v0.12.0.md
@@ -180,7 +182,9 @@ nav:
                     - v0.6.0: openapi/virtnest/v0.6.0.md
         - 微服务:
             - 可观测性 OpenAPI:
-                - v0.38.0: openapi/insight/v0.38.0.md
+                - v0.38.x:
+                    - v0.38.0: openapi/insight/v0.38.0.md
+                    - v0.38.1: openapi/insight/v0.38.1.md
                 - v0.37.x:
                     - v0.37.0: openapi/insight/v0.37.0.md
                     - v0.37.1: openapi/insight/v0.37.1.md
@@ -188,7 +192,7 @@ nav:
                 - v0.36.x:
                     - v0.36.0: openapi/insight/v0.36.0.md
                     - v0.36.1: openapi/insight/v0.36.1.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.35.x:
                         - v0.35.0: openapi/insight/v0.35.0.md
                         - v0.35.1: openapi/insight/v0.35.1.md
@@ -236,7 +240,7 @@ nav:
                     - v0.43.1: openapi/skoala/v0.43.1.md
                     - v0.43.2: openapi/skoala/v0.43.2.md
                     - v0.43.4: openapi/skoala/v0.43.4.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.42.x:
                         - v0.42.0: openapi/skoala/v0.42.0.md
                         - v0.42.1: openapi/skoala/v0.42.1.md
@@ -304,7 +308,7 @@ nav:
                         - v0.24.1: openapi/mcamel/elasticsearch/elasticsearch-v0.24.1.md
                         - v0.24.2: openapi/mcamel/elasticsearch/elasticsearch-v0.24.2.md
                     - v0.23.0: openapi/mcamel/elasticsearch/elasticsearch-v0.23.0.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.21.x:
                             - v0.21.0: openapi/mcamel/elasticsearch/elasticsearch-v0.21.0.md
                             - v0.21.1: openapi/mcamel/elasticsearch/elasticsearch-v0.21.1.md
@@ -336,7 +340,7 @@ nav:
                         - v0.24.1: openapi/mcamel/kafka/kafka-v0.24.1.md
                         - v0.24.2: openapi/mcamel/kafka/kafka-v0.24.2.md
                     - v0.22.0: openapi/mcamel/kafka/kafka-v0.22.0.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.21.0: openapi/mcamel/kafka/kafka-v0.21.0.md
                         - v0.19.0: openapi/mcamel/kafka/kafka-v0.19.0.md
                         - v0.18.0: openapi/mcamel/kafka/kafka-v0.18.0.md
@@ -371,7 +375,7 @@ nav:
                         - v0.27.2: openapi/mcamel/rabbitmq/rabbitmq-v0.27.2.md
                         - v0.27.3: openapi/mcamel/rabbitmq/rabbitmq-v0.27.3.md
                     - v0.26.0: openapi/mcamel/rabbitmq/rabbitmq-v0.26.0.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.25.0: openapi/mcamel/rabbitmq/rabbitmq-v0.25.0.md
                         - v0.24.0: openapi/mcamel/rabbitmq/rabbitmq-v0.24.0.md
                         - v0.23.0: openapi/mcamel/rabbitmq/rabbitmq-v0.23.0.md
@@ -401,7 +405,7 @@ nav:
                         - v0.15.1: openapi/mcamel/rocketmq/rocketmq-v0.15.1.md
                         - v0.15.2: openapi/mcamel/rocketmq/rocketmq-v0.15.2.md
                     - v0.13.0: openapi/mcamel/rocketmq/rocketmq-v0.13.0.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.12.0: openapi/mcamel/rocketmq/rocketmq-v0.12.0.md
                         - v0.11.0: openapi/mcamel/rocketmq/rocketmq-v0.11.0.md
                         - v0.10.0: openapi/mcamel/rocketmq/rocketmq-v0.10.0.md
@@ -417,7 +421,7 @@ nav:
                         - v0.21.0: openapi/mcamel/minio/minio-v0.21.0.md
                         - v0.21.1: openapi/mcamel/minio/minio-v0.21.1.md
                     - v0.20.0: openapi/mcamel/minio/minio-v0.20.0.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.19.0: openapi/mcamel/minio/minio-v0.19.0.md
                         - v0.18.x:
                             - v0.18.0: openapi/mcamel/minio/minio-v0.18.0.md
@@ -447,7 +451,7 @@ nav:
                         - v0.16.1: openapi/mcamel/mongodb/mongodb-v0.16.1.md
                         - v0.16.2: openapi/mcamel/mongodb/mongodb-v0.16.2.md
                     - v0.15.0: openapi/mcamel/mongodb/mongodb-v0.15.0.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.14.0: openapi/mcamel/mongodb/mongodb-v0.14.0.md
                         - v0.13.x:
                             - v0.13.0: openapi/mcamel/mongodb/mongodb-v0.13.0.md
@@ -472,7 +476,7 @@ nav:
                         - v0.26.1: openapi/mcamel/mysql/mysql-v0.26.1.md
                         - v0.26.2: openapi/mcamel/mysql/mysql-v0.26.2.md
                         - v0.26.3: openapi/mcamel/mysql/mysql-v0.26.3.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.25.0: openapi/mcamel/mysql/mysql-v0.25.0.md
                         - v0.24.0: openapi/mcamel/mysql/mysql-v0.24.0.md
                         - v0.23.0: openapi/mcamel/mysql/mysql-v0.23.0.md
@@ -506,7 +510,7 @@ nav:
                         - v0.18.2: openapi/mcamel/postgresql/postgresql-v0.18.2.md
                         - v0.18.3: openapi/mcamel/postgresql/postgresql-v0.18.3.md
                         - v0.18.4: openapi/mcamel/postgresql/postgresql-v0.18.4.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.17.0: openapi/mcamel/postgresql/postgresql-v0.17.0.md
                         - v0.16.0: openapi/mcamel/postgresql/postgresql-v0.16.0.md
                         - v0.15.0: openapi/mcamel/postgresql/postgresql-v0.15.0.md
@@ -533,7 +537,7 @@ nav:
                         - v0.27.1: openapi/mcamel/redis/redis-v0.27.1.md
                         - v0.27.2: openapi/mcamel/redis/redis-v0.27.2.md
                     - v0.26.0: openapi/mcamel/redis/redis-v0.26.0.md
-                    - Archived Releases:
+                    - 早期版本:
                         - v0.25.0: openapi/mcamel/redis/redis-v0.25.0.md
                         - v0.23.0: openapi/mcamel/redis/redis-v0.23.0.md
                         - v0.22.0: openapi/mcamel/redis/redis-v0.22.0.md
@@ -571,7 +575,7 @@ nav:
                 - v0.20.0: openapi/kant/v0.20.0.md
                 - v0.17.0: openapi/kant/v0.17.0.md
                 - v0.16.1: openapi/kant/v0.16.1.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.15.0: openapi/kant/v0.15.0.md
                     - v0.14.0: openapi/kant/v0.14.0.md
                     - v0.13.0: openapi/kant/v0.13.0.md
@@ -592,7 +596,7 @@ nav:
                 - v0.35.x:
                     - v0.35.0: openapi/ghippo/v0.35.0.md
                     - v0.35.1: openapi/ghippo/v0.35.1.md
-                - Archived Releases:
+                - 早期版本:
                     - v0.34.0: openapi/ghippo/v0.34.0.md
                     - v0.33.0: openapi/ghippo/v0.33.0.md
                     - v0.31.0: openapi/ghippo/v0.31.0.md
