@@ -1,1 +1,1 @@
-# <swagger-ui src=elasticsearch-v0.25.1.json>
+<swagger-ui src=elasticsearch-v0.25.1.json>
