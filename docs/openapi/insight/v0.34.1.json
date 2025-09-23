@@ -328,7 +328,7 @@
           },
           {
             "name": "status",
-            "description": "filter by alert's status\nif `resolved` is true;\nsupport status: `firing`, `silenced` and `inhibited`\nif empty, fitler with `firing` by default.\n\nif `resolved` is false;\nsupport status: `resolved`.\nif empty, fitler with `resolved` by default.\n\n - firing: alert firing stauts\n - silenced: alert management status",
+            "description": "filter by alert's status\nif `resolved` is true;\nsupport status: `firing`, `silenced` and `inhibited`\nif empty, filter with `firing` by default.\n\nif `resolved` is false;\nsupport status: `resolved`.\nif empty, filter with `resolved` by default.\n\n - firing: alert firing status\n - silenced: alert management status",
             "in": "query",
             "required": false,
             "type": "array",
@@ -1186,14 +1186,14 @@
                   "items": {
                     "$ref": "#/definitions/v1alpha1match"
                   },
-                  "title": "required; support maxium 100 matches"
+                  "title": "required; support maximum 100 matches"
                 },
                 "targetMatchers": {
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/v1alpha1match"
                   },
-                  "title": "required; support maxium 100 matches"
+                  "title": "required; support maximum 100 matches"
                 },
                 "equal": {
                   "type": "array",
@@ -2030,7 +2030,7 @@
         "parameters": [
           {
             "name": "expired",
-            "description": "set \"expired\" to false show silences that vaild for now, otherwise show\nexpired silences",
+            "description": "set \"expired\" to false show silences that valid for now, otherwise show\nexpired silences",
             "in": "query",
             "required": false,
             "type": "boolean"
@@ -2216,7 +2216,7 @@
                   "items": {
                     "$ref": "#/definitions/v1alpha1match"
                   },
-                  "title": "required; support maxium 100 matches"
+                  "title": "required; support maximum 100 matches"
                 },
                 "activeTimeInterval": {
                   "$ref": "#/definitions/v1alpha1timeInterval",
@@ -7763,7 +7763,7 @@
         "inhibited"
       ],
       "default": "ALERT_STATUS_UNSPECIFIED",
-      "title": "- firing: alert firing stauts\n - silenced: alert management status"
+      "title": "- firing: alert firing status\n - silenced: alert management status"
     },
     "v1alpha1AlertSummary": {
       "type": "object",
@@ -8381,14 +8381,14 @@
           "items": {
             "$ref": "#/definitions/v1alpha1match"
           },
-          "title": "required; support maxium 100 matches"
+          "title": "required; support maximum 100 matches"
         },
         "targetMatchers": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1alpha1match"
           },
-          "title": "required; support maxium 100 matches"
+          "title": "required; support maximum 100 matches"
         },
         "equal": {
           "type": "array",
@@ -8438,7 +8438,7 @@
           "items": {
             "$ref": "#/definitions/v1alpha1match"
           },
-          "title": "required; support maxium 100 matches"
+          "title": "required; support maximum 100 matches"
         },
         "activeTimeInterval": {
           "$ref": "#/definitions/v1alpha1timeInterval",
