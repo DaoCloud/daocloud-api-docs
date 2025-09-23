@@ -1217,14 +1217,14 @@
                   "items": {
                     "$ref": "#/definitions/v1alpha1match"
                   },
-                  "title": "required; support maxium 100 matches"
+                  "title": "required; support maximum 100 matches"
                 },
                 "targetMatchers": {
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/v1alpha1match"
                   },
-                  "title": "required; support maxium 100 matches"
+                  "title": "required; support maximum 100 matches"
                 },
                 "equal": {
                   "type": "array",
@@ -2048,7 +2048,7 @@
         "parameters": [
           {
             "name": "expired",
-            "description": "set \"expired\" to false show silences that vaild for now, otherwise show\nexpired silences",
+            "description": "set \"expired\" to false show silences that valid for now, otherwise show\nexpired silences",
             "in": "query",
             "required": false,
             "type": "boolean"
@@ -2234,7 +2234,7 @@
                   "items": {
                     "$ref": "#/definitions/v1alpha1match"
                   },
-                  "title": "required; support maxium 100 matches"
+                  "title": "required; support maximum 100 matches"
                 },
                 "activeTimeInterval": {
                   "$ref": "#/definitions/v1alpha1timeInterval",
@@ -7526,14 +7526,14 @@
           "items": {
             "$ref": "#/definitions/v1alpha1match"
           },
-          "title": "required; support maxium 100 matches"
+          "title": "required; support maximum 100 matches"
         },
         "targetMatchers": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1alpha1match"
           },
-          "title": "required; support maxium 100 matches"
+          "title": "required; support maximum 100 matches"
         },
         "equal": {
           "type": "array",
@@ -7583,7 +7583,7 @@
           "items": {
             "$ref": "#/definitions/v1alpha1match"
           },
-          "title": "required; support maxium 100 matches"
+          "title": "required; support maximum 100 matches"
         },
         "activeTimeInterval": {
           "$ref": "#/definitions/v1alpha1timeInterval",

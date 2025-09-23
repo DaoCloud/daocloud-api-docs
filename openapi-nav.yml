@@ -185,6 +185,7 @@ nav:
                 - v0.38.x:
                     - v0.38.0: openapi/insight/v0.38.0.md
                     - v0.38.1: openapi/insight/v0.38.1.md
+                    - v0.38.2: openapi/insight/v0.38.2.md
                 - v0.37.x:
                     - v0.37.0: openapi/insight/v0.37.0.md
                     - v0.37.1: openapi/insight/v0.37.1.md
@@ -233,7 +234,9 @@ nav:
                         - v0.17.3: openapi/insight/v0.17.3.md
                     - v0.16.0: openapi/insight/v0.16.0.md
             - 微服务引擎 OpenAPI:
-                - v0.48.0: openapi/skoala/v0.48.0.md
+                - v0.48.x:
+                    - v0.48.0: openapi/skoala/v0.48.0.md
+                    - v0.48.1: openapi/skoala/v0.48.1.md
                 - v0.47.1: openapi/skoala/v0.47.1.md
                 - v0.43.x:
                     - v0.43.0: openapi/skoala/v0.43.0.md
@@ -302,7 +305,10 @@ nav:
             - 中间件 OpenAPI:
                 - Index: openapi/midware.md
                 - Elasticsearch 搜索服务:
-                    - v0.25.0: openapi/mcamel/elasticsearch/elasticsearch-v0.25.0.md
+                    - v0.25.x:
+                        - v0.25.0: openapi/mcamel/elasticsearch/elasticsearch-v0.25.0.md
+                        - v0.25.1: openapi/mcamel/elasticsearch/elasticsearch-v0.25.1.md
+                        - v0.25.2: openapi/mcamel/elasticsearch/elasticsearch-v0.25.2.md
                     - v0.24.x:
                         - v0.24.0: openapi/mcamel/elasticsearch/elasticsearch-v0.24.0.md
                         - v0.24.1: openapi/mcamel/elasticsearch/elasticsearch-v0.24.1.md
@@ -470,7 +476,9 @@ nav:
                         - v0.2.0: openapi/mcamel/mongodb/mongodb-v0.2.0.md
                         - v0.1.0: openapi/mcamel/mongodb/mongodb-v0.1.0.md
                 - MySQL 数据库:
-                    - v0.27.0: openapi/mcamel/mysql/mysql-v0.27.0.md
+                    - v0.27.x:
+                        - v0.27.0: openapi/mcamel/mysql/mysql-v0.27.0.md
+                        - v0.27.1: openapi/mcamel/mysql/mysql-v0.27.1.md
                     - v0.26.x:
                         - v0.26.0: openapi/mcamel/mysql/mysql-v0.26.0.md
                         - v0.26.1: openapi/mcamel/mysql/mysql-v0.26.1.md
@@ -565,7 +573,9 @@ nav:
                 - v0.111.2: openapi/baize/v0.111.2.md
                 - v0.107.4: openapi/baize/v0.107.4.md
             - 算力云 OpenAPI:
-                - v0.10.0: openapi/zestu/v0.10.0.md
+                - v0.10.x:
+                    - v0.10.0: openapi/zestu/v0.10.0.md
+                    - v0.10.1: openapi/zestu/v0.10.1.md
                 - v0.9.0: openapi/zestu/v0.9.0.md
                 - v0.8.0: openapi/zestu/v0.8.0.md
                 - v0.7.0: openapi/zestu/v0.7.0.md
