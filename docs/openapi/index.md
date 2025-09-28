@@ -74,10 +74,10 @@ hide:
 
     ---
 
-    - [v0.48.x](./skoala/v0.48.0.md), [v0.47.1](./skoala/v0.47.1.md), [v0.43.x](./skoala/v0.43.0.md), [v0.42.x](./skoala/v0.42.0.md)
-    - [v0.41.x](./skoala/v0.41.1.md), [v0.40.1](./skoala/v0.40.1.md), [v0.39.4](./skoala/v0.39.4.md), [v0.38.x](./skoala/v0.38.1.md)
-    - [v0.37.x](./skoala/v0.37.0.md), [v0.36.x](./skoala/v0.36.0.md), [v0.35.x](./skoala/v0.35.0.md), [v0.34.0](./skoala/v0.34.0.md)
-    - [v0.32.0](./skoala/v0.32.0.md), [v0.31.2](./skoala/v0.31.2.md), [v0.30.0](./skoala/v0.30.0.md), [v0.29.0](./skoala/v0.29.0.md)
+    - [v0.49.0](./skoala/v0.49.0.md), [v0.48.x](./skoala/v0.48.0.md), [v0.47.1](./skoala/v0.47.1.md), [v0.43.x](./skoala/v0.43.0.md)
+    - [v0.42.x](./skoala/v0.42.0.md), [v0.41.x](./skoala/v0.41.1.md), [v0.40.1](./skoala/v0.40.1.md), [v0.39.4](./skoala/v0.39.4.md)
+    - [v0.38.x](./skoala/v0.38.1.md), [v0.37.x](./skoala/v0.37.0.md), [v0.36.x](./skoala/v0.36.0.md), [v0.35.x](./skoala/v0.35.0.md)
+    - [v0.34.0](./skoala/v0.34.0.md), [v0.32.0](./skoala/v0.32.0.md), [v0.31.2](./skoala/v0.31.2.md), [v0.30.0](./skoala/v0.30.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -91,9 +91,9 @@ hide:
 
     ---
 
-    - [v0.20.0](./kant/v0.20.0.md), [v0.17.0](./kant/v0.17.0.md), [v0.16.1](./kant/v0.16.1.md), [v0.15.0](./kant/v0.15.0.md)
-    - [v0.14.0](./kant/v0.14.0.md), [v0.13.0](./kant/v0.13.0.md), [v0.12.0](./kant/v0.12.0.md), [v0.11.0](./kant/v0.11.0.md)
-    - [v0.10.0](./kant/v0.10.0.md), [v0.9.0](./kant/v0.9.0.md), [v0.8.0](./kant/v0.8.0.md)
+    - [v0.21.0](./kant/v0.21.0.md), [v0.20.0](./kant/v0.20.0.md), [v0.17.0](./kant/v0.17.0.md), [v0.16.1](./kant/v0.16.1.md)
+    - [v0.15.0](./kant/v0.15.0.md), [v0.14.0](./kant/v0.14.0.md), [v0.13.0](./kant/v0.13.0.md), [v0.12.0](./kant/v0.12.0.md)
+    - [v0.11.0](./kant/v0.11.0.md), [v0.10.0](./kant/v0.10.0.md), [v0.9.0](./kant/v0.9.0.md), [v0.8.0](./kant/v0.8.0.md)
 
 -   :octicons-devices-16:{ .lg .middle } __设备管理 OpenAPI__
 
