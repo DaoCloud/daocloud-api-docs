@@ -22,28 +22,28 @@ hide:
 
     ---
 
-    - [v0.25.0](mcamel/kafka/kafka-v0.25.0.md), [v0.24.x](mcamel/kafka/kafka-v0.24.0.md), [v0.22.0](mcamel/kafka/kafka-v0.22.0.md), [v0.21.0](mcamel/kafka/kafka-v0.21.0.md)
-    - [v0.19.0](mcamel/kafka/kafka-v0.19.0.md), [v0.18.0](mcamel/kafka/kafka-v0.18.0.md), [v0.17.0](mcamel/kafka/kafka-v0.17.0.md), [v0.16.0](mcamel/kafka/kafka-v0.16.0.md)
-    - [v0.15.0](mcamel/kafka/kafka-v0.15.0.md), [v0.14.0](mcamel/kafka/kafka-v0.14.0.md), [v0.13.0](mcamel/kafka/kafka-v0.13.0.md), [v0.12.0](mcamel/kafka/kafka-v0.12.0.md)
-    - [v0.11.x](mcamel/kafka/kafka-v0.11.0.md), [v0.10.0](mcamel/kafka/kafka-v0.10.0.md), [v0.9.0](mcamel/kafka/kafka-v0.9.0.md), [v0.8.x](mcamel/kafka/kafka-v0.8.0.md)
+    - [v0.26.0](mcamel/kafka/kafka-v0.26.0.md), [v0.25.0](mcamel/kafka/kafka-v0.25.0.md), [v0.24.x](mcamel/kafka/kafka-v0.24.0.md), [v0.22.0](mcamel/kafka/kafka-v0.22.0.md)
+    - [v0.21.0](mcamel/kafka/kafka-v0.21.0.md), [v0.19.0](mcamel/kafka/kafka-v0.19.0.md), [v0.18.0](mcamel/kafka/kafka-v0.18.0.md), [v0.17.0](mcamel/kafka/kafka-v0.17.0.md)
+    - [v0.16.0](mcamel/kafka/kafka-v0.16.0.md), [v0.15.0](mcamel/kafka/kafka-v0.15.0.md), [v0.14.0](mcamel/kafka/kafka-v0.14.0.md), [v0.13.0](mcamel/kafka/kafka-v0.13.0.md)
+    - [v0.12.0](mcamel/kafka/kafka-v0.12.0.md), [v0.11.x](mcamel/kafka/kafka-v0.11.0.md), [v0.10.0](mcamel/kafka/kafka-v0.10.0.md), [v0.9.0](mcamel/kafka/kafka-v0.9.0.md)
 
 -   :material-database:{ .lg .middle } __MinIO OpenAPI__
 
     ---
 
-    - [v0.21.0](mcamel/minio/minio-v0.21.0.md), [v0.20.0](mcamel/minio/minio-v0.20.0.md), [v0.19.0](mcamel/minio/minio-v0.19.0.md), [v0.18.x](mcamel/minio/minio-v0.18.0.md)
-    - [v0.16.0](mcamel/minio/minio-v0.16.0.md), [v0.15.0](mcamel/minio/minio-v0.15.0.md), [v0.13.0](mcamel/minio/minio-v0.13.0.md), [v0.12.0](mcamel/minio/minio-v0.12.0.md)
-    - [v0.11.0](mcamel/minio/minio-v0.11.0.md), [v0.10.0](mcamel/minio/minio-v0.10.0.md), [v0.9.0](mcamel/minio/minio-v0.9.0.md), [v0.8.x](mcamel/minio/minio-v0.8.0.md)
-    - [v0.7.x](mcamel/minio/minio-v0.7.0.md), [v0.6.0](mcamel/minio/minio-v0.6.0.md), [v0.5.x](mcamel/minio/minio-v0.5.0.md)
+    - [v0.22.0](mcamel/minio/minio-v0.22.0.md), [v0.21.0](mcamel/minio/minio-v0.21.0.md), [v0.20.0](mcamel/minio/minio-v0.20.0.md), [v0.19.0](mcamel/minio/minio-v0.19.0.md)
+    - [v0.18.x](mcamel/minio/minio-v0.18.0.md), [v0.16.0](mcamel/minio/minio-v0.16.0.md), [v0.15.0](mcamel/minio/minio-v0.15.0.md), [v0.13.0](mcamel/minio/minio-v0.13.0.md)
+    - [v0.12.0](mcamel/minio/minio-v0.12.0.md), [v0.11.0](mcamel/minio/minio-v0.11.0.md), [v0.10.0](mcamel/minio/minio-v0.10.0.md), [v0.9.0](mcamel/minio/minio-v0.9.0.md)
+    - [v0.8.x](mcamel/minio/minio-v0.8.0.md), [v0.7.x](mcamel/minio/minio-v0.7.0.md), [v0.6.0](mcamel/minio/minio-v0.6.0.md), [v0.5.x](mcamel/minio/minio-v0.5.0.md)
 
 -   :simple-mongodb:{ .lg .middle } __MongoDB OpenAPI__
 
     ---
 
-    - [v0.16.x](mcamel/mongodb/mongodb-v0.16.0.md), [v0.15.0](mcamel/mongodb/mongodb-v0.15.0.md), [v0.14.0](mcamel/mongodb/mongodb-v0.14.0.md), [v0.13.x](mcamel/mongodb/mongodb-v0.13.0.md)
-    - [v0.12.0](mcamel/mongodb/mongodb-v0.12.0.md), [v0.11.0](mcamel/mongodb/mongodb-v0.11.0.md), [v0.9.0](mcamel/mongodb/mongodb-v0.9.0.md), [v0.8.0](mcamel/mongodb/mongodb-v0.8.0.md)
-    - [v0.7.0](mcamel/mongodb/mongodb-v0.7.0.md), [v0.6.0](mcamel/mongodb/mongodb-v0.6.0.md), [v0.5.0](mcamel/mongodb/mongodb-v0.5.0.md), [v0.4.0](mcamel/mongodb/mongodb-v0.4.0.md)
-    - [v0.3.x](mcamel/mongodb/mongodb-v0.3.0.md), [v0.2.0](mcamel/mongodb/mongodb-v0.2.0.md), [v0.1.0](mcamel/mongodb/mongodb-v0.1.0.md)
+    - [v0.17.0](mcamel/mongodb/mongodb-v0.17.0.md), [v0.16.x](mcamel/mongodb/mongodb-v0.16.0.md), [v0.15.0](mcamel/mongodb/mongodb-v0.15.0.md), [v0.14.0](mcamel/mongodb/mongodb-v0.14.0.md)
+    - [v0.13.x](mcamel/mongodb/mongodb-v0.13.0.md), [v0.12.0](mcamel/mongodb/mongodb-v0.12.0.md), [v0.11.0](mcamel/mongodb/mongodb-v0.11.0.md), [v0.9.0](mcamel/mongodb/mongodb-v0.9.0.md)
+    - [v0.8.0](mcamel/mongodb/mongodb-v0.8.0.md), [v0.7.0](mcamel/mongodb/mongodb-v0.7.0.md), [v0.6.0](mcamel/mongodb/mongodb-v0.6.0.md), [v0.5.0](mcamel/mongodb/mongodb-v0.5.0.md)
+    - [v0.4.0](mcamel/mongodb/mongodb-v0.4.0.md), [v0.3.x](mcamel/mongodb/mongodb-v0.3.0.md), [v0.2.0](mcamel/mongodb/mongodb-v0.2.0.md), [v0.1.0](mcamel/mongodb/mongodb-v0.1.0.md)
 
 -   :simple-mysql:{ .lg .middle } __MySQL OpenAPI__
 
@@ -67,10 +67,10 @@ hide:
 
     ---
 
-    - [v0.27.x](mcamel/rabbitmq/rabbitmq-v0.27.0.md), [v0.26.0](mcamel/rabbitmq/rabbitmq-v0.26.0.md), [v0.25.0](mcamel/rabbitmq/rabbitmq-v0.25.0.md), [v0.24.0](mcamel/rabbitmq/rabbitmq-v0.24.0.md)
-    - [v0.23.0](mcamel/rabbitmq/rabbitmq-v0.23.0.md), [v0.22.0](mcamel/rabbitmq/rabbitmq-v0.22.0.md), [v0.21.0](mcamel/rabbitmq/rabbitmq-v0.21.0.md), [v0.20.0](mcamel/rabbitmq/rabbitmq-v0.20.0.md)
-    - [v0.18.0](mcamel/rabbitmq/rabbitmq-v0.18.0.md), [v0.17.0](mcamel/rabbitmq/rabbitmq-v0.17.0.md), [v0.16.0](mcamel/rabbitmq/rabbitmq-v0.16.0.md), [v0.15.0](mcamel/rabbitmq/rabbitmq-v0.15.0.md)
-    - [v0.14.0](mcamel/rabbitmq/rabbitmq-v0.14.0.md), [v0.13.x](mcamel/rabbitmq/rabbitmq-v0.13.0.md), [v0.12.x](mcamel/rabbitmq/rabbitmq-v0.12.0.md), [v0.11.0](mcamel/rabbitmq/rabbitmq-v0.11.0.md)
+    - [v0.28.0](mcamel/rabbitmq/rabbitmq-v0.28.0.md), [v0.27.x](mcamel/rabbitmq/rabbitmq-v0.27.0.md), [v0.26.0](mcamel/rabbitmq/rabbitmq-v0.26.0.md), [v0.25.0](mcamel/rabbitmq/rabbitmq-v0.25.0.md)
+    - [v0.24.0](mcamel/rabbitmq/rabbitmq-v0.24.0.md), [v0.23.0](mcamel/rabbitmq/rabbitmq-v0.23.0.md), [v0.22.0](mcamel/rabbitmq/rabbitmq-v0.22.0.md), [v0.21.0](mcamel/rabbitmq/rabbitmq-v0.21.0.md)
+    - [v0.20.0](mcamel/rabbitmq/rabbitmq-v0.20.0.md), [v0.18.0](mcamel/rabbitmq/rabbitmq-v0.18.0.md), [v0.17.0](mcamel/rabbitmq/rabbitmq-v0.17.0.md), [v0.16.0](mcamel/rabbitmq/rabbitmq-v0.16.0.md)
+    - [v0.15.0](mcamel/rabbitmq/rabbitmq-v0.15.0.md), [v0.14.0](mcamel/rabbitmq/rabbitmq-v0.14.0.md), [v0.13.x](mcamel/rabbitmq/rabbitmq-v0.13.0.md), [v0.12.x](mcamel/rabbitmq/rabbitmq-v0.12.0.md)
 
 -   :simple-redis:{ .lg .middle } __Redis OpenAPI__
 
@@ -85,9 +85,9 @@ hide:
 
     ---
 
-    - [v0.15.x](mcamel/rocketmq/rocketmq-v0.15.0.md), [v0.13.0](mcamel/rocketmq/rocketmq-v0.13.0.md), [v0.12.0](mcamel/rocketmq/rocketmq-v0.12.0.md), [v0.11.0](mcamel/rocketmq/rocketmq-v0.11.0.md)
-    - [v0.10.0](mcamel/rocketmq/rocketmq-v0.10.0.md), [v0.9.0](mcamel/rocketmq/rocketmq-v0.9.0.md), [v0.7.0](mcamel/rocketmq/rocketmq-v0.7.0.md), [v0.5.0](mcamel/rocketmq/rocketmq-v0.5.0.md)
-    - [v0.4.0](mcamel/rocketmq/rocketmq-v0.4.0.md), [v0.3.0](mcamel/rocketmq/rocketmq-v0.3.0.md), [v0.2.0](mcamel/rocketmq/rocketmq-v0.2.0.md), [v0.1.1](mcamel/rocketmq/rocketmq-v0.1.1.md)
+    - [v0.16.0](mcamel/rocketmq/rocketmq-v0.16.0.md), [v0.15.x](mcamel/rocketmq/rocketmq-v0.15.0.md), [v0.13.0](mcamel/rocketmq/rocketmq-v0.13.0.md), [v0.12.0](mcamel/rocketmq/rocketmq-v0.12.0.md)
+    - [v0.11.0](mcamel/rocketmq/rocketmq-v0.11.0.md), [v0.10.0](mcamel/rocketmq/rocketmq-v0.10.0.md), [v0.9.0](mcamel/rocketmq/rocketmq-v0.9.0.md), [v0.7.0](mcamel/rocketmq/rocketmq-v0.7.0.md)
+    - [v0.5.0](mcamel/rocketmq/rocketmq-v0.5.0.md), [v0.4.0](mcamel/rocketmq/rocketmq-v0.4.0.md), [v0.3.0](mcamel/rocketmq/rocketmq-v0.3.0.md), [v0.2.0](mcamel/rocketmq/rocketmq-v0.2.0.md)
 
 </div>
 
