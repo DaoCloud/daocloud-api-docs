@@ -41,7 +41,9 @@ nav:
                     - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
-                - v0.43.0: openapi/kpanda/v0.43.0.md
+                - v0.43.x: 
+                    - v0.43.0: openapi/kpanda/v0.43.0.md
+                    - v0.43.1: openapi/kpanda/v0.43.1.md
                 - v0.42.x:
                     - v0.42.0: openapi/kpanda/v0.42.0.md
                     - v0.42.1: openapi/kpanda/v0.42.1.md
@@ -164,6 +166,7 @@ nav:
                     - v0.6.0: openapi/spidernet/v0.6.0.md
                     - v0.5.0: openapi/spidernet/v0.5.0.md
             - 虚拟机 OpenAPI:
+                - v0.19.0: openapi/virtnest/v0.19.0.md
                 - v0.18.x:
                     - v0.18.0: openapi/virtnest/v0.18.0.md
                     - v0.18.1: openapi/virtnest/v0.18.1.md
@@ -183,6 +186,7 @@ nav:
                     - v0.6.0: openapi/virtnest/v0.6.0.md
         - 微服务:
             - 可观测性 OpenAPI:
+                - v0.39.0: openapi/insight/v0.39.0.md
                 - v0.38.x:
                     - v0.38.0: openapi/insight/v0.38.0.md
                     - v0.38.1: openapi/insight/v0.38.1.md
@@ -591,6 +595,8 @@ nav:
                 - v0.10.x:
                     - v0.10.0: openapi/zestu/v0.10.0.md
                     - v0.10.1: openapi/zestu/v0.10.1.md
+                    - v0.10.2: openapi/zestu/v0.10.2.md
+                    - v0.10.3: openapi/zestu/v0.10.3.md
                 - v0.9.0: openapi/zestu/v0.9.0.md
                 - v0.8.0: openapi/zestu/v0.8.0.md
                 - v0.7.0: openapi/zestu/v0.7.0.md
@@ -610,13 +616,12 @@ nav:
                     - v0.10.0: openapi/kant/v0.10.0.md
                     - v0.9.0: openapi/kant/v0.9.0.md
                     - v0.8.0: openapi/kant/v0.8.0.md
-        - 设备:
-            - 设备管理 OpenAPI: 
+        - 管理:
+            - 设备管理 OpenAPI:
                 - v0.5.0: openapi/topohub/v0.5.0.md
                 - v0.4.1: openapi/topohub/v0.4.1.md
                 - v0.3.0: openapi/topohub/v0.3.0.md
                 - v0.2.0: openapi/topohub/v0.2.0.md
-        - 管理:
             - 全局管理 OpenAPI:
                 - v0.37.0: openapi/ghippo/v0.37.0.md
                 - v0.36.0: openapi/ghippo/v0.36.0.md
