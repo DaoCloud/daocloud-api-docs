@@ -178,7 +178,7 @@ def format_component_in_file(component: str, dry_run=False):
     out_lines = []
     replaced = 0
     for ln in old_lines:
-        if ln.strip().startswith('- [') or ln.strip().startswith('-') and ln.strip().startswith('- ['):
+        if ln.strip().startswith('- ['):
             if replaced < 4:
                 out_lines.append(lines[replaced])
                 replaced += 1
