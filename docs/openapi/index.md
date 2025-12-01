@@ -14,10 +14,10 @@ hide:
 
     ---
 
-    - [v0.129.0](./amamba/v0.129.0.md), [v0.128.0](./amamba/v0.128.0.md), [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md)
-    - [v0.125.0](./amamba/v0.125.0.md), [v0.124.1](./amamba/v0.124.1.md), [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md)
-    - [v0.121.0](./amamba/v0.121.0.md), [v0.120.0](./amamba/v0.120.0.md), [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md)
-    - [v0.117.x](./amamba/v0.117.0.md), [v0.116.0](./amamba/v0.116.0.md), [v0.115.0](./amamba/v0.115.0.md), [v0.114.0](./amamba/v0.114.0.md)
+    - [v0.130.0](./amamba/v0.130.0.md), [v0.129.0](./amamba/v0.129.0.md), [v0.128.0](./amamba/v0.128.0.md), [v0.127.0](./amamba/v0.127.0.md)
+    - [v0.126.0](./amamba/v0.126.0.md), [v0.125.0](./amamba/v0.125.0.md), [v0.124.1](./amamba/v0.124.1.md), [v0.123.x](./amamba/v0.123.0.md)
+    - [v0.122.x](./amamba/v0.122.0.md), [v0.121.0](./amamba/v0.121.0.md), [v0.120.0](./amamba/v0.120.0.md), [v0.119.0](./amamba/v0.119.0.md)
+    - [v0.118.x](./amamba/v0.118.0.md), [v0.117.x](./amamba/v0.117.0.md), [v0.116.0](./amamba/v0.116.0.md), [v0.115.0](./amamba/v0.115.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
@@ -65,7 +65,7 @@ hide:
 
     ---
 
-    - [v0.39.0](./insight/v0.39.0.md), [v0.38.x](./insight/v0.38.0.md), [v0.37.x](./insight/v0.37.0.md), [v0.36.x](./insight/v0.36.0.md)
+    - [v0.39.x](./insight/v0.39.0.md), [v0.38.x](./insight/v0.38.0.md), [v0.37.x](./insight/v0.37.0.md), [v0.36.x](./insight/v0.36.0.md)
     - [v0.35.x](./insight/v0.35.0.md), [v0.34.x](./insight/v0.34.0.md), [v0.33.1](./insight/v0.33.1.md), [v0.31.3](./insight/v0.31.3.md)
     - [v0.28.0](./insight/v0.28.0.md), [v0.27.x](./insight/v0.27.0.md), [v0.26.0](./insight/v0.26.0.md), [v0.25.2](./insight/v0.25.2.md)
     - [v0.24.0](./insight/v0.24.0.md), [v0.22.x](./insight/v0.22.0.md), [v0.21.x](./insight/v0.21.0.md), [v0.20.0](./insight/v0.20.0.md)
@@ -74,10 +74,10 @@ hide:
 
     ---
 
-    - [v0.50.x](./skoala/v0.50.0.md), [v0.49.0](./skoala/v0.49.0.md), [v0.48.x](./skoala/v0.48.0.md), [v0.47.1](./skoala/v0.47.1.md)
-    - [v0.43.x](./skoala/v0.43.0.md), [v0.42.x](./skoala/v0.42.0.md), [v0.41.x](./skoala/v0.41.1.md), [v0.40.1](./skoala/v0.40.1.md)
-    - [v0.39.4](./skoala/v0.39.4.md), [v0.38.x](./skoala/v0.38.1.md), [v0.37.x](./skoala/v0.37.0.md), [v0.36.x](./skoala/v0.36.0.md)
-    - [v0.35.x](./skoala/v0.35.0.md), [v0.34.0](./skoala/v0.34.0.md), [v0.32.0](./skoala/v0.32.0.md), [v0.31.2](./skoala/v0.31.2.md)
+    - [v0.51.0](./skoala/v0.51.0.md), [v0.50.x](./skoala/v0.50.0.md), [v0.49.0](./skoala/v0.49.0.md), [v0.48.x](./skoala/v0.48.0.md)
+    - [v0.47.1](./skoala/v0.47.1.md), [v0.43.x](./skoala/v0.43.0.md), [v0.42.x](./skoala/v0.42.0.md), [v0.41.x](./skoala/v0.41.1.md)
+    - [v0.40.1](./skoala/v0.40.1.md), [v0.39.4](./skoala/v0.39.4.md), [v0.38.x](./skoala/v0.38.1.md), [v0.37.x](./skoala/v0.37.0.md)
+    - [v0.36.x](./skoala/v0.36.0.md), [v0.35.x](./skoala/v0.35.0.md), [v0.34.0](./skoala/v0.34.0.md), [v0.32.0](./skoala/v0.32.0.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -111,17 +111,17 @@ hide:
 
     ---
 
-    - [v0.11.0](./zestu/v0.11.0.md), [v0.10.x](./zestu/v0.10.0.md), [v0.9.0](./zestu/v0.9.0.md)
+    - [v0.12.0](./zestu/v0.12.0.md), [v0.11.0](./zestu/v0.11.0.md), [v0.10.x](./zestu/v0.10.0.md), [v0.9.0](./zestu/v0.9.0.md)
     - [v0.8.0](./zestu/v0.8.0.md), [v0.7.0](./zestu/v0.7.0.md), [v0.5.5](./zestu/v0.5.0.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
     ---
 
+    - [v0.43.0](./ghippo/v0.43.0.md), [v0.42.2](./ghippo/v0.42.2.md), [v0.41.3](./ghippo/v0.41.3.md), [v0.40.x](./ghippo/v0.40.0.md),
     - [v0.37.0](./ghippo/v0.37.0.md), [v0.36.0](./ghippo/v0.36.0.md), [v0.35.x](./ghippo/v0.35.0.md), [v0.34.0](./ghippo/v0.34.0.md)
     - [v0.33.0](./ghippo/v0.33.0.md), [v0.31.0](./ghippo/v0.31.0.md), [v0.30.0](./ghippo/v0.30.0.md), [v0.28.0](./ghippo/v0.28.0.md)
     - [v0.27.0](./ghippo/v0.27.0.md), [v0.26.0](./ghippo/v0.26.0.md), [v0.25.x](./ghippo/v0.25.0.md), [v0.24.x](./ghippo/v0.24.0.md)
-    - [v0.22.1](./ghippo/v0.22.1.md), [v0.21.0](./ghippo/v0.21.0.md), [v0.20.x](./ghippo/v0.20.0.md), [v0.19.0](./ghippo/v0.19.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI 之一__
 
