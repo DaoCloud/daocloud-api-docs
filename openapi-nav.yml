@@ -195,7 +195,7 @@ nav:
                 - v0.39.x:
                     - v0.39.0: openapi/insight/v0.39.0.md
                     - v0.39.1: openapi/insight/v0.39.1.md
-                    - v0.39.2: openapi/insight/v0.39.1.md
+                    - v0.39.2: openapi/insight/v0.39.2.md
                 - v0.38.x:
                     - v0.38.0: openapi/insight/v0.38.0.md
                     - v0.38.1: openapi/insight/v0.38.1.md
