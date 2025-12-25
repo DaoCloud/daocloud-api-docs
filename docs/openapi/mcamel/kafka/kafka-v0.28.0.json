@@ -1,0 +1,6595 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "中间件服务",
+    "version": "v0.28.0"
+  },
+  "tags": [
+    {
+      "name": "Cluster"
+    },
+    {
+      "name": "Metric"
+    },
+    {
+      "name": "CloudShellService"
+    },
+    {
+      "name": "StorageConfig"
+    },
+    {
+      "name": "KafkaV1alpha2"
+    },
+    {
+      "name": "Version"
+    },
+    {
+      "name": "Template"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/apis/mcamel.io/kafka/v1alpha2/cloudshells": {
+      "post": {
+        "operationId": "CloudShellService_CreateCloudShell",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CloudShell"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCloudShellRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CloudShellService"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/cloudshells/{name}": {
+      "get": {
+        "summary": "GetCloudShell get a cloudshell in golobal cluster.",
+        "operationId": "CloudShellService_GetCloudShell",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CloudShell"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CloudShellService"
+        ]
+      },
+      "delete": {
+        "summary": "DeleteCloudShell delete a cloudshell in golobal cluster.",
+        "operationId": "CloudShellService_DeleteCloudShell",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CloudShellService"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/clusters/{cluster}/nodes": {
+      "get": {
+        "operationId": "Cluster_GetClusterNodeList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterNodeListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/clusters/{cluster}/nodes/taints": {
+      "get": {
+        "operationId": "Cluster_GetClusterNodeTaintList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterNodeTaintListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "nodeName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka-operator/versions": {
+      "get": {
+        "operationId": "KafkaV1alpha2_GetKafkaOperatorVersionList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetKafkaOperatorVersionListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka-params/{cluster}": {
+      "get": {
+        "operationId": "KafkaV1alpha2_GetKafkaParam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetKafkaParamResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/version": {
+      "get": {
+        "operationId": "Version_Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetVersionReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Version"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/{workspaceId}/{cluster}/{namespace}/{name}": {
+      "get": {
+        "operationId": "KafkaV1alpha2_GetKafka",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetKafkaResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      },
+      "delete": {
+        "operationId": "KafkaV1alpha2_DeleteKafka",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteKafkaResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"delete|required#RBAC error|unkonwn clusterName!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#unkonwn namespace!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"regex:^[a-z][a-z0-9-]{0,38}[a-z0-9]$#unknown name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/{workspaceId}/{cluster}/{namespace}/{name}/conf": {
+      "put": {
+        "operationId": "KafkaV1alpha2_UpdateKafkaConf",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UpdateKafkaConfResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"update|required#RBAC error|choose clusterName!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#choose Namespace\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "kafkaConf": {
+                  "type": "string"
+                },
+                "zookeeperConf": {
+                  "type": "string"
+                },
+                "confItems": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/templateTemplateConfigItem"
+                  }
+                },
+                "reloadFromConfTemplateName": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/{workspaceId}/{cluster}/{namespace}/{name}/confs": {
+      "get": {
+        "operationId": "KafkaV1alpha2_GetKafkaConf",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetKafkaConfResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#choose clusterName!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#choose Namespace\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/{workspaceId}/{cluster}/{namespace}/{name}/grafana": {
+      "get": {
+        "operationId": "KafkaV1alpha2_GetKafkaGrafanaAddr",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetKafkaGrafanaAddrResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/{workspaceId}/{cluster}/{namespace}/{name}/manager": {
+      "post": {
+        "operationId": "KafkaV1alpha2_AddKafkaToManager",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AddKafkaToManagerResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"update|required#RBAC error|choose clusterName!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#choose Namespace\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required|regex:^[a-z][a-z0-9-]{0,38}[a-z0-9]$#input name!|input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/{workspaceId}/{cluster}/{namespace}/{name}/nodes": {
+      "get": {
+        "operationId": "KafkaV1alpha2_GetKafkaNodeList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetKafkaNodeListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/{workspaceId}/{cluster}/{namespace}/{name}/params": {
+      "put": {
+        "operationId": "KafkaV1alpha2_UpdateKafkaParams",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UpdateKafkaParamsResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "WHY check update? \nAdmin and Editor have 「update」verb, according to https://docs.daocloud.io/middleware/permission/, only Admin and Editor can create mcamel instance.\n@inject_tag: v:\"update|required#RBAC error|choose clusterName!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#choose Namespace\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required|regex:^[a-z][a-z0-9-]{0,38}[a-z0-9]$#input name!|input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "describe": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                },
+                "kafkaReplicas": {
+                  "type": "integer",
+                  "format": "int32",
+                  "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+                },
+                "storageClassName": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#choose sc\""
+                },
+                "storageCapacity": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#choose capacity|resource\""
+                },
+                "serviceType": {
+                  "$ref": "#/definitions/commonServiceType",
+                  "title": "@inject_tag: v:\"serviceType#choose serviceType\""
+                },
+                "serviceAnnotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "@inject_tag: v:\"k8sValidation:annotations#input valid annotations\""
+                },
+                "ports": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CreateKafkaReqPorts"
+                  }
+                },
+                "cpuRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input cpuRequest|resource\""
+                },
+                "cpuLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input cpuLimit|resource\""
+                },
+                "kafkaConf": {
+                  "type": "string"
+                },
+                "confTemplateName": {
+                  "type": "string"
+                },
+                "memoryRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input memoryRequest|resource\""
+                },
+                "memoryLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input memoryLimit|resource\""
+                },
+                "isOpenManager": {
+                  "type": "boolean"
+                },
+                "managerCpuRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input cpuRequest|resource\""
+                },
+                "managerCpuLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input cpuLimit|resource\""
+                },
+                "managerMemoryRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input memoryRequest|resource\""
+                },
+                "managerMemoryLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input memoryLimit|resource\""
+                },
+                "managerUser": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|length:4,64|regex:^[a-zA-Z][a-z0-9-_]+$#input user|input manager user|input user\" json:\"managerUser\""
+                },
+                "managerPass": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|passwordLow#input password|input valid password\" json:\"managerPass\""
+                },
+                "managerReplicas": {
+                  "type": "integer",
+                  "format": "int32",
+                  "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+                },
+                "managerServiceType": {
+                  "$ref": "#/definitions/commonServiceType",
+                  "title": "@inject_tag: v:\"serviceType#choose serviceType\""
+                },
+                "managerPorts": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CreateKafkaReqPorts"
+                  }
+                },
+                "managerServiceAnnotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "@inject_tag: v:\"k8sValidation:annotations#input valid annotations\""
+                },
+                "zookeeperReplicas": {
+                  "type": "integer",
+                  "format": "int32",
+                  "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+                },
+                "zookeeperConf": {
+                  "type": "string"
+                },
+                "zookeeperCpuRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input cpuRequest|resource\""
+                },
+                "zookeeperCpuLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input cpuLimit|resource\""
+                },
+                "zookeeperMemoryRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input memoryRequest|resource\""
+                },
+                "zookeeperMemoryLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input memoryLimit|resource\""
+                },
+                "zookeeperStorageClassName": {
+                  "type": "string"
+                },
+                "zookeeperStorageCapacity": {
+                  "type": "string"
+                },
+                "affinity": {
+                  "$ref": "#/definitions/commonAffinity",
+                  "title": "@inject_tag: v:\"k8sValidation:affinity#input valid affinity\""
+                },
+                "serviceMonitorInterval": {
+                  "type": "string",
+                  "title": "serviceMonitor 的抓取周期"
+                },
+                "zookeeperAffinity": {
+                  "$ref": "#/definitions/commonAffinity"
+                },
+                "isCreateKafkaSuperUser": {
+                  "type": "boolean",
+                  "title": "如果要设置超级用户，账户名密码沿用 manager_user 和 manager_pass"
+                },
+                "externalTrafficPolicy": {
+                  "$ref": "#/definitions/commonExternalTrafficPolicy",
+                  "title": "lb\n@inject_tag: v:\"checklb#checklb failed!\""
+                },
+                "lbTyp": {
+                  "$ref": "#/definitions/commonLBTyp"
+                },
+                "lbPoolName": {
+                  "type": "string"
+                },
+                "lbAddress": {
+                  "type": "string"
+                },
+                "managerExternalTrafficPolicy": {
+                  "$ref": "#/definitions/commonExternalTrafficPolicy",
+                  "title": "phpadmin lb"
+                },
+                "managerLbTyp": {
+                  "$ref": "#/definitions/commonLBTyp"
+                },
+                "managerLbPoolName": {
+                  "type": "string"
+                },
+                "managerLbAddress": {
+                  "type": "string"
+                },
+                "accessWhitelist": {
+                  "$ref": "#/definitions/commonAccessWhitelist"
+                },
+                "listeners": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Listener"
+                  }
+                },
+                "tolerations": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/commonToleration"
+                  }
+                },
+                "zookeeperTolerations": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/commonToleration"
+                  }
+                },
+                "staticIpAnnotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "这个字段的内容用来传到 pod 的 annotations 上面,例如可以在 pod 上打 annotation 来达到集群外访问的目的。"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafka/{workspaceId}/{cluster}/{namespace}/{name}/users": {
+      "get": {
+        "operationId": "KafkaV1alpha2_GetKafkaUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetKafkaUsersResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "WHY check update? \nAdmin and Editor have 「update」verb, according to https://docs.daocloud.io/middleware/permission/, only Admin and Editor can get password.\n@inject_tag: v:\"update|required#RBAC error|choose clusterName!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#choose Namespace\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/kafkas": {
+      "post": {
+        "operationId": "KafkaV1alpha2_DeleteKafkas",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteKafkasResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteKafkasReq"
+            }
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/storage-config/bucket/check-job": {
+      "post": {
+        "operationId": "StorageConfig_CreateStorageConfigBucketCheckJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateStorageConfigBucketCheckJobResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateStorageConfigBucketCheckJobReq"
+            }
+          }
+        ],
+        "tags": [
+          "StorageConfig"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/storage-config/param": {
+      "get": {
+        "operationId": "StorageConfig_GetStorageConfigParam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetStorageConfigParamResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "StorageConfig"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/workspaces": {
+      "get": {
+        "operationId": "Cluster_GetWorkspaceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetWorkspaceListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/all-events-kinds": {
+      "get": {
+        "operationId": "Cluster_GetAllEventKindsList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetAllEventKindsListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/insight/status": {
+      "get": {
+        "operationId": "Cluster_GetInsightAgentStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetInsightAgentStatusResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/install-file": {
+      "post": {
+        "operationId": "Cluster_InstallFile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/InstallFileResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "gvr": {
+                  "$ref": "#/definitions/InstallFileReqGVR"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/install-version": {
+      "get": {
+        "operationId": "Cluster_GetInstallVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetInstallVersionResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/lbaddress/pools": {
+      "get": {
+        "operationId": "Cluster_GetMetallbIPAddressPoolsList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetMetallbIPAddressPoolsListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "mcamel_type is holdplace for mcamel type.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/nodelabels": {
+      "get": {
+        "operationId": "Cluster_GetClusterNodeLabelList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterNodeLabelListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#请输入Cluster\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/nodeports": {
+      "get": {
+        "operationId": "Cluster_GetClusterNodePortList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterNodePortListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#请输入Cluster\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/podlabels": {
+      "get": {
+        "operationId": "Cluster_GetClusterPodLabelList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterPodLabelListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#请输入Cluster\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filterNamespace",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/{namespace}/events": {
+      "get": {
+        "summary": "pod 列表上会使用",
+        "operationId": "Cluster_GetEventList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetEventListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "cluster represents the name of deployment belongs to.\n@inject_tag: v:\"required#choose cluster\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "Namespace represents which namespace the deployment belongs to.\n@inject_tag: v:\"required#choose namespace\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Kind represents what type of event is needed.\n@inject_tag: v:\"required#choose kind\"\n\n - KIND_UNSPECIFIED: KIND_UNSPECIFIED is only a meaningless placeholder, to avoid zero not\nreturn.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "KIND_UNSPECIFIED",
+              "Pod"
+            ],
+            "default": "KIND_UNSPECIFIED"
+          },
+          {
+            "name": "kindName",
+            "description": "The name of involvedObject.\nIf the kind is DEPLOYMENT,\nthis presents the name of deployments.\n@inject_tag: v:\"required#choose kind name\"",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "description": "Type is used for query, showing events of specified type.\nUse example: type=WARNING&type=NORMAL.\n\n - EVENT_TYPE_UNSPECIFIED: This is only a meaningless placeholder, to avoid zero not return.\n - Normal: Normal is a normal event type.\n - Warning: Warning is a warning event type.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "EVENT_TYPE_UNSPECIFIED",
+                "Normal",
+                "Warning"
+              ]
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{cluster}/{namespace}/resourcequota": {
+      "get": {
+        "operationId": "Cluster_GetResourceQuota",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetResourceQuotaResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#choose cluster\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#choose namespace\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/clusters": {
+      "get": {
+        "operationId": "Cluster_GetClusterList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/clusters/{name}": {
+      "get": {
+        "operationId": "Cluster_GetCluster",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#choose clusterName!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/hostnetwork-ports": {
+      "get": {
+        "operationId": "Cluster_GetClusterHostnetworkPorts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterHostnetworkPortsResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#Input Cluster\"",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/kafka": {
+      "post": {
+        "operationId": "KafkaV1alpha2_CreateKafka",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateKafkaResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cluster": {
+                  "type": "string",
+                  "title": "WHY check update? \nAdmin and Editor have 「update」verb, according to https://docs.daocloud.io/middleware/permission/, only Admin and Editor can create mcamel instance.\n@inject_tag: v:\"update|required#RBAC error|choose clusterName!\""
+                },
+                "namespace": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#choose Namespace\""
+                },
+                "name": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|regex:^[a-z][a-z0-9-]{0,38}[a-z0-9]$#input name!|input name!\""
+                },
+                "describe": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                },
+                "kafkaReplicas": {
+                  "type": "integer",
+                  "format": "int32",
+                  "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+                },
+                "storageClassName": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#choose sc\""
+                },
+                "storageCapacity": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#choose capacity|resource\""
+                },
+                "serviceType": {
+                  "$ref": "#/definitions/commonServiceType",
+                  "title": "@inject_tag: v:\"serviceType#choose serviceType\""
+                },
+                "serviceAnnotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "@inject_tag: v:\"k8sValidation:annotations#input valid annotations\""
+                },
+                "ports": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CreateKafkaReqPorts"
+                  }
+                },
+                "cpuRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input cpuRequest|resource\""
+                },
+                "cpuLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input cpuLimit|resource\""
+                },
+                "kafkaConf": {
+                  "type": "string"
+                },
+                "confTemplateName": {
+                  "type": "string"
+                },
+                "memoryRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input memoryRequest|resource\""
+                },
+                "memoryLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input memoryLimit|resource\""
+                },
+                "isOpenManager": {
+                  "type": "boolean"
+                },
+                "managerCpuRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input cpuRequest|resource\""
+                },
+                "managerCpuLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input cpuLimit|resource\""
+                },
+                "managerMemoryRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input memoryRequest|resource\""
+                },
+                "managerMemoryLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input memoryLimit|resource\""
+                },
+                "managerUser": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|length:4,64|regex:^[a-zA-Z][a-z0-9-_]+$#input user|input manager user|input user\" json:\"managerUser\""
+                },
+                "managerPass": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:IsOpenManager,true|passwordLow#input password|input valid password\" json:\"managerPass\""
+                },
+                "managerReplicas": {
+                  "type": "integer",
+                  "format": "int32",
+                  "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+                },
+                "managerServiceType": {
+                  "$ref": "#/definitions/commonServiceType",
+                  "title": "@inject_tag: v:\"serviceType#choose serviceType\""
+                },
+                "managerPorts": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/CreateKafkaReqPorts"
+                  }
+                },
+                "managerServiceAnnotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "@inject_tag: v:\"k8sValidation:annotations#input valid annotations\""
+                },
+                "zookeeperReplicas": {
+                  "type": "integer",
+                  "format": "int32",
+                  "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+                },
+                "zookeeperConf": {
+                  "type": "string"
+                },
+                "zookeeperCpuRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input cpuRequest|resource\""
+                },
+                "zookeeperCpuLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input cpuLimit|resource\""
+                },
+                "zookeeperMemoryRequest": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input memoryRequest|resource\""
+                },
+                "zookeeperMemoryLimit": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required|resource#input memoryLimit|resource\""
+                },
+                "zookeeperStorageClassName": {
+                  "type": "string"
+                },
+                "zookeeperStorageCapacity": {
+                  "type": "string"
+                },
+                "affinity": {
+                  "$ref": "#/definitions/commonAffinity",
+                  "title": "@inject_tag: v:\"k8sValidation:affinity#input valid affinity\""
+                },
+                "serviceMonitorInterval": {
+                  "type": "string",
+                  "title": "serviceMonitor 的抓取周期"
+                },
+                "zookeeperAffinity": {
+                  "$ref": "#/definitions/commonAffinity"
+                },
+                "isCreateKafkaSuperUser": {
+                  "type": "boolean",
+                  "title": "如果要设置超级用户，账户名密码沿用 manager_user 和 manager_pass"
+                },
+                "externalTrafficPolicy": {
+                  "$ref": "#/definitions/commonExternalTrafficPolicy",
+                  "title": "lb\n@inject_tag: v:\"checklb#checklb failed!\""
+                },
+                "lbTyp": {
+                  "$ref": "#/definitions/commonLBTyp"
+                },
+                "lbPoolName": {
+                  "type": "string"
+                },
+                "lbAddress": {
+                  "type": "string"
+                },
+                "managerExternalTrafficPolicy": {
+                  "$ref": "#/definitions/commonExternalTrafficPolicy",
+                  "title": "phpadmin lb"
+                },
+                "managerLbTyp": {
+                  "$ref": "#/definitions/commonLBTyp"
+                },
+                "managerLbPoolName": {
+                  "type": "string"
+                },
+                "managerLbAddress": {
+                  "type": "string"
+                },
+                "accessWhitelist": {
+                  "$ref": "#/definitions/commonAccessWhitelist"
+                },
+                "listeners": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Listener"
+                  }
+                },
+                "tolerations": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/commonToleration"
+                  }
+                },
+                "zookeeperTolerations": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/commonToleration"
+                  }
+                },
+                "staticIpAnnotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "这个字段的内容用来传到 pod 的 annotations 上面,例如可以在 pod 上打 annotation 来达到集群外访问的目的。"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/kafkas": {
+      "get": {
+        "operationId": "KafkaV1alpha2_GetKafkaList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetKafkaListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"min:1|get#choose workspace_id!|RBAC error\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "description": "common.PageInfoReq = 1;",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "description": "@inject_tag: v:\"listSearchKey#invalid search key\"",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KafkaV1alpha2"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/permissions": {
+      "get": {
+        "operationId": "Cluster_GetPermissionsList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetPermissionsListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/restart": {
+      "post": {
+        "operationId": "Cluster_RestartInstance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RestartInstanceResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cluster": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"update|required#RBAC error|choose clusterName!\""
+                },
+                "namespace": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "extra": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/storage-config": {
+      "post": {
+        "operationId": "StorageConfig_CreateStorageConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateStorageConfigResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"configUpdate|min:1#RBAC error|choose workspace_id!\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cluster": {
+                  "type": "string",
+                  "title": "Deprecated: always store to global cluster"
+                },
+                "namespace": {
+                  "type": "string",
+                  "title": "Deprecated: always store to mcamel system"
+                },
+                "name": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#input name!\""
+                },
+                "storageType": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"in:minio,minio-wild,s3#choose storage type!\""
+                },
+                "accessKey": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#input access key!\""
+                },
+                "secretKey": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#input secret key!\""
+                },
+                "bucket": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#input bucket!\""
+                },
+                "endpoint": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-unless:storageType,minio#input endpoint if storage type is not minio!\""
+                },
+                "minioCluster": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:storageType,minio#input minio cluster if storage type is minio!\""
+                },
+                "minioNamespace": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:storageType,minio#input minio namespace if storage type is minio!\""
+                },
+                "minioName": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:storageType,minio#input minio name if storage type is minio!\""
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "StorageConfig"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/storage-config/{cluster}/{namespace}/{name}": {
+      "delete": {
+        "operationId": "StorageConfig_DeleteStorageConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteStorageConfigResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"configDelete|min:1#RBAC error|choose workspace_id!\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#input cluster!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#input namespace!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "StorageConfig"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/storage-config/{name}": {
+      "get": {
+        "operationId": "StorageConfig_GetStorageConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetStorageConfigResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"min:1#choose workspace_id!\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#input namespace!\"",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#input cluster!\"",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "StorageConfig"
+        ]
+      },
+      "put": {
+        "operationId": "StorageConfig_UpdateStorageConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UpdateStorageConfigResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"configUpdate|min:1#RBAC error|choose workspace_id!\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cluster": {
+                  "type": "string",
+                  "title": "Deprecated: always store to global cluster"
+                },
+                "namespace": {
+                  "type": "string",
+                  "title": "Deprecated: always store to mcamel system"
+                },
+                "storageType": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"in:minio,minio-wild,s3#choose storage type!\""
+                },
+                "accessKey": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#input access key!\""
+                },
+                "secretKey": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#input secret key!\""
+                },
+                "bucket": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#input bucket!\""
+                },
+                "endpoint": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-unless:storageType,minio#input endpoint if storage type is not minio!\""
+                },
+                "minioCluster": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:storageType,minio#input minio cluster if storage type is minio!\""
+                },
+                "minioNamespace": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:storageType,minio#input minio namespace if storage type is minio!\""
+                },
+                "minioName": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required-if:storageType,minio#input minio name if storage type is minio!\""
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "StorageConfig"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/storage-config/{name}/consumers": {
+      "get": {
+        "operationId": "StorageConfig_GetStorageConfigConsumers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetStorageConfigConsumersResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"min:1#choose workspace_id!\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "StorageConfig"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/storage-configs": {
+      "get": {
+        "operationId": "StorageConfig_GetStorageConfigList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetStorageConfigListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"min:1|configGet#choose workspace_id!RBAC error\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "StorageConfig"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/template_config": {
+      "get": {
+        "operationId": "Template_GetTemplateConfigList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateGetTemplateConfigListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"min:1#choose workspace_id!\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "description": "@inject_tag: v:\"configGet#RBAC error\"",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "templateInstanceType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "TemplateInstanceTypeUnspecified",
+              "MysqlMasterReplica",
+              "RedisStandalone",
+              "RedisFailover",
+              "RedisCluster",
+              "KafkaConfig",
+              "MysqlMgrConfig",
+              "MongodbConfig",
+              "PostgresqlConfig",
+              "RabbitmqConfig"
+            ],
+            "default": "TemplateInstanceTypeUnspecified"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      },
+      "post": {
+        "operationId": "Template_CreateTemplateConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateCreateTemplateConfigResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"configUpdate#RBAC error\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "targetName": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#choose target_name!\""
+                },
+                "targetVersion": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#choose target_version!\""
+                },
+                "targetType": {
+                  "type": "string"
+                },
+                "targetTemplateType": {
+                  "type": "string",
+                  "title": "target_template_type 即 mcamel_type, rabbitmq/elasticsearch/mysql/redis/kafka/mongodb/minio/postgresql/rocketmq 里支持配置模版的那些类型"
+                },
+                "targetConf": {
+                  "type": "string"
+                },
+                "fromTemplateName": {
+                  "type": "string"
+                },
+                "targetTemplateInstanceType": {
+                  "$ref": "#/definitions/templateTemplateInstanceType",
+                  "title": "target_template_instance_type 是更精细的类型，如 RedisStandalone/RedisFailover/RedisCluster, mysql 分为 MysqlMasterReplica/MysqlMgrConfig"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      },
+      "put": {
+        "operationId": "Template_UpdateTemplateConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateUpdateTemplateConfigResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"configUpdate#RBAC error\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#choose name!\""
+                },
+                "version": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "templateType": {
+                  "type": "string"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/templateTemplateConfigItem"
+                  }
+                },
+                "conf": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/template_config/to_template": {
+      "put": {
+        "summary": "string -> 模版 items",
+        "operationId": "Template_UpdateTemplateConfigToItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateUpdateTemplateConfigToItemResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"configUpdate#RBAC error\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "conf": {
+                  "type": "string",
+                  "title": "@inject_tag: v:\"required#choose conf!\""
+                },
+                "version": {
+                  "type": "string"
+                },
+                "templateInstanceType": {
+                  "$ref": "#/definitions/templateTemplateInstanceType"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/template_config/versions": {
+      "get": {
+        "operationId": "Template_GetTemplateConfigVersions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateGetTemplateConfigVersionsResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/template_config/{name}": {
+      "get": {
+        "operationId": "Template_GetTemplateConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateGetTemplateConfigResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#choose name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "templateType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "createTimestamp",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "templateInstanceType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "TemplateInstanceTypeUnspecified",
+              "MysqlMasterReplica",
+              "RedisStandalone",
+              "RedisFailover",
+              "RedisCluster",
+              "KafkaConfig",
+              "MysqlMgrConfig",
+              "MongodbConfig",
+              "PostgresqlConfig",
+              "RabbitmqConfig"
+            ],
+            "default": "TemplateInstanceTypeUnspecified"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/template_config/{name}/to_string": {
+      "get": {
+        "summary": "模版 -> string",
+        "operationId": "Template_GetTemplateConfigString",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateGetTemplateConfigStringResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#choose name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/template_config/{name}/{version}": {
+      "delete": {
+        "operationId": "Template_DeleteTemplateConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateDeleteTemplateConfigResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"configDelete#RBAC error\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#choose name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "description": "@inject_tag: v:\"required#choose version!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/template_instance_type": {
+      "get": {
+        "operationId": "Template_GetTemplateInstanceTypeList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateGetTemplateInstanceTypeListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/{cluster}/namespaces": {
+      "get": {
+        "operationId": "Cluster_GetClusterNamespaceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetClusterNamespaceListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "description": "@inject_tag: v:\"required#请输入WSid\"",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#请输入Cluster\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/{cluster}/{namespace}/{name}/alerts": {
+      "get": {
+        "operationId": "Metric_GetAlertsList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetAlertsListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "description": "@inject_tag: v:\"required#input cluster!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "description": "@inject_tag: v:\"required#input namespace!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "@inject_tag: v:\"required#input name!\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Metric"
+        ]
+      }
+    },
+    "/apis/mcamel.io/kafka/v1alpha2/{workspaceId}/{cluster}/{namespace}/{name}/all-events": {
+      "get": {
+        "operationId": "Cluster_GetAllEventList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetAllEventListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cluster",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "default": "ASC"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "eventType",
+            "description": " - EVENT_TYPE_UNSPECIFIED: This is only a meaningless placeholder, to avoid zero not return.\n - Normal: Normal is a normal event type.\n - Warning: Warning is a warning event type.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "EVENT_TYPE_UNSPECIFIED",
+              "Normal",
+              "Warning"
+            ],
+            "default": "EVENT_TYPE_UNSPECIFIED"
+          },
+          {
+            "name": "kindName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cluster"
+        ]
+      }
+    },
+    "/healthz": {
+      "get": {
+        "operationId": "Version_Healthz",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/HealthzReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Version"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AccessWhitelistExternal": {
+      "type": "object",
+      "properties": {
+        "cidr": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        }
+      }
+    },
+    "AccessWhitelistInternal": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string"
+        },
+        "podSelector": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "AddKafkaToManagerResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "CloudShell": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/ObjectMeta"
+        },
+        "spec": {
+          "$ref": "#/definitions/CloudShellSpec"
+        },
+        "status": {
+          "$ref": "#/definitions/CloudShellStatus"
+        }
+      }
+    },
+    "CloudShellSpec": {
+      "type": "object",
+      "properties": {
+        "configMapName": {
+          "type": "string"
+        },
+        "once": {
+          "type": "boolean"
+        },
+        "commandAction": {
+          "type": "string"
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cleanup": {
+          "type": "boolean"
+        }
+      }
+    },
+    "CloudShellStatus": {
+      "type": "object",
+      "properties": {
+        "phase": {
+          "type": "string"
+        },
+        "accessUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "ClusterItem": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/ClusterItemMetadata"
+        },
+        "status": {
+          "$ref": "#/definitions/ClusterItemStatus"
+        }
+      }
+    },
+    "ClusterItemMetadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "ClusterItemNetworkMode": {
+      "type": "string",
+      "enum": [
+        "Unknown",
+        "Flannel",
+        "Calico"
+      ],
+      "default": "Unknown"
+    },
+    "ClusterItemStatus": {
+      "type": "object",
+      "properties": {
+        "networkMode": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClusterItemNetworkMode"
+          }
+        },
+        "setting": {
+          "$ref": "#/definitions/ClusterSetting"
+        },
+        "clusterStatus": {
+          "$ref": "#/definitions/commonClusterStatus"
+        }
+      }
+    },
+    "ClusterSetting": {
+      "type": "object",
+      "properties": {
+        "plugins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClusterSettingPlugin"
+          }
+        },
+        "network": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClusterSettingPlugin"
+          }
+        }
+      }
+    },
+    "ClusterSettingPlugin": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/PluginPluginName"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "The user has activated the application for this plugin."
+        },
+        "intelligentDetection": {
+          "type": "boolean",
+          "description": "IntelligentDetection indicate the plugin is whether intelligent."
+        },
+        "externalAddress": {
+          "type": "string",
+          "description": "ExternalAddress is a address which access the plugin from outside the cluster."
+        },
+        "setting": {
+          "type": "string",
+          "description": "The setting of the plugin. every plugin encode the setting to json string."
+        },
+        "healthy": {
+          "type": "boolean",
+          "description": "Healthy is to show a plugin state when installed."
+        }
+      }
+    },
+    "CommonReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "ConfigurationBootstrapService": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Enable",
+        "Disable"
+      ],
+      "default": "None",
+      "title": "只有在类型为 LoadBalancer 的时候才有效"
+    },
+    "ConfigurationBroker": {
+      "type": "object",
+      "properties": {
+        "advertisedHost": {
+          "type": "string"
+        },
+        "advertisedPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "只有在类型为 LoadBalancer/NodePort/Ingress 的时候才有效"
+        },
+        "broker": {
+          "type": "integer",
+          "format": "int32",
+          "title": "broker 的序号，从 0 到 kafka_replicas - 1"
+        },
+        "nodeport": {
+          "type": "integer",
+          "format": "int32",
+          "title": "只有在类型为 NodePort 的时候才有效"
+        }
+      }
+    },
+    "CreateCloudShellRequest": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/CreateCloudShellRequestType"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "podName": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "container": {
+          "type": "string"
+        },
+        "logCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/CloudShell"
+        }
+      }
+    },
+    "CreateCloudShellRequestType": {
+      "type": "string",
+      "enum": [
+        "TYPE_UNSPECIFIED",
+        "bash",
+        "exec",
+        "logs",
+        "upload",
+        "download"
+      ],
+      "default": "TYPE_UNSPECIFIED"
+    },
+    "CreateKafkaReq": {
+      "type": "object",
+      "properties": {
+        "workspaceId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cluster": {
+          "type": "string",
+          "title": "WHY check update? \nAdmin and Editor have 「update」verb, according to https://docs.daocloud.io/middleware/permission/, only Admin and Editor can create mcamel instance.\n@inject_tag: v:\"update|required#RBAC error|choose clusterName!\""
+        },
+        "namespace": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#choose Namespace\""
+        },
+        "name": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|regex:^[a-z][a-z0-9-]{0,38}[a-z0-9]$#input name!|input name!\""
+        },
+        "describe": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "kafkaReplicas": {
+          "type": "integer",
+          "format": "int32",
+          "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+        },
+        "storageClassName": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#choose sc\""
+        },
+        "storageCapacity": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#choose capacity|resource\""
+        },
+        "serviceType": {
+          "$ref": "#/definitions/commonServiceType",
+          "title": "@inject_tag: v:\"serviceType#choose serviceType\""
+        },
+        "serviceAnnotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "@inject_tag: v:\"k8sValidation:annotations#input valid annotations\""
+        },
+        "ports": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CreateKafkaReqPorts"
+          }
+        },
+        "cpuRequest": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#input cpuRequest|resource\""
+        },
+        "cpuLimit": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#input cpuLimit|resource\""
+        },
+        "kafkaConf": {
+          "type": "string"
+        },
+        "confTemplateName": {
+          "type": "string"
+        },
+        "memoryRequest": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#input memoryRequest|resource\""
+        },
+        "memoryLimit": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#input memoryLimit|resource\""
+        },
+        "isOpenManager": {
+          "type": "boolean"
+        },
+        "managerCpuRequest": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input cpuRequest|resource\""
+        },
+        "managerCpuLimit": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input cpuLimit|resource\""
+        },
+        "managerMemoryRequest": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input memoryRequest|resource\""
+        },
+        "managerMemoryLimit": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:IsOpenManager,true|resource#input memoryLimit|resource\""
+        },
+        "managerUser": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:IsOpenManager,true|length:4,64|regex:^[a-zA-Z][a-z0-9-_]+$#input user|input manager user|input user\" json:\"managerUser\""
+        },
+        "managerPass": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:IsOpenManager,true|passwordLow#input password|input valid password\" json:\"managerPass\""
+        },
+        "managerReplicas": {
+          "type": "integer",
+          "format": "int32",
+          "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+        },
+        "managerServiceType": {
+          "$ref": "#/definitions/commonServiceType",
+          "title": "@inject_tag: v:\"serviceType#choose serviceType\""
+        },
+        "managerPorts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CreateKafkaReqPorts"
+          }
+        },
+        "managerServiceAnnotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "@inject_tag: v:\"k8sValidation:annotations#input valid annotations\""
+        },
+        "zookeeperReplicas": {
+          "type": "integer",
+          "format": "int32",
+          "title": "@inject_tag: v:\"required|min:1#choose replicas|choose replicas\""
+        },
+        "zookeeperConf": {
+          "type": "string"
+        },
+        "zookeeperCpuRequest": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#input cpuRequest|resource\""
+        },
+        "zookeeperCpuLimit": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#input cpuLimit|resource\""
+        },
+        "zookeeperMemoryRequest": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#input memoryRequest|resource\""
+        },
+        "zookeeperMemoryLimit": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|resource#input memoryLimit|resource\""
+        },
+        "zookeeperStorageClassName": {
+          "type": "string"
+        },
+        "zookeeperStorageCapacity": {
+          "type": "string"
+        },
+        "affinity": {
+          "$ref": "#/definitions/commonAffinity",
+          "title": "@inject_tag: v:\"k8sValidation:affinity#input valid affinity\""
+        },
+        "serviceMonitorInterval": {
+          "type": "string",
+          "title": "serviceMonitor 的抓取周期"
+        },
+        "zookeeperAffinity": {
+          "$ref": "#/definitions/commonAffinity"
+        },
+        "isCreateKafkaSuperUser": {
+          "type": "boolean",
+          "title": "如果要设置超级用户，账户名密码沿用 manager_user 和 manager_pass"
+        },
+        "externalTrafficPolicy": {
+          "$ref": "#/definitions/commonExternalTrafficPolicy",
+          "title": "lb\n@inject_tag: v:\"checklb#checklb failed!\""
+        },
+        "lbTyp": {
+          "$ref": "#/definitions/commonLBTyp"
+        },
+        "lbPoolName": {
+          "type": "string"
+        },
+        "lbAddress": {
+          "type": "string"
+        },
+        "managerExternalTrafficPolicy": {
+          "$ref": "#/definitions/commonExternalTrafficPolicy",
+          "title": "phpadmin lb"
+        },
+        "managerLbTyp": {
+          "$ref": "#/definitions/commonLBTyp"
+        },
+        "managerLbPoolName": {
+          "type": "string"
+        },
+        "managerLbAddress": {
+          "type": "string"
+        },
+        "accessWhitelist": {
+          "$ref": "#/definitions/commonAccessWhitelist"
+        },
+        "listeners": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Listener"
+          }
+        },
+        "tolerations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonToleration"
+          }
+        },
+        "zookeeperTolerations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonToleration"
+          }
+        },
+        "staticIpAnnotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "这个字段的内容用来传到 pod 的 annotations 上面,例如可以在 pod 上打 annotation 来达到集群外访问的目的。"
+        }
+      }
+    },
+    "CreateKafkaReqPorts": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input name\""
+        },
+        "protocol": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|in:TCP,UDP#choose protocol|choose protocol\""
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "targetPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nodePort": {
+          "type": "integer",
+          "format": "int32",
+          "title": "@inject_tag: v:\"required-if:ServiceType,NodePort|between:30000,32767#input nodePort port|input nodePort port\""
+        }
+      }
+    },
+    "CreateKafkaResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateStorageConfigBucketCheckJobReq": {
+      "type": "object",
+      "properties": {
+        "storageType": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required|in:minio,minio-wild,s3:#choose storage type!|choose valid storage type!\""
+        },
+        "endpoint": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input endpoint!\""
+        },
+        "accessKey": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input access key!\""
+        },
+        "secretKey": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input secret key!\""
+        },
+        "bucket": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input bucket name!\""
+        },
+        "cluster": {
+          "type": "string",
+          "title": "minio cluster\n@inject_tag: v:\"required-if:storageType,minio#input minio cluster if storage type is minio!\""
+        },
+        "namespace": {
+          "type": "string",
+          "title": "minio namespace\n@inject_tag: v:\"required-if:storageType,minio#input minio namespace if storage type is minio!\""
+        },
+        "name": {
+          "type": "string",
+          "title": "minio name\n@inject_tag: v:\"required-if:storageType,minio#input minio name if storage type is minio!\""
+        }
+      }
+    },
+    "CreateStorageConfigBucketCheckJobResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateStorageConfigReq": {
+      "type": "object",
+      "properties": {
+        "workspaceId": {
+          "type": "integer",
+          "format": "int32",
+          "title": "@inject_tag: v:\"configUpdate|min:1#RBAC error|choose workspace_id!\""
+        },
+        "cluster": {
+          "type": "string",
+          "title": "Deprecated: always store to global cluster"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "Deprecated: always store to mcamel system"
+        },
+        "name": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input name!\""
+        },
+        "storageType": {
+          "type": "string",
+          "title": "@inject_tag: v:\"in:minio,minio-wild,s3#choose storage type!\""
+        },
+        "accessKey": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input access key!\""
+        },
+        "secretKey": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input secret key!\""
+        },
+        "bucket": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input bucket!\""
+        },
+        "endpoint": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-unless:storageType,minio#input endpoint if storage type is not minio!\""
+        },
+        "minioCluster": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:storageType,minio#input minio cluster if storage type is minio!\""
+        },
+        "minioNamespace": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:storageType,minio#input minio namespace if storage type is minio!\""
+        },
+        "minioName": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required-if:storageType,minio#input minio name if storage type is minio!\""
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateStorageConfigResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "DataStorageClassValue": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "allowVolumeExpansion": {
+          "type": "boolean"
+        }
+      }
+    },
+    "DeleteKafkaReq": {
+      "type": "object",
+      "properties": {
+        "workspaceId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cluster": {
+          "type": "string",
+          "title": "@inject_tag: v:\"delete|required#RBAC error|unkonwn clusterName!\""
+        },
+        "namespace": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#unkonwn namespace!\""
+        },
+        "name": {
+          "type": "string",
+          "title": "@inject_tag: v:\"regex:^[a-z][a-z0-9-]{0,38}[a-z0-9]$#unknown name!\""
+        }
+      }
+    },
+    "DeleteKafkaResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "DeleteKafkasReq": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DeleteKafkaReq"
+          }
+        }
+      }
+    },
+    "DeleteKafkasResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "DeleteStorageConfigResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "EventSource": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "type": "string",
+          "title": "Component from which the event is generated.\n+optional"
+        },
+        "host": {
+          "type": "string",
+          "title": "Node name on which the event is generated.\n+optional"
+        }
+      },
+      "description": "EventSource contains information for an event."
+    },
+    "EventType": {
+      "type": "string",
+      "enum": [
+        "EVENT_TYPE_UNSPECIFIED",
+        "Normal",
+        "Warning"
+      ],
+      "default": "EVENT_TYPE_UNSPECIFIED",
+      "description": "Type of event (Normal, Warning), new types could be added in the\nfuture.\n\n - EVENT_TYPE_UNSPECIFIED: This is only a meaningless placeholder, to avoid zero not return.\n - Normal: Normal is a normal event type.\n - Warning: Warning is a warning event type."
+    },
+    "GetAlertsListReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "GetAlertsListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1AlertSummary"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetAllEventKindsListResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetAllEventListReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "GetAllEventListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetAllEventListRespItems"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetAllEventListRespItems": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/definitions/ItemsSource"
+        },
+        "message": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/GetAllEventListRespItemsMetadata"
+        },
+        "apiVersion": {
+          "type": "string"
+        },
+        "lastTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firstTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "involvedObject": {
+          "$ref": "#/definitions/ItemsInvolvedObject"
+        },
+        "reportingInstance": {
+          "type": "string"
+        },
+        "reportingComponent": {
+          "type": "string"
+        }
+      }
+    },
+    "GetAllEventListRespItemsMetadata": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "resourceVersion": {
+          "type": "string"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetClusterHostnetworkPortsResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "GetClusterListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "clusters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClusterItem"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetClusterNamespaceListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disableItems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetClusterNodeLabelListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetClusterNodeLabelListRespLabel"
+          }
+        },
+        "items1": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetClusterNodeLabelListRespNode2Label"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetClusterNodeLabelListRespLabel": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetClusterNodeLabelListRespNode2Label": {
+      "type": "object",
+      "properties": {
+        "nodeName": {
+          "type": "string"
+        },
+        "label": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetClusterNodeLabelListRespLabel"
+          }
+        }
+      }
+    },
+    "GetClusterNodeListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetClusterNodeListRespNode"
+          }
+        }
+      }
+    },
+    "GetClusterNodeListRespNode": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "GetClusterNodePortListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetClusterNodeTaintListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetClusterNodeTaintListRespTaint"
+          }
+        }
+      }
+    },
+    "GetClusterNodeTaintListRespTaint": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "effect": {
+          "$ref": "#/definitions/TaintEffect"
+        },
+        "nodeName": {
+          "type": "string"
+        }
+      }
+    },
+    "GetClusterPodLabelListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetClusterPodLabelListRespLabel"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetClusterPodLabelListRespLabel": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetClusterResp": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "$ref": "#/definitions/ClusterItem"
+        }
+      }
+    },
+    "GetEventListReqKind": {
+      "type": "string",
+      "enum": [
+        "KIND_UNSPECIFIED",
+        "Pod"
+      ],
+      "default": "KIND_UNSPECIFIED",
+      "description": " - KIND_UNSPECIFIED: KIND_UNSPECIFIED is only a meaningless placeholder, to avoid zero not\nreturn."
+    },
+    "GetEventListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetEventListRespItem"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetEventListRespItem": {
+      "type": "object",
+      "properties": {
+        "involvedObject": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The object that this event is about."
+        },
+        "reason": {
+          "type": "string",
+          "description": "reason is why the action was taken. It is human-readable.\nThis field cannot be empty for new Events and it can have at most 128\ncharacters."
+        },
+        "message": {
+          "type": "string",
+          "description": "A human-readable description of the status of this operation."
+        },
+        "source": {
+          "$ref": "#/definitions/EventSource",
+          "description": "The component reporting this event. Should be a short machine\nunderstandable string."
+        },
+        "lastTimestamp": {
+          "type": "string",
+          "format": "int64",
+          "description": "The time at which the most recent occurrence of this event was recorded."
+        },
+        "type": {
+          "$ref": "#/definitions/EventType",
+          "description": "Type of this event (Normal, Warning), new types could be added in the\nfuture."
+        }
+      }
+    },
+    "GetInsightAgentStatusResp": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/GetInsightAgentStatusRespInsightAgentStatus"
+        },
+        "clusterStatus": {
+          "$ref": "#/definitions/commonClusterStatus"
+        }
+      }
+    },
+    "GetInsightAgentStatusRespInsightAgentStatus": {
+      "type": "string",
+      "enum": [
+        "NotInstall",
+        "Install"
+      ],
+      "default": "NotInstall"
+    },
+    "GetInstallVersionResp": {
+      "type": "object",
+      "properties": {
+        "clusterVersion": {
+          "type": "string",
+          "title": "Example: v1.27.0"
+        },
+        "supportVersion": {
+          "$ref": "#/definitions/GetInstallVersionRespSupportVersion"
+        },
+        "status": {
+          "$ref": "#/definitions/GetInstallVersionRespStatus"
+        }
+      }
+    },
+    "GetInstallVersionRespStatus": {
+      "type": "object",
+      "properties": {
+        "inRange": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GetInstallVersionRespSupportVersion": {
+      "type": "object",
+      "properties": {
+        "minVersion": {
+          "type": "string"
+        },
+        "maxVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "GetKafkaConfReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "GetKafkaConfResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetKafkaConfRespItems"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        },
+        "conf": {
+          "$ref": "#/definitions/UpdateKafkaConfReq"
+        }
+      }
+    },
+    "GetKafkaConfRespItems": {
+      "type": "object",
+      "properties": {
+        "paramType": {
+          "$ref": "#/definitions/ItemsParamType"
+        },
+        "paramName": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetKafkaGrafanaAddrResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "GetKafkaListReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "GetKafkaListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KafkaClusterItem"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetKafkaNodeListReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "GetKafkaNodeListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetKafkaNodeListRespData"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetKafkaNodeListRespData": {
+      "type": "object",
+      "properties": {
+        "podName": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/GetKafkaNodeListRespPodStatus"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "restart": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cpuUsage": {
+          "type": "number",
+          "format": "double"
+        },
+        "cpuLimit": {
+          "type": "number",
+          "format": "double"
+        },
+        "memoryUsage": {
+          "type": "number",
+          "format": "double"
+        },
+        "memoryLimit": {
+          "type": "number",
+          "format": "double"
+        },
+        "createTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nodeType": {
+          "$ref": "#/definitions/GetKafkaNodeListRespNodeType"
+        },
+        "common": {
+          "$ref": "#/definitions/commonPodCommon"
+        }
+      }
+    },
+    "GetKafkaNodeListRespNodeType": {
+      "type": "string",
+      "enum": [
+        "Kafka",
+        "Zookeeper",
+        "Manager",
+        "Exporter",
+        "Controller",
+        "Broker"
+      ],
+      "default": "Kafka"
+    },
+    "GetKafkaNodeListRespPodStatus": {
+      "type": "string",
+      "enum": [
+        "PHASE_UNSPECIFIED",
+        "Unknown",
+        "Pending",
+        "Running",
+        "Succeeded",
+        "Failed"
+      ],
+      "default": "PHASE_UNSPECIFIED",
+      "description": " - PHASE_UNSPECIFIED: This is only a meaningless placeholder, to avoid zero not return.\n - Unknown: PodUnknown means that for some reason the state of the pod could not be\nobtained, typically due to an error in communicating with the host of the\npod.\n - Pending: PodPending means the pod has been accepted by the system, but one or more\nof the containers has not been started. This includes time before being\nbound to a node, as well as time spent pulling images onto the host.\n - Running: PodRunning means the pod has been bound to a node and all of the\ncontainers have been started. At least one container is still running or\nis in the process of being restarted. PodSucceeded means that all\ncontainers in the pod have voluntarily terminated with a container exit\ncode of 0, and the system is not going to restart any of these\ncontainers.\n - Succeeded: PodFailed means that all containers in the pod have terminated, and at\nleast one container has terminated in a failure (exited with a non-zero\nexit code or was stopped by the system).\n - Failed: PodFailed means that all containers in the pod have terminated, and at\nleast one container has terminated in a failure (exited with a non-zero\nexit code or was stopped by the system)."
+    },
+    "GetKafkaOperatorVersionListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetKafkaOperatorVersionListRespGetKafkaOperatorVersionListData"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetKafkaOperatorVersionListRespGetKafkaOperatorVersionListData": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "GetKafkaParamResp": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "$ref": "#/definitions/GetKafkaParamRespSelect"
+        },
+        "replicas": {
+          "$ref": "#/definitions/GetKafkaParamRespSelect"
+        },
+        "storage": {
+          "$ref": "#/definitions/GetKafkaParamRespSelect"
+        },
+        "kafkaConf": {
+          "$ref": "#/definitions/GetKafkaParamRespSelect"
+        },
+        "zookeeperConf": {
+          "$ref": "#/definitions/GetKafkaParamRespSelect"
+        }
+      }
+    },
+    "GetKafkaParamRespSelect": {
+      "type": "object",
+      "properties": {
+        "selectType": {
+          "$ref": "#/definitions/GetKafkaParamRespSelectSelectType"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetKafkaParamRespSelectData"
+          }
+        }
+      }
+    },
+    "GetKafkaParamRespSelectData": {
+      "type": "object",
+      "properties": {
+        "sValue": {
+          "$ref": "#/definitions/GetKafkaParamRespSelectDataStringValue"
+        },
+        "iValue": {
+          "$ref": "#/definitions/GetKafkaParamRespSelectDataIntValue"
+        },
+        "scValue": {
+          "$ref": "#/definitions/DataStorageClassValue"
+        }
+      }
+    },
+    "GetKafkaParamRespSelectDataIntValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "GetKafkaParamRespSelectDataStringValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetKafkaParamRespSelectSelectType": {
+      "type": "string",
+      "enum": [
+        "Single",
+        "Multiple"
+      ],
+      "default": "Single"
+    },
+    "GetKafkaResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/KafkaClusterItem"
+        }
+      }
+    },
+    "GetKafkaUsersResp": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetKafkaUsersRespUserItem"
+          }
+        }
+      }
+    },
+    "GetKafkaUsersRespUserItem": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "GetMetallbIPAddressPoolsListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetMetallbIPAddressPoolsListRespItem"
+          }
+        },
+        "isSupportLb": {
+          "type": "boolean"
+        },
+        "externalTrafficPolicy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonExternalTrafficPolicy"
+          },
+          "title": "lb"
+        },
+        "lbTyp": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonLBTyp"
+          }
+        }
+      }
+    },
+    "GetMetallbIPAddressPoolsListRespItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "autoAssign": {
+          "type": "boolean",
+          "description": "AutoAssign flag used to prevent MetallB from automatic allocation\nfor a pool."
+        },
+        "avoidBuggyIPs": {
+          "type": "boolean",
+          "description": "AvoidBuggyIPs prevents addresses ending with .0 and .255\nto be used by a pool."
+        }
+      }
+    },
+    "GetPermissionsListResp": {
+      "type": "object",
+      "properties": {
+        "permissionsBool": {
+          "$ref": "#/definitions/GetPermissionsListRespPermissions"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionsType"
+          }
+        }
+      }
+    },
+    "GetPermissionsListRespPermissions": {
+      "type": "object",
+      "properties": {
+        "GetInstance": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"get\""
+        },
+        "CreateInstance": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"update\""
+        },
+        "UpdateInstance": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"update\""
+        },
+        "DeleteInstance": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"delete\""
+        },
+        "GetMetric": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"get\""
+        },
+        "GetInstanceLog": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"get\""
+        },
+        "GetConfig": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"get\""
+        },
+        "UpdateConfig": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"update\""
+        },
+        "GetBackup": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"get\""
+        },
+        "CreateBackup": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"update\""
+        },
+        "UpdateBackup": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"update\""
+        },
+        "DeleteBackup": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"delete\""
+        },
+        "GetBackupConf": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configGet\""
+        },
+        "CreateBackupConf": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configUpdate\""
+        },
+        "UpdateBackupConf": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configUpdate\""
+        },
+        "DeleteBackupConf": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configDelete\""
+        },
+        "GetTemplate": {
+          "type": "boolean",
+          "title": "模板权限\n@inject_tag: ref:\"configGet\""
+        },
+        "CreateTemplate": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configUpdate\""
+        },
+        "UpdateTemplate": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configUpdate\""
+        },
+        "DeleteTemplate": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configDelete\""
+        },
+        "GetUserPassword": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"update\""
+        },
+        "ExportTemplate": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configUpdate\""
+        },
+        "ImportTemplate": {
+          "type": "boolean",
+          "title": "@inject_tag: ref:\"configUpdate\""
+        }
+      }
+    },
+    "GetResourceQuotaResp": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/GetResourceQuotaRespMetadata",
+          "description": "Standard object's metadata."
+        },
+        "spec": {
+          "$ref": "#/definitions/GetResourceQuotaRespSpec",
+          "description": "Spec defines the desired quota."
+        },
+        "status": {
+          "$ref": "#/definitions/GetResourceQuotaRespStatus",
+          "description": "Status defines the actual enforced quota and its current usage."
+        }
+      }
+    },
+    "GetResourceQuotaRespMetadata": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "resourceVersion": {
+          "type": "string"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetResourceQuotaRespSpec": {
+      "type": "object",
+      "properties": {
+        "hard": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Hard is the set of desired hard limits for each named resource."
+        }
+      },
+      "description": "Spec defines the desired hard limits to enforce for Quota."
+    },
+    "GetResourceQuotaRespStatus": {
+      "type": "object",
+      "properties": {
+        "hard": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Hard is the set of enforced hard limits for each named resource."
+        },
+        "used": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Used is used for each named resource."
+        },
+        "available": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Available is the amount of the quota that remains available."
+        }
+      },
+      "description": "Status defines the enforced hard limits and observed use."
+    },
+    "GetStorageConfigConsumersResp": {
+      "type": "object",
+      "properties": {
+        "consumers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetStorageConfigConsumersRespConsumer"
+          }
+        }
+      }
+    },
+    "GetStorageConfigConsumersRespConsumer": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/GetStorageConfigConsumersRespStorageConfigConsumerType"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "GetStorageConfigConsumersRespStorageConfigConsumerType": {
+      "type": "string",
+      "enum": [
+        "STORAGE_CONFIG_CONSUMER_TYPE_UNSPECIFIED",
+        "STORAGE_CONFIG_CONSUMER_TYPE_MYSQL",
+        "STORAGE_CONFIG_CONSUMER_TYPE_REDIS"
+      ],
+      "default": "STORAGE_CONFIG_CONSUMER_TYPE_UNSPECIFIED"
+    },
+    "GetStorageConfigListReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "GetStorageConfigListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StorageConfigItem"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "GetStorageConfigParamResp": {
+      "type": "object",
+      "properties": {
+        "storageType": {
+          "$ref": "#/definitions/GetStorageConfigParamRespSelect"
+        }
+      }
+    },
+    "GetStorageConfigParamRespSelect": {
+      "type": "object",
+      "properties": {
+        "selectType": {
+          "$ref": "#/definitions/GetStorageConfigParamRespSelectSelectType"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetStorageConfigParamRespSelectData"
+          }
+        }
+      }
+    },
+    "GetStorageConfigParamRespSelectData": {
+      "type": "object",
+      "properties": {
+        "sValue": {
+          "$ref": "#/definitions/GetStorageConfigParamRespSelectDataStringValue"
+        },
+        "iValue": {
+          "$ref": "#/definitions/GetStorageConfigParamRespSelectDataIntValue"
+        }
+      }
+    },
+    "GetStorageConfigParamRespSelectDataIntValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "GetStorageConfigParamRespSelectDataStringValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetStorageConfigParamRespSelectSelectType": {
+      "type": "string",
+      "enum": [
+        "Single",
+        "Multiple"
+      ],
+      "default": "Single"
+    },
+    "GetStorageConfigResp": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "$ref": "#/definitions/StorageConfigItem"
+        }
+      }
+    },
+    "GetVersionReply": {
+      "type": "object",
+      "properties": {
+        "commonReply": {
+          "$ref": "#/definitions/CommonReply"
+        },
+        "gitCommit": {
+          "type": "string"
+        },
+        "gitVersion": {
+          "type": "string"
+        },
+        "buildTime": {
+          "type": "string"
+        }
+      }
+    },
+    "GetWorkspaceListReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "GetWorkspaceListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetWorkspaceListRespItem"
+          },
+          "title": "def items"
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination",
+          "title": "def pagination"
+        }
+      }
+    },
+    "GetWorkspaceListRespItem": {
+      "type": "object",
+      "properties": {
+        "workspaceId": {
+          "type": "integer",
+          "format": "int64",
+          "title": "id"
+        },
+        "alias": {
+          "type": "string",
+          "title": "alias"
+        },
+        "visible": {
+          "type": "boolean",
+          "title": "Visible"
+        }
+      }
+    },
+    "HealthzReply": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "InstallFileReqGVR": {
+      "type": "string",
+      "enum": [
+        "None",
+        "CustomResourceDefinition"
+      ],
+      "default": "None"
+    },
+    "InstallFileResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "ItemsInvolvedObject": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "apiVersion": {
+          "type": "string"
+        },
+        "resourceVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "ItemsParamType": {
+      "type": "string",
+      "enum": [
+        "kafka_conf",
+        "zookeeper_conf"
+      ],
+      "default": "kafka_conf"
+    },
+    "ItemsSource": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "type": "string"
+        }
+      }
+    },
+    "KafkaClusterItem": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/KafkaClusterItemMetadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/CreateKafkaReq"
+        },
+        "status": {
+          "$ref": "#/definitions/KafkaClusterItemStatus"
+        }
+      },
+      "title": "generate by https://json2pb.vercel.app"
+    },
+    "KafkaClusterItemMetadata": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        }
+      }
+    },
+    "KafkaClusterItemStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "webManagerAddr": {
+          "type": "string"
+        },
+        "clusterIPs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "serviceAddr": {
+          "type": "string"
+        },
+        "kafkaPodsAreReadyNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "zookeeperPodsAreReadyNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "common": {
+          "$ref": "#/definitions/commonCommonItemStatus"
+        }
+      }
+    },
+    "Listener": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "$ref": "#/definitions/ListenerConfiguration"
+        },
+        "type": {
+          "$ref": "#/definitions/ListenerType"
+        },
+        "tls": {
+          "type": "boolean"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32",
+          "title": "9092 和 9093 是 mcamel 内置的\n9404 是 prometheus 的默认端口\n9999 是 jmx 的默认端口\n@inject_tag: v:\"not-in:9092,9093,9404,9999#reserved listener port!\""
+        },
+        "name": {
+          "type": "string",
+          "title": "名字不能为 plain 或 tls，他们是内置的, ^[a-z0-9]{1,11}$\n@inject_tag: v:\"not-in:plain,tls|regex:^[a-z0-9]{1,11}$#reserved listener name!|input valid name!\""
+        }
+      }
+    },
+    "ListenerConfiguration": {
+      "type": "object",
+      "properties": {
+        "brokers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConfigurationBroker"
+          },
+          "title": "数量不能超过 kafka_replicas"
+        },
+        "bootstrapService": {
+          "$ref": "#/definitions/ConfigurationBootstrapService"
+        }
+      }
+    },
+    "ListenerType": {
+      "type": "string",
+      "enum": [
+        "ClusterIP",
+        "Internal",
+        "NodePort",
+        "LoadBalancer",
+        "Ingress"
+      ],
+      "default": "ClusterIP",
+      "title": "- ClusterIP: 与 Internal 一样，都是集群内访问，但是会为每个 broker 创建第一个 service\n - Internal: 与 ClusterIP 一样，都是集群内访问，只创建一个 headless service\n - NodePort: uses Kubernetes Nginx Ingress to expose Kafka with TLS"
+    },
+    "ObjectMeta": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "resourceVersion": {
+          "type": "string"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "deletionTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "ownerReferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonOwnerReference"
+          }
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "workspaceAlias": {
+          "type": "string"
+        }
+      }
+    },
+    "ObjectReference": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "title": "Kind of the referent.\nMore info:\nhttps://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\n+optional"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the referent.\nMore info:\nhttps://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+        }
+      },
+      "description": "ObjectReference contains enough information to let you inspect or modify the\nreferred object."
+    },
+    "PermissionsType": {
+      "type": "string",
+      "enum": [
+        "None",
+        "GetInstance",
+        "CreateInstance",
+        "UpdateInstance",
+        "DeleteInstance",
+        "GetMetric",
+        "GetInstanceLog",
+        "GetConfig",
+        "UpdateConfig",
+        "GetBackup",
+        "CreateBackup",
+        "UpdateBackup",
+        "DeleteBackup",
+        "GetBackupConf",
+        "CreateBackupConf",
+        "UpdateBackupConf",
+        "DeleteBackupConf",
+        "GetTemplate",
+        "CreateTemplate",
+        "UpdateTemplate",
+        "DeleteTemplate",
+        "GetUserPassword",
+        "ExportTemplate",
+        "ImportTemplate"
+      ],
+      "default": "None",
+      "title": "这个顺序和 GetPermissionsListResp.Permissions 一样，可以复制过来, 只保留顺序。不能打乱顺序,第一个永远是 None"
+    },
+    "PluginPluginName": {
+      "type": "string",
+      "enum": [
+        "PLUGIN_NAME_UNSPECIFIED",
+        "HPA",
+        "Insight",
+        "GPU",
+        "METALLB",
+        "Spiderpool",
+        "CustomMetrics",
+        "CronHPA",
+        "VPA",
+        "Hwameistor",
+        "Flannel",
+        "KubeOvn",
+        "OLM",
+        "EgressGateway",
+        "Snapshot",
+        "DRA"
+      ],
+      "default": "PLUGIN_NAME_UNSPECIFIED",
+      "title": "- PLUGIN_NAME_UNSPECIFIED: Enum unspecified.\n - HPA: The plugin name is HPA.\n - Insight: The plugin name is Insight.\n - GPU: The plugin name is GPU.\n - METALLB: The plugin name is METALLAB.\n - Spiderpool: The plugin name is Spiderpool.\n - CustomMetrics: The plugin name is CustomMetrics.\n - CronHPA: The plugin name is CronHPA.\n - VPA: The plugin name is VPA.\n - Hwameistor: The plugin name is Hwameistor\n - Flannel: The plugin name is Flannel\n - KubeOvn: The plugin name is Kube-ovn\n - OLM: The plugin name is olm\n - EgressGateway: The plugin name is egressgateway\n - Snapshot: The plugin name is snapshot controller\n - DRA: The plugin name is DRA(dynamic resources allcated)"
+    },
+    "PodCommonCondition": {
+      "type": "object",
+      "properties": {
+        "lastTransitionTime": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/PodCommonConditionStatus"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "PodCommonConditionStatus": {
+      "type": "string",
+      "enum": [
+        "PodConditionStatusUnknown",
+        "PodConditionStatusTrue",
+        "PodConditionStatusFalse"
+      ],
+      "default": "PodConditionStatusUnknown"
+    },
+    "PodCommonPodPhase": {
+      "type": "string",
+      "enum": [
+        "PHASE_UNSPECIFIED",
+        "Unknown",
+        "Pending",
+        "Running",
+        "Succeeded",
+        "Failed"
+      ],
+      "default": "PHASE_UNSPECIFIED",
+      "description": " - PHASE_UNSPECIFIED: This is only a meaningless placeholder, to avoid zero not return.\n - Unknown: PodUnknown means that for some reason the state of the pod could not be\nobtained, typically due to an error in communicating with the host of the\npod.\n - Pending: PodPending means the pod has been accepted by the system, but one or more\nof the containers has not been started. This includes time before being\nbound to a node, as well as time spent pulling images onto the host.\n - Running: PodRunning means the pod has been bound to a node and all of the\ncontainers have been started. At least one container is still running or\nis in the process of being restarted. PodSucceeded means that all\ncontainers in the pod have voluntarily terminated with a container exit\ncode of 0, and the system is not going to restart any of these\ncontainers.\n - Succeeded: PodFailed means that all containers in the pod have terminated, and at\nleast one container has terminated in a failure (exited with a non-zero\nexit code or was stopped by the system).\n - Failed: PodFailed means that all containers in the pod have terminated, and at\nleast one container has terminated in a failure (exited with a non-zero\nexit code or was stopped by the system)."
+    },
+    "RestartInstanceResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "Failed",
+        "Running",
+        "Creating",
+        "Unknown"
+      ],
+      "default": "Failed"
+    },
+    "StorageConfigItem": {
+      "type": "object",
+      "properties": {
+        "spec": {
+          "$ref": "#/definitions/CreateStorageConfigReq"
+        },
+        "status": {
+          "$ref": "#/definitions/StorageConfigItemStorageConfigStatus"
+        }
+      }
+    },
+    "StorageConfigItemStorageConfigStatus": {
+      "type": "object",
+      "properties": {
+        "lastUpdateTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTimestamp": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "TaintEffect": {
+      "type": "string",
+      "enum": [
+        "NoSchedule",
+        "PreferNoSchedule",
+        "NoExecute"
+      ],
+      "default": "NoSchedule"
+    },
+    "TemplateConfigItemValueType": {
+      "type": "string",
+      "enum": [
+        "String",
+        "SingleSelection",
+        "MultiString"
+      ],
+      "default": "String"
+    },
+    "UpdateKafkaConfReq": {
+      "type": "object",
+      "properties": {
+        "workspaceId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cluster": {
+          "type": "string",
+          "title": "@inject_tag: v:\"update|required#RBAC error|choose clusterName!\""
+        },
+        "namespace": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#choose Namespace\""
+        },
+        "name": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#input name!\""
+        },
+        "kafkaConf": {
+          "type": "string"
+        },
+        "zookeeperConf": {
+          "type": "string"
+        },
+        "confItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/templateTemplateConfigItem"
+          }
+        },
+        "reloadFromConfTemplateName": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateKafkaConfResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateKafkaParamsResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateStorageConfigResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "commonAccessWhitelist": {
+      "type": "object",
+      "properties": {
+        "internals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccessWhitelistInternal"
+          }
+        },
+        "externals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccessWhitelistExternal"
+          }
+        }
+      }
+    },
+    "commonAffinity": {
+      "type": "object",
+      "properties": {
+        "nodeAffinity": {
+          "$ref": "#/definitions/commonNodeAffinity"
+        },
+        "podAffinity": {
+          "$ref": "#/definitions/commonPodAffinity"
+        },
+        "podAntiAffinity": {
+          "$ref": "#/definitions/commonPodAntiAffinity"
+        }
+      }
+    },
+    "commonClusterStatus": {
+      "type": "string",
+      "enum": [
+        "UNSPECIFIED",
+        "Unknown",
+        "Creating",
+        "Running",
+        "Updating",
+        "Deleting",
+        "Failed"
+      ],
+      "default": "UNSPECIFIED"
+    },
+    "commonCommonItemStatus": {
+      "type": "object",
+      "properties": {
+        "serviceAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "webManagerAddress": {
+          "type": "string"
+        },
+        "webLogAddress": {
+          "type": "string"
+        },
+        "avgPvAllocatedInGb": {
+          "type": "number",
+          "format": "double"
+        },
+        "avgPvUsedInGb": {
+          "type": "number",
+          "format": "double"
+        },
+        "cpuUtilization": {
+          "type": "number",
+          "format": "double"
+        },
+        "memoryUtilization": {
+          "type": "number",
+          "format": "double"
+        },
+        "clusterStatus": {
+          "$ref": "#/definitions/commonClusterStatus"
+        }
+      },
+      "description": "CommonItemStatus define CR(MysqlCluster/Tenant...) common status."
+    },
+    "commonContainerState": {
+      "type": "object",
+      "properties": {
+        "waiting": {
+          "$ref": "#/definitions/commonContainerStateWaiting",
+          "description": "ContainerStateWaiting is a waiting state of a container."
+        },
+        "running": {
+          "$ref": "#/definitions/commonContainerStateRunning",
+          "description": "ContainerStateRunning indicates a currently running container."
+        },
+        "terminated": {
+          "$ref": "#/definitions/commonContainerStateTerminated",
+          "description": "ContainerStateTerminated indicates a container that ran and completed\n(\"stopped\" in other contexts, although a created container is technically\nalso \"stopped\")."
+        }
+      }
+    },
+    "commonContainerStateRunning": {
+      "type": "object",
+      "properties": {
+        "startedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "description": "ContainerStateRunning indicates a currently running container."
+    },
+    "commonContainerStateTerminated": {
+      "type": "object",
+      "properties": {
+        "exitCode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Container exit code."
+        },
+        "signal": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Signal defines a signal that can trigger eviction of pods on a node."
+        },
+        "reason": {
+          "type": "string",
+          "description": "The reason for the condition's last transition."
+        },
+        "message": {
+          "type": "string",
+          "description": "The container terminated information."
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "int64",
+          "description": "The container created time."
+        },
+        "finishedAt": {
+          "type": "string",
+          "format": "int64",
+          "description": "The container terminated time."
+        }
+      },
+      "description": "ContainerStateExited indicates a container that ran\nand completed (\"stopped\" in other contexts, although a created container is\ntechnically also \"stopped\")."
+    },
+    "commonContainerStateWaiting": {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "type": "string",
+          "title": "(brief) reason the container is not yet running.\n+optional"
+        },
+        "message": {
+          "type": "string",
+          "title": "Message regarding why the container is not yet running.\n+optional"
+        }
+      },
+      "description": "ContainerStateWaiting represents 'Waiting' container state."
+    },
+    "commonContainerStatus": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "This must be a DNS_LABEL. Each container in a pod must have a unique name.\nCannot be updated."
+        },
+        "state": {
+          "$ref": "#/definitions/commonContainerState",
+          "title": "Details about the container's current condition.\n+optional"
+        }
+      },
+      "description": "ContainerStatus represents the container status."
+    },
+    "commonExternalTrafficPolicy": {
+      "type": "string",
+      "enum": [
+        "Cluster",
+        "Local"
+      ],
+      "default": "Cluster"
+    },
+    "commonFilterPodStatus": {
+      "type": "string",
+      "enum": [
+        "FILTER_POD_STATUS_UNSPECIFIED",
+        "FILTER_POD_STATUS_RUNNING",
+        "FILTER_POD_STATUS_ERROR",
+        "FILTER_POD_STATUS_COMPLETED",
+        "FILTER_POD_STATUS_WAITING"
+      ],
+      "default": "FILTER_POD_STATUS_UNSPECIFIED"
+    },
+    "commonLBTyp": {
+      "type": "string",
+      "enum": [
+        "MetalLB",
+        "Others"
+      ],
+      "default": "MetalLB"
+    },
+    "commonLabelSelector": {
+      "type": "object",
+      "properties": {
+        "matchLabels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "matchExpressions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonLabelSelectorRequirement"
+          }
+        }
+      }
+    },
+    "commonLabelSelectorRequirement": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "operator": {
+          "type": "string",
+          "title": "Operator valid string: In, NotIn, Exists, DoesNotExist"
+        }
+      }
+    },
+    "commonNodeAffinity": {
+      "type": "object",
+      "properties": {
+        "requiredDuringSchedulingIgnoredDuringExecution": {
+          "$ref": "#/definitions/commonNodeSelector"
+        },
+        "preferredDuringSchedulingIgnoredDuringExecution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonPreferredSchedulingTerm"
+          }
+        }
+      }
+    },
+    "commonNodeSelector": {
+      "type": "object",
+      "properties": {
+        "nodeSelectorTerms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonNodeSelectorTerm"
+          }
+        }
+      }
+    },
+    "commonNodeSelectorRequirement": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "operator": {
+          "type": "string",
+          "title": "Operator valid string: In, NotIn, Exists, DoesNotExist, Gt, Lt"
+        }
+      }
+    },
+    "commonNodeSelectorTerm": {
+      "type": "object",
+      "properties": {
+        "matchExpressions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonNodeSelectorRequirement"
+          }
+        },
+        "matchFields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonNodeSelectorRequirement"
+          }
+        }
+      }
+    },
+    "commonOwnerReference": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string"
+        },
+        "controller": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "commonPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "commonPodAffinity": {
+      "type": "object",
+      "properties": {
+        "requiredDuringSchedulingIgnoredDuringExecution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonPodAffinityTerm"
+          }
+        },
+        "preferredDuringSchedulingIgnoredDuringExecution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonWeightedPodAffinityTerm"
+          }
+        }
+      }
+    },
+    "commonPodAffinityTerm": {
+      "type": "object",
+      "properties": {
+        "labelSelector": {
+          "$ref": "#/definitions/commonLabelSelector"
+        },
+        "namespaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "topologyKey": {
+          "type": "string"
+        },
+        "namespaceSelector": {
+          "$ref": "#/definitions/commonLabelSelector"
+        }
+      }
+    },
+    "commonPodAntiAffinity": {
+      "type": "object",
+      "properties": {
+        "requiredDuringSchedulingIgnoredDuringExecution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonPodAffinityTerm"
+          }
+        },
+        "preferredDuringSchedulingIgnoredDuringExecution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonWeightedPodAffinityTerm"
+          }
+        }
+      }
+    },
+    "commonPodCommon": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "phase": {
+          "$ref": "#/definitions/PodCommonPodPhase"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "restartCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "cpuUsage": {
+          "type": "number",
+          "format": "double"
+        },
+        "cpuLimit": {
+          "type": "number",
+          "format": "double"
+        },
+        "memoryUsage": {
+          "type": "number",
+          "format": "double"
+        },
+        "memoryLimit": {
+          "type": "number",
+          "format": "double"
+        },
+        "pvUsedInGb": {
+          "type": "number",
+          "format": "double"
+        },
+        "pvAllocatedInGb": {
+          "type": "number",
+          "format": "double"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PodCommonCondition"
+          }
+        },
+        "containersName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ownerReference": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonOwnerReference"
+          }
+        },
+        "initContainersName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "initContainersStatuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonContainerStatus"
+          }
+        },
+        "containersStatuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonContainerStatus"
+          }
+        },
+        "podStatus": {
+          "type": "string"
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "filterPodStatus": {
+          "$ref": "#/definitions/commonFilterPodStatus"
+        }
+      }
+    },
+    "commonPreferredSchedulingTerm": {
+      "type": "object",
+      "properties": {
+        "weight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "preference": {
+          "$ref": "#/definitions/commonNodeSelectorTerm"
+        }
+      }
+    },
+    "commonServiceType": {
+      "type": "string",
+      "enum": [
+        "ClusterIP",
+        "NodePort",
+        "LoadBalancer"
+      ],
+      "default": "ClusterIP"
+    },
+    "commonTaintEffect": {
+      "type": "string",
+      "enum": [
+        "TAINT_EFFECT_UNSPECIFIED",
+        "NoSchedule",
+        "NoExecute",
+        "PreferNoSchedule"
+      ],
+      "default": "TAINT_EFFECT_UNSPECIFIED"
+    },
+    "commonToleration": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "operator": {
+          "$ref": "#/definitions/commonTolerationOperator",
+          "title": "Operator valid string: Equal, Exists"
+        },
+        "value": {
+          "type": "string"
+        },
+        "effect": {
+          "$ref": "#/definitions/commonTaintEffect",
+          "title": "Effect valid string: NoSchedule, PreferNoSchedule, NoExecute"
+        },
+        "tolerationSeconds": {
+          "type": "string"
+        }
+      }
+    },
+    "commonTolerationOperator": {
+      "type": "string",
+      "enum": [
+        "TOLERATION_OPERATOR_UNSPECIFIED",
+        "Exists",
+        "Equal"
+      ],
+      "default": "TOLERATION_OPERATOR_UNSPECIFIED",
+      "description": "A toleration operator is the set of operators that can be used in a toleration."
+    },
+    "commonWeightedPodAffinityTerm": {
+      "type": "object",
+      "properties": {
+        "weight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "podAffinityTerm": {
+          "$ref": "#/definitions/commonPodAffinityTerm"
+        }
+      }
+    },
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "templateCreateTemplateConfigResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "templateDeleteTemplateConfigResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "templateGetTemplateConfigListReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "templateGetTemplateConfigListResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/templateGetTemplateConfigReq"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "templateGetTemplateConfigReq": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sortDir": {
+          "$ref": "#/definitions/templateGetTemplateConfigReqSortDir"
+        },
+        "sortBy": {
+          "type": "string"
+        },
+        "searchKey": {
+          "type": "string"
+        },
+        "workspaceId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#choose name!\""
+        },
+        "version": {
+          "type": "string"
+        },
+        "templateType": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "createTimestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "templateInstanceType": {
+          "$ref": "#/definitions/templateTemplateInstanceType"
+        }
+      }
+    },
+    "templateGetTemplateConfigReqSortDir": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "templateGetTemplateConfigResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/templateUpdateTemplateConfigReq"
+        },
+        "pagination": {
+          "$ref": "#/definitions/commonPagination"
+        }
+      }
+    },
+    "templateGetTemplateConfigStringResp": {
+      "type": "object",
+      "properties": {
+        "conf": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        }
+      }
+    },
+    "templateGetTemplateConfigVersionsResp": {
+      "type": "object",
+      "properties": {
+        "versions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "templateTypeMap": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/templateTemplateInstanceTypeList"
+          }
+        }
+      }
+    },
+    "templateGetTemplateInstanceTypeListResp": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/templateTemplateInstanceType"
+          }
+        }
+      }
+    },
+    "templateTemplateConfigItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "default": {
+          "type": "string"
+        },
+        "current": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "isNeedRestart": {
+          "type": "boolean"
+        },
+        "valueType": {
+          "$ref": "#/definitions/TemplateConfigItemValueType"
+        },
+        "valueRemarksZh": {
+          "type": "string"
+        },
+        "valueRemarksEn": {
+          "type": "string"
+        },
+        "updateTimestamp": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "templateTemplateInstanceType": {
+      "type": "string",
+      "enum": [
+        "TemplateInstanceTypeUnspecified",
+        "MysqlMasterReplica",
+        "RedisStandalone",
+        "RedisFailover",
+        "RedisCluster",
+        "KafkaConfig",
+        "MysqlMgrConfig",
+        "MongodbConfig",
+        "PostgresqlConfig",
+        "RabbitmqConfig"
+      ],
+      "default": "TemplateInstanceTypeUnspecified",
+      "title": "实例类型"
+    },
+    "templateTemplateInstanceTypeList": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/templateTemplateInstanceType"
+          }
+        }
+      }
+    },
+    "templateUpdateTemplateConfigReq": {
+      "type": "object",
+      "properties": {
+        "workspaceId": {
+          "type": "integer",
+          "format": "int32",
+          "title": "@inject_tag: v:\"configUpdate#RBAC error\""
+        },
+        "name": {
+          "type": "string",
+          "title": "@inject_tag: v:\"required#choose name!\""
+        },
+        "version": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "templateType": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/templateTemplateConfigItem"
+          }
+        },
+        "conf": {
+          "type": "string"
+        }
+      }
+    },
+    "templateUpdateTemplateConfigResp": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "templateUpdateTemplateConfigToItemResp": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/templateTemplateConfigItem"
+          }
+        }
+      }
+    },
+    "v1alpha1AlertSummary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "groupName": {
+          "type": "string"
+        },
+        "groupId": {
+          "type": "string"
+        },
+        "ruleName": {
+          "type": "string"
+        },
+        "ruleId": {
+          "type": "string"
+        },
+        "clusterName": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "targetType": {
+          "$ref": "#/definitions/v1alpha1TargetType"
+        },
+        "target": {
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/definitions/v1alpha1Severity"
+        },
+        "value": {
+          "type": "string"
+        },
+        "notifyResponse": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updateAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1alpha1Severity": {
+      "type": "string",
+      "enum": [
+        "SEVERITY_UNSPECIFIED",
+        "CRITICAL",
+        "WARNING",
+        "INFO"
+      ],
+      "default": "SEVERITY_UNSPECIFIED"
+    },
+    "v1alpha1TargetType": {
+      "type": "string",
+      "enum": [
+        "TARGET_TYPE_UNSPECIFIED",
+        "GLOBAL",
+        "CLUSTER",
+        "NAMESPACE",
+        "NODE",
+        "DEPLOYMENT",
+        "STATEFULSET",
+        "DAEMONSET",
+        "POD"
+      ],
+      "default": "TARGET_TYPE_UNSPECIFIED"
+    }
+  }
+}
