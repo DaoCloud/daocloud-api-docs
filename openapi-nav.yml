@@ -42,6 +42,7 @@ nav:
                     - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
+                - v0.44.0: openapi/kpanda/v0.44.0.md
                 - v0.43.x: 
                     - v0.43.0: openapi/kpanda/v0.43.0.md
                     - v0.43.1: openapi/kpanda/v0.43.1.md
@@ -192,6 +193,9 @@ nav:
                     - v0.6.0: openapi/virtnest/v0.6.0.md
         - 微服务:
             - 可观测性 OpenAPI:
+                - v0.40.x:
+                    - v0.40.0: openapi/insight/v0.40.0.md
+                    - v0.40.1: openapi/insight/v0.40.1.md
                 - v0.39.x:
                     - v0.39.0: openapi/insight/v0.39.0.md
                     - v0.39.1: openapi/insight/v0.39.1.md
@@ -371,7 +375,9 @@ nav:
                             - v0.7.0: openapi/mcamel/elasticsearch/elasticsearch-v0.7.0.md
                             - v0.7.1: openapi/mcamel/elasticsearch/elasticsearch-v0.7.1.md
                 - Kafka 消息队列:
-                    - v0.28.0: openapi/mcamel/kafka/kafka-v0.28.0.md
+                    - v0.28.x:
+                        - v0.28.0: openapi/mcamel/kafka/kafka-v0.28.0.md
+                        - v0.28.1: openapi/mcamel/kafka/kafka-v0.28.1.md
                     - v0.27.0: openapi/mcamel/kafka/kafka-v0.27.0.md
                     - v0.26.0: openapi/mcamel/kafka/kafka-v0.26.0.md
                     - 早期版本:
@@ -523,6 +529,7 @@ nav:
                     - v0.28.x:
                         - v0.28.0: openapi/mcamel/mysql/mysql-v0.28.0.md
                         - v0.28.1: openapi/mcamel/mysql/mysql-v0.28.1.md
+                        - v0.28.2: openapi/mcamel/mysql/mysql-v0.28.2.md
                     - v0.27.x:
                         - v0.27.0: openapi/mcamel/mysql/mysql-v0.27.0.md
                         - v0.27.1: openapi/mcamel/mysql/mysql-v0.27.1.md
@@ -591,6 +598,7 @@ nav:
                     - v0.29.x:
                         - v0.29.0: openapi/mcamel/redis/redis-v0.29.0.md
                         - v0.29.1: openapi/mcamel/redis/redis-v0.29.1.md
+                        - v0.29.2: openapi/mcamel/redis/redis-v0.29.2.md
                     - v0.28.0: openapi/mcamel/redis/redis-v0.28.0.md
                     - 早期版本:
                         - v0.27.x:
@@ -617,12 +625,12 @@ nav:
                         - v0.7.x:
                             - v0.7.0: openapi/mcamel/redis/redis-v0.7.0.md
                             - v0.7.1: openapi/mcamel/redis/redis-v0.7.1.md
-              
         - 云原生 AI:
             - AI Lab OpenAPI:
                 - v0.111.2: openapi/baize/v0.111.2.md
                 - v0.107.4: openapi/baize/v0.107.4.md
             - 算力云 OpenAPI:
+                - v0.13.0: openapi/zestu/v0.13.0.md
                 - v0.12.0: openapi/zestu/v0.12.0.md
                 - v0.11.0: openapi/zestu/v0.11.0.md
                 - v0.10.x:
