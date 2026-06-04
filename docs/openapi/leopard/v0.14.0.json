@@ -1,0 +1,5445 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "费用中心",
+    "version": "v0.14.0"
+  },
+  "tags": [
+    {
+      "name": "Accounts"
+    },
+    {
+      "name": "Activity"
+    },
+    {
+      "name": "Bill"
+    },
+    {
+      "name": "Inventory"
+    },
+    {
+      "name": "Operations"
+    },
+    {
+      "name": "Order"
+    },
+    {
+      "name": "Product"
+    },
+    {
+      "name": "Resource"
+    },
+    {
+      "name": "Transaction"
+    },
+    {
+      "name": "Voucher"
+    },
+    {
+      "name": "Wallet"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/apis/leopard.io/v1alpha1/accounts": {
+      "get": {
+        "operationId": "Accounts_ListSubAccounts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/accountsListSubAccountsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/accounts/current/members": {
+      "get": {
+        "operationId": "Accounts_ListCurrentMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/accountsListCurrentMembersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/activity/invite/code": {
+      "post": {
+        "operationId": "Activity_InitInviteCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/activityInitInviteCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/activityInitInviteCodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Activity"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/activity/invite/info": {
+      "get": {
+        "operationId": "Activity_GetInviteInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/activityGetInviteInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Activity"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/activity/invite/users": {
+      "get": {
+        "operationId": "Activity_ListInvitedUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/activityListInvitedUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": "该api从keycloak查询用户, 不支持page_size = -1",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "description": "当前页, 大于等于 0，小于等于 1000",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Activity"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/bills": {
+      "get": {
+        "operationId": "Bill_ListBills",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/billListBillsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "billId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "resourceId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "billingType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "productName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "billingTimeStart",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "billingTimeEnd",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bill"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/bills/aggregation": {
+      "get": {
+        "operationId": "Bill_GetAccountBillAggregation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/billGetAccountBillAggregationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workspaceId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          }
+        ],
+        "tags": [
+          "Bill"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/bills/monthly": {
+      "get": {
+        "operationId": "Bill_ListMonthlyBills",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/billListMonthlyBillsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "startMonth",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endMonth",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Bill"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/bills/monthly/{billingMonth}": {
+      "get": {
+        "operationId": "Bill_GetMonthlyBills",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/billGetMonthlyBillsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "billingMonth",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bill"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/export/bills": {
+      "get": {
+        "operationId": "Bill_ExportBills",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiHttpBody"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "productName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "excel"
+            ],
+            "default": "excel"
+          },
+          {
+            "name": "billingTimeStart",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "billingTimeEnd",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bill"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/export/bills/monthly": {
+      "get": {
+        "operationId": "Bill_ExportMonthlyBills",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiHttpBody"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "startMonth",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endMonth",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "excel"
+            ],
+            "default": "excel"
+          }
+        ],
+        "tags": [
+          "Bill"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/export/orders": {
+      "get": {
+        "operationId": "Order_ExportOrders",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiHttpBody"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "productName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "excel"
+            ],
+            "default": "excel"
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/export/transactions": {
+      "get": {
+        "operationId": "Transaction_ExportTransactions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiHttpBody"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exportType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "excel"
+            ],
+            "default": "excel"
+          }
+        ],
+        "tags": [
+          "Transaction"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/export/url": {
+      "get": {
+        "operationId": "Accounts_GetExportURL",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/accountsGetExportURLResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "module",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "bills",
+              "monthly_bills",
+              "orders",
+              "transactions"
+            ],
+            "default": "bills"
+          }
+        ],
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/operations/accounts": {
+      "get": {
+        "summary": "ListAccounts 获取账户列表，供运营管理使用",
+        "operationId": "Operations_ListAccounts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/operationsListAccountsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "分页参数",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Operations"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/orders": {
+      "get": {
+        "operationId": "Order_ListOrders",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderListOrdersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "resourceId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "productName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderStatus",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/orders/is-resource-balance-sufficient": {
+      "post": {
+        "operationId": "Order_IsResourceOrderNextBillBalanceSufficient",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderIsResourceOrderNextBillBalanceSufficientResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderIsResourceOrderNextBillBalanceSufficientRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/orders/new-purchase": {
+      "post": {
+        "operationId": "Order_CreateNewPurchaseOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderCreateNewPurchaseOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateNewPurchaseOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/orders/products": {
+      "get": {
+        "operationId": "Order_GetProducts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderGetProductsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/orders/quantity-change": {
+      "post": {
+        "operationId": "Order_CreateQuantityChangeOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderCreateQuantityChangeOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateQuantityChangeOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/orders/renew": {
+      "post": {
+        "operationId": "Order_CreateRenewOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderCreateRenewOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateRenewOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/orders/{id}": {
+      "get": {
+        "operationId": "Order_GetOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderGetOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/billing-policies": {
+      "get": {
+        "operationId": "Product_ListBillingPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListBillingPoliciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "product",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/discounts": {
+      "get": {
+        "operationId": "Product_ListDiscountRules",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListDiscountRulesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "post": {
+        "operationId": "Product_CreateDiscountRule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productCreateDiscountRuleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productCreateDiscountRuleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/discounts/{id}": {
+      "get": {
+        "operationId": "Product_GetDiscountRule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productGetDiscountRuleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "delete": {
+        "operationId": "Product_DeleteDiscountRule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productDeleteDiscountRuleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "put": {
+        "operationId": "Product_UpdateDiscountRule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productUpdateDiscountRuleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "meteringAmountsDiscounts": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/region-domain": {
+      "get": {
+        "operationId": "Product_ListRegionsDomains",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListRegionsDomainsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "post": {
+        "operationId": "Product_CreateRegionDomain",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productCreateRegionDomainResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productCreateRegionDomainRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/regions": {
+      "get": {
+        "operationId": "Product_ListRegions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListRegionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Product"
+        ]
+      },
+      "post": {
+        "operationId": "Product_CreateRegion",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productCreateRegionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productCreateRegionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/regions/types": {
+      "get": {
+        "operationId": "Product_ListRegionTypes",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListRegionTypesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Product"
+        ]
+      },
+      "post": {
+        "operationId": "Product_CreateRegionType",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productCreateRegionTypeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productCreateRegionTypeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/sku-infos": {
+      "get": {
+        "operationId": "Product_ListSKUInfos",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListSKUInfosResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "product",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "post": {
+        "operationId": "Product_CreateSKUInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productCreateSKUInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productCreateSKUInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/sku-infos/{id}": {
+      "get": {
+        "operationId": "Product_GetSKUInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productGetSKUInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "delete": {
+        "operationId": "Product_DeleteSKUInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productDeleteSKUInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "put": {
+        "operationId": "Product_UpdateSKUInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productUpdateSKUInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "specId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "productName": {
+                  "type": "string"
+                },
+                "billingPolicyId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "regionName": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "string",
+                  "format": "int64"
+                },
+                "freeQuantity": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "available": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "displayOrder": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "discountRuleId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/sku-infos/{skuId}/discount": {
+      "put": {
+        "operationId": "Product_UpdateSKUDiscountRule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productUpdateSKUDiscountRuleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "skuId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "discountRuleId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/skus": {
+      "post": {
+        "operationId": "Product_ListProductSKUs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListProductSKUsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productListProductSKUsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/skus/{id}": {
+      "get": {
+        "operationId": "Product_GetSKU",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productGetSKUResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/skus/{id}/price": {
+      "get": {
+        "operationId": "Product_GetSKUPrice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productGetSKUPriceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/spec-field-keys": {
+      "get": {
+        "operationId": "Product_ListProductSpecFieldKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListProductSpecFieldKeyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/spec-infos": {
+      "get": {
+        "operationId": "Product_ListSpecInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListProductSpecInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "product",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "post": {
+        "operationId": "Product_CreateSpecInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productCreateSpecInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productCreateSpecInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/spec-infos/{id}": {
+      "delete": {
+        "operationId": "Product_DeleteSpecInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productDeleteSpecInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      },
+      "put": {
+        "operationId": "Product_UpdateSpecInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productUpdateSpecInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/productSpecFieldInfo"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/products/specs": {
+      "get": {
+        "operationId": "Product_ListProductSpecFieldValues",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productListProductSpecFieldResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "regionId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "specKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "billingType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Product"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/transactions": {
+      "get": {
+        "operationId": "Transaction_ListTransactions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/transactionListTransactionsRequestResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "serialNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "billingId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "paymentType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "transactionType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "transactionChannel",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Transaction"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/vouchers/activate": {
+      "post": {
+        "operationId": "Voucher_ActivateVoucher",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/voucherActivateVoucherResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/voucherActivateVoucherRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Voucher"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/vouchers/active": {
+      "get": {
+        "operationId": "Voucher_ListActiveVouchersByCurrentUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/voucherListVouchersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "voucherId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Voucher"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/vouchers/batch-create": {
+      "post": {
+        "operationId": "Voucher_BatchCreateVouchers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/voucherBatchCreateVouchersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/voucherBatchCreateVouchersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Voucher"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/vouchers/batch-create-active": {
+      "post": {
+        "operationId": "Voucher_BatchCreateAndActiveVouchers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/voucherBatchCreateAndActiveVouchersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/voucherBatchCreateAndActiveVouchersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Voucher"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/vouchers/expired": {
+      "get": {
+        "operationId": "Voucher_ListExpiredVouchersByCurrentUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/voucherListVouchersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "voucherId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Voucher"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/vouchers/stat": {
+      "get": {
+        "operationId": "Voucher_GetVoucherStatByCurrentUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/voucherGetVoucherStatByCurrentUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Voucher"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/balance": {
+      "get": {
+        "summary": "hydra、zestu 不要使用该接口，使用 UserState 接口获取用户余额，该接口给 leopard ui 使用的",
+        "operationId": "Wallet_Balance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletBalanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/balance/alert": {
+      "get": {
+        "operationId": "Wallet_GetBalanceAlert",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletGetBalanceAlertResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Wallet"
+        ]
+      },
+      "put": {
+        "operationId": "Wallet_UpdateBalanceAlert",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletUpdateBalanceAlertResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walletUpdateBalanceAlertRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/corporate-transfer/receiving-bank-infos": {
+      "get": {
+        "operationId": "Wallet_GetReceivingBankInfos",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletGetReceivingBankInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/corporate-transfer/recharge": {
+      "post": {
+        "operationId": "Wallet_CorporateTransferRecharge",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletCorporateTransferRechargeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walletCorporateTransferRechargeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/domain-receiving-bank-info": {
+      "post": {
+        "operationId": "Wallet_CreateDomainReceivingBankInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletCreateDomainReceivingBankInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walletCreateDomainReceivingBankInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/domain-receiving-bank-info/{id}": {
+      "delete": {
+        "operationId": "Wallet_DeleteDomainReceivingBankInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletDeleteDomainReceivingBankInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      },
+      "put": {
+        "operationId": "Wallet_UpdateDomainReceivingBankInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletUpdateDomainReceivingBankInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "type": "string"
+                },
+                "bankInfo": {
+                  "$ref": "#/definitions/walletReceivingBankInfo"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/domain-receiving-bank-infos": {
+      "get": {
+        "operationId": "Wallet_ListDomainReceivingBankInfos",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletListDomainReceivingBankInfosResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/recharge": {
+      "post": {
+        "operationId": "Wallet_Recharge",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletRechargeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walletRechargeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/refund": {
+      "post": {
+        "operationId": "Wallet_Refund",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletRefundResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walletRefundRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/refundable-amount/{userId}": {
+      "get": {
+        "operationId": "Wallet_GetRefundableAmount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletGetRefundableAmountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/user-state": {
+      "get": {
+        "operationId": "Wallet_GetUserState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletGetUserStateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/virtual-wallet": {
+      "post": {
+        "operationId": "Wallet_CreateVirtualWallet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletCreateVirtualWalletResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walletCreateVirtualWalletRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/virtual-wallet/{id}": {
+      "delete": {
+        "operationId": "Wallet_DeleteVirtualWallet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletDeleteVirtualWalletResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      },
+      "put": {
+        "operationId": "Wallet_UpdateVirtualWallet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletUpdateVirtualWalletResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string",
+                  "format": "uint64"
+                },
+                "arrearsStop": {
+                  "type": "boolean"
+                },
+                "type": {
+                  "$ref": "#/definitions/walletOperationType"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/apis/leopard.io/v1alpha1/wallet/virtual-wallets": {
+      "get": {
+        "operationId": "Wallet_ListVirtualWallets",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletListVirtualWalletsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Wallet"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "accountsAccountInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "accountsGetExportURLResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/definitions/accountsRequestMethod"
+        }
+      }
+    },
+    "accountsListCurrentMembersResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/accountsAccountInfo"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1accountsPagination"
+        }
+      }
+    },
+    "accountsListSubAccountsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/accountsAccountInfo"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1accountsPagination"
+        }
+      }
+    },
+    "accountsModules": {
+      "type": "string",
+      "enum": [
+        "bills",
+        "monthly_bills",
+        "orders",
+        "transactions"
+      ],
+      "default": "bills"
+    },
+    "accountsRequestMethod": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "PATCH"
+      ],
+      "default": "GET"
+    },
+    "activityGetInviteInfoResponse": {
+      "type": "object",
+      "properties": {
+        "inviteCode": {
+          "type": "string"
+        },
+        "inviteUrl": {
+          "type": "string"
+        },
+        "inviteRewardInfo": {
+          "$ref": "#/definitions/activityInviteRewardInfo"
+        }
+      }
+    },
+    "activityInitInviteCodeRequest": {
+      "type": "object"
+    },
+    "activityInitInviteCodeResponse": {
+      "type": "object"
+    },
+    "activityInviteRewardInfo": {
+      "type": "object",
+      "properties": {
+        "rewardText": {
+          "type": "string"
+        },
+        "rewardDescriptionLink": {
+          "type": "string"
+        }
+      }
+    },
+    "activityInvitedUser": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "registerAt": {
+          "type": "string"
+        }
+      }
+    },
+    "activityListInvitedUsersResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/activityInvitedUser"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1activityPagination"
+        },
+        "totalInvited": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "apiHttpBody": {
+      "type": "object",
+      "properties": {
+        "contentType": {
+          "type": "string",
+          "description": "The HTTP Content-Type header value specifying the content type of the body."
+        },
+        "data": {
+          "type": "string",
+          "format": "byte",
+          "description": "The HTTP request/response body as raw binary."
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          },
+          "description": "Application specific response metadata. Must be set in the first response\nfor streaming APIs."
+        }
+      },
+      "description": "Message that represents an arbitrary HTTP body. It should only be used for\npayload formats that can't be represented as JSON, such as raw binary or\nan HTML page.\n\n\nThis message can be used both in streaming and non-streaming API methods in\nthe request as well as the response.\n\nIt can be used as a top-level request field, which is convenient if one\nwants to extract parameters from either the URL or HTTP template into the\nrequest fields and also want access to the raw HTTP body.\n\nExample:\n\n    message GetResourceRequest {\n      // A unique request id.\n      string request_id = 1;\n\n      // The raw HTTP body is bound to this field.\n      google.api.HttpBody http_body = 2;\n\n    }\n\n    service ResourceService {\n      rpc GetResource(GetResourceRequest)\n        returns (google.api.HttpBody);\n      rpc UpdateResource(google.api.HttpBody)\n        returns (google.protobuf.Empty);\n\n    }\n\nExample with streaming methods:\n\n    service CaldavService {\n      rpc GetCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n      rpc UpdateCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n\n    }\n\nUse of this type only changes how the request and response bodies are\nhandled, all other features will continue to work unchanged."
+    },
+    "billBillType": {
+      "type": "string",
+      "enum": [
+        "CONSUME",
+        "REFUND"
+      ],
+      "default": "CONSUME"
+    },
+    "billBillingCycle": {
+      "type": "object",
+      "properties": {
+        "startTimestamp": {
+          "type": "string"
+        },
+        "endTimestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "billExpenseType": {
+      "type": "string",
+      "enum": [
+        "Consume",
+        "Refund"
+      ],
+      "default": "Consume"
+    },
+    "billGetAccountBillAggregationResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/billProductBillAggregation"
+          }
+        }
+      }
+    },
+    "billGetMonthlyBillsResponse": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/billProductMonthlyBill"
+          }
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/billUserMonthlyBill"
+          }
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/billRegionMonthlyBill"
+          }
+        }
+      }
+    },
+    "billListBillsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/billbill"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1billPagination"
+        }
+      }
+    },
+    "billListMonthlyBillsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/billMonthBillSummary"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1billPagination"
+        }
+      }
+    },
+    "billMonthBillSummary": {
+      "type": "object",
+      "properties": {
+        "billingMonth": {
+          "type": "string"
+        },
+        "orderPrice": {
+          "type": "string"
+        },
+        "voucherPayment": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "string"
+        }
+      }
+    },
+    "billProductBillAggregation": {
+      "type": "object",
+      "properties": {
+        "productName": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "string"
+        },
+        "voucherPayment": {
+          "type": "string"
+        }
+      }
+    },
+    "billProductMonthlyBill": {
+      "type": "object",
+      "properties": {
+        "billingMonth": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "expenseType": {
+          "$ref": "#/definitions/billExpenseType"
+        },
+        "orderPrice": {
+          "type": "string"
+        },
+        "voucherPayment": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "string"
+        }
+      }
+    },
+    "billRegionMonthlyBill": {
+      "type": "object",
+      "properties": {
+        "billingMonth": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "orderPrice": {
+          "type": "string"
+        },
+        "voucherPayment": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "string"
+        }
+      }
+    },
+    "billUserMonthlyBill": {
+      "type": "object",
+      "properties": {
+        "billingMonth": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "orderPrice": {
+          "type": "string"
+        },
+        "voucherPayment": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "string"
+        }
+      }
+    },
+    "billbill": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "billId": {
+          "type": "string"
+        },
+        "billingCycle": {
+          "$ref": "#/definitions/billBillingCycle"
+        },
+        "billingMonth": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1billResource"
+          }
+        },
+        "billingType": {
+          "$ref": "#/definitions/v1alpha1billBillingType"
+        },
+        "unitPrice": {
+          "type": "string"
+        },
+        "unit": {
+          "$ref": "#/definitions/v1alpha1billUnitType"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "orderPrice": {
+          "type": "string"
+        },
+        "couponPayment": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "string"
+        },
+        "billingItem": {
+          "type": "string"
+        },
+        "voucherPayment": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/billBillType"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "inventoryAction": {
+      "type": "string",
+      "enum": [
+        "AddOrUpdate",
+        "Delete"
+      ],
+      "default": "AddOrUpdate"
+    },
+    "inventoryDeleteInventoryResponse": {
+      "type": "object"
+    },
+    "inventoryListInventoriesResponse": {
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inventoryresource"
+          }
+        }
+      }
+    },
+    "inventoryUpdateInventoryResponse": {
+      "type": "object"
+    },
+    "inventoryinventory": {
+      "type": "object",
+      "properties": {
+        "region": {
+          "type": "string"
+        },
+        "node": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inventoryresource"
+          }
+        }
+      }
+    },
+    "inventoryresource": {
+      "type": "object",
+      "properties": {
+        "specFieldKey": {
+          "type": "string"
+        },
+        "specFieldValue": {
+          "type": "string"
+        },
+        "total": {
+          "type": "number",
+          "format": "double"
+        },
+        "free": {
+          "type": "number",
+          "format": "double"
+        },
+        "serial": {
+          "type": "string"
+        }
+      }
+    },
+    "operationsAccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "lastLoginAt": {
+          "type": "string"
+        },
+        "canAuthorize": {
+          "type": "boolean"
+        }
+      }
+    },
+    "operationsListAccountsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/operationsAccount"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1operationsPagination"
+        }
+      }
+    },
+    "orderChangeOrderRenewResponse": {
+      "type": "object"
+    },
+    "orderCreateNewPurchaseOrderRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "orderItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderItem"
+          }
+        },
+        "renewMeteringAmount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "renewToPayasyougo": {
+          "type": "boolean"
+        }
+      }
+    },
+    "orderCreateNewPurchaseOrderResponse": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "createOrderStatus": {
+          "$ref": "#/definitions/orderCreateOrderStatus"
+        },
+        "startTimestamp": {
+          "type": "string"
+        },
+        "endTimestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreateOrderStatus": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "SKU_NOT_FIND",
+        "RESOURCE_NOT_EXIST",
+        "RESOURCE_EXIST",
+        "INSUFFICIENT_BALANCE",
+        "INSUFFICIENT_INVENTORY",
+        "INSUFFICIENT_VIRTUAL_BALANCE"
+      ],
+      "default": "SUCCESS"
+    },
+    "orderCreateQuantityChangeOrderRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "resourceId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreateQuantityChangeOrderResponse": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "createOrderStatus": {
+          "$ref": "#/definitions/orderCreateOrderStatus"
+        },
+        "startTimestamp": {
+          "type": "string"
+        },
+        "endTimestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreateRenewOrderRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "renewToPayasyougo": {
+          "type": "boolean"
+        },
+        "renewMeteringAmount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "orderCreateRenewOrderResponse": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "createOrderStatus": {
+          "$ref": "#/definitions/orderCreateOrderStatus"
+        },
+        "startTimestamp": {
+          "type": "string"
+        },
+        "endTimestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreateTransformOrderResponse": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "createOrderStatus": {
+          "$ref": "#/definitions/orderCreateOrderStatus"
+        },
+        "startTimestamp": {
+          "type": "string"
+        },
+        "endTimestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "orderGetOrderResponse": {
+      "type": "object",
+      "properties": {
+        "orderInfo": {
+          "$ref": "#/definitions/orderOrderInfo"
+        },
+        "productInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderProductInfo"
+          }
+        }
+      }
+    },
+    "orderGetProductsResponse": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderProduct"
+          }
+        }
+      }
+    },
+    "orderInvalidateOrderResponse": {
+      "type": "object"
+    },
+    "orderIsResourceOrderNextBillBalanceSufficientRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderIsResourceOrderNextBillBalanceSufficientResponse": {
+      "type": "object",
+      "properties": {
+        "balanceSufficient": {
+          "type": "boolean"
+        },
+        "inventorySufficient": {
+          "type": "boolean"
+        }
+      }
+    },
+    "orderListOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrders"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1orderPagination"
+        }
+      }
+    },
+    "orderOrderInfo": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "createdAtTimestamp": {
+          "type": "string"
+        },
+        "orderType": {
+          "$ref": "#/definitions/orderOrderType"
+        },
+        "orderStatus": {
+          "$ref": "#/definitions/orderOrderStatus"
+        },
+        "orderPrice": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderOrderItem": {
+      "type": "object",
+      "properties": {
+        "productName": {
+          "type": "string"
+        },
+        "skuId": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1orderResource"
+          }
+        },
+        "meteringAmount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "orderOrderStatus": {
+      "type": "string",
+      "enum": [
+        "PAID",
+        "PARTIAL",
+        "INVALIDATED"
+      ],
+      "default": "PAID"
+    },
+    "orderOrderType": {
+      "type": "string",
+      "enum": [
+        "PURCHASE",
+        "REFUND",
+        "UPGRADE",
+        "DOWNGRADE",
+        "TRANSFORM"
+      ],
+      "default": "PURCHASE"
+    },
+    "orderOrders": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "createdAtTimestamp": {
+          "type": "string"
+        },
+        "orderType": {
+          "$ref": "#/definitions/orderOrderType"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1orderResource"
+          }
+        },
+        "orderStatus": {
+          "$ref": "#/definitions/orderOrderStatus"
+        },
+        "orderPrice": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "orderProductInfo": {
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1orderResource"
+          }
+        },
+        "productName": {
+          "type": "string"
+        },
+        "resourceNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "specification": {
+          "type": "string",
+          "title": "json格式的字符串"
+        },
+        "billingType": {
+          "$ref": "#/definitions/v1alpha1orderBillingType"
+        },
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        }
+      }
+    },
+    "orderRefundOrderResponse": {
+      "type": "object"
+    },
+    "productBillingPolicy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "billingType": {
+          "$ref": "#/definitions/v1alpha1productBillingType"
+        },
+        "meteringType": {
+          "type": "string"
+        }
+      }
+    },
+    "productCreateDiscountRuleRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "meteringAmountsDiscounts": {
+          "type": "string"
+        }
+      }
+    },
+    "productCreateDiscountRuleResponse": {
+      "type": "object",
+      "properties": {
+        "discountRuleId": {
+          "type": "string"
+        }
+      }
+    },
+    "productCreateRegionDomainRequest": {
+      "type": "object",
+      "properties": {
+        "region": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        }
+      }
+    },
+    "productCreateRegionDomainResponse": {
+      "type": "object"
+    },
+    "productCreateRegionRequest": {
+      "type": "object",
+      "properties": {
+        "regionId": {
+          "type": "string"
+        },
+        "nameI18n": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "schemes": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "regionType": {
+          "type": "string"
+        },
+        "displayOrder": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "productCreateRegionResponse": {
+      "type": "object"
+    },
+    "productCreateRegionTypeRequest": {
+      "type": "object",
+      "properties": {
+        "regionType": {
+          "type": "string"
+        },
+        "regionTypeI18n": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productCreateRegionTypeResponse": {
+      "type": "object"
+    },
+    "productCreateSKUInfoRequest": {
+      "type": "object",
+      "properties": {
+        "specId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "billingPolicyId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regionName": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "freeQuantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "available": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "displayOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "discountRuleId": {
+          "type": "string"
+        }
+      }
+    },
+    "productCreateSKUInfoResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "productCreateSpecInfoRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSpecFieldInfo"
+          }
+        }
+      }
+    },
+    "productCreateSpecInfoResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSpecFieldInfo"
+          }
+        }
+      }
+    },
+    "productDeleteDiscountRuleResponse": {
+      "type": "object"
+    },
+    "productDeleteSKUInfoResponse": {
+      "type": "object"
+    },
+    "productDeleteSpecInfoResponse": {
+      "type": "object"
+    },
+    "productDiscountRuleItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "meteringAmountsDiscounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productMeteringAmountsDiscount"
+          }
+        }
+      }
+    },
+    "productFilterStringArr": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productGetDiscountRuleResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "meteringAmountsDiscounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productMeteringAmountsDiscount"
+          }
+        }
+      }
+    },
+    "productGetSKUInfoResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "specId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regionName": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "freeQuantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "available": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "productGetSKUPriceResponse": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "productGetSKUResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "saleable": {
+          "type": "boolean"
+        },
+        "billingType": {
+          "$ref": "#/definitions/v1alpha1productBillingType"
+        },
+        "meteringUnit": {
+          "$ref": "#/definitions/v1alpha1productUnitType"
+        },
+        "quantityUnit": {
+          "$ref": "#/definitions/productQuantityUnit"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "region": {
+          "type": "string"
+        },
+        "specId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "specName": {
+          "type": "string"
+        },
+        "specFields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSpecField"
+          }
+        },
+        "inventory": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "meteringAmountsDiscounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productMeteringAmountsDiscount"
+          }
+        },
+        "canTransferPayAsYouGo": {
+          "type": "boolean"
+        },
+        "transferSkuId": {
+          "type": "string",
+          "title": "当可以转为按量付费时, 对应转换的sku id"
+        }
+      }
+    },
+    "productListBillingPoliciesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productBillingPolicy"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1productPagination"
+        }
+      }
+    },
+    "productListDiscountRulesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productDiscountRuleItem"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1productPagination"
+        }
+      }
+    },
+    "productListProductSKUsRequest": {
+      "type": "object",
+      "properties": {
+        "product": {
+          "type": "string"
+        },
+        "regionId": {
+          "type": "string"
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/productFilterStringArr"
+          },
+          "title": "filter 的 key 作为 key，filter 的 value 作为 value，nil表示全部"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterByAnd": {
+          "type": "boolean",
+          "title": "filter type 决定filter是Or还是And去处理多种条件的情况，默认是Or"
+        },
+        "sortType": {
+          "type": "string",
+          "title": "sort_type传spec_fields中的key字段值，不传或传空字符串表示默认排序\n例：根据gpu类型排序则传：gpu-type, 根据gpu显存排序则传gpu-memory或vgpu-memory"
+        },
+        "sortOrder": {
+          "$ref": "#/definitions/productSortOrder"
+        },
+        "billingType": {
+          "type": "string"
+        }
+      }
+    },
+    "productListProductSKUsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSkuItem"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1productPagination"
+        }
+      }
+    },
+    "productListProductSpecFieldKeyResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productProductSpecFieldKeys"
+          }
+        }
+      }
+    },
+    "productListProductSpecFieldResponse": {
+      "type": "object",
+      "properties": {
+        "specFields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSpecField"
+          }
+        }
+      }
+    },
+    "productListProductSpecInfoResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSpecInfo"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1productPagination"
+        }
+      }
+    },
+    "productListRegionTypesResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productRegionType"
+          }
+        }
+      }
+    },
+    "productListRegionsDomainsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productRegionDomain"
+          }
+        }
+      }
+    },
+    "productListRegionsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productRegion"
+          }
+        }
+      }
+    },
+    "productListSKUInfosResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSkuItem"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1productPagination"
+        }
+      }
+    },
+    "productMeteringAmountsDiscount": {
+      "type": "object",
+      "properties": {
+        "meteringAmounts": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountPercentage": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "productProductSpecFieldKeys": {
+      "type": "object",
+      "properties": {
+        "product": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSpecFieldKey"
+          }
+        }
+      }
+    },
+    "productQuantityUnit": {
+      "type": "string",
+      "enum": [
+        "EMPTY"
+      ],
+      "default": "EMPTY"
+    },
+    "productRegion": {
+      "type": "object",
+      "properties": {
+        "regionId": {
+          "type": "string"
+        },
+        "regionName": {
+          "type": "string"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "schemes": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "regionType": {
+          "type": "string"
+        }
+      }
+    },
+    "productRegionDomain": {
+      "type": "object",
+      "properties": {
+        "region": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        }
+      }
+    },
+    "productRegionType": {
+      "type": "object",
+      "properties": {
+        "regionType": {
+          "type": "string"
+        },
+        "regionTypeI18n": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productSkuItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "saleable": {
+          "type": "boolean"
+        },
+        "billingType": {
+          "$ref": "#/definitions/v1alpha1productBillingType"
+        },
+        "meteringUnit": {
+          "$ref": "#/definitions/v1alpha1productUnitType"
+        },
+        "quantityUnit": {
+          "$ref": "#/definitions/productQuantityUnit"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "region": {
+          "type": "string"
+        },
+        "specId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "specName": {
+          "type": "string"
+        },
+        "specFields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSpecField"
+          }
+        },
+        "inventory": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "meteringAmountsDiscounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productMeteringAmountsDiscount"
+          }
+        },
+        "canTransferPayAsYouGo": {
+          "type": "boolean",
+          "title": "是否可以转为按量付费. 仅对包年包月类型有效"
+        },
+        "available": {
+          "type": "boolean"
+        },
+        "displayOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "transferSkuId": {
+          "type": "string",
+          "title": "当可以转为按量付费时, 对应转换的sku id"
+        }
+      }
+    },
+    "productSortOrder": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "productSpecField": {
+      "type": "object",
+      "properties": {
+        "specId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "keyName": {
+          "type": "string"
+        },
+        "valueName": {
+          "type": "string"
+        }
+      }
+    },
+    "productSpecFieldInfo": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "specId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "valueI18n": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productSpecFieldKey": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "key": {
+          "type": "string"
+        },
+        "keyI18n": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productSpecInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productSpecFieldInfo"
+          }
+        }
+      }
+    },
+    "productUpdateDiscountRuleResponse": {
+      "type": "object"
+    },
+    "productUpdateSKUDiscountRuleResponse": {
+      "type": "object"
+    },
+    "productUpdateSKUInfoResponse": {
+      "type": "object"
+    },
+    "productUpdateSpecInfoResponse": {
+      "type": "object"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "resourceGetResourceInfoResponse": {
+      "type": "object",
+      "properties": {
+        "periods": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/resourceResourcePeriod"
+          }
+        }
+      }
+    },
+    "resourcePeriodStatus": {
+      "type": "string",
+      "enum": [
+        "Paid",
+        "NotPaid",
+        "Failed"
+      ],
+      "default": "Paid"
+    },
+    "resourceResourcePeriod": {
+      "type": "object",
+      "properties": {
+        "startTimestamp": {
+          "type": "string"
+        },
+        "endTimestamp": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/resourcePeriodStatus"
+        }
+      }
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "transactionListTransactionsRequestResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/transactiontransaction"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1transactionPagination"
+        }
+      }
+    },
+    "transactionTransactionChannel": {
+      "type": "string",
+      "enum": [
+        "Balance",
+        "Alipay",
+        "Wechat",
+        "Corporate_Transfer"
+      ],
+      "default": "Balance"
+    },
+    "transactionTransactionType": {
+      "type": "string",
+      "enum": [
+        "Consume",
+        "Charge",
+        "Refund"
+      ],
+      "default": "Consume"
+    },
+    "transactiontransaction": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "transactionTimestamp": {
+          "type": "string"
+        },
+        "paymentType": {
+          "$ref": "#/definitions/v1alpha1transactionPaymentType"
+        },
+        "transactionType": {
+          "$ref": "#/definitions/transactionTransactionType"
+        },
+        "transactionChannel": {
+          "$ref": "#/definitions/transactionTransactionChannel"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "billingId": {
+          "type": "string"
+        },
+        "balance": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1accountsPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1activityPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1billBillingType": {
+      "type": "string",
+      "enum": [
+        "PAY_AS_YOU_GO",
+        "SUBSCRIPTION_DAILY",
+        "SUBSCRIPTION_WEEKLY",
+        "SUBSCRIPTION_MONTHLY",
+        "SUBSCRIPTION_YEARLY"
+      ],
+      "default": "PAY_AS_YOU_GO"
+    },
+    "v1alpha1billExportTypes": {
+      "type": "string",
+      "enum": [
+        "excel"
+      ],
+      "default": "excel"
+    },
+    "v1alpha1billPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1billResource": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1billUnitType": {
+      "type": "string",
+      "enum": [
+        "HOUR",
+        "THOUSAND_TOKENS",
+        "GB_DAY",
+        "INSTANCE_NUMBER",
+        "PICTURE",
+        "DAY",
+        "WEEK",
+        "MONTH",
+        "YEAR",
+        "THOUSAND_CHARACTER",
+        "AUDIO_MINUTE"
+      ],
+      "default": "HOUR"
+    },
+    "v1alpha1operationsPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1orderBillingType": {
+      "type": "string",
+      "enum": [
+        "PAY_AS_YOU_GO",
+        "SUBSCRIPTION_DAILY",
+        "SUBSCRIPTION_WEEKLY",
+        "SUBSCRIPTION_MONTHLY",
+        "SUBSCRIPTION_YEARLY"
+      ],
+      "default": "PAY_AS_YOU_GO"
+    },
+    "v1alpha1orderExportTypes": {
+      "type": "string",
+      "enum": [
+        "excel"
+      ],
+      "default": "excel"
+    },
+    "v1alpha1orderPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1orderResource": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1productBillingType": {
+      "type": "string",
+      "enum": [
+        "PAY_AS_YOU_GO",
+        "SUBSCRIPTION_DAILY",
+        "SUBSCRIPTION_WEEKLY",
+        "SUBSCRIPTION_MONTHLY",
+        "SUBSCRIPTION_YEARLY"
+      ],
+      "default": "PAY_AS_YOU_GO"
+    },
+    "v1alpha1productPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1productUnitType": {
+      "type": "string",
+      "enum": [
+        "HOUR",
+        "THOUSAND_TOKENS",
+        "GB_DAY",
+        "INSTANCE_NUMBER",
+        "PICTURE",
+        "DAY",
+        "WEEK",
+        "MONTH",
+        "YEAR",
+        "THOUSAND_CHARACTER",
+        "AUDIO_MINUTE"
+      ],
+      "default": "HOUR"
+    },
+    "v1alpha1transactionExportTypes": {
+      "type": "string",
+      "enum": [
+        "excel"
+      ],
+      "default": "excel"
+    },
+    "v1alpha1transactionPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1transactionPaymentType": {
+      "type": "string",
+      "enum": [
+        "Income",
+        "Expense"
+      ],
+      "default": "Income"
+    },
+    "v1alpha1voucherPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1walletPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1walletPaymentType": {
+      "type": "string",
+      "enum": [
+        "QR_CODE",
+        "REDIRECT"
+      ],
+      "default": "QR_CODE"
+    },
+    "voucherActivateVoucherRequest": {
+      "type": "object",
+      "properties": {
+        "voucherId": {
+          "type": "string"
+        }
+      }
+    },
+    "voucherActivateVoucherResponse": {
+      "type": "object"
+    },
+    "voucherBatchCreateAndActiveVouchersRequest": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "effectiveDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expireTimestamp": {
+          "type": "string"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "voucherBatchCreateAndActiveVouchersResponse": {
+      "type": "object"
+    },
+    "voucherBatchCreateVouchersRequest": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "effectiveDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expireTimestamp": {
+          "type": "string"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "voucherBatchCreateVouchersResponse": {
+      "type": "object",
+      "properties": {
+        "voucherIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "voucherGetVoucherStatByCurrentUserResponse": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "voucherListVouchersResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/voucherVoucherInfo"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1voucherPagination"
+        }
+      }
+    },
+    "voucherVoucherInfo": {
+      "type": "object",
+      "properties": {
+        "voucherId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/voucherVoucherStatus"
+        },
+        "totalAmount": {
+          "type": "string"
+        },
+        "remainingAmount": {
+          "type": "string"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "适用地区, 空代表全部"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "适用产品, 空代表全部"
+        },
+        "orderTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "适用订单类型, 空代表全部"
+        },
+        "effectTimestamp": {
+          "type": "string"
+        },
+        "expireTimestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "voucherVoucherStatus": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "UsedUp",
+        "Expired"
+      ],
+      "default": "Active"
+    },
+    "walletBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "type": "string"
+        },
+        "isVirtual": {
+          "type": "boolean"
+        },
+        "alertsEnabled": {
+          "type": "boolean"
+        },
+        "mainAccountInArrears": {
+          "type": "boolean"
+        }
+      }
+    },
+    "walletCorporateTransferRechargeRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "title": "充值用户ID"
+        },
+        "amount": {
+          "type": "string",
+          "format": "uint64",
+          "title": "充值金额，单位分"
+        },
+        "serialNumber": {
+          "type": "string",
+          "title": "银行交易流水号"
+        },
+        "message": {
+          "type": "string",
+          "title": "备注信息"
+        },
+        "paymentSourceInfo": {
+          "$ref": "#/definitions/walletPaymentSourceInfo",
+          "title": "支付来源信息"
+        }
+      }
+    },
+    "walletCorporateTransferRechargeResponse": {
+      "type": "object"
+    },
+    "walletCreateDomainReceivingBankInfoRequest": {
+      "type": "object",
+      "properties": {
+        "domain": {
+          "type": "string"
+        },
+        "bankInfo": {
+          "$ref": "#/definitions/walletReceivingBankInfo"
+        }
+      }
+    },
+    "walletCreateDomainReceivingBankInfoResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "walletCreateVirtualWalletRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "arrearsStop": {
+          "type": "boolean"
+        }
+      }
+    },
+    "walletCreateVirtualWalletResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "walletDeleteDomainReceivingBankInfoResponse": {
+      "type": "object"
+    },
+    "walletDeleteVirtualWalletResponse": {
+      "type": "object"
+    },
+    "walletDomainReceivingBankInfo": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string"
+        },
+        "bankAccount": {
+          "type": "string"
+        },
+        "bankName": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        }
+      }
+    },
+    "walletGetBalanceAlertResponse": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "threshold": {
+          "type": "string"
+        }
+      }
+    },
+    "walletGetReceivingBankInfoResponse": {
+      "type": "object",
+      "properties": {
+        "bankInfos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/walletReceivingBankInfo"
+          }
+        }
+      }
+    },
+    "walletGetRefundableAmountResponse": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "type": "string",
+          "title": "总金额（单位：分）"
+        },
+        "frozenBalance": {
+          "type": "string",
+          "title": "冻结金额（单位：分）- 冻结中的退款金额，有在途退款时会有冻结金额"
+        },
+        "availableBalance": {
+          "type": "string",
+          "title": "在用金额（单位：分）- 用户所有资源当前计费周期所需的金额"
+        },
+        "refundableBalance": {
+          "type": "string",
+          "title": "可退金额（单位：分）- 实际可以退款的金额，可退金额 = 总金额 - 冻结金额 - 在用金额"
+        }
+      }
+    },
+    "walletGetUserStateResponse": {
+      "type": "object",
+      "properties": {
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isMain": {
+          "type": "boolean"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "enableSub": {
+          "type": "boolean"
+        }
+      }
+    },
+    "walletListDomainReceivingBankInfosResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/walletDomainReceivingBankInfo"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1walletPagination"
+        }
+      }
+    },
+    "walletListVirtualWalletsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/walletVirtualWallet"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1walletPagination"
+        }
+      }
+    },
+    "walletOperationType": {
+      "type": "string",
+      "enum": [
+        "INCREASE",
+        "DECREASE"
+      ],
+      "default": "INCREASE"
+    },
+    "walletPaymentChannel": {
+      "type": "string",
+      "enum": [
+        "ALIPAY",
+        "WECHAT",
+        "CORPORATE_TRANSFER"
+      ],
+      "default": "ALIPAY"
+    },
+    "walletPaymentSourceInfo": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string",
+          "title": "汇款账户名称"
+        },
+        "bankAccount": {
+          "type": "string",
+          "title": "汇款银行账号"
+        },
+        "bankName": {
+          "type": "string",
+          "title": "开户银行"
+        }
+      }
+    },
+    "walletReceivingBankInfo": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string",
+          "title": "收款账户名称"
+        },
+        "bankAccount": {
+          "type": "string",
+          "title": "收款银行账号"
+        },
+        "bankName": {
+          "type": "string",
+          "title": "开户银行"
+        }
+      }
+    },
+    "walletRechargeRequest": {
+      "type": "object",
+      "properties": {
+        "paymentChannel": {
+          "$ref": "#/definitions/walletPaymentChannel"
+        },
+        "amount": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "redirectUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "walletRechargeResponse": {
+      "type": "object",
+      "properties": {
+        "paymentType": {
+          "$ref": "#/definitions/v1alpha1walletPaymentType"
+        },
+        "qrCode": {
+          "type": "string"
+        },
+        "redirectUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "walletRefundRequest": {
+      "type": "object",
+      "properties": {
+        "transactionSerialNum": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "walletRefundResponse": {
+      "type": "object"
+    },
+    "walletUpdateBalanceAlertRequest": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "threshold": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "walletUpdateBalanceAlertResponse": {
+      "type": "object"
+    },
+    "walletUpdateDomainReceivingBankInfoResponse": {
+      "type": "object"
+    },
+    "walletUpdateVirtualWalletResponse": {
+      "type": "object"
+    },
+    "walletUserStateResponse": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isMain": {
+          "type": "boolean"
+        }
+      }
+    },
+    "walletVirtualWallet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "balance": {
+          "type": "string"
+        },
+        "arrearsStop": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
