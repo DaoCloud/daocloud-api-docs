@@ -43,17 +43,21 @@ nav:
                     - v0.109.1: openapi/amamba/v0.109.1.md
         - 容器:
             - 容器管理 OpenAPI:
+                - v0.47.0: openapi/kpanda/v0.47.0.md
+                - v0.46.x: 
+                    - v0.46.0: openapi/kpanda/v0.46.0.md
+                    - v0.46.1: openapi/kpanda/v0.46.1.md
                 - v0.45.0: openapi/kpanda/v0.45.0.md
                 - v0.44.0: openapi/kpanda/v0.44.0.md
-                - v0.43.x: 
-                    - v0.43.0: openapi/kpanda/v0.43.0.md
-                    - v0.43.1: openapi/kpanda/v0.43.1.md
-                    - v0.43.2: openapi/kpanda/v0.43.2.md
-                    - v0.43.3: openapi/kpanda/v0.43.3.md
-                - v0.42.x:
-                    - v0.42.0: openapi/kpanda/v0.42.0.md
-                    - v0.42.1: openapi/kpanda/v0.42.1.md
                 - 早期版本:
+                    - v0.43.x: 
+                        - v0.43.0: openapi/kpanda/v0.43.0.md
+                        - v0.43.1: openapi/kpanda/v0.43.1.md
+                        - v0.43.2: openapi/kpanda/v0.43.2.md
+                        - v0.43.3: openapi/kpanda/v0.43.3.md
+                    - v0.42.x:
+                        - v0.42.0: openapi/kpanda/v0.42.0.md
+                        - v0.42.1: openapi/kpanda/v0.42.1.md
                     - v0.41.0: openapi/kpanda/v0.41.0.md
                     - v0.40.x: 
                         - v0.40.0: openapi/kpanda/v0.40.0.md
@@ -175,6 +179,7 @@ nav:
                     - v0.6.0: openapi/spidernet/v0.6.0.md
                     - v0.5.0: openapi/spidernet/v0.5.0.md
             - 虚拟机 OpenAPI:
+                - v0.20.0: openapi/virtnest/v0.20.0.md
                 - v0.19.0: openapi/virtnest/v0.19.0.md
                 - v0.18.x:
                     - v0.18.0: openapi/virtnest/v0.18.0.md
@@ -262,6 +267,7 @@ nav:
                         - v0.17.3: openapi/insight/v0.17.3.md
                     - v0.16.0: openapi/insight/v0.16.0.md
             - 微服务引擎 OpenAPI:
+                - v0.55.0: openapi/skoala/v0.55.0.md
                 - v0.54.0: openapi/skoala/v0.54.0.md
                 - v0.53.0: openapi/skoala/v0.53.0.md
                 - v0.51.0: openapi/skoala/v0.51.0.md
@@ -342,6 +348,7 @@ nav:
             - 中间件 OpenAPI:
                 - Index: openapi/midware.md
                 - Elasticsearch 搜索服务:
+                    - v0.28.0: openapi/mcamel/elasticsearch/elasticsearch-v0.28.0.md
                     - v0.27.0: openapi/mcamel/elasticsearch/elasticsearch-v0.27.0.md
                     - v0.26.x:
                         - v0.26.0: openapi/mcamel/elasticsearch/elasticsearch-v0.26.0.md
@@ -381,6 +388,7 @@ nav:
                             - v0.7.0: openapi/mcamel/elasticsearch/elasticsearch-v0.7.0.md
                             - v0.7.1: openapi/mcamel/elasticsearch/elasticsearch-v0.7.1.md
                 - Kafka 消息队列:
+                    - v0.30.0: openapi/mcamel/kafka/kafka-v0.30.0.md
                     - v0.29.0: openapi/mcamel/kafka/kafka-v0.29.0.md
                     - v0.28.x:
                         - v0.28.0: openapi/mcamel/kafka/kafka-v0.28.0.md
@@ -422,6 +430,7 @@ nav:
                             - v0.5.0: openapi/mcamel/kafka/kafka-v0.5.0.md
                             - v0.5.1: openapi/mcamel/kafka/kafka-v0.5.1.md
                 - RabbitMQ 消息队列:
+                    - v0.32.0: openapi/mcamel/rabbitmq/rabbitmq-v0.32.0.md
                     - v0.31.0: openapi/mcamel/rabbitmq/rabbitmq-v0.31.0.md
                     - v0.30.0: openapi/mcamel/rabbitmq/rabbitmq-v0.30.0.md
                     - v0.29.0: openapi/mcamel/rabbitmq/rabbitmq-v0.29.0.md
@@ -457,6 +466,7 @@ nav:
                             - v0.10.0: openapi/mcamel/rabbitmq/rabbitmq-v0.10.0.md
                             - v0.10.1: openapi/mcamel/rabbitmq/rabbitmq-v0.10.1.md
                 - RocketMQ 消息队列:
+                    - v0.19.0: openapi/mcamel/rocketmq/rocketmq-v0.19.0.md
                     - v0.18.0: openapi/mcamel/rocketmq/rocketmq-v0.18.0.md
                     - v0.17.0: openapi/mcamel/rocketmq/rocketmq-v0.17.0.md
                     - v0.16.0: openapi/mcamel/rocketmq/rocketmq-v0.16.0.md
@@ -477,6 +487,7 @@ nav:
                         - v0.2.0: openapi/mcamel/rocketmq/rocketmq-v0.2.0.md
                         - v0.1.1: openapi/mcamel/rocketmq/rocketmq-v0.1.1.md
                 - MinIO 对象存储:
+                    - v0.25.0: openapi/mcamel/minio/minio-v0.25.0.md
                     - v0.24.0: openapi/mcamel/minio/minio-v0.24.0.md
                     - v0.23.x:
                         - v0.23.0: openapi/mcamel/minio/minio-v0.23.0.md
@@ -511,6 +522,7 @@ nav:
                             - v0.5.0: openapi/mcamel/minio/minio-v0.5.0.md
                             - v0.5.1: openapi/mcamel/minio/minio-v0.5.1.md
                 - MongoDB 数据库:
+                    - v0.20.0: openapi/mcamel/mongodb/mongodb-v0.20.0.md
                     - v0.19.0: openapi/mcamel/mongodb/mongodb-v0.19.0.md
                     - v0.18.0: openapi/mcamel/mongodb/mongodb-v0.18.0.md
                     - v0.17.0: openapi/mcamel/mongodb/mongodb-v0.17.0.md
@@ -538,6 +550,9 @@ nav:
                         - v0.2.0: openapi/mcamel/mongodb/mongodb-v0.2.0.md
                         - v0.1.0: openapi/mcamel/mongodb/mongodb-v0.1.0.md
                 - MySQL 数据库:
+                    - v0.30.x:
+                        - v0.30.0: openapi/mcamel/mysql/mysql-v0.30.0.md
+                        - v0.30.1: openapi/mcamel/mysql/mysql-v0.30.1.md
                     - v0.29.0: openapi/mcamel/mysql/mysql-v0.29.0.md
                     - v0.28.x:
                         - v0.28.0: openapi/mcamel/mysql/mysql-v0.28.0.md
@@ -578,6 +593,7 @@ nav:
                             - v0.8.0: openapi/mcamel/mysql/mysql-v0.8.0.md
                             - v0.8.1: openapi/mcamel/mysql/mysql-v0.8.1.md
                 - PostgreSQL 数据库:
+                    - v0.22.0: openapi/mcamel/postgresql/postgresql-v0.22.0.md
                     - v0.21.0: openapi/mcamel/postgresql/postgresql-v0.21.0.md
                     - v0.20.x:
                         - v0.20.0: openapi/mcamel/postgresql/postgresql-v0.20.0.md
@@ -611,6 +627,7 @@ nav:
                             - v0.1.1: openapi/mcamel/postgresql/postgresql-v0.1.1.md
                             - v0.1.2: openapi/mcamel/postgresql/postgresql-v0.1.2.md
                 - Redis 缓存服务:
+                    - v0.31.0: openapi/mcamel/redis/redis-v0.31.0.md
                     - v0.30.0: openapi/mcamel/redis/redis-v0.30.0.md
                     - v0.29.x:
                         - v0.29.0: openapi/mcamel/redis/redis-v0.29.0.md
@@ -644,9 +661,12 @@ nav:
                             - v0.7.1: openapi/mcamel/redis/redis-v0.7.1.md
         - 云原生 AI:
             - AI Lab OpenAPI:
+                - v0.26.0: openapi/baize/v0.26.0.md
                 - v0.111.2: openapi/baize/v0.111.2.md
                 - v0.107.4: openapi/baize/v0.107.4.md
             - 算力云 OpenAPI:
+                - v0.16.0: openapi/zestu/v0.16.0.md
+                - v0.15.0: openapi/zestu/v0.15.0.md
                 - v0.14.0: openapi/zestu/v0.14.0.md
                 - v0.13.0: openapi/zestu/v0.13.0.md
                 - v0.12.0: openapi/zestu/v0.12.0.md
@@ -682,6 +702,7 @@ nav:
                 - v0.3.0: openapi/topohub/v0.3.0.md
                 - v0.2.0: openapi/topohub/v0.2.0.md
             - 全局管理 OpenAPI:
+                - v0.46.0: openapi/ghippo/v0.46.0.md
                 - v0.45.x:
                     - v0.45.0: openapi/ghippo/v0.45.0.md
                     - v0.45.1: openapi/ghippo/v0.45.1.md
