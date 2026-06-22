@@ -124,6 +124,12 @@ hide:
     - [v0.35.x](./ghippo/v0.35.0.md), [v0.34.0](./ghippo/v0.34.0.md), [v0.33.0](./ghippo/v0.33.0.md), [v0.31.0](./ghippo/v0.31.0.md)
     - [v0.30.0](./ghippo/v0.30.0.md), [v0.28.0](./ghippo/v0.28.0.md), [v0.27.0](./ghippo/v0.27.0.md), [v0.26.0](./ghippo/v0.26.0.md)
 
+-   :material-cog:{ .lg .middle } __运营管理 OpenAPI__
+
+    ---
+
+    - [v0.13.0](./gmagpie/v0.13.0.md)
+
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI 之一__
 
     ---
