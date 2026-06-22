@@ -750,3 +750,5 @@ nav:
                         - v0.16.0: openapi/ghippo/v0.16.0.md
                         - v0.16.1: openapi/ghippo/v0.16.1.md
                     - v0.15.0: openapi/ghippo/v0.15.0.md
+            - 运营管理 OpenAPI:
+                - v0.13.0: openapi/gmagpie/v0.13.0.md
