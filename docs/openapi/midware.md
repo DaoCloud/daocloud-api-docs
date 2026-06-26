@@ -22,7 +22,7 @@ hide:
 
     ---
 
-    - [v0.30.0](mcamel/kafka/kafka-v0.30.0.md), [v0.29.0](mcamel/kafka/kafka-v0.29.0.md), [v0.28.x](mcamel/kafka/kafka-v0.28.0.md), [v0.27.0](mcamel/kafka/kafka-v0.27.0.md)
+    - [v0.30.x](mcamel/kafka/kafka-v0.30.0.md), [v0.29.0](mcamel/kafka/kafka-v0.29.0.md), [v0.28.x](mcamel/kafka/kafka-v0.28.0.md), [v0.27.0](mcamel/kafka/kafka-v0.27.0.md)
     - [v0.26.0](mcamel/kafka/kafka-v0.26.0.md), [v0.25.0](mcamel/kafka/kafka-v0.25.0.md), [v0.24.x](mcamel/kafka/kafka-v0.24.0.md), [v0.22.0](mcamel/kafka/kafka-v0.22.0.md)
     - [v0.21.0](mcamel/kafka/kafka-v0.21.0.md), [v0.19.0](mcamel/kafka/kafka-v0.19.0.md), [v0.18.0](mcamel/kafka/kafka-v0.18.0.md), [v0.17.0](mcamel/kafka/kafka-v0.17.0.md)
     - [v0.16.0](mcamel/kafka/kafka-v0.16.0.md), [v0.15.0](mcamel/kafka/kafka-v0.15.0.md), [v0.14.0](mcamel/kafka/kafka-v0.14.0.md), [v0.13.0](mcamel/kafka/kafka-v0.13.0.md)
@@ -85,9 +85,15 @@ hide:
 
     ---
 
-    - [v0.19.0](mcamel/rocketmq/rocketmq-v0.19.0.md), [v0.18.0](mcamel/rocketmq/rocketmq-v0.18.0.md), [v0.17.0](mcamel/rocketmq/rocketmq-v0.17.0.md), [v0.16.0](mcamel/rocketmq/rocketmq-v0.16.0.md)
+    - [v0.19.x](mcamel/rocketmq/rocketmq-v0.19.0.md), [v0.18.0](mcamel/rocketmq/rocketmq-v0.18.0.md), [v0.17.0](mcamel/rocketmq/rocketmq-v0.17.0.md), [v0.16.0](mcamel/rocketmq/rocketmq-v0.16.0.md)
     - [v0.15.x](mcamel/rocketmq/rocketmq-v0.15.2.md), [v0.13.0](mcamel/rocketmq/rocketmq-v0.13.0.md), [v0.12.0](mcamel/rocketmq/rocketmq-v0.12.0.md), [v0.11.0](mcamel/rocketmq/rocketmq-v0.11.0.md)
     - [v0.10.0](mcamel/rocketmq/rocketmq-v0.10.0.md), [v0.8.0](mcamel/rocketmq/rocketmq-v0.8.0.md), [v0.7.0](mcamel/rocketmq/rocketmq-v0.7.0.md), [v0.5.0](mcamel/rocketmq/rocketmq-v0.5.0.md)
+
+-   :file_folder:{ .lg .middle } __SeaweedFS OpenAPI__
+
+    ---
+
+    - [v0.1.4](mcamel/seaweedfs/seaweedfs-v0.1.4.md), [v0.1.3](mcamel/seaweedfs/seaweedfs-v0.1.3.md), [v0.1.2](mcamel/seaweedfs/seaweedfs-v0.1.2.md)
 
 </div>
 

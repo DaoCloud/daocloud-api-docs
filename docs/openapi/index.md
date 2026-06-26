@@ -14,16 +14,16 @@ hide:
 
     ---
 
-    - [v0.131.0](./amamba/v0.131.0.md), [v0.130.0](./amamba/v0.130.0.md), [v0.129.0](./amamba/v0.129.0.md), [v0.128.0](./amamba/v0.128.0.md)
-    - [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md), [v0.125.0](./amamba/v0.125.0.md), [v0.124.1](./amamba/v0.124.1.md)
-    - [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md), [v0.121.0](./amamba/v0.121.0.md), [v0.120.0](./amamba/v0.120.0.md)
-    - [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md), [v0.117.x](./amamba/v0.117.0.md), [v0.116.0](./amamba/v0.116.0.md)
+    - [v0.132.0](./amamba/v0.132.0.md), [v0.131.0](./amamba/v0.131.0.md), [v0.130.0](./amamba/v0.130.0.md), [v0.129.0](./amamba/v0.129.0.md)
+    - [v0.128.0](./amamba/v0.128.0.md), [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md), [v0.125.0](./amamba/v0.125.0.md)
+    - [v0.124.1](./amamba/v0.124.1.md), [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md), [v0.121.0](./amamba/v0.121.0.md)
+    - [v0.120.0](./amamba/v0.120.0.md), [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md), [v0.117.x](./amamba/v0.117.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
     ---
 
-    - [v0.47.0](./kpanda/v0.47.0.md), [v0.46.x](./kpanda/v0.46.0.md), [v0.45.0](./kpanda/v0.45.0.md), [v0.44.0](./kpanda/v0.44.0.md)
+    - [v0.47.x](./kpanda/v0.47.0.md), [v0.46.x](./kpanda/v0.46.0.md), [v0.45.0](./kpanda/v0.45.0.md), [v0.44.0](./kpanda/v0.44.0.md)
     - [v0.43.x](./kpanda/v0.43.0.md), [v0.42.x](./kpanda/v0.42.0.md), [v0.41.0](./kpanda/v0.41.0.md), [v0.40.x](./kpanda/v0.40.0.md)
     - [v0.39.0](./kpanda/v0.39.0.md), [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md), [v0.34.0](./kpanda/v0.34.0.md)
     - [v0.33.x](./kpanda/v0.33.0.md), [v0.32.x](./kpanda/v0.32.0.md), [v0.31.1](./kpanda/v0.31.1.md), [v0.30.x](./kpanda/v0.30.1.md)
@@ -106,6 +106,12 @@ hide:
     ---
 
     - [v0.26.0](./baize/v0.26.0.md), [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
+
+-   :octicons-ai-model-24:{ .lg .middle } __大模型服务 OpenAPI__
+
+    ---
+
+    - [v0.16.0](./hydra/v0.16.0.md), [v0.15.2](./hydra/v0.15.2.md)
 
 -   :computer:{ .lg .middle } __算力云 OpenAPI__
 
