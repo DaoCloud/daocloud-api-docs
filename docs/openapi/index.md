@@ -14,10 +14,10 @@ hide:
 
     ---
 
-    - [v0.132.0](./amamba/v0.132.0.md), [v0.131.0](./amamba/v0.131.0.md), [v0.130.0](./amamba/v0.130.0.md), [v0.129.0](./amamba/v0.129.0.md), [v0.128.0](./amamba/v0.128.0.md)
-    - [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md), [v0.125.0](./amamba/v0.125.0.md), [v0.124.1](./amamba/v0.124.1.md)
-    - [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md), [v0.121.0](./amamba/v0.121.0.md), [v0.120.0](./amamba/v0.120.0.md)
-    - [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md), [v0.117.x](./amamba/v0.117.0.md), [v0.116.0](./amamba/v0.116.0.md)
+    - [v0.132.0](./amamba/v0.132.0.md), [v0.131.0](./amamba/v0.131.0.md), [v0.130.0](./amamba/v0.130.0.md), [v0.129.0](./amamba/v0.129.0.md)
+    - [v0.128.0](./amamba/v0.128.0.md), [v0.127.0](./amamba/v0.127.0.md), [v0.126.0](./amamba/v0.126.0.md), [v0.125.0](./amamba/v0.125.0.md)
+    - [v0.124.1](./amamba/v0.124.1.md), [v0.123.x](./amamba/v0.123.0.md), [v0.122.x](./amamba/v0.122.0.md), [v0.121.0](./amamba/v0.121.0.md)
+    - [v0.120.0](./amamba/v0.120.0.md), [v0.119.0](./amamba/v0.119.0.md), [v0.118.x](./amamba/v0.118.0.md), [v0.117.x](./amamba/v0.117.0.md)
 
 -   :octicons-container-16:{ .lg .middle } __容器管理 OpenAPI__
 
