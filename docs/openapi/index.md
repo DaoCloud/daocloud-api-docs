@@ -112,7 +112,7 @@ hide:
 
     ---
 
-    - [v0.16.x](./hydra/v0.16.0.md), [v0.15.2](./hydra/v0.15.2.md)
+    - [v0.17.0](./hydra/v0.17.0.md), [v0.16.x](./hydra/v0.16.0.md), [v0.15.2](./hydra/v0.15.2.md)
 
 -   :computer:{ .lg .middle } __算力云 OpenAPI__
 
