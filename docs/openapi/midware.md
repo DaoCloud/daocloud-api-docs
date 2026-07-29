@@ -13,19 +13,19 @@ hide:
 
     ---
 
-    - [v0.28.0](mcamel/elasticsearch/elasticsearch-v0.28.0.md), [v0.27.0](mcamel/elasticsearch/elasticsearch-v0.27.0.md), [v0.26.x](mcamel/elasticsearch/elasticsearch-v0.26.0.md), [v0.25.x](mcamel/elasticsearch/elasticsearch-v0.25.0.md)
-    - [v0.24.x](mcamel/elasticsearch/elasticsearch-v0.24.0.md), [v0.23.0](mcamel/elasticsearch/elasticsearch-v0.23.0.md), [v0.21.x](mcamel/elasticsearch/elasticsearch-v0.21.0.md), [v0.20.0](mcamel/elasticsearch/elasticsearch-v0.20.0.md)
-    - [v0.18.0](mcamel/elasticsearch/elasticsearch-v0.18.0.md), [v0.17.0](mcamel/elasticsearch/elasticsearch-v0.17.0.md), [v0.16.0](mcamel/elasticsearch/elasticsearch-v0.16.0.md), [v0.15.0](mcamel/elasticsearch/elasticsearch-v0.15.0.md)
-    - [v0.14.0](mcamel/elasticsearch/elasticsearch-v0.14.0.md), [v0.13.0](mcamel/elasticsearch/elasticsearch-v0.13.0.md), [v0.12.0](mcamel/elasticsearch/elasticsearch-v0.12.0.md), [v0.11.0](mcamel/elasticsearch/elasticsearch-v0.11.0.md)
+    - [v0.28.x](mcamel/elasticsearch/elasticsearch-v0.28.0.md), [v0.27.0](mcamel/elasticsearch/elasticsearch-v0.27.0.md), [v0.26.x](mcamel/elasticsearch/elasticsearch-v0.26.0.md)
+    - [v0.25.x](mcamel/elasticsearch/elasticsearch-v0.25.0.md), [v0.24.x](mcamel/elasticsearch/elasticsearch-v0.24.0.md), [v0.23.0](mcamel/elasticsearch/elasticsearch-v0.23.0.md), [v0.21.x](mcamel/elasticsearch/elasticsearch-v0.21.0.md)
+    - [v0.20.0](mcamel/elasticsearch/elasticsearch-v0.20.0.md), [v0.18.0](mcamel/elasticsearch/elasticsearch-v0.18.0.md), [v0.17.0](mcamel/elasticsearch/elasticsearch-v0.17.0.md), [v0.16.0](mcamel/elasticsearch/elasticsearch-v0.16.0.md)
+    - [v0.15.0](mcamel/elasticsearch/elasticsearch-v0.15.0.md), [v0.14.0](mcamel/elasticsearch/elasticsearch-v0.14.0.md), [v0.13.0](mcamel/elasticsearch/elasticsearch-v0.13.0.md), [v0.12.0](mcamel/elasticsearch/elasticsearch-v0.12.0.md)
 
 -   :simple-apachekafka:{ .lg .middle } __Kafka OpenAPI__
 
     ---
 
-    - [v0.30.x](mcamel/kafka/kafka-v0.30.0.md), [v0.29.0](mcamel/kafka/kafka-v0.29.0.md), [v0.28.x](mcamel/kafka/kafka-v0.28.0.md), [v0.27.0](mcamel/kafka/kafka-v0.27.0.md)
-    - [v0.26.0](mcamel/kafka/kafka-v0.26.0.md), [v0.25.0](mcamel/kafka/kafka-v0.25.0.md), [v0.24.x](mcamel/kafka/kafka-v0.24.0.md), [v0.22.0](mcamel/kafka/kafka-v0.22.0.md)
-    - [v0.21.0](mcamel/kafka/kafka-v0.21.0.md), [v0.19.0](mcamel/kafka/kafka-v0.19.0.md), [v0.18.0](mcamel/kafka/kafka-v0.18.0.md), [v0.17.0](mcamel/kafka/kafka-v0.17.0.md)
-    - [v0.16.0](mcamel/kafka/kafka-v0.16.0.md), [v0.15.0](mcamel/kafka/kafka-v0.15.0.md), [v0.14.0](mcamel/kafka/kafka-v0.14.0.md), [v0.13.0](mcamel/kafka/kafka-v0.13.0.md)
+    - [v0.31.0](mcamel/kafka/kafka-v0.31.0.md), [v0.30.x](mcamel/kafka/kafka-v0.30.0.md), [v0.29.0](mcamel/kafka/kafka-v0.29.0.md), [v0.28.x](mcamel/kafka/kafka-v0.28.0.md)
+    - [v0.27.0](mcamel/kafka/kafka-v0.27.0.md), [v0.26.0](mcamel/kafka/kafka-v0.26.0.md), [v0.25.0](mcamel/kafka/kafka-v0.25.0.md), [v0.24.x](mcamel/kafka/kafka-v0.24.0.md)
+    - [v0.22.0](mcamel/kafka/kafka-v0.22.0.md), [v0.21.0](mcamel/kafka/kafka-v0.21.0.md), [v0.19.0](mcamel/kafka/kafka-v0.19.0.md), [v0.18.0](mcamel/kafka/kafka-v0.18.0.md)
+    - [v0.17.0](mcamel/kafka/kafka-v0.17.0.md), [v0.16.0](mcamel/kafka/kafka-v0.16.0.md), [v0.15.0](mcamel/kafka/kafka-v0.15.0.md), [v0.14.0](mcamel/kafka/kafka-v0.14.0.md)
 
 -   :material-database:{ .lg .middle } __MinIO OpenAPI__
 
@@ -49,10 +49,10 @@ hide:
 
     ---
 
-    - [v0.30.x](mcamel/mysql/mysql-v0.30.0.md), [v0.29.0](mcamel/mysql/mysql-v0.29.0.md), [v0.28.x](mcamel/mysql/mysql-v0.28.0.md), [v0.27.x](mcamel/mysql/mysql-v0.27.0.md)
-    - [v0.26.x](mcamel/mysql/mysql-v0.26.0.md), [v0.25.0](mcamel/mysql/mysql-v0.25.0.md), [v0.24.0](mcamel/mysql/mysql-v0.24.0.md), [v0.23.0](mcamel/mysql/mysql-v0.23.0.md)
-    - [v0.22.0](mcamel/mysql/mysql-v0.22.0.md), [v0.21.0](mcamel/mysql/mysql-v0.21.0.md), [v0.19.0](mcamel/mysql/mysql-v0.19.0.md), [v0.18.0](mcamel/mysql/mysql-v0.18.0.md)
-    - [v0.17.1](mcamel/mysql/mysql-v0.17.1.md), [v0.16.0](mcamel/mysql/mysql-v0.16.0.md), [v0.15.0](mcamel/mysql/mysql-v0.15.0.md), [v0.14.0](mcamel/mysql/mysql-v0.14.0.md)
+    - [v0.31.0](mcamel/mysql/mysql-v0.31.0.md), [v0.30.x](mcamel/mysql/mysql-v0.30.0.md), [v0.29.0](mcamel/mysql/mysql-v0.29.0.md), [v0.28.x](mcamel/mysql/mysql-v0.28.0.md)
+    - [v0.27.x](mcamel/mysql/mysql-v0.27.0.md), [v0.26.x](mcamel/mysql/mysql-v0.26.0.md), [v0.25.0](mcamel/mysql/mysql-v0.25.0.md), [v0.24.0](mcamel/mysql/mysql-v0.24.0.md)
+    - [v0.23.0](mcamel/mysql/mysql-v0.23.0.md), [v0.22.0](mcamel/mysql/mysql-v0.22.0.md), [v0.21.0](mcamel/mysql/mysql-v0.21.0.md), [v0.19.0](mcamel/mysql/mysql-v0.19.0.md)
+    - [v0.18.0](mcamel/mysql/mysql-v0.18.0.md), [v0.17.1](mcamel/mysql/mysql-v0.17.1.md), [v0.16.0](mcamel/mysql/mysql-v0.16.0.md), [v0.15.0](mcamel/mysql/mysql-v0.15.0.md)
 
 -   :simple-postgresql:{ .lg .middle } __PostgreSQL OpenAPI__
 
@@ -67,10 +67,10 @@ hide:
 
     ---
 
-    - [v0.32.0](mcamel/rabbitmq/rabbitmq-v0.32.0.md), [v0.31.0](mcamel/rabbitmq/rabbitmq-v0.31.0.md), [v0.30.0](mcamel/rabbitmq/rabbitmq-v0.30.0.md), [v0.29.0](mcamel/rabbitmq/rabbitmq-v0.29.0.md)
-    - [v0.28.0](mcamel/rabbitmq/rabbitmq-v0.28.0.md), [v0.27.x](mcamel/rabbitmq/rabbitmq-v0.27.0.md), [v0.26.0](mcamel/rabbitmq/rabbitmq-v0.26.0.md), [v0.25.0](mcamel/rabbitmq/rabbitmq-v0.25.0.md)
-    - [v0.24.0](mcamel/rabbitmq/rabbitmq-v0.24.0.md), [v0.23.0](mcamel/rabbitmq/rabbitmq-v0.23.0.md), [v0.22.0](mcamel/rabbitmq/rabbitmq-v0.22.0.md), [v0.21.0](mcamel/rabbitmq/rabbitmq-v0.21.0.md)
-    - [v0.20.0](mcamel/rabbitmq/rabbitmq-v0.20.0.md), [v0.18.0](mcamel/rabbitmq/rabbitmq-v0.18.0.md), [v0.17.0](mcamel/rabbitmq/rabbitmq-v0.17.0.md), [v0.16.0](mcamel/rabbitmq/rabbitmq-v0.16.0.md)
+    - [v0.33.x](mcamel/rabbitmq/rabbitmq-v0.33.0.md), [v0.32.0](mcamel/rabbitmq/rabbitmq-v0.32.0.md), [v0.31.0](mcamel/rabbitmq/rabbitmq-v0.31.0.md), [v0.30.0](mcamel/rabbitmq/rabbitmq-v0.30.0.md)
+    - [v0.29.0](mcamel/rabbitmq/rabbitmq-v0.29.0.md), [v0.28.0](mcamel/rabbitmq/rabbitmq-v0.28.0.md), [v0.27.x](mcamel/rabbitmq/rabbitmq-v0.27.0.md), [v0.26.0](mcamel/rabbitmq/rabbitmq-v0.26.0.md)
+    - [v0.25.0](mcamel/rabbitmq/rabbitmq-v0.25.0.md), [v0.24.0](mcamel/rabbitmq/rabbitmq-v0.24.0.md), [v0.23.0](mcamel/rabbitmq/rabbitmq-v0.23.0.md), [v0.22.0](mcamel/rabbitmq/rabbitmq-v0.22.0.md)
+    - [v0.21.0](mcamel/rabbitmq/rabbitmq-v0.21.0.md), [v0.20.0](mcamel/rabbitmq/rabbitmq-v0.20.0.md), [v0.18.0](mcamel/rabbitmq/rabbitmq-v0.18.0.md), [v0.17.0](mcamel/rabbitmq/rabbitmq-v0.17.0.md)
 
 -   :simple-redis:{ .lg .middle } __Redis OpenAPI__
 
@@ -93,7 +93,7 @@ hide:
 
     ---
 
-    - [v0.1.4](mcamel/seaweedfs/seaweedfs-v0.1.4.md), [v0.1.3](mcamel/seaweedfs/seaweedfs-v0.1.3.md), [v0.1.2](mcamel/seaweedfs/seaweedfs-v0.1.2.md)
+    - [v0.2.0](mcamel/seaweedfs/seaweedfs-v0.2.0.md), [v0.1.4](mcamel/seaweedfs/seaweedfs-v0.1.4.md), [v0.1.3](mcamel/seaweedfs/seaweedfs-v0.1.3.md), [v0.1.2](mcamel/seaweedfs/seaweedfs-v0.1.2.md)
 
 </div>
 
