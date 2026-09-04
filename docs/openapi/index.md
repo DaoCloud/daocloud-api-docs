@@ -5,7 +5,7 @@ hide:
 
 # OpenAPI 文档汇总
 
-本页列出 DCE 5.0 相关模块的 OpenAPI 文档，方便以程序方式调用。
+本页列出 DaoCloud 产品模块的 OpenAPI 文档，方便以程序方式调用。
 调用 OpenAPI 时需要 **[访问密钥](#accesskey)** 。
 
 <div class="grid cards" markdown>
@@ -23,10 +23,10 @@ hide:
 
     ---
 
-    - [v0.48.x](./kpanda/v0.48.0.md), [v0.47.x](./kpanda/v0.47.0.md), [v0.46.x](./kpanda/v0.46.0.md), [v0.45.0](./kpanda/v0.45.0.md)
-    - [v0.44.0](./kpanda/v0.44.0.md), [v0.43.x](./kpanda/v0.43.0.md), [v0.42.x](./kpanda/v0.42.0.md), [v0.41.0](./kpanda/v0.41.0.md)
-    - [v0.40.x](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md), [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md)
-    - [v0.34.0](./kpanda/v0.34.0.md), [v0.33.x](./kpanda/v0.33.0.md), [v0.32.x](./kpanda/v0.32.0.md), [v0.31.1](./kpanda/v0.31.1.md)
+    - [v0.50.0](./kpanda/v0.50.0.md), [v0.49.0](./kpanda/v0.49.0.md), [v0.48.x](./kpanda/v0.48.0.md), [v0.47.x](./kpanda/v0.47.0.md)
+    - [v0.46.x](./kpanda/v0.46.0.md), [v0.45.0](./kpanda/v0.45.0.md), [v0.44.0](./kpanda/v0.44.0.md), [v0.43.x](./kpanda/v0.43.0.md)
+    - [v0.42.x](./kpanda/v0.42.0.md), [v0.41.0](./kpanda/v0.41.0.md), [v0.40.x](./kpanda/v0.40.0.md), [v0.39.0](./kpanda/v0.39.0.md)
+    - [v0.38.0](./kpanda/v0.38.0.md), [v0.37.0](./kpanda/v0.37.0.md), [v0.34.0](./kpanda/v0.34.0.md), [v0.33.x](./kpanda/v0.33.0.md)
 
 -   :material-cloud-check:{ .lg .middle } __多云编排 OpenAPI__
 
@@ -57,9 +57,9 @@ hide:
 
     ---
 
-    - [v0.20.0](./virtnest/v0.20.0.md), [v0.19.0](./virtnest/v0.19.0.md), [v0.18.x](./virtnest/v0.18.0.md), [v0.17.0](./virtnest/v0.17.0.md)
-    - [v0.16.0](./virtnest/v0.16.0.md), [v0.15.0](./virtnest/v0.15.0.md), [v0.13.0](./virtnest/v0.13.0.md), [v0.12.0](./virtnest/v0.12.0.md)
-    - [v0.9.x](./virtnest/v0.9.0.md), [v0.8.x](./virtnest/v0.8.0.md), [v0.7.x](./virtnest/v0.7.0.md), [v0.6.0](./virtnest/v0.6.0.md)
+    - [v0.21.0](./virtnest/v0.21.0.md), [v0.20.0](./virtnest/v0.20.0.md), [v0.19.0](./virtnest/v0.19.0.md), [v0.18.x](./virtnest/v0.18.0.md)
+    - [v0.17.0](./virtnest/v0.17.0.md), [v0.16.0](./virtnest/v0.16.0.md), [v0.15.0](./virtnest/v0.15.0.md), [v0.13.0](./virtnest/v0.13.0.md)
+    - [v0.12.0](./virtnest/v0.12.0.md), [v0.9.x](./virtnest/v0.9.0.md), [v0.8.x](./virtnest/v0.8.0.md), [v0.7.x](./virtnest/v0.7.0.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __可观测性 OpenAPI__
 
@@ -74,10 +74,10 @@ hide:
 
     ---
 
-    - [v0.56.0](./skoala/v0.56.0.md), [v0.55.0](./skoala/v0.55.0.md), [v0.54.0](./skoala/v0.54.0.md), [v0.53.0](./skoala/v0.53.0.md)
-    - [v0.51.0](./skoala/v0.51.0.md), [v0.50.x](./skoala/v0.50.0.md), [v0.49.0](./skoala/v0.49.0.md), [v0.48.x](./skoala/v0.48.0.md)
-    - [v0.47.1](./skoala/v0.47.1.md), [v0.43.x](./skoala/v0.43.0.md), [v0.42.x](./skoala/v0.42.0.md), [v0.41.x](./skoala/v0.41.1.md)
-    - [v0.40.1](./skoala/v0.40.1.md), [v0.39.4](./skoala/v0.39.4.md), [v0.38.x](./skoala/v0.38.1.md), [v0.37.x](./skoala/v0.37.0.md)
+    - [v0.57.0](./skoala/v0.57.0.md), [v0.56.0](./skoala/v0.56.0.md), [v0.55.0](./skoala/v0.55.0.md), [v0.54.0](./skoala/v0.54.0.md)
+    - [v0.53.0](./skoala/v0.53.0.md), [v0.51.0](./skoala/v0.51.0.md), [v0.50.x](./skoala/v0.50.0.md), [v0.49.0](./skoala/v0.49.0.md)
+    - [v0.48.x](./skoala/v0.48.0.md), [v0.47.1](./skoala/v0.47.1.md), [v0.43.x](./skoala/v0.43.0.md), [v0.42.x](./skoala/v0.42.0.md)
+    - [v0.41.x](./skoala/v0.41.1.md), [v0.40.1](./skoala/v0.40.1.md), [v0.39.4](./skoala/v0.39.4.md), [v0.38.x](./skoala/v0.38.1.md)
 
 -   :material-table-refresh:{ .lg .middle } __服务网格 OpenAPI__
 
@@ -105,8 +105,8 @@ hide:
 
     ---
 
-    - [v0.28.0](./baize/v0.28.0.md), [v0.27.x](./baize/v0.27.0.md), [v0.26.0](./baize/v0.26.0.md)
-    - [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
+    - [v0.29.1](./baize/v0.29.1.md), [v0.28.0](./baize/v0.28.0.md), [v0.27.x](./baize/v0.27.0.md)
+    - [v0.26.0](./baize/v0.26.0.md), [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
 
 -   :octicons-ai-model-24:{ .lg .middle } __大模型服务 OpenAPI__
 
@@ -118,7 +118,7 @@ hide:
 
     ---
 
-    - [v0.16.0](./zestu/v0.16.0.md), [v0.15.0](./zestu/v0.15.0.md), [v0.14.0](./zestu/v0.14.0.md), [v0.13.0](./zestu/v0.13.0.md)
+    - [v0.17.0](./zestu/v0.17.0.md), [v0.16.0](./zestu/v0.16.0.md), [v0.15.0](./zestu/v0.15.0.md), [v0.14.0](./zestu/v0.14.0.md), [v0.13.0](./zestu/v0.13.0.md)
     - [v0.12.0](./zestu/v0.12.0.md), [v0.11.0](./zestu/v0.11.0.md), [v0.10.x](./zestu/v0.10.0.md), [v0.9.0](./zestu/v0.9.0.md)
     - [v0.8.0](./zestu/v0.8.0.md), [v0.7.0](./zestu/v0.7.0.md)
 
@@ -136,6 +136,12 @@ hide:
     ---
 
     - [v0.13.0](./gmagpie/v0.13.0.md)
+
+-   :material-cog:{ .lg .middle } __费用中心 OpenAPI__
+
+    ---
+
+    - [v0.17.0](./leopard/v0.17.0.md), [v0.16.0](./leopard/v0.16.0.md), [v0.15.0](./leopard/v0.15.0.md), [v0.14.0](./leopard/v0.14.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI 之一__
 
