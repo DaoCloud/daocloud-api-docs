@@ -49,9 +49,9 @@ hide:
 
     ---
 
-    - [v0.16.x](./spidernet/v0.16.0.md), [v0.15.x](./spidernet/v0.15.0.md), [v0.14.x](./spidernet/v0.14.0.md), [v0.13.0](./spidernet/v0.13.0.md)
-    - [v0.12.x](./spidernet/v0.12.0.md), [v0.10.x](./spidernet/v0.10.0.md), [v0.9.0](./spidernet/v0.9.0.md), [v0.8.x](./spidernet/v0.8.0.md)
-    - [v0.7.0](./spidernet/v0.7.0.md), [v0.6.0](./spidernet/v0.6.0.md), [v0.5.0](./spidernet/v0.5.0.md)
+    - [v0.19.0](./spidernet/v0.19.0.md), [v0.16.x](./spidernet/v0.16.0.md), [v0.15.x](./spidernet/v0.15.0.md), [v0.14.x](./spidernet/v0.14.0.md)
+    - [v0.13.0](./spidernet/v0.13.0.md), [v0.12.x](./spidernet/v0.12.0.md), [v0.10.x](./spidernet/v0.10.0.md), [v0.9.0](./spidernet/v0.9.0.md)
+    - [v0.8.x](./spidernet/v0.8.0.md), [v0.7.0](./spidernet/v0.7.0.md), [v0.6.0](./spidernet/v0.6.0.md), [v0.5.0](./spidernet/v0.5.0.md)
 
 -   :material-train-car-container:{ .lg .middle } __虚拟机 OpenAPI__
 
@@ -74,7 +74,7 @@ hide:
 
     ---
 
-    - [v0.57.0](./skoala/v0.57.0.md), [v0.56.0](./skoala/v0.56.0.md), [v0.55.0](./skoala/v0.55.0.md), [v0.54.0](./skoala/v0.54.0.md)
+    - [v0.57.x](./skoala/v0.57.0.md), [v0.56.0](./skoala/v0.56.0.md), [v0.55.0](./skoala/v0.55.0.md), [v0.54.0](./skoala/v0.54.0.md)
     - [v0.53.0](./skoala/v0.53.0.md), [v0.51.0](./skoala/v0.51.0.md), [v0.50.x](./skoala/v0.50.0.md), [v0.49.0](./skoala/v0.49.0.md)
     - [v0.48.x](./skoala/v0.48.0.md), [v0.47.1](./skoala/v0.47.1.md), [v0.43.x](./skoala/v0.43.0.md), [v0.42.x](./skoala/v0.42.0.md)
     - [v0.41.x](./skoala/v0.41.1.md), [v0.40.1](./skoala/v0.40.1.md), [v0.39.4](./skoala/v0.39.4.md), [v0.38.x](./skoala/v0.38.1.md)
@@ -105,7 +105,7 @@ hide:
 
     ---
 
-    - [v0.29.1](./baize/v0.29.1.md), [v0.28.0](./baize/v0.28.0.md), [v0.27.x](./baize/v0.27.0.md)
+    - [v0.29.x](./baize/v0.29.1.md), [v0.28.0](./baize/v0.28.0.md), [v0.27.x](./baize/v0.27.0.md)
     - [v0.26.0](./baize/v0.26.0.md), [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
 
 -   :octicons-ai-model-24:{ .lg .middle } __大模型服务 OpenAPI__
@@ -126,10 +126,10 @@ hide:
 
     ---
 
-    - [v0.48.x](./ghippo/v0.48.0.md), [v0.46.0](./ghippo/v0.46.0.md), [v0.45.x](./ghippo/v0.45.0.md), [v0.43.0](./ghippo/v0.43.0.md)
-    - [v0.42.2](./ghippo/v0.42.2.md), [v0.41.3](./ghippo/v0.41.3.md), [v0.40.x](./ghippo/v0.40.0.md), [v0.37.0](./ghippo/v0.37.0.md)
-    - [v0.36.0](./ghippo/v0.36.0.md), [v0.35.x](./ghippo/v0.35.0.md), [v0.34.0](./ghippo/v0.34.0.md), [v0.33.0](./ghippo/v0.33.0.md)
-    - [v0.31.0](./ghippo/v0.31.0.md), [v0.30.0](./ghippo/v0.30.0.md), [v0.28.0](./ghippo/v0.28.0.md), [v0.27.0](./ghippo/v0.27.0.md)
+    - [v0.49.0](./ghippo/v0.49.0.md), [v0.48.x](./ghippo/v0.48.0.md), [v0.46.0](./ghippo/v0.46.0.md), [v0.45.x](./ghippo/v0.45.0.md)
+    - [v0.43.0](./ghippo/v0.43.0.md), [v0.42.2](./ghippo/v0.42.2.md), [v0.41.3](./ghippo/v0.41.3.md), [v0.40.x](./ghippo/v0.40.0.md)
+    - [v0.37.0](./ghippo/v0.37.0.md), [v0.36.0](./ghippo/v0.36.0.md), [v0.35.x](./ghippo/v0.35.0.md), [v0.34.0](./ghippo/v0.34.0.md)
+    - [v0.33.0](./ghippo/v0.33.0.md), [v0.31.0](./ghippo/v0.31.0.md), [v0.30.0](./ghippo/v0.30.0.md), [v0.28.0](./ghippo/v0.28.0.md)
 
 -   :material-cog:{ .lg .middle } __运营管理 OpenAPI__
 
@@ -170,11 +170,11 @@ hide:
 
 ## 访问密钥 AccessKey
 
-访问密钥（AccessKey）可用于访问 OpenAPI 和持续发布，您可以在 DCE 5.0 的 **个人中心** 参照以下步骤获取密钥并访问 API。
+访问密钥（AccessKey）可用于访问 OpenAPI 和持续发布，您可以在 **个人中心** 参照以下步骤获取密钥并访问 API。
 
 ### 获取密钥
 
-登录 DCE 5.0，在右上角的下拉菜单中找到 __个人中心__ ，可以在 __访问密钥__ 页签中管理账号的访问密钥。
+登录 DaoCloud 产品，在右上角的下拉菜单中找到 __个人中心__ ，可以在 __访问密钥__ 页签中管理账号的访问密钥。
 
 ![ak list](./images/platform02.png)
 
@@ -186,7 +186,7 @@ hide:
 
 ### 使用密钥访问 API
 
-在访问 DCE 5.0 openAPI 时，在请求中加上请求头 `Authorization:Bearer ${token}` 以标识访问者的身份，
+在访问 openAPI 时，在请求中加上请求头 `Authorization:Bearer ${token}` 以标识访问者的身份，
 其中 `${token}` 是上一步中获取到的密钥。
 
 **请求示例**
