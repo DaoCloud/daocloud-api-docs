@@ -6,7 +6,7 @@ hide:
 # OpenAPI 文档制作流程
 
 本页以 Ghippo 为例，说明制作 OpenAPI 文档的步骤。
-主要是生成一个 swagger json 文件，然后自动向文档站提 PR。
+主要是生成一个 Swagger Json 文件，然后自动向文档站提 PR。
 
 1. 在 Makefile 中添加这几行代码：
 

@@ -159,6 +159,7 @@ nav:
                     - v0.9.1: openapi/kangaroo/v0.9.1.md
                     - v0.8.0: openapi/kangaroo/v0.8.0.md
             - 网络 OpenAPI:
+                - v0.19.0: openapi/spidernet/v0.19.0.md
                 - v0.16.x:
                     - v0.16.6: openapi/spidernet/v0.16.6.md
                     - v0.16.3: openapi/spidernet/v0.16.3.md
@@ -276,7 +277,9 @@ nav:
                         - v0.17.3: openapi/insight/v0.17.3.md
                     - v0.16.0: openapi/insight/v0.16.0.md
             - 微服务引擎 OpenAPI:
-                - v0.57.0: openapi/skoala/v0.57.0.md
+                - v0.57.x:
+                    - v0.57.0: openapi/skoala/v0.57.0.md
+                    - v0.57.2: openapi/skoala/v0.57.2.md
                 - v0.56.0: openapi/skoala/v0.56.0.md
                 - v0.55.0: openapi/skoala/v0.55.0.md
                 - 早期版本:
@@ -695,7 +698,9 @@ nav:
                     - v0.1.2: openapi/mcamel/seaweedfs/seaweedfs-v0.1.2.md
         - 云原生 AI:
             - AI Lab OpenAPI:
-                - v0.29.1: openapi/baize/v0.29.1.md
+                - v0.29.x:
+                    - v0.29.1: openapi/baize/v0.29.1.md
+                    - v0.29.2: openapi/baize/v0.29.2.md
                 - v0.28.0: openapi/baize/v0.28.0.md
                 - v0.27.x:
                     - v0.27.0: openapi/baize/v0.27.0.md
@@ -749,6 +754,7 @@ nav:
                 - v0.3.0: openapi/topohub/v0.3.0.md
                 - v0.2.0: openapi/topohub/v0.2.0.md
             - 全局管理 OpenAPI:
+                - v0.49.0: openapi/ghippo/v0.49.0.md
                 - v0.48.x:
                     - v0.48.0: openapi/ghippo/v0.48.0.md
                     - v0.48.1: openapi/ghippo/v0.48.1.md
