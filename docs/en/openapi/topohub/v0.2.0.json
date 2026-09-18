@@ -1,0 +1,935 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "topohub.io/api/proto/topohub/v1alpha1/service/topohub.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "HostStatus"
+    },
+    {
+      "name": "Subnets"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/apis/topohub.io/v1alpha1/host/operation": {
+      "post": {
+        "operationId": "HostStatus_CreateHostOperation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateOperationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "HostStatus"
+        ]
+      }
+    },
+    "/apis/topohub.io/v1alpha1/hosts": {
+      "get": {
+        "operationId": "HostStatus_ListHostStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListHostStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "description": "Page number",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Page size",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "HOST_STATUS_SORT_BY_UNSPECIFIED",
+              "HOST_STATUS_SORT_BY_NAME",
+              "HOST_STATUS_SORT_BY_CREATE_TIME",
+              "HOST_STATUS_SORT_BY_IP_ADDR"
+            ],
+            "default": "HOST_STATUS_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": " - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "HostStatus"
+        ]
+      }
+    },
+    "/apis/topohub.io/v1alpha1/subnet": {
+      "post": {
+        "operationId": "Subnets_CreateSubnet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateSubnetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Subnets"
+        ]
+      }
+    },
+    "/apis/topohub.io/v1alpha1/subnet/bindip/{ip}": {
+      "delete": {
+        "operationId": "Subnets_SubnetUnbindIP",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ip",
+            "description": "IP address",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Subnets"
+        ]
+      }
+    },
+    "/apis/topohub.io/v1alpha1/subnet/{name}": {
+      "get": {
+        "operationId": "Subnets_GetSubnet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1SubnetBasicInfo"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "description": "Subnet name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Subnets"
+        ]
+      },
+      "delete": {
+        "operationId": "Subnets_DeleteSubnet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "description": "Subnet name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Subnets"
+        ]
+      }
+    },
+    "/apis/topohub.io/v1alpha1/subnet/{name}/ips": {
+      "get": {
+        "operationId": "Subnets_ListSubnetIPs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSubnetIPsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "description": "Subnet name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Page number",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Number of items per page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "description": "Sort field",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SUBNET_IP_SORT_BY_UNSPECIFIED",
+              "SUBNET_IP_SORT_BY_IP_ADDR",
+              "SUBNET_IP_SORT_BY_EXPIRE_TIME"
+            ],
+            "default": "SUBNET_IP_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": "Sort direction\n\n - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "description": "Search conditions, JSON string",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "description": "Fuzzy search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "isBound",
+            "description": "Filter by bound status, empty string means no filter",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "allocatedStatus",
+            "description": "Filter by allocation status (deprecated, use searches)\n\n - IP_ALLOCATED_STATUS_ALLOCATED: IP is allocated\n - IP_ALLOCATED_STATUS_UNALLOCATED: IP is not allocated\n - IP_ALLOCATED_STATUS_EXPIRED: IP allocation has expired",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IP_ALLOCATED_STATUS_UNSPECIFIED",
+              "IP_ALLOCATED_STATUS_ALLOCATED",
+              "IP_ALLOCATED_STATUS_UNALLOCATED",
+              "IP_ALLOCATED_STATUS_EXPIRED"
+            ],
+            "default": "IP_ALLOCATED_STATUS_UNSPECIFIED"
+          }
+        ],
+        "tags": [
+          "Subnets"
+        ]
+      }
+    },
+    "/apis/topohub.io/v1alpha1/subnet/{subnet}/bindip": {
+      "post": {
+        "operationId": "Subnets_SubnetBindIP",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "subnet",
+            "description": "Subnet name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ipAddr": {
+                  "type": "string",
+                  "title": "IP address"
+                },
+                "mac": {
+                  "type": "string",
+                  "title": "MAC address"
+                }
+              },
+              "title": "SubnetBindIPRequest defines the request for binding an IP to a MAC address in\na subnet"
+            }
+          }
+        ],
+        "tags": [
+          "Subnets"
+        ]
+      }
+    },
+    "/apis/topohub.io/v1alpha1/subnets": {
+      "get": {
+        "operationId": "Subnets_ListSubnets",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSubnetsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "description": "Page number",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Number of items per page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sortBy",
+            "description": "Sort field",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SUBNET_SORT_BY_UNSPECIFIED",
+              "SUBNET_SORT_BY_NAME",
+              "SUBNET_SORT_BY_CREATE_TIME"
+            ],
+            "default": "SUBNET_SORT_BY_UNSPECIFIED"
+          },
+          {
+            "name": "sortDir",
+            "description": "Sort direction\n\n - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SORT_DIR_UNSPECIFIED",
+              "SORT_DIR_DESC",
+              "SORT_DIR_ASC"
+            ],
+            "default": "SORT_DIR_UNSPECIFIED"
+          },
+          {
+            "name": "searches",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fuzzy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Subnets"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "typesPagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total is the total number of referents."
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page is current page."
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "PageSize is the data number shown per page."
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Pages is the number of pages."
+        }
+      },
+      "description": "Pagination is for data paging."
+    },
+    "typesSortDir": {
+      "type": "string",
+      "enum": [
+        "SORT_DIR_UNSPECIFIED",
+        "SORT_DIR_DESC",
+        "SORT_DIR_ASC"
+      ],
+      "default": "SORT_DIR_UNSPECIFIED",
+      "description": "SortDir determines the data list order.\n\n - SORT_DIR_DESC: Desc stands for descending order.\n - SORT_DIR_ASC: Asc stands for ascending order."
+    },
+    "v1alpha1CreateOperationRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1CreateSubnetRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Subnet name"
+        },
+        "dhcpInterface": {
+          "type": "string",
+          "title": "DHCP interface"
+        },
+        "subnet": {
+          "type": "string",
+          "title": "Subnet address"
+        },
+        "dhcpAddress": {
+          "type": "string",
+          "title": "DHCP server address"
+        },
+        "dhcpIPPool": {
+          "type": "string",
+          "title": "DHCP IP pool"
+        },
+        "vlanId": {
+          "type": "integer",
+          "format": "int64",
+          "title": "VLAN ID"
+        },
+        "gateway": {
+          "type": "string",
+          "title": "Gateway"
+        },
+        "dnsServer": {
+          "type": "string",
+          "title": "DNS server"
+        },
+        "feature": {
+          "$ref": "#/definitions/v1alpha1SubnetFeature",
+          "title": "Feature configuration"
+        },
+        "clusterName": {
+          "type": "string",
+          "title": "Cluster name"
+        }
+      },
+      "title": "CreateSubnetRequest defines the request for creating a subnet"
+    },
+    "v1alpha1HostStatusBasicInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name"
+        },
+        "healthy": {
+          "type": "boolean",
+          "title": "Health status true/false"
+        },
+        "bmcStatus": {
+          "type": "string",
+          "title": "BMC status OK, Warning, Critical"
+        },
+        "powerState": {
+          "type": "string",
+          "title": "Power state On, Off"
+        },
+        "resourceSpec": {
+          "type": "string",
+          "title": "Resource specification"
+        },
+        "ipAddr": {
+          "type": "string",
+          "title": "IP address"
+        },
+        "clusterName": {
+          "type": "string",
+          "title": "Cluster name"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Port"
+        },
+        "accessType": {
+          "type": "string",
+          "title": "Access type hostendpoint,dhcp"
+        },
+        "warningLogAccount": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Warning log count"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "int64",
+          "title": "Creation time in seconds"
+        },
+        "subnetName": {
+          "type": "string",
+          "title": "Subnet name"
+        },
+        "supportedReset": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1alpha1ResetType"
+          },
+          "title": "Supported reset types"
+        }
+      }
+    },
+    "v1alpha1HostStatusSortBy": {
+      "type": "string",
+      "enum": [
+        "HOST_STATUS_SORT_BY_UNSPECIFIED",
+        "HOST_STATUS_SORT_BY_NAME",
+        "HOST_STATUS_SORT_BY_CREATE_TIME",
+        "HOST_STATUS_SORT_BY_IP_ADDR"
+      ],
+      "default": "HOST_STATUS_SORT_BY_UNSPECIFIED"
+    },
+    "v1alpha1IPAllocatedStatus": {
+      "type": "string",
+      "enum": [
+        "IP_ALLOCATED_STATUS_UNSPECIFIED",
+        "IP_ALLOCATED_STATUS_ALLOCATED",
+        "IP_ALLOCATED_STATUS_UNALLOCATED",
+        "IP_ALLOCATED_STATUS_EXPIRED"
+      ],
+      "default": "IP_ALLOCATED_STATUS_UNSPECIFIED",
+      "description": "- IP_ALLOCATED_STATUS_ALLOCATED: IP is allocated\n - IP_ALLOCATED_STATUS_UNALLOCATED: IP is not allocated\n - IP_ALLOCATED_STATUS_EXPIRED: IP allocation has expired",
+      "title": "IPAllocatedStatus defines the allocation status of an IP address"
+    },
+    "v1alpha1ListHostStatusResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1HostStatusBasicInfo"
+          },
+          "title": "List of hoststatus"
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination",
+          "title": "Pagination information"
+        }
+      }
+    },
+    "v1alpha1ListSubnetIPsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1SubnetIPInfo"
+          },
+          "title": "List of IPs"
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination",
+          "title": "Pagination information"
+        }
+      },
+      "title": "ListSubnetIPsResponse defines the response for listing IPs in a subnet"
+    },
+    "v1alpha1ListSubnetsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1SubnetBasicInfo"
+          },
+          "title": "List of subnets"
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination",
+          "title": "Pagination information"
+        }
+      },
+      "title": "ListSubnetsResponse defines the response for listing subnets"
+    },
+    "v1alpha1ResetType": {
+      "type": "string",
+      "enum": [
+        "On",
+        "ForceOn",
+        "ForceOff",
+        "ForceRestart",
+        "GracefulRestart",
+        "GracefulShutdown",
+        "PushPowerButton",
+        "PowerCycle",
+        "Nmi",
+        "Pause",
+        "Resume",
+        "Suspend",
+        "PxeReboot"
+      ],
+      "default": "On",
+      "description": "Used to restart the machine without waiting for the OS to shutdown\n - GracefulRestart: Used to restart the machine while waiting for the OS\n - GracefulShutdown: to shutdown gracefully\n\nUsed to shutdown the machine while waiting for theOS\n - PushPowerButton: to shutdown gracefully\n\nUsed to emulate pushing the power button\n - PowerCycle: Used to power cycle the machine\n - Nmi: Used to trigger a crash/core dump file\n - Pause: Pause execution on the unit but do not remove power\n - Resume: Resume execution on the paused unit\n - Suspend: Write the state of the unit to disk before powering off\n - PxeReboot: Reboot the machine using PXE",
+      "title": "- On: Used to power on the machine\n - ForceOn: Used to power on the machine immediately\n - ForceOff: Used to power off the machine without waiting for the OS to\n - ForceRestart: shutdown"
+    },
+    "v1alpha1SubnetBasicInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Subnet name"
+        },
+        "dhcpInterface": {
+          "type": "string",
+          "title": "DHCP interface"
+        },
+        "subnet": {
+          "type": "string",
+          "title": "Subnet address"
+        },
+        "dhcpAddress": {
+          "type": "string",
+          "title": "DHCP server address"
+        },
+        "dhcpIPPool": {
+          "type": "string",
+          "title": "DHCP IP pool"
+        },
+        "totalIPs": {
+          "type": "integer",
+          "format": "int64",
+          "title": "Total number of IPs"
+        },
+        "availableIPs": {
+          "type": "integer",
+          "format": "int64",
+          "title": "Available IP count"
+        },
+        "creationTimestamp": {
+          "type": "string",
+          "format": "int64",
+          "title": "Creation timestamp"
+        },
+        "vlanId": {
+          "type": "integer",
+          "format": "int64",
+          "title": "VLAN ID"
+        },
+        "gateway": {
+          "type": "string",
+          "title": "Gateway"
+        },
+        "dnsServer": {
+          "type": "string",
+          "title": "DNS server"
+        },
+        "activeIPs": {
+          "type": "integer",
+          "format": "int64",
+          "title": "Active IP count"
+        },
+        "bindIPs": {
+          "type": "integer",
+          "format": "int64",
+          "title": "Bound IP count"
+        },
+        "feature": {
+          "$ref": "#/definitions/v1alpha1SubnetFeature",
+          "title": "Feature configuration"
+        },
+        "clusterName": {
+          "type": "string",
+          "title": "Cluster name"
+        }
+      },
+      "title": "Subnet represents a network subnet with DHCP configuration"
+    },
+    "v1alpha1SubnetFeature": {
+      "type": "object",
+      "properties": {
+        "enablePxe": {
+          "type": "boolean",
+          "title": "Enable PXE"
+        },
+        "enableZtp": {
+          "type": "boolean",
+          "title": "Enable ZTP"
+        },
+        "syncHostStatus": {
+          "$ref": "#/definitions/v1alpha1SyncHostStatus",
+          "title": "Host status sync configuration"
+        }
+      },
+      "title": "SubnetFeature defines the feature configuration for a subnet"
+    },
+    "v1alpha1SubnetIPInfo": {
+      "type": "object",
+      "properties": {
+        "ipAddr": {
+          "type": "string",
+          "title": "IP address"
+        },
+        "mac": {
+          "type": "string",
+          "title": "MAC address"
+        },
+        "isBound": {
+          "type": "boolean",
+          "title": "Whether bound"
+        },
+        "allocatedStatus": {
+          "$ref": "#/definitions/v1alpha1IPAllocatedStatus",
+          "title": "IP allocation status"
+        },
+        "hostname": {
+          "type": "string",
+          "title": "Hostname"
+        },
+        "dhcpExpireTime": {
+          "type": "string",
+          "format": "int64",
+          "title": "DHCP lease expiration time (Unix timestamp, seconds)"
+        }
+      },
+      "title": "SubnetIPInfo defines the information of an IP in a subnet"
+    },
+    "v1alpha1SubnetIPSortBy": {
+      "type": "string",
+      "enum": [
+        "SUBNET_IP_SORT_BY_UNSPECIFIED",
+        "SUBNET_IP_SORT_BY_IP_ADDR",
+        "SUBNET_IP_SORT_BY_EXPIRE_TIME"
+      ],
+      "default": "SUBNET_IP_SORT_BY_UNSPECIFIED",
+      "title": "SubnetIPSortBy defines the fields that can be used for sorting subnet IPs"
+    },
+    "v1alpha1SubnetSortBy": {
+      "type": "string",
+      "enum": [
+        "SUBNET_SORT_BY_UNSPECIFIED",
+        "SUBNET_SORT_BY_NAME",
+        "SUBNET_SORT_BY_CREATE_TIME"
+      ],
+      "default": "SUBNET_SORT_BY_UNSPECIFIED",
+      "title": "SubnetSortBy defines the fields that can be used for sorting subnets"
+    },
+    "v1alpha1SyncHostStatus": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "title": "Enable"
+        },
+        "enableBindDhcpIP": {
+          "type": "boolean",
+          "title": "Enable binding DHCP IP"
+        }
+      },
+      "title": "SyncHostStatus defines the host status synchronization configuration"
+    }
+  }
+}
