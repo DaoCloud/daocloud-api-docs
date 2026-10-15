@@ -32,7 +32,7 @@ hide:
     ---
 
     - [v0.25.0](mcamel/minio/minio-v0.25.0.md), [v0.24.0](mcamel/minio/minio-v0.24.0.md), [v0.23.x](mcamel/minio/minio-v0.23.0.md), [v0.22.0](mcamel/minio/minio-v0.22.0.md)
-    - [v0.21.0](mcamel/minio/minio-v0.21.0.md), [v0.20.0](mcamel/minio/minio-v0.20.0.md), [v0.19.0](mcamel/minio/minio-v0.19.0.md), [v0.18.x](mcamel/minio/minio-v0.18.0.md)
+    - [v0.21.x](mcamel/minio/minio-v0.21.0.md), [v0.20.0](mcamel/minio/minio-v0.20.0.md), [v0.19.0](mcamel/minio/minio-v0.19.0.md), [v0.18.x](mcamel/minio/minio-v0.18.0.md)
     - [v0.16.0](mcamel/minio/minio-v0.16.0.md), [v0.15.0](mcamel/minio/minio-v0.15.0.md), [v0.13.0](mcamel/minio/minio-v0.13.0.md), [v0.12.0](mcamel/minio/minio-v0.12.0.md)
     - [v0.11.0](mcamel/minio/minio-v0.11.0.md), [v0.10.0](mcamel/minio/minio-v0.10.0.md), [v0.9.0](mcamel/minio/minio-v0.9.0.md), [v0.8.x](mcamel/minio/minio-v0.8.0.md)
 
@@ -58,26 +58,26 @@ hide:
 
     ---
 
-    - [v0.22.0](mcamel/postgresql/postgresql-v0.22.0.md), [v0.21.0](mcamel/postgresql/postgresql-v0.21.0.md), [v0.20.x](mcamel/postgresql/postgresql-v0.20.0.md), [v0.19.0](mcamel/postgresql/postgresql-v0.19.0.md)
-    - [v0.18.x](mcamel/postgresql/postgresql-v0.18.4.md), [v0.17.0](mcamel/postgresql/postgresql-v0.17.0.md), [v0.16.0](mcamel/postgresql/postgresql-v0.16.0.md), [v0.15.0](mcamel/postgresql/postgresql-v0.15.0.md)
+    - [v0.22.x](mcamel/postgresql/postgresql-v0.22.0.md), [v0.21.0](mcamel/postgresql/postgresql-v0.21.0.md), [v0.20.x](mcamel/postgresql/postgresql-v0.20.0.md), [v0.19.0](mcamel/postgresql/postgresql-v0.19.0.md)
+    - [v0.18.x](mcamel/postgresql/postgresql-v0.18.0.md), [v0.17.0](mcamel/postgresql/postgresql-v0.17.0.md), [v0.16.0](mcamel/postgresql/postgresql-v0.16.0.md), [v0.15.0](mcamel/postgresql/postgresql-v0.15.0.md)
     - [v0.14.0](mcamel/postgresql/postgresql-v0.14.0.md), [v0.13.0](mcamel/postgresql/postgresql-v0.13.0.md), [v0.10.0](mcamel/postgresql/postgresql-v0.10.0.md), [v0.9.0](mcamel/postgresql/postgresql-v0.9.0.md)
-    - [v0.8.0](mcamel/postgresql/postgresql-v0.8.0.md), [v0.7.0](mcamel/postgresql/postgresql-v0.7.0.md), [v0.6.0](mcamel/postgresql/postgresql-v0.6.0.md), [v0.5.x](mcamel/postgresql/postgresql-v0.5.1.md)
+    - [v0.8.0](mcamel/postgresql/postgresql-v0.8.0.md), [v0.7.0](mcamel/postgresql/postgresql-v0.7.0.md), [v0.6.0](mcamel/postgresql/postgresql-v0.6.0.md), [v0.5.x](mcamel/postgresql/postgresql-v0.5.0.md)
 
 -   :simple-rabbitmq:{ .lg .middle } __RabbitMQ OpenAPI__
 
     ---
 
-    - [v0.33.x](mcamel/rabbitmq/rabbitmq-v0.33.0.md), [v0.32.0](mcamel/rabbitmq/rabbitmq-v0.32.0.md), [v0.31.0](mcamel/rabbitmq/rabbitmq-v0.31.0.md), [v0.30.0](mcamel/rabbitmq/rabbitmq-v0.30.0.md)
-    - [v0.29.0](mcamel/rabbitmq/rabbitmq-v0.29.0.md), [v0.28.0](mcamel/rabbitmq/rabbitmq-v0.28.0.md), [v0.27.x](mcamel/rabbitmq/rabbitmq-v0.27.0.md), [v0.26.0](mcamel/rabbitmq/rabbitmq-v0.26.0.md)
-    - [v0.25.0](mcamel/rabbitmq/rabbitmq-v0.25.0.md), [v0.24.0](mcamel/rabbitmq/rabbitmq-v0.24.0.md), [v0.23.0](mcamel/rabbitmq/rabbitmq-v0.23.0.md), [v0.22.0](mcamel/rabbitmq/rabbitmq-v0.22.0.md)
-    - [v0.21.0](mcamel/rabbitmq/rabbitmq-v0.21.0.md), [v0.20.0](mcamel/rabbitmq/rabbitmq-v0.20.0.md), [v0.18.0](mcamel/rabbitmq/rabbitmq-v0.18.0.md), [v0.17.0](mcamel/rabbitmq/rabbitmq-v0.17.0.md)
+    - [v0.34.0](mcamel/rabbitmq/rabbitmq-v0.34.0.md), [v0.33.x](mcamel/rabbitmq/rabbitmq-v0.33.0.md), [v0.32.0](mcamel/rabbitmq/rabbitmq-v0.32.0.md), [v0.31.0](mcamel/rabbitmq/rabbitmq-v0.31.0.md)
+    - [v0.30.0](mcamel/rabbitmq/rabbitmq-v0.30.0.md), [v0.29.0](mcamel/rabbitmq/rabbitmq-v0.29.0.md), [v0.28.0](mcamel/rabbitmq/rabbitmq-v0.28.0.md), [v0.27.x](mcamel/rabbitmq/rabbitmq-v0.27.0.md)
+    - [v0.26.0](mcamel/rabbitmq/rabbitmq-v0.26.0.md), [v0.25.0](mcamel/rabbitmq/rabbitmq-v0.25.0.md), [v0.24.0](mcamel/rabbitmq/rabbitmq-v0.24.0.md), [v0.23.0](mcamel/rabbitmq/rabbitmq-v0.23.0.md)
+    - [v0.22.0](mcamel/rabbitmq/rabbitmq-v0.22.0.md), [v0.21.0](mcamel/rabbitmq/rabbitmq-v0.21.0.md), [v0.20.0](mcamel/rabbitmq/rabbitmq-v0.20.0.md), [v0.18.0](mcamel/rabbitmq/rabbitmq-v0.18.0.md)
 
 -   :simple-redis:{ .lg .middle } __Redis OpenAPI__
 
     ---
 
     - [v0.31.0](mcamel/redis/redis-v0.31.0.md), [v0.30.0](mcamel/redis/redis-v0.30.0.md), [v0.29.x](mcamel/redis/redis-v0.29.0.md), [v0.28.0](mcamel/redis/redis-v0.28.0.md)
-    - [v0.27.x](mcamel/redis/redis-v0.27.2.md), [v0.26.0](mcamel/redis/redis-v0.26.0.md), [v0.25.0](mcamel/redis/redis-v0.25.0.md), [v0.23.0](mcamel/redis/redis-v0.23.0.md)
+    - [v0.27.x](mcamel/redis/redis-v0.27.1.md), [v0.26.0](mcamel/redis/redis-v0.26.0.md), [v0.25.0](mcamel/redis/redis-v0.25.0.md), [v0.23.0](mcamel/redis/redis-v0.23.0.md)
     - [v0.22.0](mcamel/redis/redis-v0.22.0.md), [v0.21.0](mcamel/redis/redis-v0.21.0.md), [v0.19.0](mcamel/redis/redis-v0.19.0.md), [v0.18.0](mcamel/redis/redis-v0.18.0.md)
     - [v0.17.0](mcamel/redis/redis-v0.17.0.md), [v0.16.0](mcamel/redis/redis-v0.16.0.md), [v0.15.0](mcamel/redis/redis-v0.15.0.md), [v0.14.0](mcamel/redis/redis-v0.14.0.md)
 
@@ -86,15 +86,15 @@ hide:
     ---
 
     - [v0.20.0](mcamel/rocketmq/rocketmq-v0.20.0.md), [v0.19.x](mcamel/rocketmq/rocketmq-v0.19.0.md), [v0.18.0](mcamel/rocketmq/rocketmq-v0.18.0.md), [v0.17.0](mcamel/rocketmq/rocketmq-v0.17.0.md)
-    - [v0.16.0](mcamel/rocketmq/rocketmq-v0.16.0.md), [v0.15.x](mcamel/rocketmq/rocketmq-v0.15.2.md), [v0.13.0](mcamel/rocketmq/rocketmq-v0.13.0.md), [v0.12.0](mcamel/rocketmq/rocketmq-v0.12.0.md)
+    - [v0.16.0](mcamel/rocketmq/rocketmq-v0.16.0.md), [v0.15.x](mcamel/rocketmq/rocketmq-v0.15.0.md), [v0.13.0](mcamel/rocketmq/rocketmq-v0.13.0.md), [v0.12.0](mcamel/rocketmq/rocketmq-v0.12.0.md)
     - [v0.11.0](mcamel/rocketmq/rocketmq-v0.11.0.md), [v0.10.0](mcamel/rocketmq/rocketmq-v0.10.0.md), [v0.8.0](mcamel/rocketmq/rocketmq-v0.8.0.md), [v0.7.0](mcamel/rocketmq/rocketmq-v0.7.0.md)
+    - [v0.5.0](mcamel/rocketmq/rocketmq-v0.5.0.md), [v0.4.0](mcamel/rocketmq/rocketmq-v0.4.0.md), [v0.3.0](mcamel/rocketmq/rocketmq-v0.3.0.md), [v0.2.0](mcamel/rocketmq/rocketmq-v0.2.0.md)
 
 -   :file_folder:{ .lg .middle } __SeaweedFS OpenAPI__
 
     ---
 
-    - [v0.3.0](mcamel/seaweedfs/seaweedfs-v0.3.0.md), [v0.2.0](mcamel/seaweedfs/seaweedfs-v0.2.0.md)
-    - [v0.1.4](mcamel/seaweedfs/seaweedfs-v0.1.4.md), [v0.1.3](mcamel/seaweedfs/seaweedfs-v0.1.3.md), [v0.1.2](mcamel/seaweedfs/seaweedfs-v0.1.2.md)
+    - [v0.3.0](mcamel/seaweedfs/seaweedfs-v0.3.0.md), [v0.2.0](mcamel/seaweedfs/seaweedfs-v0.2.0.md), [v0.1.x](mcamel/seaweedfs/seaweedfs-v0.1.2.md)
 
 </div>
 
