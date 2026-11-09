@@ -105,8 +105,8 @@ hide:
 
     ---
 
-    - [v0.30.0](./baize/v0.30.0.md), [v0.29.x](./baize/v0.29.1.md), [v0.28.0](./baize/v0.28.0.md), [v0.27.x](./baize/v0.27.0.md)
-    - [v0.26.0](./baize/v0.26.0.md), [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
+    - [v0.31.x](./baize/v0.31.0.md), [v0.30.0](./baize/v0.30.0.md), [v0.29.x](./baize/v0.29.1.md), [v0.28.0](./baize/v0.28.0.md)
+    - [v0.27.x](./baize/v0.27.0.md), [v0.26.0](./baize/v0.26.0.md), [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
 
 -   :octicons-ai-model-24:{ .lg .middle } __大模型服务 OpenAPI__
 
@@ -118,9 +118,10 @@ hide:
 
     ---
 
-    - [v0.17.0](./zestu/v0.17.0.md), [v0.16.0](./zestu/v0.16.0.md), [v0.15.0](./zestu/v0.15.0.md), [v0.14.0](./zestu/v0.14.0.md)
-    - [v0.13.x](./zestu/v0.13.0.md), [v0.12.0](./zestu/v0.12.0.md), [v0.11.0](./zestu/v0.11.0.md), [v0.10.x](./zestu/v0.10.0.md)
-    - [v0.9.0](./zestu/v0.9.0.md), [v0.8.0](./zestu/v0.8.0.md), [v0.7.0](./zestu/v0.7.0.md), [v0.5.5](./zestu/v0.5.5.md)
+    - [v0.18.0](./zestu/v0.18.0.md), [v0.17.0](./zestu/v0.17.0.md), [v0.16.0](./zestu/v0.16.0.md), [v0.15.0](./zestu/v0.15.0.md)
+    - [v0.14.0](./zestu/v0.14.0.md), [v0.13.x](./zestu/v0.13.0.md), [v0.12.0](./zestu/v0.12.0.md), [v0.11.0](./zestu/v0.11.0.md)
+    - [v0.10.x](./zestu/v0.10.0.md), [v0.9.0](./zestu/v0.9.0.md), [v0.8.0](./zestu/v0.8.0.md), [v0.7.0](./zestu/v0.7.0.md)
+    - [v0.5.5](./zestu/v0.5.5.md)
 
 -   :fontawesome-solid-user-group:{ .lg .middle } __全局管理 OpenAPI__
 
@@ -160,11 +161,11 @@ hide:
 
     [:octicons-arrow-right-24: 中间件 OpenAPI 文档索引](./midware.md)
 
-    - 对象存储：[MinIO](./mcamel/minio/minio-v0.25.0.md)
+    - 对象存储：[MinIO](./mcamel/minio/minio-v0.26.0.md)
     - 数据库：[MongoDB](./mcamel/mongodb/mongodb-v0.20.0.md),
       [MySQL](./mcamel/mysql/mysql-v0.31.0.md),
       [PostgreSQL](./mcamel/postgresql/postgresql-v0.22.1.md),
-      [Redis](./mcamel/redis/redis-v0.31.0.md)
+      [Redis](./mcamel/redis/redis-v0.31.3.md)
 
 </div>
 
