@@ -31,10 +31,10 @@ hide:
 
     ---
 
-    - [v0.25.0](mcamel/minio/minio-v0.25.0.md), [v0.24.0](mcamel/minio/minio-v0.24.0.md), [v0.23.x](mcamel/minio/minio-v0.23.0.md), [v0.22.0](mcamel/minio/minio-v0.22.0.md)
-    - [v0.21.x](mcamel/minio/minio-v0.21.0.md), [v0.20.0](mcamel/minio/minio-v0.20.0.md), [v0.19.0](mcamel/minio/minio-v0.19.0.md), [v0.18.x](mcamel/minio/minio-v0.18.0.md)
-    - [v0.16.0](mcamel/minio/minio-v0.16.0.md), [v0.15.0](mcamel/minio/minio-v0.15.0.md), [v0.13.0](mcamel/minio/minio-v0.13.0.md), [v0.12.0](mcamel/minio/minio-v0.12.0.md)
-    - [v0.11.0](mcamel/minio/minio-v0.11.0.md), [v0.10.0](mcamel/minio/minio-v0.10.0.md), [v0.9.0](mcamel/minio/minio-v0.9.0.md), [v0.8.x](mcamel/minio/minio-v0.8.0.md)
+    - [v0.26.0](mcamel/minio/minio-v0.26.0.md), [v0.25.0](mcamel/minio/minio-v0.25.0.md), [v0.24.0](mcamel/minio/minio-v0.24.0.md), [v0.23.x](mcamel/minio/minio-v0.23.0.md)
+    - [v0.22.0](mcamel/minio/minio-v0.22.0.md), [v0.21.x](mcamel/minio/minio-v0.21.0.md), [v0.20.0](mcamel/minio/minio-v0.20.0.md), [v0.19.0](mcamel/minio/minio-v0.19.0.md)
+    - [v0.18.x](mcamel/minio/minio-v0.18.0.md), [v0.16.0](mcamel/minio/minio-v0.16.0.md), [v0.15.0](mcamel/minio/minio-v0.15.0.md), [v0.13.0](mcamel/minio/minio-v0.13.0.md)
+    - [v0.12.0](mcamel/minio/minio-v0.12.0.md), [v0.11.0](mcamel/minio/minio-v0.11.0.md), [v0.10.0](mcamel/minio/minio-v0.10.0.md), [v0.9.0](mcamel/minio/minio-v0.9.0.md)
 
 -   :simple-mongodb:{ .lg .middle } __MongoDB OpenAPI__
 
@@ -76,7 +76,7 @@ hide:
 
     ---
 
-    - [v0.31.0](mcamel/redis/redis-v0.31.0.md), [v0.30.0](mcamel/redis/redis-v0.30.0.md), [v0.29.x](mcamel/redis/redis-v0.29.0.md), [v0.28.0](mcamel/redis/redis-v0.28.0.md)
+    - [v0.31.x](mcamel/redis/redis-v0.31.0.md), [v0.30.0](mcamel/redis/redis-v0.30.0.md), [v0.29.x](mcamel/redis/redis-v0.29.0.md), [v0.28.0](mcamel/redis/redis-v0.28.0.md)
     - [v0.27.x](mcamel/redis/redis-v0.27.1.md), [v0.26.0](mcamel/redis/redis-v0.26.0.md), [v0.25.0](mcamel/redis/redis-v0.25.0.md), [v0.23.0](mcamel/redis/redis-v0.23.0.md)
     - [v0.22.0](mcamel/redis/redis-v0.22.0.md), [v0.21.0](mcamel/redis/redis-v0.21.0.md), [v0.19.0](mcamel/redis/redis-v0.19.0.md), [v0.18.0](mcamel/redis/redis-v0.18.0.md)
     - [v0.17.0](mcamel/redis/redis-v0.17.0.md), [v0.16.0](mcamel/redis/redis-v0.16.0.md), [v0.15.0](mcamel/redis/redis-v0.15.0.md), [v0.14.0](mcamel/redis/redis-v0.14.0.md)
