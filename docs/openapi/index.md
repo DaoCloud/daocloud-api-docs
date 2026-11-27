@@ -105,8 +105,8 @@ hide:
 
     ---
 
-    - [v0.31.x](./baize/v0.31.0.md), [v0.30.0](./baize/v0.30.0.md), [v0.29.x](./baize/v0.29.1.md), [v0.28.0](./baize/v0.28.0.md)
-    - [v0.27.x](./baize/v0.27.0.md), [v0.26.0](./baize/v0.26.0.md), [v0.111.2](./baize/v0.111.2.md), [v0.107.4](./baize/v0.107.4.md)
+    - [v0.32.0](./baize/v0.32.0.md), [v0.31.x](./baize/v0.31.0.md), [v0.30.0](./baize/v0.30.0.md), [v0.29.x](./baize/v0.29.1.md)
+    - [v0.28.0](./baize/v0.28.0.md), [v0.27.x](./baize/v0.27.0.md), [v0.26.0](./baize/v0.26.0.md), [v0.111.2](./baize/v0.111.2.md)
 
 -   :octicons-ai-model-24:{ .lg .middle } __大模型服务 OpenAPI__
 
@@ -127,10 +127,10 @@ hide:
 
     ---
 
-    - [v0.49.0](./ghippo/v0.49.0.md), [v0.48.x](./ghippo/v0.48.0.md), [v0.46.0](./ghippo/v0.46.0.md), [v0.45.x](./ghippo/v0.45.0.md)
-    - [v0.43.0](./ghippo/v0.43.0.md), [v0.42.2](./ghippo/v0.42.2.md), [v0.41.3](./ghippo/v0.41.3.md), [v0.40.x](./ghippo/v0.40.0.md)
-    - [v0.37.0](./ghippo/v0.37.0.md), [v0.36.0](./ghippo/v0.36.0.md), [v0.35.x](./ghippo/v0.35.0.md), [v0.34.0](./ghippo/v0.34.0.md)
-    - [v0.33.0](./ghippo/v0.33.0.md), [v0.31.0](./ghippo/v0.31.0.md), [v0.30.0](./ghippo/v0.30.0.md), [v0.28.0](./ghippo/v0.28.0.md)
+    - [v0.51.1](./ghippo/v0.51.1.md), [v0.50.1](./ghippo/v0.50.1.md), [v0.49.x](./ghippo/v0.49.0.md), [v0.48.x](./ghippo/v0.48.0.md)
+    - [v0.46.0](./ghippo/v0.46.0.md), [v0.45.x](./ghippo/v0.45.0.md), [v0.43.0](./ghippo/v0.43.0.md), [v0.42.2](./ghippo/v0.42.2.md)
+    - [v0.41.3](./ghippo/v0.41.3.md), [v0.40.x](./ghippo/v0.40.0.md), [v0.37.0](./ghippo/v0.37.0.md), [v0.36.0](./ghippo/v0.36.0.md)
+    - [v0.35.x](./ghippo/v0.35.0.md), [v0.34.0](./ghippo/v0.34.0.md), [v0.33.0](./ghippo/v0.33.0.md), [v0.31.0](./ghippo/v0.31.0.md)
 
 -   :material-cog:{ .lg .middle } __运营管理 OpenAPI__
 
@@ -150,9 +150,9 @@ hide:
 
     [:octicons-arrow-right-24: 中间件 OpenAPI 文档索引](./midware.md)
 
-    - 搜索服务：[Elasticsearch](./mcamel/elasticsearch/elasticsearch-v0.29.0.md)
-    - 消息队列：[Kafka](./mcamel/kafka/kafka-v0.31.0.md),
-      [RabbitMQ](./mcamel/rabbitmq/rabbitmq-v0.34.0.md),
+    - 搜索服务：[Elasticsearch](./mcamel/elasticsearch/elasticsearch-v0.30.0.md)
+    - 消息队列：[Kafka](./mcamel/kafka/kafka-v0.32.0.md),
+      [RabbitMQ](./mcamel/rabbitmq/rabbitmq-v0.35.0.md),
       [RocketMQ](./mcamel/rocketmq/rocketmq-v0.20.0.md)
 
 -   :material-middleware:{ .lg .middle } __中间件 OpenAPI 之二__
@@ -161,11 +161,11 @@ hide:
 
     [:octicons-arrow-right-24: 中间件 OpenAPI 文档索引](./midware.md)
 
-    - 对象存储：[MinIO](./mcamel/minio/minio-v0.26.0.md)
-    - 数据库：[MongoDB](./mcamel/mongodb/mongodb-v0.20.0.md),
-      [MySQL](./mcamel/mysql/mysql-v0.31.0.md),
-      [PostgreSQL](./mcamel/postgresql/postgresql-v0.22.1.md),
-      [Redis](./mcamel/redis/redis-v0.31.3.md)
+    - 对象存储：[MinIO](./mcamel/minio/minio-v0.27.0.md)
+    - 数据库：[MongoDB](./mcamel/mongodb/mongodb-v0.21.0.md),
+      [MySQL](./mcamel/mysql/mysql-v0.32.0.md),
+      [PostgreSQL](./mcamel/postgresql/postgresql-v0.23.0.md),
+      [Redis](./mcamel/redis/redis-v0.32.0.md)
 
 </div>
 
